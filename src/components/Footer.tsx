@@ -176,6 +176,15 @@ export function Footer() {
               <div className="mt-3 flex gap-2">
                 <Link
                   href="#"
+                  aria-label="Facebook"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/60 transition hover:border-orange hover:bg-orange hover:text-white"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
+                    <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z" />
+                  </svg>
+                </Link>
+                <Link
+                  href="#"
                   aria-label="LinkedIn"
                   className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/60 transition hover:border-orange hover:bg-orange hover:text-white"
                 >

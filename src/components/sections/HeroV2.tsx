@@ -163,7 +163,7 @@ export function HeroV2() {
         {/* CTAs — Essayer gratuitement = orange + white border + white text */}
         <div className="animate-fade-up delay-3 mt-6 flex flex-wrap items-center justify-center gap-3">
           <Link
-            href="https://app.qualywatch.com/register"
+            href="#contact"
             className="group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[15px] font-bold shadow-orange btn-lift"
             style={{
               background: "#FA700D",
@@ -175,7 +175,7 @@ export function HeroV2() {
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth="2.5" />
           </Link>
           <Link
-            href="#solution"
+            href="#contact"
             className="group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[15px] font-semibold transition"
             style={{
               border: "1px solid rgba(15,14,12,0.18)",
@@ -185,7 +185,7 @@ export function HeroV2() {
             }}
           >
             <PlayCircle className="h-5 w-5 text-orange transition-transform group-hover:scale-110" strokeWidth="2" />
-            Voir la démo
+            Demander une démo
           </Link>
         </div>
 

@@ -35,8 +35,14 @@ export function NavbarV2() {
               className="h-full w-full object-contain"
             />
           </span>
-          <span className="font-display text-lg font-bold tracking-tight" style={{ color: "#FFFFFF" }}>
+          <span className="font-display inline-flex items-center gap-2 text-lg font-bold tracking-tight" style={{ color: "#FFFFFF" }}>
             Qualywatch
+            <span
+              className="hidden rounded-full bg-orange/20 px-2 py-0.5 text-[9.5px] font-bold uppercase tracking-widest sm:inline-flex"
+              style={{ color: "#FA700D", border: "1px solid rgba(250,112,13,0.4)" }}
+            >
+              Soft launch
+            </span>
           </span>
         </Link>
 
@@ -57,7 +63,7 @@ export function NavbarV2() {
         {/* Right CTA — orange filled, white text */}
         <div className="flex items-center gap-2">
           <Link
-            href="https://app.qualywatch.com/register"
+            href="#contact"
             className="group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-orange px-3 py-1.5 text-[12px] font-bold btn-lift hover:bg-orange-deep sm:px-5 sm:py-2.5 sm:text-[13px]"
             style={{ color: "#FFFFFF" }}
           >

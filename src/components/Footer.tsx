@@ -58,7 +58,7 @@ export function Footer() {
           </div>
           <div className="flex flex-wrap gap-3 lg:justify-end">
             <Link
-              href="https://app.qualywatch.com/register"
+              href="#contact"
               className="group inline-flex items-center gap-2 rounded-full bg-orange px-6 py-3.5 text-sm font-bold text-white shadow-orange btn-lift hover:bg-orange-deep"
             >
               Essayer gratuitement

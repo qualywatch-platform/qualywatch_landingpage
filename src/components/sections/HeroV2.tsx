@@ -6,12 +6,13 @@ import { TiltCard } from "@/components/TiltCard";
 export function HeroV2() {
   return (
     <section className="relative isolate overflow-hidden">
-      {/* Background — orange tiles as repeating pattern (smaller tiles on mobile) */}
+      {/* Background — orange + visible square grid (CSS grid + image overlay) */}
       <div
-        className="absolute inset-0 -z-10 bg-[length:380px_280px] bg-repeat sm:bg-[length:760px_560px] lg:bg-[length:1100px_810px]"
+        className="absolute inset-0 -z-10"
         style={{
-          backgroundImage: "url('/orange-tiles-bg.png')",
-          backgroundColor: "#FA700D",
+          background:
+            "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px), radial-gradient(circle at 30% 20%, rgba(255,180,100,0.35), transparent 60%), radial-gradient(circle at 70% 80%, rgba(200,84,15,0.30), transparent 60%), #FA700D",
+          backgroundSize: "55px 55px, 55px 55px, 100% 100%, 100% 100%, 100% 100%",
         }}
       >
         {/* Left side gradient overlay */}
@@ -299,7 +300,7 @@ export function HeroV2() {
           className="pointer-events-none absolute left-[-2%] top-[2%] z-10 hidden h-[160px] w-[160px] rounded-full border-2 border-dashed border-[#0F0E0C]/30 sm:block lg:left-[1%] lg:h-[180px] lg:w-[180px]"
         />
         {/* Card LEFT TOP — Satisfaction (compact - smallest) */}
-        <div className="animate-float-1 pointer-events-auto absolute -left-2 top-[2%] z-20 w-44 origin-top-left scale-[0.6] sm:left-4 sm:top-[14%] sm:w-48 sm:scale-100 lg:left-8 lg:w-52">
+        <div className="animate-float-1 pointer-events-auto absolute -left-2 top-[22%] z-20 w-44 origin-top-left scale-[0.5] sm:left-4 sm:top-[14%] sm:w-48 sm:scale-100 lg:left-8 lg:w-52">
           <TiltCard
             className="rounded-3xl p-3.5 shadow-deep"
             style={{ background: "#0F0E0C", border: "1px solid rgba(255,255,255,0.08)" }}
@@ -323,7 +324,7 @@ export function HeroV2() {
         </div>
 
         {/* Card LEFT BOTTOM — Feedbacks with chart (LARGEST - chart needs space) */}
-        <div className="animate-float-2 pointer-events-auto absolute -left-2 top-[40%] z-20 w-60 origin-top-left scale-[0.55] sm:left-4 sm:top-[42%] sm:w-64 sm:scale-100 lg:left-2 lg:w-72">
+        <div className="animate-float-2 pointer-events-auto absolute -left-2 top-[58%] z-20 w-60 origin-top-left scale-[0.45] sm:left-4 sm:top-[42%] sm:w-64 sm:scale-100 lg:left-2 lg:w-72">
           <TiltCard
             className="rounded-3xl p-5 shadow-deep"
             style={{ background: "#0F0E0C", border: "1px solid rgba(255,255,255,0.08)" }}
@@ -370,7 +371,7 @@ export function HeroV2() {
           className="pointer-events-none absolute right-[-2%] top-[8%] z-10 hidden h-[170px] w-[170px] rounded-full border-2 border-dashed border-[#0F0E0C]/30 sm:block lg:right-[1%] lg:h-[190px] lg:w-[190px]"
         />
         {/* Card RIGHT TOP — KaliPoints (medium-small) */}
-        <div className="animate-float-3 pointer-events-auto absolute -right-2 top-[8%] z-20 w-48 origin-top-right scale-[0.6] sm:right-4 sm:top-[20%] sm:w-52 sm:scale-100 lg:right-8 lg:w-56">
+        <div className="animate-float-3 pointer-events-auto absolute -right-2 top-[28%] z-20 w-48 origin-top-right scale-[0.5] sm:right-4 sm:top-[20%] sm:w-52 sm:scale-100 lg:right-8 lg:w-56">
           <TiltCard
             className="rounded-3xl p-4 shadow-deep"
             style={{ background: "#0F0E0C", border: "1px solid rgba(255,255,255,0.08)" }}
@@ -393,7 +394,7 @@ export function HeroV2() {
         </div>
 
         {/* Card RIGHT BOTTOM — Nouveau feedback (BLACK) */}
-        <div className="animate-float-1 pointer-events-auto absolute -right-2 top-[46%] z-20 w-56 origin-top-right scale-[0.55] sm:right-4 sm:top-[48%] sm:w-60 sm:scale-100 lg:right-4">
+        <div className="animate-float-1 pointer-events-auto absolute -right-2 top-[64%] z-20 w-56 origin-top-right scale-[0.45] sm:right-4 sm:top-[48%] sm:w-60 sm:scale-100 lg:right-4">
           <TiltCard
             className="rounded-3xl p-4 shadow-deep"
             style={{ background: "#0F0E0C", border: "1px solid rgba(255,255,255,0.08)" }}

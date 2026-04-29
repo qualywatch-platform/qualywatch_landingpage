@@ -38,10 +38,26 @@ export const metadata: Metadata = {
   },
   description:
     "Transformez le ressenti de vos clients en données claires et en actions concrètes. Un système de pilotage continu de la qualité perçue.",
+  icons: {
+    icon: [
+      { url: "/icon.png?v=2", type: "image/png", sizes: "192x192" },
+      { url: "/favicon.ico?v=2", sizes: "any" },
+    ],
+    shortcut: "/favicon.ico?v=2",
+    apple: { url: "/apple-icon.png?v=2", type: "image/png", sizes: "180x180" },
+  },
   openGraph: {
     type: "website",
     siteName: "Qualywatch",
     locale: "fr_FR",
+    images: [
+      {
+        url: "/icon.png",
+        width: 192,
+        height: 192,
+        alt: "Qualywatch",
+      },
+    ],
   },
 };
 

@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: "L'application fonctionne-t-elle sans internet ?",
-    a: "Oui pour le portail manager (app Flutter offline-first avec sync automatique). Le formulaire client nécessite internet — mais 60 secondes en 4G suffisent.",
+    a: "Non, Qualywatch nécessite une connexion active. Côté client, quelques secondes de 4G suffisent pour soumettre un avis. Côté manager, l'app web et mobile fonctionnent en temps réel — chaque action est synchronisée immédiatement.",
   },
   {
     q: "Puis-je personnaliser le formulaire de feedback ?",

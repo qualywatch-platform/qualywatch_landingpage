@@ -6,16 +6,14 @@ import { TiltCard } from "@/components/TiltCard";
 export function HeroV2() {
   return (
     <section className="relative isolate overflow-hidden">
-      {/* Background — original orange tiles + side gradients */}
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src="/orange-tiles-bg.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
+      {/* Background — orange tiles as repeating pattern (smaller tiles on mobile) */}
+      <div
+        className="absolute inset-0 -z-10 bg-[length:380px_280px] bg-repeat sm:bg-[length:760px_560px] lg:bg-[length:1100px_810px]"
+        style={{
+          backgroundImage: "url('/orange-tiles-bg.png')",
+          backgroundColor: "#FA700D",
+        }}
+      >
         {/* Left side gradient overlay */}
         <div
           className="absolute inset-y-0 left-0 w-[40%]"
@@ -190,8 +188,8 @@ export function HeroV2() {
           </Link>
         </div>
 
-        {/* Spacer — small gap (~12px) so phone is close to buttons */}
-        <div className="h-[540px] sm:h-[630px] lg:h-[720px]" />
+        {/* Spacer — small gap so phone is close to buttons */}
+        <div className="h-[280px] sm:h-[630px] lg:h-[720px]" />
       </div>
 
       {/* DECORATIVE half-circle SVG arcs around the phone — modern gradient */}
@@ -235,7 +233,7 @@ export function HeroV2() {
       </svg>
 
       {/* PHONE absolute bottom — +10% bigger */}
-      <div className="pointer-events-none absolute bottom-0 left-1/2 z-10 h-[528px] w-[96%] max-w-[748px] -translate-x-1/2 sm:h-[616px] sm:max-w-[836px] lg:h-[704px] lg:max-w-[924px]">
+      <div className="pointer-events-none absolute bottom-0 left-1/2 z-10 h-[400px] w-[96%] max-w-[560px] -translate-x-1/2 sm:h-[616px] sm:max-w-[836px] lg:h-[704px] lg:max-w-[924px]">
         {/* Decorative SEMI-CIRCLES around cards (geometric wrapping) */}
         <svg
           aria-hidden
@@ -301,7 +299,7 @@ export function HeroV2() {
           className="pointer-events-none absolute left-[-2%] top-[2%] z-10 hidden h-[160px] w-[160px] rounded-full border-2 border-dashed border-[#0F0E0C]/30 sm:block lg:left-[1%] lg:h-[180px] lg:w-[180px]"
         />
         {/* Card LEFT TOP — Satisfaction (compact - smallest) */}
-        <div className="animate-float-1 pointer-events-auto absolute left-2 top-[14%] z-20 hidden w-44 sm:block sm:left-4 sm:w-48 lg:left-8 lg:w-52">
+        <div className="animate-float-1 pointer-events-auto absolute -left-2 top-[2%] z-20 w-44 origin-top-left scale-[0.6] sm:left-4 sm:top-[14%] sm:w-48 sm:scale-100 lg:left-8 lg:w-52">
           <TiltCard
             className="rounded-3xl p-3.5 shadow-deep"
             style={{ background: "#0F0E0C", border: "1px solid rgba(255,255,255,0.08)" }}
@@ -325,7 +323,7 @@ export function HeroV2() {
         </div>
 
         {/* Card LEFT BOTTOM — Feedbacks with chart (LARGEST - chart needs space) */}
-        <div className="animate-float-2 pointer-events-auto absolute left-2 top-[42%] z-20 hidden w-60 sm:block sm:left-4 sm:w-64 lg:left-2 lg:w-72">
+        <div className="animate-float-2 pointer-events-auto absolute -left-2 top-[40%] z-20 w-60 origin-top-left scale-[0.55] sm:left-4 sm:top-[42%] sm:w-64 sm:scale-100 lg:left-2 lg:w-72">
           <TiltCard
             className="rounded-3xl p-5 shadow-deep"
             style={{ background: "#0F0E0C", border: "1px solid rgba(255,255,255,0.08)" }}
@@ -372,7 +370,7 @@ export function HeroV2() {
           className="pointer-events-none absolute right-[-2%] top-[8%] z-10 hidden h-[170px] w-[170px] rounded-full border-2 border-dashed border-[#0F0E0C]/30 sm:block lg:right-[1%] lg:h-[190px] lg:w-[190px]"
         />
         {/* Card RIGHT TOP — KaliPoints (medium-small) */}
-        <div className="animate-float-3 pointer-events-auto absolute right-2 top-[20%] z-20 hidden w-48 sm:block sm:right-4 sm:w-52 lg:right-8 lg:w-56">
+        <div className="animate-float-3 pointer-events-auto absolute -right-2 top-[8%] z-20 w-48 origin-top-right scale-[0.6] sm:right-4 sm:top-[20%] sm:w-52 sm:scale-100 lg:right-8 lg:w-56">
           <TiltCard
             className="rounded-3xl p-4 shadow-deep"
             style={{ background: "#0F0E0C", border: "1px solid rgba(255,255,255,0.08)" }}
@@ -395,7 +393,7 @@ export function HeroV2() {
         </div>
 
         {/* Card RIGHT BOTTOM — Nouveau feedback (BLACK) */}
-        <div className="animate-float-1 pointer-events-auto absolute right-2 top-[48%] z-20 hidden w-56 sm:block sm:right-4 sm:w-60 lg:right-4">
+        <div className="animate-float-1 pointer-events-auto absolute -right-2 top-[46%] z-20 w-56 origin-top-right scale-[0.55] sm:right-4 sm:top-[48%] sm:w-60 sm:scale-100 lg:right-4">
           <TiltCard
             className="rounded-3xl p-4 shadow-deep"
             style={{ background: "#0F0E0C", border: "1px solid rgba(255,255,255,0.08)" }}

@@ -58,10 +58,11 @@ export function NavbarV2() {
         <div className="flex items-center gap-2">
           <Link
             href="https://app.qualywatch.com/register"
-            className="group inline-flex items-center gap-1.5 rounded-full bg-orange px-4 py-2 text-[13px] font-bold btn-lift hover:bg-orange-deep sm:px-5 sm:py-2.5"
+            className="group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-orange px-3 py-1.5 text-[12px] font-bold btn-lift hover:bg-orange-deep sm:px-5 sm:py-2.5 sm:text-[13px]"
             style={{ color: "#FFFFFF" }}
           >
-            Essayer gratuitement
+            <span className="sm:hidden">Essayer</span>
+            <span className="hidden sm:inline">Essayer gratuitement</span>
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" strokeWidth="2.5" />
           </Link>
 

@@ -94,7 +94,7 @@ const plans: Plan[] = [
       "Scraping reputation",
       "Journal d'audit",
     ],
-    cta: "Parler à un humain",
+    cta: "Demander une démo",
     highlighted: false,
   },
   {
@@ -115,7 +115,7 @@ const plans: Plan[] = [
       "QualyAgent",
       "Analytique prédictive",
     ],
-    cta: "Contacter les ventes",
+    cta: "Solution sur-mesure",
     highlighted: false,
   },
 ];
@@ -146,8 +146,8 @@ export function Pricing() {
             Quatre formules, <span className="italic text-orange">un seul prix.</span>
           </h2>
           <p className="mt-5 text-base leading-relaxed text-text-dim lg:text-lg">
-            Pas de frais cachés. Engagement annuel = <strong className="text-text">2 mois gratuits</strong>.
-            Mobile money, virement, CB. Annulation à tout moment.
+            Pas de frais cachés. Mobile money, virement, CB.
+            Activez ensuite le plan qui vous convient directement depuis l&apos;app.
           </p>
         </div>
 
@@ -320,7 +320,7 @@ export function Pricing() {
                   </ul>
 
                   <Link
-                    href={p.name === "Free" ? "https://app.qualywatch.com/register" : "#contact"}
+                    href="https://app.qualywatch.com/register"
                     className={`group/btn mt-7 flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-[14.5px] font-bold transition btn-lift ${
                       p.highlighted
                         ? "bg-orange text-white hover:bg-orange-deep"
@@ -337,7 +337,7 @@ export function Pricing() {
         </div>
 
         <div className="mt-12 text-center text-sm text-text-dim">
-          <span className="font-bold text-text">2 mois gratuits</span> sur l&apos;engagement annuel · Pas de carte requise · Annulez à tout moment
+          <span className="font-bold text-text">Inscription gratuite</span> · Plan Free active a la creation · Upgrade depuis l&apos;app
         </div>
       </div>
     </section>

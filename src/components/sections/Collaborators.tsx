@@ -3,7 +3,7 @@ import { Mail, Shield, Sparkles, Crown, Users } from "lucide-react";
 
 const features = [
   { icon: Mail, label: "Invitation par email", desc: "Envoyez un lien magique sécurisé" },
-  { icon: Shield, label: "Permissions granulaires", desc: "5 rôles : direction, manager, chef de service, employé, collaborateur" },
+  { icon: Shield, label: "Permissions granulaires", desc: "6 rôles : CEO, directeur, manager, chef de service, employé, client" },
   { icon: Users, label: "Collaboration temps réel", desc: "Plusieurs personnes sur le même feedback" },
   { icon: Crown, label: "Clients illimités", desc: "Aucune limite sur le nombre de collaborateurs" },
 ];

@@ -1,7 +1,7 @@
 import { CursorSpotlight } from "@/components/CursorSpotlight";
 
 const steps = [
-  { n: "1", title: "Connectez vos canaux", desc: "Intégrez vos points de contact en quelques clics : site web, app, SMS, WhatsApp, QR code en magasin." },
+  { n: "1", title: "Connectez vos canaux", desc: "Intégrez vos points de contact en quelques clics : site web, app, WhatsApp, QR code en magasin." },
   { n: "2", title: "Collectez en continu", desc: "Les feedbacks remontent automatiquement. Pas de saisie manuelle, pas de données perdues." },
   { n: "3", title: "Visualisez en temps réel", desc: "Dashboard intuitif avec scores, tendances et alertes. Chaque manager voit ce qui le concerne." },
   { n: "4", title: "Agissez et mesurez", desc: "Déclenchez des actions correctives, assignez des responsables, mesurez l'impact." },

@@ -251,7 +251,7 @@ export function Advantages() {
                 className="mt-6 inline-flex items-baseline gap-2 rounded-full px-3 py-1"
                 style={{ background: "rgba(250,112,13,0.15)" }}
               >
-                <span className="font-display text-base font-extrabold" style={{ color: "#FA700D" }}>132</span>
+                <span className="font-display text-base font-extrabold" style={{ color: "#FA700D" }}>49</span>
                 <span className="text-[11px] font-medium" style={{ color: "rgba(255,255,255,0.7)" }}>
                   custom fields disponibles (Business+)
                 </span>

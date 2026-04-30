@@ -1,6 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import { Apple, Smartphone, Monitor, ArrowRight, Wifi, Battery, Signal, Globe, Zap, ShieldCheck, Star } from "lucide-react";
+import { Apple, Smartphone, Wifi, Battery, Signal, Globe, Zap } from "lucide-react";
 
 export function AppStores() {
   return (
@@ -115,8 +114,8 @@ export function AppStores() {
                 style={{ color: "rgba(15,14,12,0.85)" }}
               >
                 <strong>Notifications temps réel</strong>, dashboard mobile, validation des feedbacks
-                en quelques secondes — même <strong>sans connexion</strong>. L&apos;app native iOS et
-                Android, conçue pour les équipes terrain qui pilotent leur enseigne au quotidien.
+                en quelques secondes. L&apos;app native iOS et Android, conçue pour les équipes
+                terrain qui pilotent leur enseigne au quotidien.
               </p>
 
               <p
@@ -134,9 +133,7 @@ export function AppStores() {
               >
                 {[
                   { icon: Zap, label: "Push notifications" },
-                  { icon: Wifi, label: "Mode hors-ligne" },
                   { icon: Smartphone, label: "Sync auto multi-appareils" },
-                  { icon: ShieldCheck, label: "Authentification biométrique" },
                 ].map((f) => (
                   <li key={f.label} className="flex items-center gap-2">
                     <span
@@ -150,68 +147,43 @@ export function AppStores() {
                 ))}
               </ul>
 
-              {/* Stats strip — fills space + adds proof */}
-              <div
-                className="mt-6 grid grid-cols-3 gap-3 rounded-2xl p-4"
-                style={{
-                  background: "rgba(255,255,255,0.18)",
-                  border: "1px solid rgba(255,255,255,0.3)",
-                  backdropFilter: "blur(8px)",
-                }}
-              >
-                {[
-                  { v: "4.9", l: "Note moyenne", icon: Star },
-                  { v: "<2s", l: "Temps réponse", icon: Zap },
-                  { v: "99.9%", l: "Uptime", icon: ShieldCheck },
-                ].map((s) => (
-                  <div key={s.l} className="text-center">
-                    <div className="flex items-center justify-center gap-1">
-                      <s.icon className="h-3.5 w-3.5 text-[#0F0E0C]" strokeWidth="2.5" />
-                      <span className="font-display text-lg font-extrabold" style={{ color: "#0F0E0C" }}>
-                        {s.v}
-                      </span>
-                    </div>
-                    <div
-                      className="mt-0.5 text-[10px] font-mono font-bold uppercase tracking-widest"
-                      style={{ color: "rgba(15,14,12,0.7)" }}
-                    >
-                      {s.l}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Download buttons */}
-              <div className="mt-5">
+              {/* Download buttons — soft launch: stores not yet published */}
+              <div className="mt-6">
                 <p
                   className="text-xs font-semibold uppercase tracking-[0.2em]"
                   style={{ color: "rgba(15,14,12,0.78)" }}
                 >
-                  Disponible sur
+                  Bientôt disponible
                 </p>
                 <div className="mt-2 flex flex-wrap gap-3">
-                  <Link
-                    href="#"
-                    className="group inline-flex items-center gap-3 rounded-2xl bg-[#0F0E0C] px-5 py-3 transition hover:bg-white"
+                  <div
+                    aria-disabled="true"
+                    className="group relative inline-flex cursor-not-allowed items-center gap-3 rounded-2xl bg-[#0F0E0C] px-5 py-3 opacity-70"
                   >
-                    <Apple className="h-7 w-7 text-white transition group-hover:text-orange" strokeWidth="1.5" />
+                    <Apple className="h-7 w-7 text-white" strokeWidth="1.5" />
                     <div className="text-left">
-                      <div className="text-[10px] font-medium uppercase tracking-wider text-white opacity-70 transition group-hover:text-orange group-hover:opacity-100">Télécharger sur</div>
-                      <div className="font-display text-[15px] font-bold leading-tight text-white transition group-hover:text-orange">App Store</div>
+                      <div className="text-[10px] font-medium uppercase tracking-wider text-white opacity-70">Bientôt sur</div>
+                      <div className="font-display text-[15px] font-bold leading-tight text-white">App Store</div>
                     </div>
-                  </Link>
-                  <Link
-                    href="#"
-                    className="group inline-flex items-center gap-3 rounded-2xl bg-[#0F0E0C] px-5 py-3 transition hover:bg-white"
+                    <span className="absolute -right-2 -top-2 rounded-full bg-orange px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-white shadow-orange-soft">
+                      Bientôt
+                    </span>
+                  </div>
+                  <div
+                    aria-disabled="true"
+                    className="group relative inline-flex cursor-not-allowed items-center gap-3 rounded-2xl bg-[#0F0E0C] px-5 py-3 opacity-70"
                   >
-                    <svg viewBox="0 0 512 512" className="h-7 w-7 text-white transition group-hover:text-orange" fill="currentColor">
+                    <svg viewBox="0 0 512 512" className="h-7 w-7 text-white" fill="currentColor">
                       <path d="M99.617 8.057a50.191 50.191 0 0 0-38.815-6.713l230.932 230.933 74.846-74.846L99.617 8.057zM32.139 20.116c-6.441 8.563-10.148 19.077-10.148 30.199v411.358c0 11.123 3.708 21.636 10.148 30.199l235.877-235.877L32.139 20.116zM464.261 212.087l-67.266-37.637-81.544 81.544 81.548 81.548 67.273-37.64c16.117-9.03 25.738-25.442 25.738-43.908s-9.621-34.877-25.749-43.907zM291.733 279.711L60.815 510.629c3.786.891 7.639 1.371 11.492 1.371a50.275 50.275 0 0 0 27.31-8.07l266.965-149.736-74.849-74.483z"/>
                     </svg>
                     <div className="text-left">
-                      <div className="text-[10px] font-medium uppercase tracking-wider text-white opacity-70 transition group-hover:text-orange group-hover:opacity-100">Disponible sur</div>
-                      <div className="font-display text-[15px] font-bold leading-tight text-white transition group-hover:text-orange">Google Play</div>
+                      <div className="text-[10px] font-medium uppercase tracking-wider text-white opacity-70">Bientôt sur</div>
+                      <div className="font-display text-[15px] font-bold leading-tight text-white">Google Play</div>
                     </div>
-                  </Link>
+                    <span className="absolute -right-2 -top-2 rounded-full bg-orange px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-white shadow-orange-soft">
+                      Bientôt
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

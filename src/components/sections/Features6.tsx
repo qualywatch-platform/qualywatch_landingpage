@@ -5,8 +5,8 @@ const features = [
     icon: Layers,
     title: "Collecte multi-canal",
     description:
-      "QR code en magasin, WhatsApp Business, email, SMS, lien public. Vos clients laissent un avis depuis leur canal préféré, en moins de 60 secondes — sans app à installer.",
-    highlight: "5 canaux",
+      "QR code en magasin, WhatsApp Business, email, lien public. Vos clients laissent un avis depuis leur canal préféré, en moins de 60 secondes — sans app à installer.",
+    highlight: "4 canaux",
     accent: "from-orange/15",
   },
   {

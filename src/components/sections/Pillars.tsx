@@ -6,8 +6,8 @@ const pillars = [
     icon: Inbox,
     badge: "Capter",
     title: "Collectez sur tous vos canaux.",
-    desc: "QR codes, SMS, WhatsApp, formulaire web. Tous les canaux convergent dans un flux unique, taggé.",
-    accent: "5 canaux",
+    desc: "QR codes, WhatsApp, email, formulaire web. Tous les canaux convergent dans un flux unique, taggé.",
+    accent: "4 canaux",
   },
   {
     n: "02",

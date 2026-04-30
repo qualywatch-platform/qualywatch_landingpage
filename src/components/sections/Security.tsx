@@ -16,8 +16,8 @@ const items = [
   {
     icon: Cloud,
     title: "Cloud sécurisé",
-    desc: "Hébergement en Afrique (Lagos), backups quotidiens automatiques.",
-    highlight: "99,9% SLA",
+    desc: "Backups quotidiens automatiques, hébergement Europe RGPD.",
+    highlight: "Backups daily",
   },
   {
     icon: KeyRound,
@@ -69,7 +69,7 @@ export function Security() {
           </span>
           <span className="inline-flex items-center gap-2 text-sm font-medium">
             <Server className="h-4 w-4 text-orange" strokeWidth="2.5" />
-            Hébergement Lagos
+            Hébergement Europe
           </span>
           <span className="inline-flex items-center gap-2 text-sm font-medium">
             <Lock className="h-4 w-4 text-orange" strokeWidth="2.5" />

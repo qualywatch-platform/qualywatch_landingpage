@@ -14,6 +14,7 @@ const companyLinks = [
   { label: "Notre histoire", href: "#histoire" },
   { label: "Témoignages", href: "#testimonials" },
   { label: "FAQ", href: "#faq" },
+  { label: "API Documentation", href: "/docs/api" },
   { label: "Contact", href: "#contact" },
 ];
 

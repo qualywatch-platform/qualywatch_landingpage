@@ -35,6 +35,7 @@ const plans: Plan[] = [
       "Gestion employés",
       "Gestion services",
       "Gestion clients",
+      "White-label",
     ],
     cta: "Commencer",
     highlighted: false,
@@ -83,7 +84,6 @@ const plans: Plan[] = [
     features: [
       "Inclut tout le plan Pro",
       "WhatsApp Business",
-      "White-label",
       "Réponses prédéfinies",
       "Champs personnalisés",
       "Chatbot",

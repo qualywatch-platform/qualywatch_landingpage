@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: "Puis-je personnaliser le formulaire de feedback ?",
-    a: "Oui — 132 custom fields disponibles à partir du plan Business. Choisissez les questions, l'ordre, les conditions d'affichage, les réponses obligatoires.",
+    a: "Oui — 49 custom fields disponibles à partir du plan Business. Choisissez les questions, l'ordre, les conditions d'affichage, les réponses obligatoires.",
   },
   {
     q: "Qu'est-ce que les KaliPoints ?",

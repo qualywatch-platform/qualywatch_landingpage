@@ -22,7 +22,7 @@ const items = [
     title: "Terrain d'abord",
     desc: "Conçu pour les managers de proximité, pas seulement pour les comités de direction.",
     detail: "Mobile · Rapide · Clair",
-    metric: "5 rôles",
+    metric: "6 rôles",
     metricLabel: "RBAC granulaire",
   },
   {

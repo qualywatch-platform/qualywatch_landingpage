@@ -12,6 +12,7 @@ import { Differentiators } from "@/components/sections/Differentiators";
 import { Collaborators } from "@/components/sections/Collaborators";
 import { TeamFeedbacks } from "@/components/sections/TeamFeedbacks";
 import { Advantages } from "@/components/sections/Advantages";
+import { ApiAccess } from "@/components/sections/ApiAccess";
 import { Story } from "@/components/sections/Story";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Pricing } from "@/components/sections/Pricing";
@@ -58,6 +59,9 @@ export default function HomePage() {
         </SectionReveal>
         <SectionReveal delay={80}>
           <Advantages />
+        </SectionReveal>
+        <SectionReveal delay={95}>
+          <ApiAccess />
         </SectionReveal>
         <SectionReveal delay={100}>
           <Story />

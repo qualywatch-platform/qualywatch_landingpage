@@ -79,23 +79,23 @@ export function Features6() {
       />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
+        <div className="reveal-children mx-auto mb-16 max-w-3xl text-center">
+          <p className="reveal-item reveal-delay-1 font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
             № 02 · La solution simple
           </p>
-          <h2 className="font-display mt-4 text-3xl font-bold leading-tight text-text sm:text-4xl lg:text-5xl">
+          <h2 className="reveal-item reveal-delay-2 font-display mt-4 text-3xl font-bold leading-tight text-text sm:text-4xl lg:text-5xl">
             6 fonctionnalités <span className="italic text-orange">puissantes.</span>
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-text-dim lg:text-lg">
+          <p className="reveal-item reveal-delay-3 mt-5 text-base leading-relaxed text-text-dim lg:text-lg">
             Plus de questionnaires papiers interminables. Juste un scan, un avis, et une action immédiate.
           </p>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="reveal-children grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f, i) => (
             <div
               key={f.title}
-              className="card-base group relative flex flex-col overflow-hidden rounded-3xl p-7 btn-lift hover:border-orange/40"
+              className={`reveal-item reveal-delay-${(i % 6) + 1} card-base group relative flex flex-col overflow-hidden rounded-3xl p-7 btn-lift hover:border-orange/40`}
               style={{ animationDelay: `${0.05 * i}s` }}
             >
               {/* Top gradient ribbon — subtle, only on hover */}

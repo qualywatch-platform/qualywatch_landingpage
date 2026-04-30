@@ -5,23 +5,23 @@ export function Problems() {
   return (
     <section id="probleme" className="relative px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
-        <div className="grid items-end gap-10 lg:grid-cols-[1fr_1.4fr]">
-          <div>
+        <div className="reveal-children grid items-end gap-10 lg:grid-cols-[1fr_1.4fr]">
+          <div className="reveal-item reveal-delay-1">
             <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 01 · Le Problème</p>
             <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
               L&apos;expérience client est votre <span className="italic text-orange">angle mort</span> le plus coûteux.
             </h2>
           </div>
-          <p className="text-base leading-relaxed text-text-dim lg:text-lg">
+          <p className="reveal-item reveal-delay-2 text-base leading-relaxed text-text-dim lg:text-lg">
             Chaque jour, vos clients vous envoient des signaux. La plupart disparaissent avant d&apos;arriver à la bonne personne.
             Voici les <strong className="text-text">trois fuites</strong> qui détruisent silencieusement votre satisfaction.
           </p>
         </div>
 
         {/* Bento grid — 1 tall + 2 short stacked */}
-        <div className="mt-14 grid gap-4 lg:mt-20 lg:grid-cols-12 lg:grid-rows-2">
+        <div className="reveal-children mt-14 grid gap-4 lg:mt-20 lg:grid-cols-12 lg:grid-rows-2">
           {/* Card 01 — TALL on left, dark inverted */}
-          <div className="group relative overflow-hidden rounded-3xl bg-[#0F0E0C] p-8 text-white transition lg:col-span-5 lg:row-span-2 lg:p-10">
+          <div className="reveal-item reveal-delay-2 group relative overflow-hidden rounded-3xl bg-[#0F0E0C] p-8 text-white transition lg:col-span-5 lg:row-span-2 lg:p-10">
             {/* Big number watermark */}
             <span
               aria-hidden
@@ -116,7 +116,7 @@ export function Problems() {
 
           {/* Card 02 — TOP RIGHT, vibrant orange (compact) */}
           <div
-            className="group relative overflow-hidden rounded-3xl p-8 transition lg:col-span-7 lg:p-10"
+            className="reveal-item reveal-delay-3 group relative overflow-hidden rounded-3xl p-8 transition lg:col-span-7 lg:p-10"
             style={{
               background:
                 "linear-gradient(135deg, rgba(250,112,13,0.22) 0%, rgba(250,112,13,0.10) 60%, rgba(250,112,13,0.06) 100%)",
@@ -187,7 +187,7 @@ export function Problems() {
           </div>
 
           {/* Card 03 — BOTTOM RIGHT, light card (compact) */}
-          <div className="group relative overflow-hidden rounded-3xl border border-card-border bg-card p-8 transition hover:border-orange/40 lg:col-span-7 lg:p-10">
+          <div className="reveal-item reveal-delay-4 group relative overflow-hidden rounded-3xl border border-card-border bg-card p-8 transition hover:border-orange/40 lg:col-span-7 lg:p-10">
             {/* Big number watermark */}
             <span
               aria-hidden

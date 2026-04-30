@@ -35,12 +35,15 @@ export function NavbarV2() {
               className="h-full w-full object-contain"
             />
           </span>
-          <span className="font-display inline-flex items-center gap-2 text-lg font-bold tracking-tight" style={{ color: "#FFFFFF" }}>
+          <span
+            className="font-display inline-flex flex-wrap items-center gap-2.5 text-xl font-bold tracking-tight sm:text-[1.35rem]"
+            style={{ color: "#FFFFFF" }}
+          >
             Qualywatch
             <span
-              className="hidden rounded-full bg-orange/20 px-2 py-0.5 text-[9.5px] font-bold uppercase tracking-widest sm:inline-flex"
-              style={{ color: "#FA700D", border: "1px solid rgba(250,112,13,0.4)" }}
+              className="inline-flex items-center gap-2 rounded-full border border-orange/35 bg-gradient-to-r from-orange/18 via-orange/10 to-transparent px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-orange shadow-orange-soft sm:px-3.5 sm:text-[11px]"
             >
+              <span className="h-2 w-2 rounded-full bg-orange pulse-dot" />
               Soft launch
             </span>
           </span>

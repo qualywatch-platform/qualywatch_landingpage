@@ -11,10 +11,6 @@ const faqs = [
     a: "10 minutes en moyenne. Inscription, import de votre équipe via Excel ou Google Sheets, génération automatique des QR codes par service. Vous êtes en production avant le service du soir.",
   },
   {
-    q: "L'application fonctionne-t-elle sans internet ?",
-    a: "Non, Qualywatch nécessite une connexion active. Côté client, quelques secondes de 4G suffisent pour soumettre un avis. Côté manager, l'app web et mobile fonctionnent en temps réel — chaque action est synchronisée immédiatement.",
-  },
-  {
     q: "Puis-je personnaliser le formulaire de feedback ?",
     a: "Oui — 132 custom fields disponibles à partir du plan Business. Choisissez les questions, l'ordre, les conditions d'affichage, les réponses obligatoires.",
   },
@@ -29,10 +25,6 @@ const faqs = [
   {
     q: "Quels moyens de paiement acceptez-vous ?",
     a: "Mobile money (Orange Money, Wave, MTN), CB internationale, virement bancaire. Facturation mensuelle ou annuelle (-2 mois sur l'année).",
-  },
-  {
-    q: "Puis-je essayer gratuitement ?",
-    a: "Oui — 14 jours d'essai sur tous les plans, sans carte bancaire. Annulation à tout moment, vos données restent les vôtres.",
   },
 ];
 
@@ -61,17 +53,17 @@ export function FAQ() {
       <div className="relative mx-auto max-w-7xl">
         <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           {/* LEFT — sticky header */}
-          <div className="lg:sticky lg:top-28">
-            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 10 · FAQ</p>
-            <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
+          <div className="reveal-children lg:sticky lg:top-28">
+            <p className="reveal-item reveal-delay-1 font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 10 · FAQ</p>
+            <h2 className="reveal-item reveal-delay-2 font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
               Questions <span className="italic text-orange">fréquentes.</span>
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-text-dim lg:text-lg">
+            <p className="reveal-item reveal-delay-3 mt-5 text-base leading-relaxed text-text-dim lg:text-lg">
               Tout ce qu&apos;on nous demande avant de signer. Pas de jargon, pas de promesses creuses.
             </p>
 
             {/* Help card */}
-            <div className="mt-8 rounded-2xl border border-card-border bg-card p-5">
+            <div className="reveal-item reveal-delay-4 mt-8 rounded-2xl border border-card-border bg-card p-5">
               <div className="flex items-center gap-2 text-orange">
                 <MessageCircleQuestion className="h-5 w-5" strokeWidth="2" />
                 <span className="text-[11px] font-bold uppercase tracking-widest">Pas trouvé ?</span>
@@ -90,11 +82,11 @@ export function FAQ() {
           </div>
 
           {/* RIGHT — accordion list */}
-          <div className="space-y-3">
+          <div className="reveal-children space-y-3">
             {faqs.map((f, i) => (
               <details
                 key={f.q}
-                className="group rounded-2xl border border-card-border bg-card p-5 transition hover:border-orange/30 open:border-orange/50 lg:p-6"
+                className={`reveal-item reveal-delay-${(i % 5) + 1} group rounded-2xl border border-card-border bg-card p-5 transition hover:border-orange/30 open:border-orange/50 lg:p-6`}
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left">
                   <div className="flex items-start gap-4">

@@ -140,24 +140,24 @@ export function Pricing() {
       />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 08 · Tarifs</p>
-          <h2 className="font-display mt-4 text-3xl font-bold leading-tight text-text sm:text-4xl lg:text-5xl">
+        <div className="reveal-children mx-auto mb-16 max-w-3xl text-center">
+          <p className="reveal-item reveal-delay-1 font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 08 · Tarifs</p>
+          <h2 className="reveal-item reveal-delay-2 font-display mt-4 text-3xl font-bold leading-tight text-text sm:text-4xl lg:text-5xl">
             Quatre formules, <span className="italic text-orange">un seul prix.</span>
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-text-dim lg:text-lg">
+          <p className="reveal-item reveal-delay-3 mt-5 text-base leading-relaxed text-text-dim lg:text-lg">
             Pas de frais cachés. Mobile money, virement, CB.
             Activez ensuite le plan qui vous convient directement depuis l&apos;app.
           </p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-4">
+        <div className="reveal-children grid gap-5 lg:grid-cols-4">
           {plans.map((p) => {
             const Icon = p.icon;
             return (
               <div
                 key={p.name}
-                className={`group relative flex flex-col overflow-hidden rounded-3xl transition ${
+                className={`reveal-item reveal-delay-${(plans.indexOf(p) % 4) + 1} group relative flex flex-col overflow-hidden rounded-3xl transition ${
                   p.highlighted
                     ? "shadow-[0_30px_80px_-20px_rgba(250,112,13,0.45)] lg:scale-[1.04]"
                     : "border border-card-border bg-card hover:-translate-y-1 hover:border-orange/40 hover:shadow-card"

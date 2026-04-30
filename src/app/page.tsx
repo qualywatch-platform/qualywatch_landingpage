@@ -20,6 +20,7 @@ import { FAQ } from "@/components/sections/FAQ";
 import { AppStores } from "@/components/sections/AppStores";
 import { Contact } from "@/components/sections/Contact";
 import { CTA } from "@/components/sections/CTA";
+import { SectionReveal } from "@/components/SectionReveal";
 
 export default function HomePage() {
   return (
@@ -28,24 +29,60 @@ export default function HomePage() {
       <NavbarV2 />
       <main>
         <HeroV2 />
-        <FeatureStrip />
-        <Problems />
-        <Features6 />
-        <Pillars />
-        <Steps />
-        <Sectors />
-        <Collaborators />
-        <TeamFeedbacks />
-        <Differentiators />
-        <Advantages />
-        <Story />
-        <Testimonials />
-        <Pricing />
-        <Security />
-        <FAQ />
-        <AppStores />
-        <Contact />
-        <CTA />
+        <SectionReveal delay={40}>
+          <FeatureStrip />
+        </SectionReveal>
+        <SectionReveal delay={70}>
+          <Problems />
+        </SectionReveal>
+        <SectionReveal delay={90}>
+          <Features6 />
+        </SectionReveal>
+        <SectionReveal delay={110}>
+          <Pillars />
+        </SectionReveal>
+        <SectionReveal delay={80}>
+          <Steps />
+        </SectionReveal>
+        <SectionReveal delay={100}>
+          <Sectors />
+        </SectionReveal>
+        <SectionReveal delay={120}>
+          <Collaborators />
+        </SectionReveal>
+        <SectionReveal delay={90}>
+          <TeamFeedbacks />
+        </SectionReveal>
+        <SectionReveal delay={110}>
+          <Differentiators />
+        </SectionReveal>
+        <SectionReveal delay={80}>
+          <Advantages />
+        </SectionReveal>
+        <SectionReveal delay={100}>
+          <Story />
+        </SectionReveal>
+        <SectionReveal delay={120}>
+          <Testimonials />
+        </SectionReveal>
+        <SectionReveal delay={90}>
+          <Pricing />
+        </SectionReveal>
+        <SectionReveal delay={110}>
+          <Security />
+        </SectionReveal>
+        <SectionReveal delay={80}>
+          <FAQ />
+        </SectionReveal>
+        <SectionReveal delay={100}>
+          <AppStores />
+        </SectionReveal>
+        <SectionReveal delay={120}>
+          <Contact />
+        </SectionReveal>
+        <SectionReveal delay={80}>
+          <CTA />
+        </SectionReveal>
       </main>
       <Footer />
     </>

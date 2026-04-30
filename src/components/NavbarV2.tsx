@@ -41,9 +41,8 @@ export function NavbarV2() {
           >
             Qualywatch
             <span
-              className="inline-flex items-center gap-2 rounded-full border border-orange/35 bg-gradient-to-r from-orange/18 via-orange/10 to-transparent px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-orange shadow-orange-soft sm:px-3.5 sm:text-[11px]"
+              className="inline-flex items-center rounded-full border border-orange/30 bg-orange/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-orange sm:px-3.5 sm:text-[11px]"
             >
-              <span className="h-2 w-2 rounded-full bg-orange pulse-dot" />
               Soft launch
             </span>
           </span>

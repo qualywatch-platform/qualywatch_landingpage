@@ -36,12 +36,12 @@ export function NavbarV2() {
             />
           </span>
           <span
-            className="font-display inline-flex flex-wrap items-center gap-2.5 text-xl font-bold tracking-tight sm:text-[1.35rem]"
+            className="font-display inline-flex items-center gap-1.5 text-[1.05rem] font-bold tracking-tight sm:gap-2.5 sm:text-[1.35rem]"
             style={{ color: "#FFFFFF" }}
           >
-            Qualywatch
+            <span className="whitespace-nowrap">Qualywatch</span>
             <span
-              className="inline-flex items-center rounded-full border border-orange/30 bg-orange/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-orange sm:px-3.5 sm:text-[11px]"
+              className="inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-orange/30 bg-orange/10 px-2 py-0.5 text-[8.5px] font-black uppercase tracking-[0.16em] text-orange sm:px-3.5 sm:py-1 sm:text-[11px] sm:tracking-[0.22em]"
             >
               Soft launch
             </span>

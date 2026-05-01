@@ -320,7 +320,11 @@ export function Pricing() {
                   </ul>
 
                   <Link
-                    href="#contact"
+                    href={
+                      p.name === "Free" || p.name === "Pro"
+                        ? "https://app.qualywatch.com"
+                        : "#contact"
+                    }
                     className={`group/btn mt-7 flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-[14.5px] font-bold transition btn-lift ${
                       p.highlighted
                         ? "bg-orange text-white hover:bg-orange-deep"

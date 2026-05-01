@@ -111,7 +111,7 @@ export function CTA() {
 
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link
-            href="#contact"
+            href="https://app.qualywatch.com"
             className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange px-8 py-4 text-base font-bold shadow-orange btn-lift sm:w-auto sm:text-lg"
             style={{ color: "#FFFFFF" }}
           >

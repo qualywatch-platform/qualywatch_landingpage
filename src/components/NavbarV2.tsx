@@ -65,7 +65,7 @@ export function NavbarV2() {
         {/* Right CTA — orange filled, white text */}
         <div className="flex items-center gap-2">
           <Link
-            href="#contact"
+            href="https://app.qualywatch.com"
             className="group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-orange px-3 py-1.5 text-[12px] font-bold btn-lift hover:bg-orange-deep sm:px-5 sm:py-2.5 sm:text-[13px]"
             style={{ color: "#FFFFFF" }}
           >

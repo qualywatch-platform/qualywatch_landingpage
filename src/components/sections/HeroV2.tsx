@@ -163,7 +163,7 @@ export function HeroV2() {
         {/* CTAs — Essayer gratuitement = orange + white border + white text */}
         <div className="animate-fade-up delay-3 mt-6 flex flex-wrap items-center justify-center gap-3">
           <Link
-            href="#contact"
+            href="https://app.qualywatch.com"
             className="group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[15px] font-bold shadow-orange btn-lift"
             style={{
               background: "#FA700D",

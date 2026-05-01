@@ -221,7 +221,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center">
           <p className="text-[12px] text-white/50">
-            © {new Date().getFullYear()} Qualywatch. Conçu à Dakar avec <span className="text-orange">●</span>
+            © {new Date().getFullYear()} Qualywatch SAS. Tous droits réservés.
           </p>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {legalLinks.map((l) => (

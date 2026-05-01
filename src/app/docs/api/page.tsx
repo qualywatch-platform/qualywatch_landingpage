@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
 };
 
-const BASE_URL = "https://api.qualywatch.com";
+const BASE_URL = "https://api.qualywatch.com/api";
 
 const sidebarSections = [
   { id: "introduction", label: "Introduction" },

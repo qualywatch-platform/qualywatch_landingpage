@@ -212,7 +212,7 @@ export function ApiAccess() {
               <pre className="font-mono overflow-x-auto px-5 py-4 text-[11.5px] leading-[1.6]">
                 <code>
                   <span className="text-orange">curl</span>
-                  <span className="text-white/85"> https://qualywatchbackend-production.up.railway.app/api/v1/feedbacks \</span>
+                  <span className="text-white/85"> https://api.qualywatch.com/v1/feedbacks \</span>
                   {"\n  "}
                   <span className="text-white/85">-H </span>
                   <span className="text-[#6464FF]">{"\"Authorization: Bearer qw_…8a3f\""}</span>

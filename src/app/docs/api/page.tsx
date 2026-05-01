@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
 };
 
-const BASE_URL = "https://qualywatchbackend-production.up.railway.app/api";
+const BASE_URL = "https://api.qualywatch.com";
 
 const sidebarSections = [
   { id: "introduction", label: "Introduction" },

@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "Qualywatch est-il conforme au RGPD ?",
-    a: "Oui. Hébergement en Afrique (Lagos), DPA disponible, droit à l'oubli, anonymisation, export de données en 1 clic. Conforme également à la loi sénégalaise sur les données.",
+    a: "Oui. Hébergement en Europe (Allemagne, Falkenstein), DPA disponible, droit à l'oubli, anonymisation, export de données en 1 clic. Conforme également à la loi sénégalaise sur les données.",
   },
   {
     q: "Quels moyens de paiement acceptez-vous ?",
@@ -72,11 +72,11 @@ export function FAQ() {
                 On répond en moins de 24h ouvrées.
               </p>
               <a
-                href="mailto:hello@qualywatch.com"
+                href="mailto:aishaseye074@gmail.com"
                 className="group mt-4 inline-flex items-center gap-2 text-sm font-bold text-text transition hover:text-orange"
               >
                 <Mail className="h-4 w-4" strokeWidth="2" />
-                hello@qualywatch.com
+                aishaseye074@gmail.com
               </a>
             </div>
           </div>

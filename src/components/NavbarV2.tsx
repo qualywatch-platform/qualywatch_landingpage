@@ -25,7 +25,7 @@ export function NavbarV2() {
         style={{ background: "rgba(15, 14, 12, 0.78)" }}
       >
         {/* Logo — QualyWatch smiley + white text */}
-        <Link href="/v2" className="group inline-flex items-center gap-2.5">
+        <Link href="/" className="group inline-flex items-center gap-2.5">
           <span className="relative inline-flex h-10 w-10 items-center justify-center transition-transform group-hover:scale-105">
             <Image
               src="/qualywatch-logo.png"

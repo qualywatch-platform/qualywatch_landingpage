@@ -28,7 +28,7 @@ export function Sectors() {
     <section id="secteurs" className="px-6 py-24 lg:px-16 lg:py-32" style={{ background: "#FFFFFF" }}>
       <div className="mx-auto max-w-7xl">
         <div className="max-w-3xl">
-          <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 04 · Pour qui ?</p>
+          <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 05 · Pour qui ?</p>
           <h2 className="font-display mt-4 text-3xl font-bold leading-tight text-text sm:text-4xl lg:text-5xl">
             Pensé pour les entreprises qui vivent au <span className="italic text-orange">contact du client.</span>
           </h2>

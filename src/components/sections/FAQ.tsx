@@ -54,7 +54,7 @@ export function FAQ() {
         <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           {/* LEFT — sticky header */}
           <div className="reveal-children lg:sticky lg:top-28">
-            <p className="reveal-item reveal-delay-1 font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 10 · FAQ</p>
+            <p className="reveal-item reveal-delay-1 font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 15 · FAQ</p>
             <h2 className="reveal-item reveal-delay-2 font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
               Questions <span className="italic text-orange">fréquentes.</span>
             </h2>

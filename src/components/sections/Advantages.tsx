@@ -75,7 +75,7 @@ export function Advantages() {
         <div className="mb-16 grid items-end gap-10 lg:grid-cols-[1fr_1.4fr]">
           <div>
             <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
-              № 06 · Vos armes
+              № 09 · Vos armes
             </p>
             <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
               Huit armes pour <span className="italic text-orange">retenir vos clients.</span>

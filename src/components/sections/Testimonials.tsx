@@ -11,7 +11,7 @@ const testimonials = [
       "Un patient mécontent a été rattrapé en 4 minutes grâce à l'alerte temps réel. Il est revenu la semaine suivante. Sans Qualywatch, on l'aurait perdu.",
     metric: "4 min",
     metricLabel: "rattrapage",
-    photo: "https://i.pravatar.cc/200?img=47",
+    photo: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop&crop=faces&auto=format&q=80",
     accent: "#FA700D",
   },
   {
@@ -23,19 +23,19 @@ const testimonials = [
       "Le leaderboard a tout changé. Nos serveurs se battent pour être en tête du classement. La satisfaction a augmenté de 23% en un trimestre.",
     metric: "+23%",
     metricLabel: "satisfaction",
-    photo: "https://i.pravatar.cc/200?img=12",
+    photo: "https://images.unsplash.com/photo-1568585219057-9206c0bb91d6?w=400&h=400&fit=crop&crop=faces&auto=format&q=80",
     accent: "#FA700D",
   },
   {
-    name: "Youssef A.",
+    name: "Ousmane D.",
     title: "Gérant",
-    company: "Riad Al Baraka",
-    city: "Marrakech",
+    company: "Le Baobab Lounge",
+    city: "Bamako",
     quote:
       "On recevait 3 avis Google par mois. Avec Qualywatch, on en collecte 15 par semaine. Notre note est passée de 4.1 à 4.8 en 2 mois.",
     metric: "+460%",
     metricLabel: "avis Google",
-    photo: "https://i.pravatar.cc/200?img=33",
+    photo: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&fit=crop&crop=faces&auto=format&q=80",
     accent: "#FA700D",
   },
 ];
@@ -46,7 +46,7 @@ export function Testimonials() {
       <div className="mx-auto max-w-7xl">
         <div className="grid items-end gap-10 lg:grid-cols-[1fr_1.4fr]">
           <div>
-            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 07 · Témoignages</p>
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 12 · Témoignages</p>
             <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
               Pas du marketing. <br />
               <span className="italic text-orange">Des résultats.</span>

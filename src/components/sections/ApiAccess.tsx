@@ -52,7 +52,7 @@ export function ApiAccess() {
         <div className="mb-14 grid items-end gap-10 lg:grid-cols-[1fr_1.4fr]">
           <div>
             <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
-              № 07 · Accès API
+              № 10 · Accès API
             </p>
             <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
               Vos données. Votre <span className="italic text-orange">stack.</span>

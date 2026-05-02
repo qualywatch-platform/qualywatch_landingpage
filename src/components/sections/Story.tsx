@@ -44,7 +44,7 @@ export function Story() {
 
           {/* RIGHT — label + minimaliste copy */}
           <div>
-            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 06 · Notre histoire</p>
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 11 · Notre histoire</p>
             <h2 className="font-display mt-3 text-2xl font-bold leading-tight text-text sm:text-3xl lg:text-4xl">
               La vision derrière <span className="italic text-orange">Qualywatch.</span>
             </h2>
@@ -63,20 +63,22 @@ export function Story() {
               La satisfaction n&apos;est pas un KPI. C&apos;est la promesse que vous tenez à vos clients.
             </p>
 
-            {/* Compact stats */}
-            <div className="mt-7 flex flex-wrap items-baseline gap-x-8 gap-y-3 border-t border-card-border pt-5">
-              <div>
-                <span className="font-display text-lg font-bold text-orange">2024</span>
-                <span className="ml-2 text-[11px] uppercase tracking-widest text-text-dim">Fondation</span>
-              </div>
-              <div>
-                <span className="font-display text-lg font-bold text-orange">Dakar</span>
-                <span className="ml-2 text-[11px] uppercase tracking-widest text-text-dim">Conçu à</span>
-              </div>
-              <div>
-                <span className="font-display text-lg font-bold text-orange">2026</span>
-                <span className="ml-2 text-[11px] uppercase tracking-widest text-text-dim">Lancement</span>
-              </div>
+            {/* Compact stats — pro layout, label above value */}
+            <div className="mt-7 grid grid-cols-3 gap-4 border-t border-card-border pt-6">
+              {[
+                { label: "Fondation", value: "2024" },
+                { label: "Conçu à", value: "Dakar" },
+                { label: "Lancement", value: "2026" },
+              ].map((s) => (
+                <div key={s.label}>
+                  <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-text-mute">
+                    {s.label}
+                  </div>
+                  <div className="font-display mt-1 text-xl font-extrabold text-text">
+                    {s.value}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

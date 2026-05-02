@@ -141,7 +141,7 @@ export function Pricing() {
 
       <div className="relative mx-auto max-w-7xl">
         <div className="reveal-children mx-auto mb-16 max-w-3xl text-center">
-          <p className="reveal-item reveal-delay-1 font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 08 · Tarifs</p>
+          <p className="reveal-item reveal-delay-1 font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 13 · Tarifs</p>
           <h2 className="reveal-item reveal-delay-2 font-display mt-4 text-3xl font-bold leading-tight text-text sm:text-4xl lg:text-5xl">
             Quatre formules, <span className="italic text-orange">un seul prix.</span>
           </h2>

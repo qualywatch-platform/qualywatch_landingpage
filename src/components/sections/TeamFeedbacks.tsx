@@ -47,7 +47,7 @@ export function TeamFeedbacks() {
           {/* LEFT — Copy */}
           <div>
             <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
-              № 06 · Feedbacks internes
+              № 07 · Feedbacks internes
             </p>
             <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
               Vos employés ont aussi leur{" "}

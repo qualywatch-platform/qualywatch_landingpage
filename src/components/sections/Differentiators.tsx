@@ -41,7 +41,7 @@ export function Differentiators() {
       <div className="mx-auto max-w-7xl">
         <div className="grid items-end gap-10 lg:grid-cols-[1fr_1.4fr]">
           <div>
-            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 05 · Pourquoi Qualywatch</p>
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 08 · Pourquoi Qualywatch</p>
             <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
               Pas un énième formulaire.<br />
               <span className="italic text-orange">Un système de pilotage.</span>

@@ -104,6 +104,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  verification: {
+    google: "TvyG8LhavwTlwvc0IpQrGbBGi3EgeMQ4gjxuNiBk60Y",
+  },
 };
 
 const noFlashScript = `(function(){try{document.documentElement.setAttribute('data-theme','light');localStorage.setItem('qw-theme','light');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`;

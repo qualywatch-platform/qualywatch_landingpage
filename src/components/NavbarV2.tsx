@@ -95,7 +95,8 @@ export function NavbarV2({ locale = "fr" }: { locale?: Locale }) {
 
           <Link
             href={switchHref}
-            className="hidden rounded-full border border-white/25 px-3 py-1.5 text-[12px] font-bold text-white/90 transition hover:bg-white/15 sm:inline-flex"
+            aria-label={locale === "fr" ? "Switch to English" : "Passer en français"}
+            className="inline-flex shrink-0 rounded-full border border-white/25 px-2.5 py-1.5 text-[11px] font-bold text-white/90 transition hover:bg-white/15 sm:px-3 sm:text-[12px]"
           >
             {switchLabel}
           </Link>

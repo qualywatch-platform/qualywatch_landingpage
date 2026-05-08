@@ -1,44 +1,87 @@
 import { Lock, Shield, Cloud, KeyRound, FileCheck, Server } from "lucide-react";
 
-const items = [
-  {
-    icon: Lock,
-    title: "Isolation multi-tenant",
-    desc: "Chaque entreprise est cloisonnée. Aucun partage de données entre comptes.",
-    highlight: "RBAC strict",
-  },
-  {
-    icon: Shield,
-    title: "RGPD conforme",
-    desc: "Droit à l'oubli, anonymisation, export en 1 clic. DPA disponible.",
-    highlight: "Loi Sénégal & UE",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud sécurisé",
-    desc: "Backups quotidiens automatiques, hébergement Europe RGPD.",
-    highlight: "Backups daily",
-  },
-  {
-    icon: KeyRound,
-    title: "Authentification forte",
-    desc: "Tokens chiffrés avec expiration, OTP par email, 2FA optionnel.",
-    highlight: "Sanctum + OTP",
-  },
-];
+const itemsByLocale = {
+  fr: [
+    {
+      icon: Lock,
+      title: "Isolation multi-tenant",
+      desc: "Chaque entreprise est cloisonnée. Aucun partage de données entre comptes.",
+      highlight: "RBAC strict",
+    },
+    {
+      icon: Shield,
+      title: "RGPD conforme",
+      desc: "Droit à l'oubli, anonymisation, export en 1 clic. DPA disponible.",
+      highlight: "Loi Sénégal & UE",
+    },
+    {
+      icon: Cloud,
+      title: "Cloud sécurisé",
+      desc: "Backups quotidiens automatiques, hébergement Europe RGPD.",
+      highlight: "Backups daily",
+    },
+    {
+      icon: KeyRound,
+      title: "Authentification forte",
+      desc: "Tokens chiffrés avec expiration, OTP par email, 2FA optionnel.",
+      highlight: "Sanctum + OTP",
+    },
+  ],
+  en: [
+    {
+      icon: Lock,
+      title: "Multi-tenant isolation",
+      desc: "Every company is fully isolated. Zero data sharing between accounts.",
+      highlight: "Strict RBAC",
+    },
+    {
+      icon: Shield,
+      title: "GDPR compliant",
+      desc: "Right to be forgotten, anonymisation, one-click export. DPA available.",
+      highlight: "EU & Senegal law",
+    },
+    {
+      icon: Cloud,
+      title: "Secure cloud",
+      desc: "Automated daily backups, GDPR-compliant European hosting.",
+      highlight: "Daily backups",
+    },
+    {
+      icon: KeyRound,
+      title: "Strong authentication",
+      desc: "Encrypted tokens with expiry, email OTP, optional 2FA.",
+      highlight: "Sanctum + OTP",
+    },
+  ],
+};
 
-export function Security() {
+export function Security({ locale = "fr" }: { locale?: "fr" | "en" }) {
+  const isEnglish = locale === "en";
+  const items = itemsByLocale[locale];
   return (
     <section className="relative px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 14 · Données &amp; Sécurité</p>
+          <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
+            {isEnglish ? "№ 14 · Data & Security" : "№ 14 · Données & Sécurité"}
+          </p>
           <h2 className="font-display mt-4 text-3xl font-bold leading-tight text-text sm:text-4xl lg:text-5xl">
-            La confiance est au cœur <br className="hidden sm:block" />
-            <span className="italic text-orange">de notre engagement.</span>
+            {isEnglish ? (
+              <>
+                Trust is at the heart <br className="hidden sm:block" />
+                <span className="italic text-orange">of our commitment.</span>
+              </>
+            ) : (
+              <>
+                La confiance est au cœur <br className="hidden sm:block" />
+                <span className="italic text-orange">de notre engagement.</span>
+              </>
+            )}
           </h2>
           <p className="mt-5 text-base leading-relaxed text-text-dim lg:text-lg">
-            Vos données restent les vôtres. Conformité, isolation et chiffrement audités — pas un argument marketing.
+            {isEnglish
+              ? "Your data stays yours. Compliance, isolation and encryption — audited, not just claimed."
+              : "Vos données restent les vôtres. Conformité, isolation et chiffrement audités — pas un argument marketing."}
           </p>
         </div>
 
@@ -65,19 +108,19 @@ export function Security() {
         <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 border-t border-card-border pt-10 text-text-dim">
           <span className="inline-flex items-center gap-2 text-sm font-medium">
             <FileCheck className="h-4 w-4 text-orange" strokeWidth="2.5" />
-            RGPD ready
+            {isEnglish ? "GDPR ready" : "RGPD ready"}
           </span>
           <span className="inline-flex items-center gap-2 text-sm font-medium">
             <Server className="h-4 w-4 text-orange" strokeWidth="2.5" />
-            Hébergement Europe
+            {isEnglish ? "European hosting" : "Hébergement Europe"}
           </span>
           <span className="inline-flex items-center gap-2 text-sm font-medium">
             <Lock className="h-4 w-4 text-orange" strokeWidth="2.5" />
-            Tokens chiffrés
+            {isEnglish ? "Encrypted tokens" : "Tokens chiffrés"}
           </span>
           <span className="inline-flex items-center gap-2 text-sm font-medium">
             <Shield className="h-4 w-4 text-orange" strokeWidth="2.5" />
-            DPA disponible
+            {isEnglish ? "DPA available" : "DPA disponible"}
           </span>
         </div>
       </div>

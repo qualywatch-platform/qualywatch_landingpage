@@ -3,7 +3,8 @@ import Link from "next/link";
 import { ArrowRight, Star, Bell, MessageSquare, TrendingUp, BarChart3, PlayCircle } from "lucide-react";
 import { TiltCard } from "@/components/TiltCard";
 
-export function HeroV2() {
+export function HeroV2({ locale = "fr" }: { locale?: "fr" | "en" }) {
+  const isEnglish = locale === "en";
   return (
     <section className="relative isolate overflow-hidden">
       {/* Background — orange + visible square grid (CSS grid + image overlay) */}
@@ -131,14 +132,14 @@ export function HeroV2() {
           }}
         >
           <span className="rounded-full bg-orange px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
-            Nouveau
+            {isEnglish ? "New" : "Nouveau"}
           </span>
-          <span>Capturez 10x plus d&apos;avis</span>
+          <span>{isEnglish ? "Capture 10x more feedback" : "Capturez 10x plus d'avis"}</span>
         </span>
 
         {/* Title — BLACK + WHITE italic with HIGHLIGHTER marker behind */}
         <h1 className="font-display animate-fade-up delay-1 mt-5 max-w-4xl text-center text-[40px] font-extrabold leading-[1.02] tracking-tight sm:text-5xl lg:text-[64px]">
-          <span style={{ color: "#0F0E0C" }}>Ne laissez plus vos clients</span>
+          <span style={{ color: "#0F0E0C" }}>{isEnglish ? "Stop letting your customers" : "Ne laissez plus vos clients"}</span>
           <br />
           <span className="relative inline-block italic" style={{ color: "#FFFFFF" }}>
             {/* Orange highlight rectangle behind text */}
@@ -147,7 +148,7 @@ export function HeroV2() {
               className="pointer-events-none absolute inset-x-[-14px] inset-y-[6px] -z-10 rounded-sm"
               style={{ background: "#FA700D" }}
             />
-            <span className="relative">partir en silence.</span>
+            <span className="relative">{isEnglish ? "leave in silence." : "partir en silence."}</span>
           </span>
         </h1>
 
@@ -156,8 +157,17 @@ export function HeroV2() {
           className="animate-fade-up delay-2 mx-auto mt-4 max-w-2xl text-center text-[15px] leading-relaxed sm:text-base lg:text-lg"
           style={{ color: "rgba(15,14,12,0.72)" }}
         >
-          <strong className="font-bold" style={{ color: "#0F0E0C" }}>96% des clients mécontents</strong> ne se plaignent pas — ils partent simplement.
-          Avec Qualywatch, ils ont une voix. <strong className="font-bold" style={{ color: "#0F0E0C" }}>Écoutez-les</strong>.
+          {isEnglish ? (
+            <>
+              <strong className="font-bold" style={{ color: "#0F0E0C" }}>96% of unhappy customers</strong> never complain directly — they simply leave.
+              With Qualywatch, they finally have a voice. <strong className="font-bold" style={{ color: "#0F0E0C" }}>Listen before they churn</strong>.
+            </>
+          ) : (
+            <>
+              <strong className="font-bold" style={{ color: "#0F0E0C" }}>96% des clients mécontents</strong> ne se plaignent pas — ils partent simplement.
+              Avec Qualywatch, ils ont une voix. <strong className="font-bold" style={{ color: "#0F0E0C" }}>Écoutez-les</strong>.
+            </>
+          )}
         </p>
 
         {/* CTAs — Essayer gratuitement = orange + white border + white text */}
@@ -171,7 +181,7 @@ export function HeroV2() {
               color: "#FFFFFF",
             }}
           >
-            Essayer gratuitement
+            {isEnglish ? "Start for free" : "Essayer gratuitement"}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth="2.5" />
           </Link>
           <Link
@@ -185,7 +195,7 @@ export function HeroV2() {
             }}
           >
             <PlayCircle className="h-5 w-5 text-orange transition-transform group-hover:scale-110" strokeWidth="2" />
-            Demander une démo
+            {isEnglish ? "Request a demo" : "Demander une démo"}
           </Link>
         </div>
 

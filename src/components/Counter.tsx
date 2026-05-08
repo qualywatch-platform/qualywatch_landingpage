@@ -19,14 +19,20 @@ export function Counter({
   decimals = 0,
   className,
 }: Props) {
-  const [displayed, setDisplayed] = useState(0);
+  const [displayed, setDisplayed] = useState(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return value;
+    }
+
+    return 0;
+  });
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setDisplayed(value);
+      started.current = true;
       return;
     }
 

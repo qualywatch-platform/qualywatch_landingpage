@@ -1,36 +1,72 @@
 import { Hotel, Landmark, Smartphone, ShoppingCart } from "lucide-react";
 
-const sectors = [
-  {
-    icon: Hotel,
-    title: "Hôtellerie & Restauration",
-    desc: "Captez l'avis du client avant qu'il ne parte — et avant qu'il ne publie. Transformez chaque séjour en apprentissage.",
-  },
-  {
-    icon: Landmark,
-    title: "Banque & Assurance",
-    desc: "Objectivez la qualité d'accueil en agence. Identifiez les frictions dans le parcours client digital et physique.",
-  },
-  {
-    icon: Smartphone,
-    title: "Télécoms & Services",
-    desc: "Suivez la satisfaction en temps réel sur vos centres d'appel, boutiques et canaux digitaux. Détectez le churn avant qu'il n'arrive.",
-  },
-  {
-    icon: ShoppingCart,
-    title: "Commerce & Distribution",
-    desc: "Évaluez l'expérience en point de vente, comparez vos sites entre eux, et donnez aux managers terrain les clés pour agir.",
-  },
-];
+const sectorsByLocale = {
+  fr: [
+    {
+      icon: Hotel,
+      title: "Hôtellerie & Restauration",
+      desc: "Captez l'avis du client avant qu'il ne parte — et avant qu'il ne publie. Transformez chaque séjour en apprentissage.",
+    },
+    {
+      icon: Landmark,
+      title: "Banque & Assurance",
+      desc: "Objectivez la qualité d'accueil en agence. Identifiez les frictions dans le parcours client digital et physique.",
+    },
+    {
+      icon: Smartphone,
+      title: "Télécoms & Services",
+      desc: "Suivez la satisfaction en temps réel sur vos centres d'appel, boutiques et canaux digitaux. Détectez le churn avant qu'il n'arrive.",
+    },
+    {
+      icon: ShoppingCart,
+      title: "Commerce & Distribution",
+      desc: "Évaluez l'expérience en point de vente, comparez vos sites entre eux, et donnez aux managers terrain les clés pour agir.",
+    },
+  ],
+  en: [
+    {
+      icon: Hotel,
+      title: "Hospitality & Restaurants",
+      desc: "Capture customer feedback before they leave — and before they post a review. Turn every stay into a lesson learned.",
+    },
+    {
+      icon: Landmark,
+      title: "Banking & Insurance",
+      desc: "Objectively measure branch experience. Spot friction across digital and in-person customer journeys.",
+    },
+    {
+      icon: Smartphone,
+      title: "Telecom & Services",
+      desc: "Track satisfaction in real time across call centers, stores and digital channels. Catch churn before it happens.",
+    },
+    {
+      icon: ShoppingCart,
+      title: "Retail & Distribution",
+      desc: "Measure in-store experience, benchmark your locations against each other, and give field managers the data to act.",
+    },
+  ],
+};
 
-export function Sectors() {
+export function Sectors({ locale = "fr" }: { locale?: "fr" | "en" }) {
+  const isEnglish = locale === "en";
+  const sectors = sectorsByLocale[locale];
   return (
     <section id="secteurs" className="px-6 py-24 lg:px-16 lg:py-32" style={{ background: "#FFFFFF" }}>
       <div className="mx-auto max-w-7xl">
         <div className="max-w-3xl">
-          <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 05 · Pour qui ?</p>
+          <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
+            {isEnglish ? "№ 05 · Who is it for?" : "№ 05 · Pour qui ?"}
+          </p>
           <h2 className="font-display mt-4 text-3xl font-bold leading-tight text-text sm:text-4xl lg:text-5xl">
-            Pensé pour les entreprises qui vivent au <span className="italic text-orange">contact du client.</span>
+            {isEnglish ? (
+              <>
+                Built for companies that live in <span className="italic text-orange">customer contact.</span>
+              </>
+            ) : (
+              <>
+                Pensé pour les entreprises qui vivent au <span className="italic text-orange">contact du client.</span>
+              </>
+            )}
           </h2>
         </div>
 

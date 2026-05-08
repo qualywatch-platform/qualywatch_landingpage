@@ -1,20 +1,68 @@
 import { VolumeX, TrendingDown, AlertTriangle, FileText, MessageCircle, Mail, Phone, Radar } from "lucide-react";
 import { Counter } from "@/components/Counter";
 
-export function Problems() {
+const channelsByLocale = {
+  fr: [
+    { icon: FileText, label: "Cahier papier", lost: "perdu" },
+    { icon: MessageCircle, label: "WhatsApp perso", lost: "oublié" },
+    { icon: Mail, label: "Email manager", lost: "noyé" },
+    { icon: Phone, label: "Appel direction", lost: "trop tard" },
+  ],
+  en: [
+    { icon: FileText, label: "Paper notebook", lost: "lost" },
+    { icon: MessageCircle, label: "Personal WhatsApp", lost: "forgotten" },
+    { icon: Mail, label: "Manager email", lost: "buried" },
+    { icon: Phone, label: "Call to HQ", lost: "too late" },
+  ],
+};
+
+const missingByLocale = {
+  fr: [
+    "Score satisfaction",
+    "NPS structuré",
+    "Taux réponse",
+    "Temps résolution",
+  ],
+  en: [
+    "Satisfaction score",
+    "Structured NPS",
+    "Response rate",
+    "Resolution time",
+  ],
+};
+
+export function Problems({ locale = "fr" }: { locale?: "fr" | "en" }) {
+  const isEnglish = locale === "en";
+  const channels = channelsByLocale[locale];
+  const missing = missingByLocale[locale];
   return (
     <section id="probleme" className="relative px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="reveal-children grid items-end gap-10 lg:grid-cols-[1fr_1.4fr]">
           <div className="reveal-item reveal-delay-1">
-            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 01 · Le Problème</p>
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
+              {isEnglish ? "№ 01 · The Problem" : "№ 01 · Le Problème"}
+            </p>
             <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
-              L&apos;expérience client est votre <span className="italic text-orange">angle mort</span> le plus coûteux.
+              {isEnglish ? (
+                <>Customer experience is your costliest <span className="italic text-orange">blind spot.</span></>
+              ) : (
+                <>L&apos;expérience client est votre <span className="italic text-orange">angle mort</span> le plus coûteux.</>
+              )}
             </h2>
           </div>
           <p className="reveal-item reveal-delay-2 text-base leading-relaxed text-text-dim lg:text-lg">
-            Chaque jour, vos clients vous envoient des signaux. La plupart disparaissent avant d&apos;arriver à la bonne personne.
-            Voici les <strong className="text-text">trois fuites</strong> qui détruisent silencieusement votre satisfaction.
+            {isEnglish ? (
+              <>
+                Every day, your customers send you signals. Most of them disappear before they reach the right person.
+                Here are the <strong className="text-text">three leaks</strong> silently destroying your satisfaction.
+              </>
+            ) : (
+              <>
+                Chaque jour, vos clients vous envoient des signaux. La plupart disparaissent avant d&apos;arriver à la bonne personne.
+                Voici les <strong className="text-text">trois fuites</strong> qui détruisent silencieusement votre satisfaction.
+              </>
+            )}
           </p>
         </div>
 
@@ -22,14 +70,12 @@ export function Problems() {
         <div className="reveal-children mt-14 grid gap-4 lg:mt-20 lg:grid-cols-12 lg:grid-rows-2">
           {/* Card 01 — TALL on left, dark inverted */}
           <div className="reveal-item reveal-delay-2 group relative overflow-hidden rounded-3xl bg-[#0F0E0C] p-8 text-white transition lg:col-span-5 lg:row-span-2 lg:p-10">
-            {/* Big number watermark */}
             <span
               aria-hidden
               className="font-display pointer-events-none absolute -right-4 -top-6 text-[200px] font-extrabold leading-none text-white/[0.04] sm:-right-8 sm:-top-12 sm:text-[280px]"
             >
               01
             </span>
-            {/* Top-right glow */}
             <div
               aria-hidden
               className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full opacity-60 transition group-hover:opacity-90"
@@ -39,27 +85,27 @@ export function Problems() {
             <div className="relative">
               <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-orange">
                 <VolumeX className="h-3.5 w-3.5" />
-                Fuite #1
+                {isEnglish ? "Leak #1" : "Fuite #1"}
               </span>
               <h3 className="font-display mt-6 text-3xl font-bold leading-tight lg:text-4xl">
-                Des retours qui se perdent <span className="italic text-orange">dans le bruit.</span>
+                {isEnglish ? (
+                  <>Feedback that gets lost <span className="italic text-orange">in the noise.</span></>
+                ) : (
+                  <>Des retours qui se perdent <span className="italic text-orange">dans le bruit.</span></>
+                )}
               </h3>
               <p className="mt-5 text-[15px] leading-relaxed text-white/75">
-                Fiches papier, WhatsApp, e-mails… Les feedbacks clients arrivent partout sauf là où ils seraient utiles.
+                {isEnglish
+                  ? "Paper forms, WhatsApp, emails… Customer feedback ends up everywhere except where it would be useful."
+                  : "Fiches papier, WhatsApp, e-mails… Les feedbacks clients arrivent partout sauf là où ils seraient utiles."}
               </p>
 
-              {/* Channels lost — visual filler */}
               <div className="mt-8">
                 <div className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.6)" }}>
-                  Canaux fragmentés
+                  {isEnglish ? "Fragmented channels" : "Canaux fragmentés"}
                 </div>
                 <div className="mt-3 grid grid-cols-2 gap-2">
-                  {[
-                    { icon: FileText, label: "Cahier papier", lost: "perdu" },
-                    { icon: MessageCircle, label: "WhatsApp perso", lost: "oublié" },
-                    { icon: Mail, label: "Email manager", lost: "noyé" },
-                    { icon: Phone, label: "Appel direction", lost: "trop tard" },
-                  ].map((c) => (
+                  {channels.map((c) => (
                     <div
                       key={c.label}
                       className="flex items-center gap-2.5 rounded-xl border p-2.5 transition hover:border-orange/50"
@@ -88,33 +134,37 @@ export function Problems() {
                 </div>
               </div>
 
-              {/* Big stat */}
               <div className="mt-7 flex items-baseline gap-3 border-t border-white/10 pt-5">
                 <Counter value={70} suffix="%" className="font-display text-5xl font-extrabold text-orange lg:text-6xl" />
                 <span className="max-w-[180px] text-xs" style={{ color: "rgba(255,255,255,0.65)" }}>
-                  des remontées terrain ne dépassent <span className="font-bold" style={{ color: "#FFFFFF" }}>jamais</span> le premier interlocuteur.
+                  {isEnglish ? (
+                    <>of field feedback <span className="font-bold" style={{ color: "#FFFFFF" }}>never</span> makes it past the first contact.</>
+                  ) : (
+                    <>des remontées terrain ne dépassent <span className="font-bold" style={{ color: "#FFFFFF" }}>jamais</span> le premier interlocuteur.</>
+                  )}
                 </span>
               </div>
 
-              {/* Bottom insight quote */}
               <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
                 <div className="flex items-start gap-3">
-                  <span className="font-display text-2xl leading-none" style={{ color: "#FA700D" }}>«</span>
+                  <span className="font-display text-2xl leading-none" style={{ color: "#FA700D" }}>{isEnglish ? "\"" : "«"}</span>
                   <p className="text-[12.5px] italic leading-relaxed" style={{ color: "rgba(255,255,255,0.85)" }}>
-                    Le client mécontent ne se plaint pas. Il part. Et il en parle à 12 personnes.
+                    {isEnglish
+                      ? "Unhappy customers don't complain. They leave. And they tell 12 people."
+                      : "Le client mécontent ne se plaint pas. Il part. Et il en parle à 12 personnes."}
                   </p>
                 </div>
                 <div className="mt-2 flex items-center gap-2 pl-7">
                   <span className="h-1 w-1 rounded-full bg-orange" />
                   <span className="font-mono text-[9px] uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.55)" }}>
-                    Étude QualyWatch · 2.4M feedbacks
+                    {isEnglish ? "Qualywatch study · 2.4M feedbacks" : "Étude QualyWatch · 2.4M feedbacks"}
                   </span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Card 02 — TOP RIGHT, vibrant orange (compact) */}
+          {/* Card 02 */}
           <div
             className="reveal-item reveal-delay-3 group relative overflow-hidden rounded-3xl p-8 transition lg:col-span-7 lg:p-10"
             style={{
@@ -123,7 +173,6 @@ export function Problems() {
               border: "1px solid rgba(250,112,13,0.35)",
             }}
           >
-            {/* Big number watermark */}
             <span
               aria-hidden
               className="font-display pointer-events-none absolute -right-4 -top-6 text-[180px] font-extrabold leading-none sm:-right-8 sm:-top-10 sm:text-[220px]"
@@ -133,7 +182,6 @@ export function Problems() {
             </span>
 
             <div className="relative flex items-start gap-6">
-              {/* Quarterly bar chart visual */}
               <div className="hidden shrink-0 sm:block">
                 <div className="bars-grow flex h-24 items-end gap-1.5">
                   {[60, 50, 40, 30, 22, 16, 10].map((h, i) => (
@@ -158,37 +206,53 @@ export function Problems() {
               <div className="min-w-0 flex-1">
                 <span className="inline-flex items-center gap-2 rounded-full bg-orange/15 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-orange">
                   <TrendingDown className="h-3.5 w-3.5" />
-                  Fuite #2
+                  {isEnglish ? "Leak #2" : "Fuite #2"}
                 </span>
                 <h3 className="font-display mt-4 text-2xl font-bold leading-tight text-text lg:text-3xl">
-                  Des données <span className="italic text-orange">sans action.</span>
+                  {isEnglish ? (
+                    <>Data <span className="italic text-orange">without action.</span></>
+                  ) : (
+                    <>Des données <span className="italic text-orange">sans action.</span></>
+                  )}
                 </h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-text-dim">
-                  NPS trimestriel, mais que faites-vous entre deux mesures ? Sans lien entre l&apos;indicateur et l&apos;action, le chiffre reste décoratif.
+                  {isEnglish
+                    ? "Quarterly NPS — but what do you do between two readings? With no link from indicator to action, the number stays decorative."
+                    : "NPS trimestriel, mais que faites-vous entre deux mesures ? Sans lien entre l'indicateur et l'action, le chiffre reste décoratif."}
                 </p>
               </div>
             </div>
 
-            {/* Mesure → Action → Conséquence */}
             <div className="relative mt-7 grid gap-3 border-t border-card-border pt-6 sm:grid-cols-3">
               <div className="rounded-xl border border-card-border bg-card p-3">
-                <div className="font-mono text-[10px] uppercase tracking-widest text-text-mute">Mesure</div>
-                <div className="font-display mt-1 text-base font-bold text-text">Trimestrielle</div>
+                <div className="font-mono text-[10px] uppercase tracking-widest text-text-mute">
+                  {isEnglish ? "Measure" : "Mesure"}
+                </div>
+                <div className="font-display mt-1 text-base font-bold text-text">
+                  {isEnglish ? "Quarterly" : "Trimestrielle"}
+                </div>
               </div>
               <div className="rounded-xl border border-card-border bg-card p-3">
-                <div className="font-mono text-[10px] uppercase tracking-widest text-text-mute">Action</div>
-                <div className="font-display mt-1 text-base font-bold text-orange">∅ Aucune</div>
+                <div className="font-mono text-[10px] uppercase tracking-widest text-text-mute">
+                  {isEnglish ? "Action" : "Action"}
+                </div>
+                <div className="font-display mt-1 text-base font-bold text-orange">
+                  {isEnglish ? "∅ None" : "∅ Aucune"}
+                </div>
               </div>
               <div className="rounded-xl border border-orange/30 bg-orange/10 p-3">
-                <div className="font-mono text-[10px] uppercase tracking-widest text-orange">Conséquence</div>
-                <div className="font-display mt-1 text-base font-bold text-text">Décoratif</div>
+                <div className="font-mono text-[10px] uppercase tracking-widest text-orange">
+                  {isEnglish ? "Outcome" : "Conséquence"}
+                </div>
+                <div className="font-display mt-1 text-base font-bold text-text">
+                  {isEnglish ? "Decorative" : "Décoratif"}
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Card 03 — BOTTOM RIGHT, light card (compact) */}
+          {/* Card 03 */}
           <div className="reveal-item reveal-delay-4 group relative overflow-hidden rounded-3xl border border-card-border bg-card p-8 transition hover:border-orange/40 lg:col-span-7 lg:p-10">
-            {/* Big number watermark */}
             <span
               aria-hidden
               className="font-display pointer-events-none absolute -right-4 -top-6 text-[180px] font-extrabold leading-none sm:-right-8 sm:-top-10 sm:text-[220px]"
@@ -196,7 +260,6 @@ export function Problems() {
             >
               03
             </span>
-            {/* Top-right glow */}
             <div
               aria-hidden
               className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full opacity-50 transition group-hover:opacity-80"
@@ -204,11 +267,10 @@ export function Problems() {
             />
 
             <div className="relative flex items-start gap-6">
-              {/* Intuition vs Donnée mini gauges (vertical) */}
               <div className="hidden shrink-0 flex-col gap-2 sm:flex">
                 {[
-                  { label: "Intuition", val: 92, accent: false },
-                  { label: "Donnée", val: 18, accent: true },
+                  { label: isEnglish ? "Intuition" : "Intuition", val: 92, accent: false },
+                  { label: isEnglish ? "Data" : "Donnée", val: 18, accent: true },
                 ].map((b) => (
                   <div key={b.label} className="w-28 rounded-xl border border-card-border bg-card-border/30 p-2.5">
                     <div className="flex items-baseline justify-between">
@@ -228,25 +290,25 @@ export function Problems() {
               <div className="min-w-0 flex-1">
                 <span className="inline-flex items-center gap-2 rounded-full bg-card-border px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-text">
                   <Radar className="h-3.5 w-3.5 text-orange" />
-                  Fuite #3
+                  {isEnglish ? "Leak #3" : "Fuite #3"}
                 </span>
                 <h3 className="font-display mt-4 text-2xl font-bold leading-tight text-text lg:text-3xl">
-                  Un ressenti <span className="italic text-orange">impossible</span> à objectiver.
+                  {isEnglish ? (
+                    <>A perception <span className="italic text-orange">impossible</span> to objectify.</>
+                  ) : (
+                    <>Un ressenti <span className="italic text-orange">impossible</span> à objectiver.</>
+                  )}
                 </h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-text-dim">
-                  « Les clients sont contents » — vraiment ? Sans système structuré, la qualité perçue reste une intuition, pas une donnée de pilotage.
+                  {isEnglish
+                    ? "\"Customers are happy\" — really? Without a structured system, perceived quality stays a hunch, not a steering metric."
+                    : "« Les clients sont contents » — vraiment ? Sans système structuré, la qualité perçue reste une intuition, pas une donnée de pilotage."}
                 </p>
               </div>
             </div>
 
-            {/* Indicateurs absents */}
             <div className="relative mt-7 grid gap-3 border-t border-card-border pt-6 sm:grid-cols-4">
-              {[
-                "Score satisfaction",
-                "NPS structuré",
-                "Taux réponse",
-                "Temps résolution",
-              ].map((k) => (
+              {missing.map((k) => (
                 <div
                   key={k}
                   className="flex items-center gap-2 rounded-xl border border-card-border bg-card-border/30 p-2.5"

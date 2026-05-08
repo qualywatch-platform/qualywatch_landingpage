@@ -1,6 +1,7 @@
 import Image from "next/image";
 
-export function Story() {
+export function Story({ locale = "fr" }: { locale?: "fr" | "en" }) {
+  const isEnglish = locale === "en";
   return (
     <section id="histoire" className="relative overflow-hidden px-6 py-20 lg:px-16 lg:py-28" style={{ background: "#F9FAFC" }}>
       {/* Subtle decorative ring */}
@@ -22,7 +23,7 @@ export function Story() {
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[28px] border border-card-border bg-card shadow-card">
               <Image
                 src="/founder.jpg"
-                alt="Aissatou Seye, fondatrice"
+                alt={isEnglish ? "Aissatou Seye, founder" : "Aissatou Seye, fondatrice"}
                 fill
                 sizes="(min-width: 1024px) 520px, 420px"
                 className="object-cover object-top"
@@ -31,7 +32,9 @@ export function Story() {
               <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/65 via-black/25 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-5">
                 <div className="font-display text-base font-bold text-white">Aissatou Seye</div>
-                <div className="text-[11px] text-white/85">Fondatrice &amp; CEO · Qualywatch</div>
+                <div className="text-[11px] text-white/85">
+                  {isEnglish ? "Founder & CEO · Qualywatch" : "Fondatrice & CEO · Qualywatch"}
+                </div>
               </div>
             </div>
 
@@ -44,32 +47,59 @@ export function Story() {
 
           {/* RIGHT — label + minimaliste copy */}
           <div>
-            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 11 · Notre histoire</p>
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
+              {isEnglish ? "№ 11 · Our story" : "№ 11 · Notre histoire"}
+            </p>
             <h2 className="font-display mt-3 text-2xl font-bold leading-tight text-text sm:text-3xl lg:text-4xl">
-              La vision derrière <span className="italic text-orange">Qualywatch.</span>
+              {isEnglish ? (
+                <>The vision behind <span className="italic text-orange">Qualywatch.</span></>
+              ) : (
+                <>La vision derrière <span className="italic text-orange">Qualywatch.</span></>
+              )}
             </h2>
 
             <blockquote className="font-display mt-7 text-lg italic leading-snug text-text lg:text-xl">
-              « J&apos;ai vu trop d&apos;entreprises perdre leurs meilleurs clients sans le savoir. Qualywatch existe pour que ça n&apos;arrive plus jamais. »
+              {isEnglish
+                ? "\"I've seen too many companies lose their best customers without ever knowing. Qualywatch exists so that never happens again.\""
+                : "« J'ai vu trop d'entreprises perdre leurs meilleurs clients sans le savoir. Qualywatch existe pour que ça n'arrive plus jamais. »"}
             </blockquote>
 
             <p className="mt-5 text-sm leading-relaxed text-text-dim lg:text-[15px]">
-              Un client mécontent ne se plaint jamais — il s&apos;en va. Et puis il en parle à <span className="text-text">12 personnes</span>, lâche un <span className="text-text">bad review</span>, fait un <span className="text-text">live indigné</span>, ou poste un thread qui devient viral. Les entreprises perdent leur réputation en silence, sans avoir l&apos;occasion de réagir.
+              {isEnglish ? (
+                <>
+                  An unhappy customer never complains — they just leave. Then they tell <span className="text-text">12 people</span>, drop a <span className="text-text">bad review</span>, post an <span className="text-text">angry live</span>, or start a thread that goes viral. Companies lose their reputation in silence, with no chance to react.
+                </>
+              ) : (
+                <>
+                  Un client mécontent ne se plaint jamais — il s&apos;en va. Et puis il en parle à <span className="text-text">12 personnes</span>, lâche un <span className="text-text">bad review</span>, fait un <span className="text-text">live indigné</span>, ou poste un thread qui devient viral. Les entreprises perdent leur réputation en silence, sans avoir l&apos;occasion de réagir.
+                </>
+              )}
             </p>
             <p className="mt-3 text-sm leading-relaxed text-text-dim lg:text-[15px]">
-              Qualywatch n&apos;est pas un énième formulaire. C&apos;est l&apos;infrastructure qui transforme chaque feedback en décision — et chaque client mécontent en client retenu.
+              {isEnglish
+                ? "Qualywatch isn't yet another form. It's the infrastructure that turns every piece of feedback into a decision — and every unhappy customer into a retained one."
+                : "Qualywatch n'est pas un énième formulaire. C'est l'infrastructure qui transforme chaque feedback en décision — et chaque client mécontent en client retenu."}
             </p>
             <p className="font-display mt-4 text-base font-bold italic text-orange lg:text-lg">
-              La satisfaction n&apos;est pas un KPI. C&apos;est la promesse que vous tenez à vos clients.
+              {isEnglish
+                ? "Satisfaction isn't a KPI. It's the promise you keep to your customers."
+                : "La satisfaction n'est pas un KPI. C'est la promesse que vous tenez à vos clients."}
             </p>
 
             {/* Compact stats — pro layout, label above value */}
             <div className="mt-7 grid grid-cols-3 gap-4 border-t border-card-border pt-6">
-              {[
-                { label: "Fondation", value: "2024" },
-                { label: "Conçu à", value: "Dakar" },
-                { label: "Lancement", value: "2026" },
-              ].map((s) => (
+              {(isEnglish
+                ? [
+                    { label: "Founded", value: "2024" },
+                    { label: "Built in", value: "Dakar" },
+                    { label: "Launch", value: "2026" },
+                  ]
+                : [
+                    { label: "Fondation", value: "2024" },
+                    { label: "Conçu à", value: "Dakar" },
+                    { label: "Lancement", value: "2026" },
+                  ]
+              ).map((s) => (
                 <div key={s.label}>
                   <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-text-mute">
                     {s.label}

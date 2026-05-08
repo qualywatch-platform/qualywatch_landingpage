@@ -3,19 +3,38 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight } from "lucide-react";
+import { Locale, getLocalizedPath, swapLocaleInPath } from "@/lib/i18n";
 
-const links = [
-  { href: "#fonctionnalites", label: "Produit" },
-  { href: "#secteurs", label: "Solutions" },
-  { href: "#tarifs", label: "Tarifs" },
-  { href: "#histoire", label: "Entreprise" },
-  { href: "#faq", label: "FAQ" },
-  { href: "#contact", label: "Contact" },
-];
+const linkLabels = {
+  fr: [
+    { href: "#fonctionnalites", label: "Produit" },
+    { href: "#secteurs", label: "Solutions" },
+    { href: "#tarifs", label: "Tarifs" },
+    { href: "#histoire", label: "Entreprise" },
+    { href: "#faq", label: "FAQ" },
+    { href: "#contact", label: "Contact" },
+  ],
+  en: [
+    { href: "#fonctionnalites", label: "Product" },
+    { href: "#secteurs", label: "Solutions" },
+    { href: "#tarifs", label: "Pricing" },
+    { href: "#histoire", label: "Company" },
+    { href: "#faq", label: "FAQ" },
+    { href: "#contact", label: "Contact" },
+  ],
+} satisfies Record<Locale, Array<{ href: string; label: string }>>;
 
-export function NavbarV2() {
+export function NavbarV2({ locale = "fr" }: { locale?: Locale }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const links = linkLabels[locale];
+  const switchLabel = locale === "fr" ? "EN" : "FR";
+  const switchHref = swapLocaleInPath(pathname, locale === "fr" ? "en" : "fr");
+  const ctaLabel = locale === "fr" ? "Essayer gratuitement" : "Start for free";
+  const ctaCompact = locale === "fr" ? "Essayer" : "Start";
+  const badgeLabel = locale === "fr" ? "Soft launch" : "Soft launch";
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-4">
@@ -25,7 +44,7 @@ export function NavbarV2() {
         style={{ background: "rgba(15, 14, 12, 0.78)" }}
       >
         {/* Logo — QualyWatch smiley + white text */}
-        <Link href="/" className="group inline-flex items-center gap-2.5">
+        <Link href={getLocalizedPath(locale, "/")} className="group inline-flex items-center gap-2.5">
           <span className="relative inline-flex h-10 w-10 items-center justify-center transition-transform group-hover:scale-105">
             <Image
               src="/qualywatch-logo.png"
@@ -43,7 +62,7 @@ export function NavbarV2() {
             <span
               className="inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-orange/30 bg-orange/10 px-2 py-0.5 text-[8.5px] font-black uppercase tracking-[0.16em] text-orange sm:px-3.5 sm:py-1 sm:text-[11px] sm:tracking-[0.22em]"
             >
-              Soft launch
+              {badgeLabel}
             </span>
           </span>
         </Link>
@@ -53,7 +72,7 @@ export function NavbarV2() {
           {links.map((l) => (
             <Link
               key={l.href}
-              href={l.href}
+              href={getLocalizedPath(locale, l.href)}
               className="rounded-full px-3.5 py-1.5 text-[13px] font-semibold transition hover:bg-orange/15 hover:text-orange"
               style={{ color: "#FFFFFF" }}
             >
@@ -69,15 +88,22 @@ export function NavbarV2() {
             className="group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-orange px-3 py-1.5 text-[12px] font-bold btn-lift hover:bg-orange-deep sm:px-5 sm:py-2.5 sm:text-[13px]"
             style={{ color: "#FFFFFF" }}
           >
-            <span className="sm:hidden">Essayer</span>
-            <span className="hidden sm:inline">Essayer gratuitement</span>
+            <span className="sm:hidden">{ctaCompact}</span>
+            <span className="hidden sm:inline">{ctaLabel}</span>
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" strokeWidth="2.5" />
+          </Link>
+
+          <Link
+            href={switchHref}
+            className="hidden rounded-full border border-white/25 px-3 py-1.5 text-[12px] font-bold text-white/90 transition hover:bg-white/15 sm:inline-flex"
+          >
+            {switchLabel}
           </Link>
 
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Menu"
+            aria-label={locale === "fr" ? "Menu" : "Menu"}
             className="relative inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/25 text-white transition hover:bg-white/15 lg:hidden"
             style={{ background: "rgba(255,255,255,0.08)" }}
           >
@@ -96,7 +122,7 @@ export function NavbarV2() {
             {links.map((l) => (
               <Link
                 key={l.href}
-                href={l.href}
+                href={getLocalizedPath(locale, l.href)}
                 onClick={() => setMobileOpen(false)}
                 className="rounded-2xl px-3.5 py-3 text-base font-semibold transition hover:bg-orange/15 hover:text-orange"
                 style={{ color: "#FFFFFF" }}
@@ -104,6 +130,14 @@ export function NavbarV2() {
                 {l.label}
               </Link>
             ))}
+            <Link
+              href={switchHref}
+              onClick={() => setMobileOpen(false)}
+              className="rounded-2xl px-3.5 py-3 text-base font-semibold transition hover:bg-orange/15 hover:text-orange"
+              style={{ color: "#FFFFFF" }}
+            >
+              {locale === "fr" ? "Switch to English" : "Passer en français"}
+            </Link>
           </div>
         </div>
       )}

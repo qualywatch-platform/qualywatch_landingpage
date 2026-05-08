@@ -1,7 +1,20 @@
 import Image from "next/image";
 import { Apple, Smartphone, Wifi, Battery, Signal, Globe, Zap } from "lucide-react";
 
-export function AppStores() {
+const featuresByLocale = {
+  fr: [
+    { icon: Zap, label: "Push notifications" },
+    { icon: Smartphone, label: "Sync auto multi-appareils" },
+  ],
+  en: [
+    { icon: Zap, label: "Push notifications" },
+    { icon: Smartphone, label: "Multi-device auto sync" },
+  ],
+};
+
+export function AppStores({ locale = "fr" }: { locale?: "fr" | "en" }) {
+  const isEnglish = locale === "en";
+  const features = featuresByLocale[locale];
   return (
     <section id="apps" className="relative overflow-hidden px-6 py-24 lg:px-16 lg:py-32">
       {/* Decorative shapes */}
@@ -27,14 +40,21 @@ export function AppStores() {
       <div className="relative mx-auto max-w-7xl">
         <div className="mb-16 grid items-end gap-10 lg:grid-cols-[1fr_1.4fr]">
           <div>
-            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 16 · Plateforme</p>
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
+              {isEnglish ? "№ 16 · Platform" : "№ 16 · Plateforme"}
+            </p>
             <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
-              Web, iOS, Android — <span className="italic text-orange">tout est là.</span>
+              {isEnglish ? (
+                <>Web, iOS, Android — <span className="italic text-orange">it&apos;s all here.</span></>
+              ) : (
+                <>Web, iOS, Android — <span className="italic text-orange">tout est là.</span></>
+              )}
             </h2>
           </div>
           <p className="text-base leading-relaxed text-text-dim lg:text-lg">
-            Pilotez votre satisfaction client depuis votre bureau ou en mobilité. Une seule connexion, vos données partout.
-            Téléchargez l&apos;app sur App Store ou Google Play.
+            {isEnglish
+              ? "Run your customer satisfaction from your desk or on the move. One login, your data everywhere. Download the app on App Store or Google Play."
+              : "Pilotez votre satisfaction client depuis votre bureau ou en mobilité. Une seule connexion, vos données partout. Téléchargez l'app sur App Store ou Google Play."}
           </p>
         </div>
 
@@ -77,14 +97,18 @@ export function AppStores() {
                 }}
               >
                 <Smartphone className="h-3.5 w-3.5" strokeWidth="2.5" />
-                Application mobile
+                {isEnglish ? "Mobile app" : "Application mobile"}
               </div>
 
               <h3
                 className="font-display mt-5 text-2xl font-bold leading-tight sm:text-3xl lg:text-[40px]"
                 style={{ color: "#0F0E0C" }}
               >
-                Vos feedbacks en poche, <span className="italic" style={{ color: "#FFFFFF" }}>partout, tout le temps.</span>
+                {isEnglish ? (
+                  <>Your feedback in your pocket, <span className="italic" style={{ color: "#FFFFFF" }}>everywhere, all the time.</span></>
+                ) : (
+                  <>Vos feedbacks en poche, <span className="italic" style={{ color: "#FFFFFF" }}>partout, tout le temps.</span></>
+                )}
               </h3>
 
               {/* Platform pills */}
@@ -113,17 +137,27 @@ export function AppStores() {
                 className="mt-5 text-[15px] leading-relaxed"
                 style={{ color: "rgba(15,14,12,0.85)" }}
               >
-                <strong>Notifications temps réel</strong>, dashboard mobile, validation des feedbacks
-                en quelques secondes. L&apos;app native iOS et Android, conçue pour les équipes
-                terrain qui pilotent leur enseigne au quotidien.
+                {isEnglish ? (
+                  <>
+                    <strong>Real-time notifications</strong>, mobile dashboard, feedback validation in seconds.
+                    The native iOS and Android app, built for field teams who run their business daily.
+                  </>
+                ) : (
+                  <>
+                    <strong>Notifications temps réel</strong>, dashboard mobile, validation des feedbacks
+                    en quelques secondes. L&apos;app native iOS et Android, conçue pour les équipes
+                    terrain qui pilotent leur enseigne au quotidien.
+                  </>
+                )}
               </p>
 
               <p
                 className="mt-3 text-[14px] leading-relaxed"
                 style={{ color: "rgba(15,14,12,0.72)" }}
               >
-                Vos managers reçoivent une alerte dès qu&apos;un client laisse un feedback critique.
-                Ils peuvent intervenir, assigner, répondre — directement depuis leur poche.
+                {isEnglish
+                  ? "Your managers get an alert the moment a customer leaves a critical feedback. They can step in, assign, reply — straight from their pocket."
+                  : "Vos managers reçoivent une alerte dès qu'un client laisse un feedback critique. Ils peuvent intervenir, assigner, répondre — directement depuis leur poche."}
               </p>
 
               {/* Feature list */}
@@ -131,10 +165,7 @@ export function AppStores() {
                 className="mt-5 grid gap-2 text-[13.5px] sm:grid-cols-2"
                 style={{ color: "rgba(15,14,12,0.92)" }}
               >
-                {[
-                  { icon: Zap, label: "Push notifications" },
-                  { icon: Smartphone, label: "Sync auto multi-appareils" },
-                ].map((f) => (
+                {features.map((f) => (
                   <li key={f.label} className="flex items-center gap-2">
                     <span
                       className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full"
@@ -153,7 +184,7 @@ export function AppStores() {
                   className="text-xs font-semibold uppercase tracking-[0.2em]"
                   style={{ color: "rgba(15,14,12,0.78)" }}
                 >
-                  Bientôt disponible
+                  {isEnglish ? "Coming soon" : "Bientôt disponible"}
                 </p>
                 <div className="mt-2 flex flex-wrap gap-3">
                   <div
@@ -162,11 +193,13 @@ export function AppStores() {
                   >
                     <Apple className="h-7 w-7 text-white" strokeWidth="1.5" />
                     <div className="text-left">
-                      <div className="text-[10px] font-medium uppercase tracking-wider text-white opacity-70">Bientôt sur</div>
+                      <div className="text-[10px] font-medium uppercase tracking-wider text-white opacity-70">
+                        {isEnglish ? "Coming soon to" : "Bientôt sur"}
+                      </div>
                       <div className="font-display text-[15px] font-bold leading-tight text-white">App Store</div>
                     </div>
                     <span className="absolute -right-2 -top-2 rounded-full bg-orange px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-white shadow-orange-soft">
-                      Bientôt
+                      {isEnglish ? "Soon" : "Bientôt"}
                     </span>
                   </div>
                   <div
@@ -177,11 +210,13 @@ export function AppStores() {
                       <path d="M99.617 8.057a50.191 50.191 0 0 0-38.815-6.713l230.932 230.933 74.846-74.846L99.617 8.057zM32.139 20.116c-6.441 8.563-10.148 19.077-10.148 30.199v411.358c0 11.123 3.708 21.636 10.148 30.199l235.877-235.877L32.139 20.116zM464.261 212.087l-67.266-37.637-81.544 81.544 81.548 81.548 67.273-37.64c16.117-9.03 25.738-25.442 25.738-43.908s-9.621-34.877-25.749-43.907zM291.733 279.711L60.815 510.629c3.786.891 7.639 1.371 11.492 1.371a50.275 50.275 0 0 0 27.31-8.07l266.965-149.736-74.849-74.483z"/>
                     </svg>
                     <div className="text-left">
-                      <div className="text-[10px] font-medium uppercase tracking-wider text-white opacity-70">Bientôt sur</div>
+                      <div className="text-[10px] font-medium uppercase tracking-wider text-white opacity-70">
+                        {isEnglish ? "Coming soon to" : "Bientôt sur"}
+                      </div>
                       <div className="font-display text-[15px] font-bold leading-tight text-white">Google Play</div>
                     </div>
                     <span className="absolute -right-2 -top-2 rounded-full bg-orange px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-white shadow-orange-soft">
-                      Bientôt
+                      {isEnglish ? "Soon" : "Bientôt"}
                     </span>
                   </div>
                 </div>
@@ -213,7 +248,7 @@ export function AppStores() {
                   <div className="relative h-full w-full">
                     <Image
                       src="/mobile-screenshot.png"
-                      alt="QualyWatch mobile"
+                      alt={isEnglish ? "Qualywatch mobile" : "QualyWatch mobile"}
                       fill
                       sizes="280px"
                       className="object-cover"
@@ -230,7 +265,9 @@ export function AppStores() {
                 </div>
 
                 <div className="absolute -left-4 bottom-16 hidden rounded-2xl border border-card-border bg-card p-3 shadow-card sm:block">
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-orange">Native</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-orange">
+                    {isEnglish ? "Native" : "Native"}
+                  </div>
                   <div className="font-display text-sm font-bold text-text">Flutter 3.x</div>
                 </div>
               </div>

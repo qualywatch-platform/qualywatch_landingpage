@@ -2,7 +2,8 @@ import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { CursorSpotlight } from "@/components/CursorSpotlight";
 
-export function CTA() {
+export function CTA({ locale = "fr" }: { locale?: "fr" | "en" }) {
+  const isEnglish = locale === "en";
   return (
     <section
       id="rejoindre"
@@ -90,23 +91,29 @@ export function CTA() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange opacity-75" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-orange" />
           </span>
-          Prêt en 10 minutes
+          {isEnglish ? "Ready in 10 minutes" : "Prêt en 10 minutes"}
         </span>
 
         <h2
           className="font-display mt-7 text-4xl font-extrabold leading-[1.02] sm:text-5xl lg:text-7xl"
           style={{ color: "#FFFFFF" }}
         >
-          Prêt à <span className="italic" style={{ color: "#FA700D" }}>écouter</span> <br className="hidden sm:block" />
-          vos clients ?
+          {isEnglish ? (
+            <>Ready to <span className="italic" style={{ color: "#FA700D" }}>listen</span> <br className="hidden sm:block" />to your customers?</>
+          ) : (
+            <>Prêt à <span className="italic" style={{ color: "#FA700D" }}>écouter</span> <br className="hidden sm:block" />vos clients ?</>
+          )}
         </h2>
 
         <p
           className="mx-auto mt-7 max-w-xl text-base leading-relaxed sm:text-lg"
           style={{ color: "rgba(255,255,255,0.78)" }}
         >
-          Rejoignez les <strong style={{ color: "#FFFFFF" }}>500+ établissements</strong> qui font confiance à Qualywatch
-          pour améliorer leur expérience client.
+          {isEnglish ? (
+            <>Join <strong style={{ color: "#FFFFFF" }}>500+ venues</strong> already using Qualywatch to improve customer experience.</>
+          ) : (
+            <>Rejoignez les <strong style={{ color: "#FFFFFF" }}>500+ établissements</strong> qui font confiance à Qualywatch pour améliorer leur expérience client.</>
+          )}
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -115,7 +122,7 @@ export function CTA() {
             className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange px-8 py-4 text-base font-bold shadow-orange btn-lift sm:w-auto sm:text-lg"
             style={{ color: "#FFFFFF" }}
           >
-            Commencer l&apos;essai gratuit
+            {isEnglish ? "Start free trial" : "Commencer l'essai gratuit"}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth="2.5" />
           </Link>
           <Link
@@ -127,7 +134,7 @@ export function CTA() {
               background: "rgba(255,255,255,0.06)",
             }}
           >
-            Demander une démo
+            {isEnglish ? "Request a demo" : "Demander une démo"}
           </Link>
         </div>
 
@@ -136,13 +143,13 @@ export function CTA() {
           style={{ color: "rgba(255,255,255,0.7)" }}
         >
           <span className="inline-flex items-center gap-1.5">
-            <Check className="h-4 w-4" strokeWidth="3" style={{ color: "#FA700D" }} /> Sans engagement
+            <Check className="h-4 w-4" strokeWidth="3" style={{ color: "#FA700D" }} /> {isEnglish ? "No commitment" : "Sans engagement"}
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <Check className="h-4 w-4" strokeWidth="3" style={{ color: "#FA700D" }} /> Pas de carte requise
+            <Check className="h-4 w-4" strokeWidth="3" style={{ color: "#FA700D" }} /> {isEnglish ? "No card required" : "Pas de carte requise"}
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <Check className="h-4 w-4" strokeWidth="3" style={{ color: "#FA700D" }} /> Configuration immédiate
+            <Check className="h-4 w-4" strokeWidth="3" style={{ color: "#FA700D" }} /> {isEnglish ? "Instant setup" : "Configuration immédiate"}
           </span>
         </div>
       </div>

@@ -25,7 +25,8 @@ const DEFAULT_MESSAGE =
   "Bonjour, je souhaite faire partie des testeurs du soft launch de Qualywatch. " +
   "Pouvons-nous échanger ?";
 
-export function Contact() {
+export function Contact({ locale = "fr" }: { locale?: "fr" | "en" }) {
+  const isEnglish = locale === "en";
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
@@ -34,13 +35,13 @@ export function Contact() {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const subject = `Soft launch Qualywatch — ${name || "Demande d'accès"}${company ? ` (${company})` : ""}`;
+    const subject = `Soft launch Qualywatch — ${name || (isEnglish ? "Access request" : "Demande d'accès")}${company ? ` (${company})` : ""}`;
     const body = [
-      `Nom : ${name || "—"}`,
+      `${isEnglish ? "Name" : "Nom"} : ${name || "—"}`,
       `Email : ${email || "—"}`,
-      `Entreprise : ${company || "—"}`,
+      `${isEnglish ? "Company" : "Entreprise"} : ${company || "—"}`,
       "",
-      "Message :",
+      `${isEnglish ? "Message" : "Message"} :`,
       message || DEFAULT_MESSAGE,
     ].join("\n");
 
@@ -76,12 +77,17 @@ export function Contact() {
               № 17 · Contact · Soft launch
             </p>
             <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
-              Discutons. <span className="italic text-orange">On répond vite.</span>
+              {isEnglish ? (
+                <>Let&apos;s talk. <span className="italic text-orange">We reply fast.</span></>
+              ) : (
+                <>Discutons. <span className="italic text-orange">On répond vite.</span></>
+              )}
             </h2>
           </div>
           <p className="text-base leading-relaxed text-text-dim lg:text-lg">
-            Qualywatch est en accès anticipé. Laissez-nous un mot et nous vous ouvrons l&apos;app
-            sous <strong className="text-text">24h ouvrées</strong>.
+            {isEnglish
+              ? "Qualywatch is in early access. Leave us a note and we will open the app for you within 24 business hours."
+              : "Qualywatch est en accès anticipé. Laissez-nous un mot et nous vous ouvrons l'app sous 24h ouvrées."}
           </p>
         </div>
 
@@ -118,8 +124,8 @@ export function Contact() {
                   <MapPin className="h-4 w-4" strokeWidth="2.5" />
                 </span>
                 <div>
-                  <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-text-mute">Bureau</div>
-                  <div className="font-display mt-1 text-sm font-bold text-text">Dakar, Sénégal</div>
+                  <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-text-mute">{isEnglish ? "Office" : "Bureau"}</div>
+                  <div className="font-display mt-1 text-sm font-bold text-text">{isEnglish ? "Dakar, Senegal" : "Dakar, Sénégal"}</div>
                 </div>
               </div>
               <div className="flex items-start gap-3 rounded-2xl border border-card-border bg-card p-5">
@@ -127,8 +133,8 @@ export function Contact() {
                   <Clock className="h-4 w-4" strokeWidth="2.5" />
                 </span>
                 <div>
-                  <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-text-mute">Horaires</div>
-                  <div className="font-display mt-1 text-sm font-bold text-text">Lun – Ven · 9h – 18h</div>
+                  <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-text-mute">{isEnglish ? "Hours" : "Horaires"}</div>
+                  <div className="font-display mt-1 text-sm font-bold text-text">{isEnglish ? "Mon – Fri · 9am – 6pm" : "Lun – Ven · 9h – 18h"}</div>
                 </div>
               </div>
             </div>
@@ -151,10 +157,10 @@ export function Contact() {
             <div className="relative">
               <span className="inline-flex items-center gap-2 rounded-full bg-orange/15 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-orange">
                 <Send className="h-3.5 w-3.5" strokeWidth="2.5" />
-                Demande d&apos;accès soft launch
+                {isEnglish ? "Soft launch access request" : "Demande d'accès soft launch"}
               </span>
               <h3 className="font-display mt-4 text-2xl font-bold text-white lg:text-3xl">
-                Devenez un de nos premiers testeurs.
+                {isEnglish ? "Become one of our first testers." : "Devenez un de nos premiers testeurs."}
               </h3>
 
               <div className="mt-6 space-y-3">
@@ -164,7 +170,7 @@ export function Contact() {
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Nom & prénom"
+                  placeholder={isEnglish ? "Full name" : "Nom & prénom"}
                   className="w-full rounded-2xl px-4 py-3 text-sm font-medium text-white placeholder-white/40 outline-none transition focus:border-orange"
                   style={{
                     background: "rgba(255,255,255,0.06)",
@@ -177,7 +183,7 @@ export function Contact() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email pro"
+                  placeholder={isEnglish ? "Work email" : "Email pro"}
                   className="w-full rounded-2xl px-4 py-3 text-sm font-medium text-white placeholder-white/40 outline-none transition focus:border-orange"
                   style={{
                     background: "rgba(255,255,255,0.06)",
@@ -189,7 +195,7 @@ export function Contact() {
                   name="company"
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
-                  placeholder="Entreprise"
+                  placeholder={isEnglish ? "Company" : "Entreprise"}
                   className="w-full rounded-2xl px-4 py-3 text-sm font-medium text-white placeholder-white/40 outline-none transition focus:border-orange"
                   style={{
                     background: "rgba(255,255,255,0.06)",
@@ -200,7 +206,7 @@ export function Contact() {
                   name="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Votre message…"
+                  placeholder={isEnglish ? "Your message…" : "Votre message…"}
                   rows={4}
                   className="w-full resize-none rounded-2xl px-4 py-3 text-sm font-medium text-white placeholder-white/40 outline-none transition focus:border-orange"
                   style={{
@@ -214,7 +220,7 @@ export function Contact() {
                 type="submit"
                 className="group mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange px-6 py-3.5 text-sm font-bold text-white transition btn-lift hover:bg-orange-deep"
               >
-                Envoyer la demande
+                {isEnglish ? "Send request" : "Envoyer la demande"}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" strokeWidth="2.5" />
               </button>
 

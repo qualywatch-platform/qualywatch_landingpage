@@ -1,16 +1,27 @@
 import { Zap, Brain, Target, Bell, Layers, FileBarChart2 } from "lucide-react";
 import { CursorSpotlight } from "@/components/CursorSpotlight";
 
-const tags = [
-  { icon: Zap, label: "Feedbacks en temps réel" },
-  { icon: Brain, label: "Analyse sémantique" },
-  { icon: Target, label: "Indicateurs actionnables" },
-  { icon: Bell, label: "Alertes intelligentes" },
-  { icon: Layers, label: "Multi-canal" },
-  { icon: FileBarChart2, label: "Rapports automatisés" },
-];
+const tagsByLocale = {
+  fr: [
+    { icon: Zap, label: "Feedbacks en temps réel" },
+    { icon: Brain, label: "Analyse sémantique" },
+    { icon: Target, label: "Indicateurs actionnables" },
+    { icon: Bell, label: "Alertes intelligentes" },
+    { icon: Layers, label: "Multi-canal" },
+    { icon: FileBarChart2, label: "Rapports automatisés" },
+  ],
+  en: [
+    { icon: Zap, label: "Real-time feedback" },
+    { icon: Brain, label: "Semantic analysis" },
+    { icon: Target, label: "Actionable metrics" },
+    { icon: Bell, label: "Smart alerts" },
+    { icon: Layers, label: "Multi-channel" },
+    { icon: FileBarChart2, label: "Automated reports" },
+  ],
+};
 
-export function FeatureStrip() {
+export function FeatureStrip({ locale = "fr" }: { locale?: "fr" | "en" }) {
+  const tags = tagsByLocale[locale];
   return (
     <section
       className="relative overflow-hidden border-y"

@@ -1,55 +1,105 @@
 import { Infinity, Workflow, Users, Globe2, Sparkles } from "lucide-react";
 
-const items = [
-  {
-    icon: Infinity,
-    title: "Continu, pas ponctuel",
-    desc: "Fini les enquêtes trimestrielles qui arrivent trop tard. Qualywatch écoute en permanence.",
-    detail: "24/7 · Auto-collecte",
-    metric: "100%",
-    metricLabel: "de couverture",
-  },
-  {
-    icon: Workflow,
-    title: "Actionnable, pas décoratif",
-    desc: "Chaque score est relié à une action. Pas de chiffre sans plan d'amélioration.",
-    detail: "Alerte → Action → Mesure",
-    metric: "< 5 min",
-    metricLabel: "réaction terrain",
-  },
-  {
-    icon: Users,
-    title: "Terrain d'abord",
-    desc: "Conçu pour les managers de proximité, pas seulement pour les comités de direction.",
-    detail: "Mobile · Rapide · Clair",
-    metric: "6 rôles",
-    metricLabel: "RBAC granulaire",
-  },
-  {
-    icon: Globe2,
-    title: "Pensé pour les entreprises du monde",
-    desc: "Multilingue, mobile-first, paiements locaux, hébergement multi-régions. Que vous soyez à Dakar, Casablanca, Paris ou São Paulo — Qualywatch s'adapte.",
-    detail: "Multi-langue · Multi-devises · Multi-régions",
-    metric: "350+",
-    metricLabel: "enseignes en prod",
-  },
-];
+const itemsByLocale = {
+  fr: [
+    {
+      icon: Infinity,
+      title: "Continu, pas ponctuel",
+      desc: "Fini les enquêtes trimestrielles qui arrivent trop tard. Qualywatch écoute en permanence.",
+      detail: "24/7 · Auto-collecte",
+      metric: "100%",
+      metricLabel: "de couverture",
+    },
+    {
+      icon: Workflow,
+      title: "Actionnable, pas décoratif",
+      desc: "Chaque score est relié à une action. Pas de chiffre sans plan d'amélioration.",
+      detail: "Alerte → Action → Mesure",
+      metric: "< 5 min",
+      metricLabel: "réaction terrain",
+    },
+    {
+      icon: Users,
+      title: "Terrain d'abord",
+      desc: "Conçu pour les managers de proximité, pas seulement pour les comités de direction.",
+      detail: "Mobile · Rapide · Clair",
+      metric: "6 rôles",
+      metricLabel: "RBAC granulaire",
+    },
+    {
+      icon: Globe2,
+      title: "Pensé pour les entreprises du monde",
+      desc: "Multilingue, mobile-first, paiements locaux, hébergement multi-régions. Que vous soyez à Dakar, Casablanca, Paris ou São Paulo — Qualywatch s'adapte.",
+      detail: "Multi-langue · Multi-devises · Multi-régions",
+      metric: "350+",
+      metricLabel: "enseignes en prod",
+    },
+  ],
+  en: [
+    {
+      icon: Infinity,
+      title: "Continuous, not periodic",
+      desc: "No more quarterly surveys that arrive too late. Qualywatch listens constantly.",
+      detail: "24/7 · Auto-collected",
+      metric: "100%",
+      metricLabel: "coverage",
+    },
+    {
+      icon: Workflow,
+      title: "Actionable, not decorative",
+      desc: "Every score is wired to an action. No metric without an improvement plan.",
+      detail: "Alert → Action → Measure",
+      metric: "< 5 min",
+      metricLabel: "field response",
+    },
+    {
+      icon: Users,
+      title: "Field-first",
+      desc: "Built for the front-line manager, not just for the boardroom.",
+      detail: "Mobile · Fast · Clear",
+      metric: "6 roles",
+      metricLabel: "granular RBAC",
+    },
+    {
+      icon: Globe2,
+      title: "Built for global businesses",
+      desc: "Multilingual, mobile-first, local payments, multi-region hosting. Whether you're in Dakar, Casablanca, Paris or São Paulo — Qualywatch adapts.",
+      detail: "Multi-language · Multi-currency · Multi-region",
+      metric: "350+",
+      metricLabel: "live customers",
+    },
+  ],
+};
 
-export function Differentiators() {
+export function Differentiators({ locale = "fr" }: { locale?: "fr" | "en" }) {
+  const isEnglish = locale === "en";
+  const items = itemsByLocale[locale];
   return (
     <section id="pourquoi" className="relative px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="grid items-end gap-10 lg:grid-cols-[1fr_1.4fr]">
           <div>
-            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 08 · Pourquoi Qualywatch</p>
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
+              {isEnglish ? "№ 08 · Why Qualywatch" : "№ 08 · Pourquoi Qualywatch"}
+            </p>
             <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
-              Pas un énième formulaire.<br />
-              <span className="italic text-orange">Un système de pilotage.</span>
+              {isEnglish ? (
+                <>
+                  Not yet another form.<br />
+                  <span className="italic text-orange">An operating system.</span>
+                </>
+              ) : (
+                <>
+                  Pas un énième formulaire.<br />
+                  <span className="italic text-orange">Un système de pilotage.</span>
+                </>
+              )}
             </h2>
           </div>
           <p className="text-base leading-relaxed text-text-dim lg:text-lg">
-            Quatre choix de conception qui nous distinguent — pas des bullet points marketing,
-            des décisions architecturales que vous sentirez dès la première semaine.
+            {isEnglish
+              ? "Four design choices that set us apart — not marketing bullets, but architectural decisions you'll feel from week one."
+              : "Quatre choix de conception qui nous distinguent — pas des bullet points marketing, des décisions architecturales que vous sentirez dès la première semaine."}
           </p>
         </div>
 

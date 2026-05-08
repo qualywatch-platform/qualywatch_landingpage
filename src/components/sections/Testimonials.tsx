@@ -1,66 +1,123 @@
 import Image from "next/image";
 import { Star, TrendingUp, Quote } from "lucide-react";
 
-const testimonials = [
-  {
-    name: "Aminata K.",
-    title: "Directrice",
-    company: "Clinique Santé Plus",
-    city: "Dakar",
-    quote:
-      "Un patient mécontent a été rattrapé en 4 minutes grâce à l'alerte temps réel. Il est revenu la semaine suivante. Sans Qualywatch, on l'aurait perdu.",
-    metric: "4 min",
-    metricLabel: "rattrapage",
-    photo: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop&crop=faces&auto=format&q=80",
-    accent: "#FA700D",
-  },
-  {
-    name: "Jean-Marc L.",
-    title: "Directeur F&B",
-    company: "Hôtel Ivoire",
-    city: "Abidjan",
-    quote:
-      "Le leaderboard a tout changé. Nos serveurs se battent pour être en tête du classement. La satisfaction a augmenté de 23% en un trimestre.",
-    metric: "+23%",
-    metricLabel: "satisfaction",
-    photo: "https://images.unsplash.com/photo-1568585219057-9206c0bb91d6?w=400&h=400&fit=crop&crop=faces&auto=format&q=80",
-    accent: "#FA700D",
-  },
-  {
-    name: "Ousmane D.",
-    title: "Gérant",
-    company: "Le Baobab Lounge",
-    city: "Bamako",
-    quote:
-      "On recevait 3 avis Google par mois. Avec Qualywatch, on en collecte 15 par semaine. Notre note est passée de 4.1 à 4.8 en 2 mois.",
-    metric: "+460%",
-    metricLabel: "avis Google",
-    photo: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&fit=crop&crop=faces&auto=format&q=80",
-    accent: "#FA700D",
-  },
-];
+const testimonialsByLocale = {
+  fr: [
+    {
+      name: "Aminata K.",
+      title: "Directrice",
+      company: "Clinique Santé Plus",
+      city: "Dakar",
+      quote:
+        "Un patient mécontent a été rattrapé en 4 minutes grâce à l'alerte temps réel. Il est revenu la semaine suivante. Sans Qualywatch, on l'aurait perdu.",
+      metric: "4 min",
+      metricLabel: "rattrapage",
+      photo: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop&crop=faces&auto=format&q=80",
+      accent: "#FA700D",
+    },
+    {
+      name: "Jean-Marc L.",
+      title: "Directeur F&B",
+      company: "Hôtel Ivoire",
+      city: "Abidjan",
+      quote:
+        "Le leaderboard a tout changé. Nos serveurs se battent pour être en tête du classement. La satisfaction a augmenté de 23% en un trimestre.",
+      metric: "+23%",
+      metricLabel: "satisfaction",
+      photo: "https://images.unsplash.com/photo-1568585219057-9206c0bb91d6?w=400&h=400&fit=crop&crop=faces&auto=format&q=80",
+      accent: "#FA700D",
+    },
+    {
+      name: "Ousmane D.",
+      title: "Gérant",
+      company: "Le Baobab Lounge",
+      city: "Bamako",
+      quote:
+        "On recevait 3 avis Google par mois. Avec Qualywatch, on en collecte 15 par semaine. Notre note est passée de 4.1 à 4.8 en 2 mois.",
+      metric: "+460%",
+      metricLabel: "avis Google",
+      photo: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&fit=crop&crop=faces&auto=format&q=80",
+      accent: "#FA700D",
+    },
+  ],
+  en: [
+    {
+      name: "Aminata K.",
+      title: "Director",
+      company: "Clinique Santé Plus",
+      city: "Dakar",
+      quote:
+        "An unhappy patient was contacted within 4 minutes thanks to the real-time alert. He came back the following week. Without Qualywatch, we would have lost him.",
+      metric: "4 min",
+      metricLabel: "recovery",
+      photo: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop&crop=faces&auto=format&q=80",
+      accent: "#FA700D",
+    },
+    {
+      name: "Jean-Marc L.",
+      title: "F&B Director",
+      company: "Hôtel Ivoire",
+      city: "Abidjan",
+      quote:
+        "The leaderboard changed everything. Our waiters compete to top the ranking. Satisfaction went up 23% in one quarter.",
+      metric: "+23%",
+      metricLabel: "satisfaction",
+      photo: "https://images.unsplash.com/photo-1568585219057-9206c0bb91d6?w=400&h=400&fit=crop&crop=faces&auto=format&q=80",
+      accent: "#FA700D",
+    },
+    {
+      name: "Ousmane D.",
+      title: "General Manager",
+      company: "Le Baobab Lounge",
+      city: "Bamako",
+      quote:
+        "We used to get 3 Google reviews a month. With Qualywatch, we collect 15 a week. Our rating jumped from 4.1 to 4.8 in two months.",
+      metric: "+460%",
+      metricLabel: "Google reviews",
+      photo: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&fit=crop&crop=faces&auto=format&q=80",
+      accent: "#FA700D",
+    },
+  ],
+};
 
-export function Testimonials() {
+export function Testimonials({ locale = "fr" }: { locale?: "fr" | "en" }) {
+  const isEnglish = locale === "en";
+  const testimonials = testimonialsByLocale[locale];
   return (
     <section id="testimonials" className="relative px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="grid items-end gap-10 lg:grid-cols-[1fr_1.4fr]">
           <div>
-            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">№ 12 · Témoignages</p>
+            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
+              {isEnglish ? "№ 12 · Testimonials" : "№ 12 · Témoignages"}
+            </p>
             <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
-              Pas du marketing. <br />
-              <span className="italic text-orange">Des résultats.</span>
+              {isEnglish ? (
+                <>Not marketing. <br /><span className="italic text-orange">Results.</span></>
+              ) : (
+                <>Pas du marketing. <br /><span className="italic text-orange">Des résultats.</span></>
+              )}
             </h2>
           </div>
           <div>
             <p className="text-base leading-relaxed text-text-dim lg:text-lg">
-              <span className="font-bold text-text">350+ enseignes</span> ·{" "}
-              <span className="font-bold text-text">2.4M de feedbacks</span> ·{" "}
-              <span className="font-bold text-text">12 mois de données</span> — par les opérateurs qui pilotent leur enseigne au quotidien.
+              {isEnglish ? (
+                <>
+                  <span className="font-bold text-text">350+ businesses</span> ·{" "}
+                  <span className="font-bold text-text">2.4M feedbacks</span> ·{" "}
+                  <span className="font-bold text-text">12 months of data</span> — from the operators who run their business daily.
+                </>
+              ) : (
+                <>
+                  <span className="font-bold text-text">350+ enseignes</span> ·{" "}
+                  <span className="font-bold text-text">2.4M de feedbacks</span> ·{" "}
+                  <span className="font-bold text-text">12 mois de données</span> — par les opérateurs qui pilotent leur enseigne au quotidien.
+                </>
+              )}
             </p>
             <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-card-border bg-card px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-widest text-text-dim">
               <span className="h-1.5 w-1.5 rounded-full bg-orange" />
-              Méthodologie ouverte · Données vérifiables
+              {isEnglish ? "Open methodology · Verifiable data" : "Méthodologie ouverte · Données vérifiables"}
             </div>
           </div>
         </div>

@@ -1,31 +1,53 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Locale, getLocalizedPath } from "@/lib/i18n";
 
-const productLinks = [
-  { label: "Fonctionnalités", href: "#fonctionnalites" },
-  { label: "Solutions par secteur", href: "#secteurs" },
-  { label: "Vos armes", href: "#armes" },
-  { label: "Tarifs", href: "#tarifs" },
-  { label: "Sécurité & RGPD", href: "#securite" },
-];
+export function Footer({ locale = "fr" }: { locale?: Locale }) {
+  const productLinks =
+    locale === "fr"
+      ? [
+          { label: "Fonctionnalités", href: "#fonctionnalites" },
+          { label: "Solutions par secteur", href: "#secteurs" },
+          { label: "Vos armes", href: "#armes" },
+          { label: "Tarifs", href: "#tarifs" },
+          { label: "Sécurité & RGPD", href: "#securite" },
+        ]
+      : [
+          { label: "Features", href: "#fonctionnalites" },
+          { label: "Solutions by industry", href: "#secteurs" },
+          { label: "Your edge", href: "#armes" },
+          { label: "Pricing", href: "#tarifs" },
+          { label: "Security & GDPR", href: "#securite" },
+        ];
 
-const companyLinks = [
-  { label: "Notre histoire", href: "#histoire" },
-  { label: "Témoignages", href: "#testimonials" },
-  { label: "FAQ", href: "#faq" },
-  { label: "API Documentation", href: "/docs/api" },
-  { label: "Contact", href: "#contact" },
-];
+  const companyLinks =
+    locale === "fr"
+      ? [
+          { label: "Notre histoire", href: "#histoire" },
+          { label: "Témoignages", href: "#testimonials" },
+          { label: "FAQ", href: "#faq" },
+          { label: "API Documentation", href: "/docs/api" },
+          { label: "Contact", href: "#contact" },
+        ]
+      : [
+          { label: "Our story", href: "#histoire" },
+          { label: "Testimonials", href: "#testimonials" },
+          { label: "FAQ", href: "#faq" },
+          { label: "API documentation", href: "/docs/api" },
+          { label: "Contact", href: "#contact" },
+        ];
 
-const legalLinks = [
-  { label: "Mentions légales", href: "/legal" },
-  { label: "Confidentialité", href: "/privacy" },
-  { label: "CGU", href: "/terms" },
-  { label: "DPA", href: "/dpa" },
-];
+  const legalLinks =
+    locale === "fr"
+      ? [{ label: "Confidentialité", href: "/privacy" }]
+      : [{ label: "Privacy", href: "/privacy" }];
 
-export function Footer() {
+  const ctaBody =
+    locale === "fr"
+      ? "Démarrez gratuitement en 2 minutes. Pas de carte bancaire, aucun engagement."
+      : "Start for free in 2 minutes. No credit card, no commitment.";
+
   return (
     <footer
       className="relative overflow-hidden"
@@ -51,10 +73,14 @@ export function Footer() {
         <div className="mb-14 grid items-center gap-8 lg:grid-cols-[1.4fr_1fr]">
           <div>
             <h3 className="font-display text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">
-              Prêt à donner une voix <span className="italic text-orange">à vos clients</span> ?
+              {locale === "fr" ? (
+                <>Prêt à donner une voix <span className="italic text-orange">à vos clients</span> ?</>
+              ) : (
+                <>Ready to give your customers <span className="italic text-orange">a voice</span>?</>
+              )}
             </h3>
             <p className="mt-3 max-w-xl text-sm text-white/65 lg:text-base">
-              Démarrez gratuitement en 2 minutes. Pas de carte bancaire, aucun engagement.
+              {ctaBody}
             </p>
           </div>
           <div className="flex flex-wrap gap-3 lg:justify-end">
@@ -62,14 +88,14 @@ export function Footer() {
               href="https://app.qualywatch.com"
               className="group inline-flex items-center gap-2 rounded-full bg-orange px-6 py-3.5 text-sm font-bold text-white shadow-orange btn-lift hover:bg-orange-deep"
             >
-              Essayer gratuitement
+              {locale === "fr" ? "Essayer gratuitement" : "Start for free"}
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" strokeWidth="2.5" />
             </Link>
             <Link
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3.5 text-sm font-bold text-white transition hover:border-orange hover:text-orange"
             >
-              Nous contacter
+              {locale === "fr" ? "Nous contacter" : "Contact us"}
             </Link>
           </div>
         </div>
@@ -78,7 +104,7 @@ export function Footer() {
         <div className="grid gap-10 border-t border-white/10 pt-12 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr] lg:gap-12">
           {/* Brand */}
           <div>
-            <Link href="/" className="inline-flex items-center gap-2.5">
+            <Link href={getLocalizedPath(locale, "/")} className="inline-flex items-center gap-2.5">
               <Image
                 src="/qualywatch-logo.png"
                 alt="QualyWatch"
@@ -89,8 +115,9 @@ export function Footer() {
               <span className="font-display text-xl font-bold tracking-tight text-white">Qualywatch</span>
             </Link>
             <p className="mt-4 max-w-sm text-[13px] leading-relaxed text-white/60">
-              L&apos;infrastructure qui transforme chaque feedback client en décision opérationnelle —
-              et chaque client mécontent en client retenu.
+              {locale === "fr"
+                ? "L'infrastructure qui transforme chaque feedback client en décision opérationnelle — et chaque client mécontent en client retenu."
+                : "The infrastructure that turns every customer signal into an operational decision — and every unhappy customer into a retained one."}
             </p>
 
             {/* Contact mini */}
@@ -119,12 +146,12 @@ export function Footer() {
 
           {/* Produit links */}
           <div>
-            <h4 className="font-mono text-[10px] font-bold uppercase tracking-widest text-orange">Produit</h4>
+            <h4 className="font-mono text-[10px] font-bold uppercase tracking-widest text-orange">{locale === "fr" ? "Produit" : "Product"}</h4>
             <ul className="mt-4 space-y-2.5">
               {productLinks.map((l) => (
                 <li key={l.label}>
                   <Link
-                    href={l.href}
+                    href={getLocalizedPath(locale, l.href)}
                     className="text-sm text-white/70 transition hover:text-orange"
                   >
                     {l.label}
@@ -136,12 +163,12 @@ export function Footer() {
 
           {/* Entreprise links */}
           <div>
-            <h4 className="font-mono text-[10px] font-bold uppercase tracking-widest text-orange">Entreprise</h4>
+            <h4 className="font-mono text-[10px] font-bold uppercase tracking-widest text-orange">{locale === "fr" ? "Entreprise" : "Company"}</h4>
             <ul className="mt-4 space-y-2.5">
               {companyLinks.map((l) => (
                 <li key={l.label}>
                   <Link
-                    href={l.href}
+                    href={getLocalizedPath(locale, l.href)}
                     className="text-sm text-white/70 transition hover:text-orange"
                   >
                     {l.label}
@@ -155,12 +182,14 @@ export function Footer() {
           <div>
             <h4 className="font-mono text-[10px] font-bold uppercase tracking-widest text-orange">Newsletter</h4>
             <p className="mt-4 text-[13px] leading-relaxed text-white/60">
-              Une fois par mois. Insights, retours d&apos;expérience, nouveautés produit. Pas de spam.
+              {locale === "fr"
+                ? "Une fois par mois. Insights, retours d'expérience, nouveautés produit. Pas de spam."
+                : "Once a month. Insights, field learnings and product updates. No spam."}
             </p>
             <form className="mt-4 flex gap-2">
               <input
                 type="email"
-                placeholder="Votre email pro"
+                placeholder={locale === "fr" ? "Votre email pro" : "Your work email"}
                 className="flex-1 rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-[13px] text-white placeholder-white/40 outline-none transition focus:border-orange"
               />
               <button
@@ -173,7 +202,7 @@ export function Footer() {
 
             {/* Social */}
             <div className="mt-6">
-              <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-white/40">Suivez-nous</div>
+              <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-white/40">{locale === "fr" ? "Suivez-nous" : "Follow us"}</div>
               <div className="mt-3 flex gap-2">
                 <Link
                   href="https://www.facebook.com/profile.php?id=61589270003634"
@@ -218,13 +247,13 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center">
           <p className="text-[12px] text-white/50">
-            © {new Date().getFullYear()} Qualywatch SAS. Tous droits réservés.
+            © {new Date().getFullYear()} Qualywatch SAS. {locale === "fr" ? "Tous droits réservés." : "All rights reserved."}
           </p>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {legalLinks.map((l) => (
               <li key={l.label}>
                 <Link
-                  href={l.href}
+                  href={getLocalizedPath(locale, l.href)}
                   className="text-[12px] text-white/50 transition hover:text-orange"
                 >
                   {l.label}

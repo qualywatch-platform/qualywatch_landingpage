@@ -40,23 +40,9 @@ export function Footer({ locale = "fr" }: { locale?: Locale }) {
 
   const legalLinks =
     locale === "fr"
-      ? [
-          { label: "Mentions légales", href: "/legal" },
-          { label: "Confidentialité", href: "/privacy" },
-          { label: "CGU", href: "/terms" },
-          { label: "DPA", href: "/dpa" },
-        ]
-      : [
-          { label: "Legal notice", href: "/legal" },
-          { label: "Privacy", href: "/privacy" },
-          { label: "Terms", href: "/terms" },
-          { label: "DPA", href: "/dpa" },
-        ];
+      ? [{ label: "Confidentialité", href: "/privacy" }]
+      : [{ label: "Privacy", href: "/privacy" }];
 
-  const ctaTitle =
-    locale === "fr"
-      ? "Prêt à donner une voix à vos clients ?"
-      : "Ready to give your customers a voice?";
   const ctaBody =
     locale === "fr"
       ? "Démarrez gratuitement en 2 minutes. Pas de carte bancaire, aucun engagement."

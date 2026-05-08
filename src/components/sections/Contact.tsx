@@ -78,7 +78,7 @@ export function Contact({ locale = "fr" }: { locale?: "fr" | "en" }) {
             </p>
             <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
               {isEnglish ? (
-                <>Let's talk. <span className="italic text-orange">We reply fast.</span></>
+                <>Let&apos;s talk. <span className="italic text-orange">We reply fast.</span></>
               ) : (
                 <>Discutons. <span className="italic text-orange">On répond vite.</span></>
               )}

@@ -45,7 +45,7 @@ export function AppStores({ locale = "fr" }: { locale?: "fr" | "en" }) {
             </p>
             <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
               {isEnglish ? (
-                <>Web, iOS, Android — <span className="italic text-orange">it's all here.</span></>
+                <>Web, iOS, Android — <span className="italic text-orange">it&apos;s all here.</span></>
               ) : (
                 <>Web, iOS, Android — <span className="italic text-orange">tout est là.</span></>
               )}

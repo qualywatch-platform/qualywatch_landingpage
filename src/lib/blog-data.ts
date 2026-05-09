@@ -263,6 +263,50 @@ export const blogPosts: BlogPost[] = [
       "logiciel-feedback-client-pme-afrique",
     ],
   },
+  {
+    slug: "customer-service-solutions",
+    title: "Customer Service Solutions",
+    description:
+      "The toolkit that turns every customer signal into a fast, measurable action — across every channel, in real time.",
+    category: "pilier",
+    categoryLabel: "Solutions",
+    date: "2026-05-09",
+    readingTime: 2,
+    keywords: [
+      "customer service solutions",
+      "customer feedback platform",
+      "real-time customer alerts",
+      "NPS tracking software",
+      "WhatsApp Business feedback",
+    ],
+    related: [
+      "solutions-service-client",
+      "gestion-feedback-client-guide-complet",
+      "logiciel-feedback-client-pme-afrique",
+    ],
+  },
+  {
+    slug: "solutions-service-client",
+    title: "Solutions de service client",
+    description:
+      "La boîte à outils qui transforme chaque signal client en action rapide et mesurable — sur tous les canaux, en temps réel.",
+    category: "pilier",
+    categoryLabel: "Solutions",
+    date: "2026-05-09",
+    readingTime: 2,
+    keywords: [
+      "solutions service client",
+      "logiciel feedback client",
+      "alertes temps réel client",
+      "suivi NPS automatique",
+      "WhatsApp Business feedback",
+    ],
+    related: [
+      "customer-service-solutions",
+      "gestion-feedback-client-guide-complet",
+      "logiciel-feedback-client-pme-afrique",
+    ],
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

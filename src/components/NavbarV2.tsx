@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Languages } from "lucide-react";
 import { Locale, getLocalizedPath, swapLocaleInPath } from "@/lib/i18n";
 
 const linkLabels = {
@@ -33,7 +33,6 @@ export function NavbarV2({ locale = "fr" }: { locale?: Locale }) {
   const switchLabel = locale === "fr" ? "EN" : "FR";
   const switchHref = swapLocaleInPath(pathname, locale === "fr" ? "en" : "fr");
   const ctaLabel = locale === "fr" ? "Essayer gratuitement" : "Start for free";
-  const ctaCompact = locale === "fr" ? "Essayer" : "Start";
   const badgeLabel = locale === "fr" ? "Soft launch" : "Soft launch";
 
   return (
@@ -95,8 +94,9 @@ export function NavbarV2({ locale = "fr" }: { locale?: Locale }) {
           <Link
             href={switchHref}
             aria-label={locale === "fr" ? "Switch to English" : "Passer en français"}
-            className="hidden shrink-0 rounded-full border border-white/25 px-3 py-1.5 text-[12px] font-bold text-white/90 transition hover:bg-white/15 sm:inline-flex"
+            className="hidden h-9 shrink-0 items-center gap-1.5 rounded-full border border-white/20 px-2.5 text-[11px] font-bold uppercase tracking-[0.14em] text-white/85 transition hover:bg-white/12 hover:text-white sm:inline-flex"
           >
+            <Languages className="h-3.5 w-3.5" strokeWidth="2.4" />
             {switchLabel}
           </Link>
 
@@ -118,6 +118,22 @@ export function NavbarV2({ locale = "fr" }: { locale?: Locale }) {
           className="mx-auto mt-2 max-w-6xl rounded-3xl border border-white/15 p-4 shadow-card backdrop-blur-xl lg:hidden"
           style={{ background: "rgba(15, 14, 12, 0.85)" }}
         >
+          <div className="mb-3 flex items-center justify-between gap-3 px-1">
+            <span
+              className="inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-orange/30 bg-orange/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-orange"
+            >
+              {badgeLabel}
+            </span>
+            <Link
+              href={switchHref}
+              onClick={() => setMobileOpen(false)}
+              aria-label={locale === "fr" ? "Switch to English" : "Passer en français"}
+              className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-full border border-white/20 px-2.5 text-[11px] font-bold uppercase tracking-[0.14em] text-white/85 transition hover:bg-white/12 hover:text-white"
+            >
+              <Languages className="h-3.5 w-3.5" strokeWidth="2.4" />
+              {switchLabel}
+            </Link>
+          </div>
           <div className="flex flex-col gap-1">
             {links.map((l) => (
               <Link
@@ -130,14 +146,6 @@ export function NavbarV2({ locale = "fr" }: { locale?: Locale }) {
                 {l.label}
               </Link>
             ))}
-            <Link
-              href={switchHref}
-              onClick={() => setMobileOpen(false)}
-              className="rounded-2xl px-3.5 py-3 text-base font-semibold transition hover:bg-orange/15 hover:text-orange"
-              style={{ color: "#FFFFFF" }}
-            >
-              {locale === "fr" ? "Switch to English" : "Passer en français"}
-            </Link>
             <Link
               href="https://app.qualywatch.com"
               onClick={() => setMobileOpen(false)}

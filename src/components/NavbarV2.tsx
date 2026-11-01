@@ -83,7 +83,7 @@ export function NavbarV2({ locale = "fr" }: { locale?: Locale }) {
         {/* Right CTA — orange filled, white text */}
         <div className="ml-auto flex shrink-0 items-center gap-1.5 sm:gap-2">
           <Link
-            href="https://app.qualywatch.com"
+            href="https://app.qualywatch.com/auth/register"
             className="group hidden shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-orange px-5 py-2.5 text-[13px] font-bold btn-lift hover:bg-orange-deep sm:inline-flex"
             style={{ color: "#FFFFFF" }}
           >
@@ -147,7 +147,7 @@ export function NavbarV2({ locale = "fr" }: { locale?: Locale }) {
               </Link>
             ))}
             <Link
-              href="https://app.qualywatch.com"
+              href="https://app.qualywatch.com/auth/register"
               onClick={() => setMobileOpen(false)}
               className="mt-2 inline-flex items-center justify-center rounded-2xl bg-orange px-4 py-3 text-base font-bold text-white transition hover:bg-orange-deep"
             >

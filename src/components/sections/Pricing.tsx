@@ -425,7 +425,7 @@ export function Pricing({ locale = "fr" }: { locale?: Locale }) {
                   <Link
                     href={
                       p.name === "Free" || p.name === "Pro"
-                        ? "https://app.qualywatch.com"
+                        ? "https://app.qualywatch.com/auth/register"
                         : getLocalizedPath(locale, "#contact")
                     }
                     className={`group/btn mt-7 flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-[14.5px] font-bold transition btn-lift ${

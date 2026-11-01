@@ -176,7 +176,7 @@ export function BlogArticle({ post, children, tldr, faqs }: BlogArticleProps) {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
-                href="https://app.qualywatch.com"
+                href="https://app.qualywatch.com/auth/register"
                 className="inline-flex items-center gap-2 rounded-full bg-orange px-6 py-3 text-sm font-bold text-white transition hover:scale-[1.02]"
               >
                 Essayer gratuitement

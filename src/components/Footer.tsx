@@ -85,7 +85,7 @@ export function Footer({ locale = "fr" }: { locale?: Locale }) {
           </div>
           <div className="flex flex-wrap gap-3 lg:justify-end">
             <Link
-              href="https://app.qualywatch.com"
+              href="https://app.qualywatch.com/auth/register"
               className="group inline-flex items-center gap-2 rounded-full bg-orange px-6 py-3.5 text-sm font-bold text-white shadow-orange btn-lift hover:bg-orange-deep"
             >
               {locale === "fr" ? "Essayer gratuitement" : "Start for free"}

@@ -1,4 +1,5 @@
 import { Inbox, Hourglass, Gauge } from "lucide-react";
+import { IconTile } from "@/components/IconTile";
 
 const contentByLocale = {
   fr: {
@@ -62,7 +63,7 @@ export function Problems({ locale = "fr" }: { locale?: "fr" | "en" }) {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-end lg:gap-16">
           <div>
-            <p className="text-sm font-medium text-text-mute">{c.eyebrow}</p>
+            <p className="flex items-center gap-2.5 text-sm font-semibold text-orange-deep"><span className="h-0.5 w-6 bg-orange" aria-hidden />{c.eyebrow}</p>
             <h2 className="font-display mt-3 text-3xl font-semibold leading-[1.15] tracking-tight text-text sm:text-4xl">
               {c.title}
             </h2>
@@ -79,8 +80,8 @@ export function Problems({ locale = "fr" }: { locale?: "fr" | "en" }) {
               } ${i < c.items.length - 1 ? "lg:pr-10" : ""}`}
             >
               <div className="flex items-center justify-between">
-                <item.icon className="h-6 w-6 text-text" strokeWidth={1.6} aria-hidden />
-                <span className="text-sm font-medium tabular-nums text-text-mute">0{i + 1}</span>
+                <IconTile icon={item.icon} />
+                <span className="text-sm font-medium tabular-nums text-orange-deep">0{i + 1}</span>
               </div>
               <h3 className="font-display text-xl font-semibold text-text">{item.title}</h3>
               <p className="text-[15px] leading-relaxed text-text-dim">{item.text}</p>

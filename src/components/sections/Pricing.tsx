@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { Check, Sparkles, ArrowRight, Zap, Building2, Crown, Rocket } from "lucide-react";
+import { Check, Zap, Building2, Crown, Rocket } from "lucide-react";
+import { SectionHeader } from "@/components/SectionHeader";
+import { IconTile } from "@/components/IconTile";
 import { getLocalizedPath, type Locale } from "@/lib/i18n";
 
 type Plan = {
@@ -21,8 +23,8 @@ const plansByLocale: Record<Locale, Plan[]> = {
       name: "Free",
       subtitle: "Pour démarrer",
       icon: Rocket,
-      price: "0$",
-      cycle: "/mois",
+      price: "0",
+      cycle: "FCFA / mois",
       limits: ["1 manager · 10 employés", "5 services", "100 feedbacks/mois"],
       features: [
         "Score NPS",
@@ -42,13 +44,12 @@ const plansByLocale: Record<Locale, Plan[]> = {
       name: "Pro",
       subtitle: "Pour les équipes",
       icon: Zap,
-      price: "69$",
-      cycle: "/mois",
-      highlight: "Le plus populaire",
+      price: "40 000",
+      cycle: "FCFA / mois",
+      highlight: "Recommandé",
       limits: [
         "1 manager · 30 employés",
         "500 feedbacks/mois",
-        "0 résolutions IA/mois",
       ],
       features: [
         "Inclut tout le plan Free",
@@ -71,8 +72,8 @@ const plansByLocale: Record<Locale, Plan[]> = {
       name: "Business",
       subtitle: "Pour les entreprises",
       icon: Building2,
-      price: "139$",
-      cycle: "/mois",
+      price: "80 000",
+      cycle: "FCFA / mois",
       limits: [
         "3 managers · 75 employés",
         "Feedbacks illimités",
@@ -89,7 +90,7 @@ const plansByLocale: Record<Locale, Plan[]> = {
         "Récompenses",
         "Centre d'aide",
         "Accès API",
-        "Scraping reputation",
+        "Veille de réputation",
         "Journal d'audit",
       ],
       cta: "Demander une démo",
@@ -99,8 +100,8 @@ const plansByLocale: Record<Locale, Plan[]> = {
       name: "Enterprise",
       subtitle: "Solution complète",
       icon: Crown,
-      price: "190$",
-      cycle: "/mois",
+      price: "110 000",
+      cycle: "FCFA / mois",
       limits: [
         "5 managers · employés illimités",
         "Feedbacks illimités",
@@ -145,11 +146,10 @@ const plansByLocale: Record<Locale, Plan[]> = {
       icon: Zap,
       price: "$69",
       cycle: "/mo",
-      highlight: "Most popular",
+      highlight: "Recommended",
       limits: [
         "1 manager · 30 employees",
         "500 feedbacks/month",
-        "0 AI resolutions/month",
       ],
       features: [
         "Everything in Free",
@@ -224,236 +224,90 @@ export function Pricing({ locale = "fr" }: { locale?: Locale }) {
   const isEnglish = locale === "en";
   const plans = plansByLocale[locale];
   return (
-    <section
-      id="tarifs"
-      className="relative overflow-hidden px-6 py-24 lg:px-16 lg:py-32"
-      style={{ background: "#FAFBFC" }}
-    >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 right-0 h-[500px] w-[500px] rounded-full opacity-50 blur-3xl"
-        style={{ background: "radial-gradient(closest-side, rgba(250,112,13,0.12), transparent 70%)" }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-40 -left-20 h-[600px] w-[600px] rounded-full opacity-40 blur-3xl"
-        style={{ background: "radial-gradient(closest-side, rgba(250,112,13,0.08), transparent 70%)" }}
-      />
-
-      <div className="relative mx-auto max-w-7xl">
-        <div className="reveal-children mx-auto mb-16 max-w-3xl text-center">
-          <p className="reveal-item reveal-delay-1 font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
-            {isEnglish ? "№ 13 · Pricing" : "№ 13 · Tarifs"}
-          </p>
-          <h2 className="reveal-item reveal-delay-2 font-display mt-4 text-3xl font-bold leading-tight text-text sm:text-4xl lg:text-5xl">
-            {isEnglish ? (
-              <>Four plans, <span className="italic text-orange">one fair price.</span></>
+    <section id="tarifs" className="px-6 py-24 lg:px-16 lg:py-32">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeader
+          eyebrow={isEnglish ? "Pricing" : "Tarifs"}
+          title={
+            isEnglish ? (
+              <>Four plans, <span className="text-orange-deep">no hidden fees.</span></>
             ) : (
-              <>Quatre formules, <span className="italic text-orange">un seul prix.</span></>
-            )}
-          </h2>
-          <p className="reveal-item reveal-delay-3 mt-5 text-base leading-relaxed text-text-dim lg:text-lg">
-            {isEnglish
-              ? "No hidden fees. Mobile money, bank transfer, card. Then activate the right plan straight from the app."
-              : "Pas de frais cachés. Mobile money, virement, CB. Activez ensuite le plan qui vous convient directement depuis l'app."}
-          </p>
-        </div>
+              <>Quatre formules, <span className="text-orange-deep">sans frais cachés.</span></>
+            )
+          }
+          intro={
+            isEnglish
+              ? "Pay by mobile money, bank transfer or card, then activate the right plan directly from the app."
+              : "Payez par mobile money, virement ou carte, puis activez la formule qui vous convient directement depuis l'application."
+          }
+        />
 
-        <div className="reveal-children grid gap-5 lg:grid-cols-4">
-          {plans.map((p) => {
-            const Icon = p.icon;
-            return (
-              <div
-                key={p.name}
-                className={`reveal-item reveal-delay-${(plans.indexOf(p) % 4) + 1} group relative flex flex-col overflow-hidden rounded-3xl transition ${
-                  p.highlighted
-                    ? "shadow-[0_30px_80px_-20px_rgba(250,112,13,0.45)] lg:scale-[1.04]"
-                    : "border border-card-border bg-card hover:-translate-y-1 hover:border-orange/40 hover:shadow-card"
-                }`}
-                style={
-                  p.highlighted
-                    ? {
-                        background:
-                          "linear-gradient(160deg, #1A1A1A 0%, #0F0E0C 100%)",
-                        border: "1px solid rgba(250,112,13,0.4)",
-                      }
-                    : { background: "#FFFFFF" }
-                }
-              >
-                {p.highlighted && (
-                  <>
-                    <div
-                      aria-hidden
-                      className="pointer-events-none absolute -top-32 -right-20 h-72 w-72 rounded-full opacity-70 blur-3xl"
-                      style={{
-                        background:
-                          "radial-gradient(closest-side, rgba(250,112,13,0.5), transparent 70%)",
-                      }}
-                    />
-                    <span className="absolute right-5 top-5 inline-flex items-center gap-1.5 rounded-full bg-orange px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-white shadow-orange-soft">
-                      <Sparkles className="h-3 w-3" />
-                      {p.highlight}
-                    </span>
-                  </>
-                )}
-
-                <div className="relative p-7 lg:p-8">
-                  <div className="flex items-center gap-2.5">
-                    <span
-                      className={`inline-flex h-9 w-9 items-center justify-center rounded-xl ${
-                        p.highlighted
-                          ? "bg-orange text-white"
-                          : "bg-orange/10 text-orange"
-                      }`}
-                    >
-                      <Icon className="h-4 w-4" strokeWidth="2.5" />
-                    </span>
-                    <div>
-                      <div
-                        className="font-display text-base font-bold"
-                        style={{ color: p.highlighted ? "#FFFFFF" : undefined }}
-                      >
-                        {p.name}
-                      </div>
-                    </div>
-                  </div>
-
-                  <p
-                    className="mt-3 text-[12.5px] leading-snug"
-                    style={{
-                      color: p.highlighted
-                        ? "rgba(255,255,255,0.65)"
-                        : "rgba(15,14,12,0.6)",
-                    }}
-                  >
-                    {p.subtitle}
-                  </p>
-
-                  <div className="mt-6 flex items-baseline gap-1">
-                    <span
-                      className="font-display text-[44px] font-extrabold leading-none lg:text-[52px]"
-                      style={{ color: p.highlighted ? "#FFFFFF" : undefined }}
-                    >
-                      {p.price}
-                    </span>
-                    <span
-                      className="text-sm"
-                      style={{
-                        color: p.highlighted
-                          ? "rgba(255,255,255,0.55)"
-                          : "rgba(15,14,12,0.55)",
-                      }}
-                    >
-                      {p.cycle}
-                    </span>
-                  </div>
-
-                  <div
-                    className="mt-6 rounded-2xl p-4"
-                    style={{
-                      background: p.highlighted
-                        ? "rgba(255,255,255,0.06)"
-                        : "#F4F5F7",
-                      border: p.highlighted
-                        ? "1px solid rgba(255,255,255,0.10)"
-                        : "1px solid rgba(15,14,12,0.06)",
-                    }}
-                  >
-                    <p
-                      className="text-[10px] font-mono font-bold uppercase tracking-widest"
-                      style={{
-                        color: p.highlighted
-                          ? "rgba(255,255,255,0.55)"
-                          : "rgba(15,14,12,0.5)",
-                      }}
-                    >
-                      {isEnglish ? "Limits" : "Limites"}
-                    </p>
-                    <ul className="mt-2 space-y-1">
-                      {p.limits.map((l, i) => (
-                        <li
-                          key={i}
-                          className="text-[12px] font-medium leading-snug"
-                          style={{
-                            color: p.highlighted
-                              ? "rgba(255,255,255,0.92)"
-                              : "#0F0E0C",
-                          }}
-                        >
-                          · {l}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <p
-                    className="mt-6 text-[10px] font-mono font-bold uppercase tracking-widest"
-                    style={{
-                      color: p.highlighted
-                        ? "rgba(255,255,255,0.5)"
-                        : "rgba(15,14,12,0.45)",
-                    }}
-                  >
-                    {isEnglish ? "Included" : "Inclus"}
-                  </p>
-                  <ul className="mt-3 flex-1 space-y-2">
-                    {p.features.map((f, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span
-                          className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${
-                            p.highlighted
-                              ? "bg-orange text-white"
-                              : "bg-orange/15 text-orange"
-                          }`}
-                        >
-                          <Check className="h-2.5 w-2.5" strokeWidth="3.5" />
-                        </span>
-                        <span
-                          className="text-[12.5px] leading-snug"
-                          style={{
-                            color: p.highlighted
-                              ? "rgba(255,255,255,0.85)"
-                              : "rgba(15,14,12,0.75)",
-                          }}
-                        >
-                          {f}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Link
-                    href={
-                      p.name === "Free" || p.name === "Pro"
-                        ? "https://app.qualywatch.com/auth/register"
-                        : getLocalizedPath(locale, "#contact")
-                    }
-                    className={`group/btn mt-7 flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-[14.5px] font-bold transition btn-lift ${
-                      p.highlighted
-                        ? "bg-orange text-white hover:bg-orange-deep"
-                        : "border border-card-border text-text hover:border-orange hover:bg-orange hover:text-white"
-                    }`}
-                  >
-                    {p.cta}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-0.5" strokeWidth="2.5" />
-                  </Link>
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
+          {plans.map((p) => (
+            <div
+              key={p.name}
+              className={`relative flex flex-col rounded-lg bg-bg p-7 ${
+                p.highlighted ? "border-2 border-orange-deep" : "border border-card-border"
+              }`}
+            >
+              {p.highlighted && p.highlight && (
+                <span className="absolute -top-3 left-7 rounded bg-orange-deep px-2.5 py-1 text-xs font-semibold text-white">
+                  {p.highlight}
+                </span>
+              )}
+              <div className="flex items-center gap-3">
+                <IconTile icon={p.icon} size="sm" />
+                <div>
+                  <div className="font-display text-lg font-semibold text-text">{p.name}</div>
+                  <div className="text-sm text-text-mute">{p.subtitle}</div>
                 </div>
               </div>
-            );
-          })}
+
+              <div className="mt-6 flex items-baseline gap-1.5">
+                <span className="font-display text-4xl font-semibold tracking-tight text-text">{p.price}</span>
+                <span className="text-sm text-text-mute">{p.cycle}</span>
+              </div>
+
+              <ul className="mt-6 space-y-1.5 border-y border-card-border py-4">
+                {p.limits.map((l) => (
+                  <li key={l} className="text-sm font-medium text-text">
+                    {l}
+                  </li>
+                ))}
+              </ul>
+
+              <ul className="mt-5 flex-1 space-y-2.5">
+                {p.features.map((f) => (
+                  <li key={f} className="flex items-start gap-2.5 text-sm leading-snug text-text-dim">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-orange-deep" strokeWidth={2.2} aria-hidden />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+
+              <Link
+                href={
+                  p.name === "Free" || p.name === "Pro"
+                    ? "https://app.qualywatch.com/auth/register"
+                    : getLocalizedPath(locale, "#contact")
+                }
+                className={`mt-8 inline-flex h-11 w-full items-center justify-center rounded-md text-sm font-semibold transition-colors ${
+                  p.highlighted
+                    ? "bg-orange-deep text-white hover:bg-[#A9460C]"
+                    : "border border-[#C9CED6] text-text hover:border-text"
+                }`}
+              >
+                {p.cta}
+              </Link>
+            </div>
+          ))}
         </div>
 
-        <div className="mt-12 text-center text-sm text-text-dim">
-          {isEnglish ? (
-            <>
-              <span className="font-bold text-text">Free signup</span> · Free plan active on creation · Upgrade from the app
-            </>
-          ) : (
-            <>
-              <span className="font-bold text-text">Inscription gratuite</span> · Plan Free actif à la création · Upgrade depuis l&apos;app
-            </>
-          )}
-        </div>
+        <p className="mt-10 text-sm text-text-dim">
+          {isEnglish
+            ? "Free signup. The Free plan is active as soon as your account is created; upgrade at any time from the app."
+            : "Inscription gratuite. La formule Free est active dès la création du compte ; changez de formule à tout moment depuis l'application."}
+        </p>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import { Mail, Shield, UserCheck, Smartphone } from "lucide-react";
 import { IPhoneFrame } from "@/components/IPhoneFrame";
+import { IconTile } from "@/components/IconTile";
 
 const contentByLocale = {
   fr: {
@@ -36,12 +37,12 @@ export function Collaborators({ locale = "fr" }: { locale?: "fr" | "en" }) {
     <section id="portail" className="px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="grid items-center gap-16 lg:grid-cols-[1fr_1.15fr] lg:gap-24">
-          <div className="flex justify-center rounded-3xl border border-card-border bg-bg3 px-6 py-14 lg:py-20">
+          <div className="flex justify-center rounded-3xl border border-card-border bg-cream px-6 py-14 lg:py-20">
             <IPhoneFrame src="/app-equipe-assignation.jpg" alt={c.alt} statusBarBg="#757575" statusBarText="#FFFFFF" />
           </div>
 
           <div>
-            <p className="text-sm font-medium text-text-mute">{c.eyebrow}</p>
+            <p className="flex items-center gap-2.5 text-sm font-semibold text-orange-deep"><span className="h-0.5 w-6 bg-orange" aria-hidden />{c.eyebrow}</p>
             <h2 className="font-display mt-3 text-3xl font-semibold leading-[1.15] tracking-tight text-text sm:text-4xl">
               {c.title}
             </h2>
@@ -55,7 +56,7 @@ export function Collaborators({ locale = "fr" }: { locale?: "fr" | "en" }) {
                     i % 2 === 0 ? "sm:pr-8" : "sm:border-l sm:pl-8"
                   }`}
                 >
-                  <f.icon className="h-5 w-5 text-text" strokeWidth={1.6} aria-hidden />
+                  <IconTile icon={f.icon} size="sm" />
                   <div className="font-display mt-1 text-base font-semibold text-text">{f.label}</div>
                   <div className="text-sm leading-relaxed text-text-dim">{f.desc}</div>
                 </li>

@@ -1,21 +1,20 @@
 import { Zap, Brain, Target, Bell, Layers, FileBarChart2 } from "lucide-react";
-import { CursorSpotlight } from "@/components/CursorSpotlight";
 
 const tagsByLocale = {
   fr: [
-    { icon: Zap, label: "Feedbacks en temps réel" },
-    { icon: Brain, label: "Analyse sémantique" },
-    { icon: Target, label: "Indicateurs actionnables" },
-    { icon: Bell, label: "Alertes intelligentes" },
-    { icon: Layers, label: "Multi-canal" },
-    { icon: FileBarChart2, label: "Rapports automatisés" },
+    { icon: Zap, label: "Avis en temps réel" },
+    { icon: Brain, label: "Analyse automatique" },
+    { icon: Target, label: "Indicateurs par service" },
+    { icon: Bell, label: "Alertes et relances" },
+    { icon: Layers, label: "QR code, lien, WhatsApp" },
+    { icon: FileBarChart2, label: "Rapports automatiques" },
   ],
   en: [
     { icon: Zap, label: "Real-time feedback" },
-    { icon: Brain, label: "Semantic analysis" },
-    { icon: Target, label: "Actionable metrics" },
-    { icon: Bell, label: "Smart alerts" },
-    { icon: Layers, label: "Multi-channel" },
+    { icon: Brain, label: "Automatic analysis" },
+    { icon: Target, label: "Metrics by department" },
+    { icon: Bell, label: "Alerts and reminders" },
+    { icon: Layers, label: "QR code, link, WhatsApp" },
     { icon: FileBarChart2, label: "Automated reports" },
   ],
 };
@@ -23,57 +22,15 @@ const tagsByLocale = {
 export function FeatureStrip({ locale = "fr" }: { locale?: "fr" | "en" }) {
   const tags = tagsByLocale[locale];
   return (
-    <section
-      className="relative overflow-hidden border-y"
-      style={{
-        background: "#0F0E0C",
-        borderColor: "rgba(255,255,255,0.06)",
-      }}
-    >
-      <CursorSpotlight color="rgba(250,112,13,0.4)" size={420} />
-      {/* Soft orange glow accents */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-20 left-1/4 h-40 w-[400px] rounded-full opacity-50 blur-3xl"
-        style={{ background: "radial-gradient(closest-side, rgba(250,112,13,0.35), transparent 70%)" }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-20 right-1/4 h-40 w-[400px] rounded-full opacity-40 blur-3xl"
-        style={{ background: "radial-gradient(closest-side, rgba(250,112,13,0.25), transparent 70%)" }}
-      />
-
-      {/* Marquee */}
-      <div
-        className="relative flex overflow-hidden py-8"
-        style={{
-          maskImage:
-            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-        }}
-      >
-        <div className="animate-marquee flex shrink-0 items-center gap-5 pr-5">
-          {[...tags, ...tags].map((t, i) => (
-            <span
-              key={i}
-              className="inline-flex shrink-0 items-center gap-2.5 rounded-full px-5 py-2.5"
-              style={{
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.10)",
-              }}
-            >
-              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-orange/15">
-                <t.icon className="h-3.5 w-3.5 text-orange" strokeWidth="2.5" />
-              </span>
-              <span className="font-display text-sm font-semibold text-white">
-                {t.label}
-              </span>
-              <span className="ml-1 h-1 w-1 rounded-full bg-orange" />
-            </span>
-          ))}
-        </div>
-      </div>
+    <section className="bg-ink px-6 lg:px-16">
+      <ul className="mx-auto grid max-w-7xl grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
+        {tags.map((t) => (
+          <li key={t.label} className="flex items-center gap-3 py-6 text-sm font-medium text-white lg:justify-center">
+            <t.icon className="h-4 w-4 shrink-0 text-orange" strokeWidth={1.8} aria-hidden />
+            {t.label}
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

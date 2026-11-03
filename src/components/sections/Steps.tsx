@@ -1,102 +1,47 @@
-import { CursorSpotlight } from "@/components/CursorSpotlight";
+import { SectionHeader } from "@/components/SectionHeader";
 
-const stepsByLocale = {
-  fr: [
-    { n: "1", title: "Connectez vos canaux", desc: "Intégrez vos points de contact en quelques clics : site web, app, WhatsApp, QR code en magasin." },
-    { n: "2", title: "Collectez en continu", desc: "Les feedbacks remontent automatiquement. Pas de saisie manuelle, pas de données perdues." },
-    { n: "3", title: "Visualisez en temps réel", desc: "Dashboard intuitif avec scores, tendances et alertes. Chaque manager voit ce qui le concerne." },
-    { n: "4", title: "Agissez et mesurez", desc: "Déclenchez des actions correctives, assignez des responsables, mesurez l'impact." },
-  ],
-  en: [
-    { n: "1", title: "Connect your channels", desc: "Plug in your customer touchpoints in a few clicks: website, app, WhatsApp, in-store QR code." },
-    { n: "2", title: "Collect continuously", desc: "Feedback flows in automatically. No manual entry, no data lost." },
-    { n: "3", title: "See it in real time", desc: "An intuitive dashboard with scores, trends and alerts. Every manager sees what matters to them." },
-    { n: "4", title: "Act and measure", desc: "Trigger corrective actions, assign owners, measure the impact." },
-  ],
+const contentByLocale = {
+  fr: {
+    eyebrow: "Comment ça marche",
+    title: "De l'avis client à l'action en 4 étapes.",
+    intro:
+      "Un fonctionnement simple, pensé pour les équipes terrain autant que pour la direction. Pas de formation longue, pas d'intégration complexe.",
+    steps: [
+      { title: "Connectez vos canaux", desc: "Ajoutez vos points de contact : QR code sur place, lien sur votre site, WhatsApp." },
+      { title: "Collectez en continu", desc: "Les avis remontent automatiquement. Pas de saisie manuelle, aucune donnée perdue." },
+      { title: "Suivez en temps réel", desc: "Scores, tendances et alertes. Chaque manager voit ce qui le concerne." },
+      { title: "Agissez et mesurez", desc: "Assignez des responsables, déclenchez des actions correctives et mesurez leur effet." },
+    ],
+  },
+  en: {
+    eyebrow: "How it works",
+    title: "From customer feedback to action in 4 steps.",
+    intro:
+      "A simple flow, designed for field teams as much as for executives. No long onboarding, no complex integration.",
+    steps: [
+      { title: "Connect your channels", desc: "Add your touchpoints: on-site QR code, link on your website, WhatsApp." },
+      { title: "Collect continuously", desc: "Feedback flows in automatically. No manual entry, no data lost." },
+      { title: "Track in real time", desc: "Scores, trends and alerts. Every manager sees what concerns them." },
+      { title: "Act and measure", desc: "Assign owners, trigger corrective actions and measure their effect." },
+    ],
+  },
 };
 
 export function Steps({ locale = "fr" }: { locale?: "fr" | "en" }) {
-  const isEnglish = locale === "en";
-  const steps = stepsByLocale[locale];
+  const c = contentByLocale[locale];
   return (
-    <section
-      id="comment"
-      className="relative overflow-hidden px-6 py-24 lg:px-16 lg:py-32"
-      style={{ background: "#0F0E0C" }}
-    >
-      <CursorSpotlight color="rgba(250,112,13,0.32)" size={460} />
-      {/* Soft orange glow accent */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 left-1/2 h-[400px] w-[800px] -translate-x-1/2 rounded-full opacity-50 blur-3xl"
-        style={{ background: "radial-gradient(ellipse at center, rgba(250,112,13,0.25), transparent 70%)" }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, rgba(255,255,255,1) 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-      />
-
-      <div className="relative mx-auto max-w-7xl">
-        <div className="grid items-end gap-10 lg:grid-cols-[1fr_1.4fr]">
-          <div>
-            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
-              {isEnglish ? "№ 04 · How it works" : "№ 04 · Comment ça marche"}
-            </p>
-            <h2
-              className="font-display mt-4 text-3xl font-bold leading-[1.05] sm:text-4xl lg:text-5xl"
-              style={{ color: "#FFFFFF" }}
-            >
-              {isEnglish ? (
-                <>From customer feedback to action in <span className="italic text-orange">4 steps.</span></>
-              ) : (
-                <>De l&apos;avis client à l&apos;action en <span className="italic text-orange">4 étapes.</span></>
-              )}
-            </h2>
-          </div>
-          <p className="text-base leading-relaxed lg:text-lg" style={{ color: "rgba(255,255,255,0.72)" }}>
-            {isEnglish
-              ? "A simple flow, designed for field teams as much as for executives. No long onboarding, no complex integration."
-              : "Un flux simple, pensé pour les équipes terrain autant que pour la direction. Pas de formation longue, pas d'intégration complexe."}
-          </p>
-        </div>
-
-        <div className="relative mt-16 grid gap-10 lg:grid-cols-4">
-          {/* Connecting line */}
-          <div
-            className="absolute left-[12%] right-[12%] top-10 hidden h-[2px] lg:block"
-            style={{
-              background:
-                "linear-gradient(90deg, #FA700D, rgba(250,112,13,0.25), #FA700D, rgba(250,112,13,0.25))",
-            }}
-            aria-hidden
-          />
-
-          {steps.map((s) => (
-            <div key={s.n} className="group relative z-10 text-center">
-              <div
-                className="font-display mx-auto flex h-20 w-20 items-center justify-center rounded-full text-3xl font-extrabold transition group-hover:bg-orange group-hover:text-white group-hover:shadow-orange"
-                style={{
-                  border: "2px solid #FA700D",
-                  background: "#0F0E0C",
-                  color: "#FA700D",
-                }}
-              >
-                {s.n}
-              </div>
-              <h4 className="font-display mt-6 text-base font-bold" style={{ color: "#FFFFFF" }}>
-                {s.title}
-              </h4>
-              <p className="mx-auto mt-2 max-w-[220px] text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.65)" }}>
-                {s.desc}
-              </p>
-            </div>
+    <section id="comment" className="px-6 py-24 lg:px-16 lg:py-32">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeader eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
+        <ol className="mt-14 grid gap-10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4 lg:gap-0">
+          {c.steps.map((s, i) => (
+            <li key={s.title} className="border-t-2 border-text pt-6 lg:pr-10">
+              <span className="text-sm font-semibold tabular-nums text-orange-deep">0{i + 1}</span>
+              <h3 className="font-display mt-3 text-lg font-semibold text-text">{s.title}</h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-text-dim">{s.desc}</p>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

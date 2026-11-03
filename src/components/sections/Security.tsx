@@ -1,127 +1,54 @@
-import { Lock, Shield, Cloud, KeyRound, FileCheck, Server } from "lucide-react";
+import { Lock, Shield, Cloud, KeyRound } from "lucide-react";
+import { SectionHeader } from "@/components/SectionHeader";
+import { IconTile } from "@/components/IconTile";
 
-const itemsByLocale = {
-  fr: [
-    {
-      icon: Lock,
-      title: "Isolation multi-tenant",
-      desc: "Chaque entreprise est cloisonnée. Aucun partage de données entre comptes.",
-      highlight: "RBAC strict",
-    },
-    {
-      icon: Shield,
-      title: "RGPD conforme",
-      desc: "Droit à l'oubli, anonymisation, export en 1 clic. DPA disponible.",
-      highlight: "Loi Sénégal & UE",
-    },
-    {
-      icon: Cloud,
-      title: "Cloud sécurisé",
-      desc: "Backups quotidiens automatiques, hébergement Europe RGPD.",
-      highlight: "Backups daily",
-    },
-    {
-      icon: KeyRound,
-      title: "Authentification forte",
-      desc: "Tokens chiffrés avec expiration, OTP par email, 2FA optionnel.",
-      highlight: "Sanctum + OTP",
-    },
-  ],
-  en: [
-    {
-      icon: Lock,
-      title: "Multi-tenant isolation",
-      desc: "Every company is fully isolated. Zero data sharing between accounts.",
-      highlight: "Strict RBAC",
-    },
-    {
-      icon: Shield,
-      title: "GDPR compliant",
-      desc: "Right to be forgotten, anonymisation, one-click export. DPA available.",
-      highlight: "EU & Senegal law",
-    },
-    {
-      icon: Cloud,
-      title: "Secure cloud",
-      desc: "Automated daily backups, GDPR-compliant European hosting.",
-      highlight: "Daily backups",
-    },
-    {
-      icon: KeyRound,
-      title: "Strong authentication",
-      desc: "Encrypted tokens with expiry, email OTP, optional 2FA.",
-      highlight: "Sanctum + OTP",
-    },
-  ],
+const contentByLocale = {
+  fr: {
+    eyebrow: "Données et sécurité",
+    title: (
+      <>
+        La confiance est au cœur <span className="text-orange-deep">de notre engagement.</span>
+      </>
+    ),
+    intro: "Vos données restent les vôtres : elles sont cloisonnées, protégées et exportables à tout moment.",
+    items: [
+      { icon: Lock, title: "Données cloisonnées", desc: "Chaque entreprise dispose de son propre espace. Aucun partage de données entre comptes." },
+      { icon: Shield, title: "Respect de la vie privée", desc: "Droit à l'oubli, anonymisation et export de vos données sur simple demande." },
+      { icon: Cloud, title: "Hébergement sécurisé", desc: "Infrastructure cloud professionnelle, connexions chiffrées et sauvegardes régulières." },
+      { icon: KeyRound, title: "Connexion protégée", desc: "Sessions chiffrées avec expiration et code de vérification envoyé par e-mail." },
+    ],
+  },
+  en: {
+    eyebrow: "Data and security",
+    title: (
+      <>
+        Trust is at the heart <span className="text-orange-deep">of our commitment.</span>
+      </>
+    ),
+    intro: "Your data stays yours: isolated, protected and exportable at any time.",
+    items: [
+      { icon: Lock, title: "Isolated data", desc: "Every company has its own workspace. No data is shared between accounts." },
+      { icon: Shield, title: "Privacy by design", desc: "Right to be forgotten, anonymization and data export on request." },
+      { icon: Cloud, title: "Secure hosting", desc: "Professional cloud infrastructure, encrypted connections and regular backups." },
+      { icon: KeyRound, title: "Protected sign-in", desc: "Encrypted sessions with expiry and a verification code sent by email." },
+    ],
+  },
 };
 
 export function Security({ locale = "fr" }: { locale?: "fr" | "en" }) {
-  const isEnglish = locale === "en";
-  const items = itemsByLocale[locale];
+  const c = contentByLocale[locale];
   return (
-    <section className="relative px-6 py-24 lg:px-16 lg:py-32">
+    <section className="border-y border-card-border bg-cream px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
-        <div className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
-            {isEnglish ? "№ 14 · Data & Security" : "№ 14 · Données & Sécurité"}
-          </p>
-          <h2 className="font-display mt-4 text-3xl font-bold leading-tight text-text sm:text-4xl lg:text-5xl">
-            {isEnglish ? (
-              <>
-                Trust is at the heart <br className="hidden sm:block" />
-                <span className="italic text-orange">of our commitment.</span>
-              </>
-            ) : (
-              <>
-                La confiance est au cœur <br className="hidden sm:block" />
-                <span className="italic text-orange">de notre engagement.</span>
-              </>
-            )}
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-text-dim lg:text-lg">
-            {isEnglish
-              ? "Your data stays yours. Compliance, isolation and encryption — audited, not just claimed."
-              : "Vos données restent les vôtres. Conformité, isolation et chiffrement audités — pas un argument marketing."}
-          </p>
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {items.map((it) => (
-            <div
-              key={it.title}
-              className="card-base group relative overflow-hidden rounded-3xl p-6 hover:border-orange/40 lg:p-7"
-            >
-              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-orange/10 text-orange transition group-hover:bg-orange group-hover:text-white">
-                <it.icon className="h-6 w-6" strokeWidth="2" />
-              </div>
-              <h3 className="font-display text-base font-bold text-text">{it.title}</h3>
-              <p className="mt-2 text-[13px] leading-relaxed text-text-dim">{it.desc}</p>
-              <div className="mt-5 inline-flex items-center gap-1.5 rounded-full border border-card-border bg-card px-2.5 py-1 text-[10px] font-mono font-bold uppercase tracking-widest text-text-dim">
-                <span className="h-1 w-1 rounded-full bg-orange" />
-                {it.highlight}
-              </div>
+        <SectionHeader eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
+          {c.items.map((it) => (
+            <div key={it.title} className="flex flex-col gap-3 rounded-lg border border-card-border bg-bg p-7">
+              <IconTile icon={it.icon} />
+              <h3 className="font-display mt-2 text-lg font-semibold text-text">{it.title}</h3>
+              <p className="text-[15px] leading-relaxed text-text-dim">{it.desc}</p>
             </div>
           ))}
-        </div>
-
-        {/* Trust badges row */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 border-t border-card-border pt-10 text-text-dim">
-          <span className="inline-flex items-center gap-2 text-sm font-medium">
-            <FileCheck className="h-4 w-4 text-orange" strokeWidth="2.5" />
-            {isEnglish ? "GDPR ready" : "RGPD ready"}
-          </span>
-          <span className="inline-flex items-center gap-2 text-sm font-medium">
-            <Server className="h-4 w-4 text-orange" strokeWidth="2.5" />
-            {isEnglish ? "European hosting" : "Hébergement Europe"}
-          </span>
-          <span className="inline-flex items-center gap-2 text-sm font-medium">
-            <Lock className="h-4 w-4 text-orange" strokeWidth="2.5" />
-            {isEnglish ? "Encrypted tokens" : "Tokens chiffrés"}
-          </span>
-          <span className="inline-flex items-center gap-2 text-sm font-medium">
-            <Shield className="h-4 w-4 text-orange" strokeWidth="2.5" />
-            {isEnglish ? "DPA available" : "DPA disponible"}
-          </span>
         </div>
       </div>
     </section>

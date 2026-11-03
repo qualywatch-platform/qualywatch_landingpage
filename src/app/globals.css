@@ -14,6 +14,9 @@
   --color-orange: #FA700D;
   --color-orange-deep: #C8540F;
   --color-orange-glow: rgba(250, 112, 13, 0.15);
+  --color-orange-soft: #FFF1E6;
+  --color-cream: #FFF7F0;
+  --color-ink: #17120E;
 
   --color-card: var(--card-bg);
   --color-card-border: var(--card-border);

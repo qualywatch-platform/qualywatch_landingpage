@@ -1,116 +1,90 @@
 import Image from "next/image";
 
+const contentByLocale = {
+  fr: {
+    eyebrow: "Notre histoire",
+    title: (
+      <>
+        La vision derrière <span className="text-orange-deep">QualyWatch.</span>
+      </>
+    ),
+    quote:
+      "« J'ai vu trop d'entreprises perdre leurs meilleurs clients sans le savoir. QualyWatch existe pour que ça n'arrive plus. »",
+    body: [
+      "Un client mécontent se plaint rarement : il s'en va. Puis il en parle autour de lui, laisse un avis négatif en ligne ou publie sur les réseaux sociaux. L'entreprise perd sa réputation en silence, sans avoir eu l'occasion de réagir.",
+      "QualyWatch n'est pas un énième formulaire. C'est l'outil qui transforme chaque avis en décision, et chaque client mécontent en client retenu.",
+    ],
+    signature: "La satisfaction n'est pas un indicateur. C'est la promesse que vous tenez à vos clients.",
+    role: "Fondatrice et CEO, QualyWatch",
+    alt: "Aissatou Seye, fondatrice de QualyWatch",
+    facts: [
+      { label: "Fondation", value: "2024" },
+      { label: "Conçu à", value: "Dakar" },
+      { label: "Lancement", value: "2026" },
+    ],
+  },
+  en: {
+    eyebrow: "Our story",
+    title: (
+      <>
+        The vision behind <span className="text-orange-deep">QualyWatch.</span>
+      </>
+    ),
+    quote:
+      "\"I've seen too many companies lose their best customers without ever knowing. QualyWatch exists so that it doesn't happen again.\"",
+    body: [
+      "An unhappy customer rarely complains: they just leave. Then they tell people around them, post a negative review online or share it on social media. The company loses its reputation in silence, with no chance to react.",
+      "QualyWatch isn't yet another form. It's the tool that turns every piece of feedback into a decision, and every unhappy customer into a retained one.",
+    ],
+    signature: "Satisfaction isn't a metric. It's the promise you keep to your customers.",
+    role: "Founder and CEO, QualyWatch",
+    alt: "Aissatou Seye, founder of QualyWatch",
+    facts: [
+      { label: "Founded", value: "2024" },
+      { label: "Built in", value: "Dakar" },
+      { label: "Launch", value: "2026" },
+    ],
+  },
+};
+
 export function Story({ locale = "fr" }: { locale?: "fr" | "en" }) {
-  const isEnglish = locale === "en";
+  const c = contentByLocale[locale];
   return (
-    <section id="histoire" className="relative overflow-hidden px-6 py-20 lg:px-16 lg:py-28" style={{ background: "#F9FAFC" }}>
-      {/* Subtle decorative ring */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-32 top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full border border-orange/8"
-      />
+    <section id="histoire" className="px-6 py-24 lg:px-16 lg:py-32">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+        <figure className="mx-auto w-full max-w-[460px]">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg bg-orange-soft">
+            <Image src="/founder.jpg" alt={c.alt} fill sizes="(min-width: 1024px) 460px, 90vw" className="object-cover object-top" />
+          </div>
+          <figcaption className="mt-4 flex items-baseline justify-between gap-4 border-t border-card-border pt-4">
+            <span className="font-display text-base font-semibold text-text">Aissatou Seye</span>
+            <span className="text-sm text-text-dim">{c.role}</span>
+          </figcaption>
+        </figure>
 
-      <div className="relative mx-auto max-w-6xl">
-        {/* Two-column: BIG photo left, text + label right */}
-        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
-          {/* BIG Photo card — left, takes lots of space */}
-          <div className="relative mx-auto w-full max-w-[420px] lg:max-w-[520px]">
-            {/* Floating chip — Made with love in Dakar */}
-            <span className="absolute -top-3 left-6 z-20 inline-flex items-center gap-1.5 rounded-full bg-orange px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white shadow-orange-soft">
-              ● Made with love in Dakar
-            </span>
-
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[28px] border border-card-border bg-card shadow-card">
-              <Image
-                src="/founder.jpg"
-                alt={isEnglish ? "Aissatou Seye, founder" : "Aissatou Seye, fondatrice"}
-                fill
-                sizes="(min-width: 1024px) 520px, 420px"
-                className="object-cover object-top"
-              />
-              {/* Caption gradient — only at very bottom */}
-              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/65 via-black/25 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-5">
-                <div className="font-display text-base font-bold text-white">Aissatou Seye</div>
-                <div className="text-[11px] text-white/85">
-                  {isEnglish ? "Founder & CEO · Qualywatch" : "Fondatrice & CEO · Qualywatch"}
-                </div>
+        <div>
+          <p className="flex items-center gap-2.5 text-sm font-semibold text-orange-deep">
+            <span className="h-0.5 w-6 bg-orange" aria-hidden />
+            {c.eyebrow}
+          </p>
+          <h2 className="font-display mt-3 text-3xl font-semibold leading-[1.15] tracking-tight text-text sm:text-4xl">{c.title}</h2>
+          <blockquote className="font-display mt-8 border-l-2 border-orange pl-6 text-xl leading-snug text-text lg:text-2xl">
+            {c.quote}
+          </blockquote>
+          {c.body.map((p) => (
+            <p key={p} className="mt-5 text-base leading-relaxed text-text-dim">
+              {p}
+            </p>
+          ))}
+          <p className="mt-5 text-base font-semibold text-orange-deep">{c.signature}</p>
+          <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-card-border pt-6">
+            {c.facts.map((f) => (
+              <div key={f.label}>
+                <dt className="text-sm text-text-mute">{f.label}</dt>
+                <dd className="font-display mt-1 text-2xl font-semibold text-text">{f.value}</dd>
               </div>
-            </div>
-
-            {/* Decorative orange ring */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -inset-3 -z-10 rounded-[34px] border border-orange/20"
-            />
-          </div>
-
-          {/* RIGHT — label + minimaliste copy */}
-          <div>
-            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
-              {isEnglish ? "№ 11 · Our story" : "№ 11 · Notre histoire"}
-            </p>
-            <h2 className="font-display mt-3 text-2xl font-bold leading-tight text-text sm:text-3xl lg:text-4xl">
-              {isEnglish ? (
-                <>The vision behind <span className="italic text-orange">Qualywatch.</span></>
-              ) : (
-                <>La vision derrière <span className="italic text-orange">Qualywatch.</span></>
-              )}
-            </h2>
-
-            <blockquote className="font-display mt-7 text-lg italic leading-snug text-text lg:text-xl">
-              {isEnglish
-                ? "\"I've seen too many companies lose their best customers without ever knowing. Qualywatch exists so that never happens again.\""
-                : "« J'ai vu trop d'entreprises perdre leurs meilleurs clients sans le savoir. Qualywatch existe pour que ça n'arrive plus jamais. »"}
-            </blockquote>
-
-            <p className="mt-5 text-sm leading-relaxed text-text-dim lg:text-[15px]">
-              {isEnglish ? (
-                <>
-                  An unhappy customer never complains — they just leave. Then they tell <span className="text-text">12 people</span>, drop a <span className="text-text">bad review</span>, post an <span className="text-text">angry live</span>, or start a thread that goes viral. Companies lose their reputation in silence, with no chance to react.
-                </>
-              ) : (
-                <>
-                  Un client mécontent ne se plaint jamais — il s&apos;en va. Et puis il en parle à <span className="text-text">12 personnes</span>, lâche un <span className="text-text">bad review</span>, fait un <span className="text-text">live indigné</span>, ou poste un thread qui devient viral. Les entreprises perdent leur réputation en silence, sans avoir l&apos;occasion de réagir.
-                </>
-              )}
-            </p>
-            <p className="mt-3 text-sm leading-relaxed text-text-dim lg:text-[15px]">
-              {isEnglish
-                ? "Qualywatch isn't yet another form. It's the infrastructure that turns every piece of feedback into a decision — and every unhappy customer into a retained one."
-                : "Qualywatch n'est pas un énième formulaire. C'est l'infrastructure qui transforme chaque feedback en décision — et chaque client mécontent en client retenu."}
-            </p>
-            <p className="font-display mt-4 text-base font-bold italic text-orange lg:text-lg">
-              {isEnglish
-                ? "Satisfaction isn't a KPI. It's the promise you keep to your customers."
-                : "La satisfaction n'est pas un KPI. C'est la promesse que vous tenez à vos clients."}
-            </p>
-
-            {/* Compact stats — pro layout, label above value */}
-            <div className="mt-7 grid grid-cols-3 gap-4 border-t border-card-border pt-6">
-              {(isEnglish
-                ? [
-                    { label: "Founded", value: "2024" },
-                    { label: "Built in", value: "Dakar" },
-                    { label: "Launch", value: "2026" },
-                  ]
-                : [
-                    { label: "Fondation", value: "2024" },
-                    { label: "Conçu à", value: "Dakar" },
-                    { label: "Lancement", value: "2026" },
-                  ]
-              ).map((s) => (
-                <div key={s.label}>
-                  <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-text-mute">
-                    {s.label}
-                  </div>
-                  <div className="font-display mt-1 text-xl font-extrabold text-text">
-                    {s.value}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+            ))}
+          </dl>
         </div>
       </div>
     </section>

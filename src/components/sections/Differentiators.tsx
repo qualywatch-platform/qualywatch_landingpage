@@ -1,145 +1,77 @@
-import { Infinity, Workflow, Users, Globe2, Sparkles } from "lucide-react";
+import { Infinity, Workflow, Users, Globe2 } from "lucide-react";
+import { SectionHeader } from "@/components/SectionHeader";
+import { IconTile } from "@/components/IconTile";
 
-const itemsByLocale = {
-  fr: [
-    {
-      icon: Infinity,
-      title: "Continu, pas ponctuel",
-      desc: "Fini les enquêtes trimestrielles qui arrivent trop tard. Qualywatch écoute en permanence.",
-      detail: "24/7 · Auto-collecte",
-      metric: "100%",
-      metricLabel: "de couverture",
-    },
-    {
-      icon: Workflow,
-      title: "Actionnable, pas décoratif",
-      desc: "Chaque score est relié à une action. Pas de chiffre sans plan d'amélioration.",
-      detail: "Alerte → Action → Mesure",
-      metric: "< 5 min",
-      metricLabel: "réaction terrain",
-    },
-    {
-      icon: Users,
-      title: "Terrain d'abord",
-      desc: "Conçu pour les managers de proximité, pas seulement pour les comités de direction.",
-      detail: "Mobile · Rapide · Clair",
-      metric: "6 rôles",
-      metricLabel: "RBAC granulaire",
-    },
-    {
-      icon: Globe2,
-      title: "Pensé pour les entreprises du monde",
-      desc: "Multilingue, mobile-first, paiements locaux, hébergement multi-régions. Que vous soyez à Dakar, Casablanca, Paris ou São Paulo — Qualywatch s'adapte.",
-      detail: "Multi-langue · Multi-devises · Multi-régions",
-      metric: "350+",
-      metricLabel: "enseignes en prod",
-    },
-  ],
-  en: [
-    {
-      icon: Infinity,
-      title: "Continuous, not periodic",
-      desc: "No more quarterly surveys that arrive too late. Qualywatch listens constantly.",
-      detail: "24/7 · Auto-collected",
-      metric: "100%",
-      metricLabel: "coverage",
-    },
-    {
-      icon: Workflow,
-      title: "Actionable, not decorative",
-      desc: "Every score is wired to an action. No metric without an improvement plan.",
-      detail: "Alert → Action → Measure",
-      metric: "< 5 min",
-      metricLabel: "field response",
-    },
-    {
-      icon: Users,
-      title: "Field-first",
-      desc: "Built for the front-line manager, not just for the boardroom.",
-      detail: "Mobile · Fast · Clear",
-      metric: "6 roles",
-      metricLabel: "granular RBAC",
-    },
-    {
-      icon: Globe2,
-      title: "Built for global businesses",
-      desc: "Multilingual, mobile-first, local payments, multi-region hosting. Whether you're in Dakar, Casablanca, Paris or São Paulo — Qualywatch adapts.",
-      detail: "Multi-language · Multi-currency · Multi-region",
-      metric: "350+",
-      metricLabel: "live customers",
-    },
-  ],
+const contentByLocale = {
+  fr: {
+    eyebrow: "Pourquoi QualyWatch",
+    title: "Pas un énième formulaire. Un outil de pilotage.",
+    intro: "Quatre choix de conception qui font la différence dès la première semaine.",
+    items: [
+      {
+        icon: Infinity,
+        title: "Continu, pas ponctuel",
+        desc: "Fini les enquêtes trimestrielles qui arrivent trop tard. QualyWatch recueille les avis en permanence.",
+      },
+      {
+        icon: Workflow,
+        title: "Orienté action",
+        desc: "Chaque avis négatif devient une tâche avec un responsable et un délai. Pas de chiffre sans plan d'amélioration.",
+      },
+      {
+        icon: Users,
+        title: "Pensé pour le terrain",
+        desc: "Conçu pour les managers de proximité et leurs équipes, pas seulement pour la direction.",
+      },
+      {
+        icon: Globe2,
+        title: "Adapté à votre marché",
+        desc: "En français et en anglais, sur le web et sur mobile, avec des prix et un paiement en francs CFA.",
+      },
+    ],
+  },
+  en: {
+    eyebrow: "Why QualyWatch",
+    title: "Not yet another form. A management tool.",
+    intro: "Four design choices that make a difference from the first week.",
+    items: [
+      {
+        icon: Infinity,
+        title: "Continuous, not periodic",
+        desc: "No more quarterly surveys that arrive too late. QualyWatch collects feedback all the time.",
+      },
+      {
+        icon: Workflow,
+        title: "Action-oriented",
+        desc: "Every negative review becomes a task with an owner and a deadline. No metric without an improvement plan.",
+      },
+      {
+        icon: Users,
+        title: "Built for the field",
+        desc: "Designed for front-line managers and their teams, not just for the boardroom.",
+      },
+      {
+        icon: Globe2,
+        title: "Made for your market",
+        desc: "In French and English, on web and mobile, with prices and payment in CFA francs.",
+      },
+    ],
+  },
 };
 
 export function Differentiators({ locale = "fr" }: { locale?: "fr" | "en" }) {
-  const isEnglish = locale === "en";
-  const items = itemsByLocale[locale];
+  const c = contentByLocale[locale];
   return (
-    <section id="pourquoi" className="relative px-6 py-24 lg:px-16 lg:py-32">
+    <section id="pourquoi" className="px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
-        <div className="grid items-end gap-10 lg:grid-cols-[1fr_1.4fr]">
-          <div>
-            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
-              {isEnglish ? "№ 08 · Why Qualywatch" : "№ 08 · Pourquoi Qualywatch"}
-            </p>
-            <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
-              {isEnglish ? (
-                <>
-                  Not yet another form.<br />
-                  <span className="italic text-orange">An operating system.</span>
-                </>
-              ) : (
-                <>
-                  Pas un énième formulaire.<br />
-                  <span className="italic text-orange">Un système de pilotage.</span>
-                </>
-              )}
-            </h2>
-          </div>
-          <p className="text-base leading-relaxed text-text-dim lg:text-lg">
-            {isEnglish
-              ? "Four design choices that set us apart — not marketing bullets, but architectural decisions you'll feel from week one."
-              : "Quatre choix de conception qui nous distinguent — pas des bullet points marketing, des décisions architecturales que vous sentirez dès la première semaine."}
-          </p>
-        </div>
-
-        <div className="mt-16 grid gap-5 lg:grid-cols-2">
-          {items.map((it, i) => (
-            <div
-              key={it.title}
-              className="card-base group relative flex overflow-hidden rounded-3xl p-7 hover:border-orange/40 lg:p-8"
-            >
-              {/* Big number watermark */}
-              <span
-                aria-hidden
-                className="font-display pointer-events-none absolute right-6 top-2 text-[120px] font-extrabold leading-none text-orange/[0.07] transition group-hover:text-orange/[0.13]"
-              >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-
-              {/* Left icon */}
-              <div className="relative z-10 mr-6 shrink-0">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-glow text-orange transition group-hover:bg-orange group-hover:text-white">
-                  <it.icon className="h-7 w-7" strokeWidth="2" />
-                </div>
-              </div>
-
-              {/* Right content */}
-              <div className="relative z-10 flex-1">
-                <h3 className="font-display text-xl font-bold leading-tight text-text">{it.title}</h3>
-                <p className="mt-2 text-[13.5px] leading-relaxed text-text-dim">{it.desc}</p>
-
-                {/* Pill detail */}
-                <div className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-card-border bg-card px-2.5 py-1 text-[10px] font-mono font-bold uppercase tracking-widest text-text-dim">
-                  <Sparkles className="h-3 w-3 text-orange" strokeWidth="2.5" />
-                  {it.detail}
-                </div>
-
-                {/* Metric */}
-                <div className="mt-5 flex items-baseline gap-2 border-t border-card-border pt-4">
-                  <span className="font-display text-2xl font-extrabold text-orange lg:text-3xl">{it.metric}</span>
-                  <span className="text-[11px] font-medium text-text-dim">{it.metricLabel}</span>
-                </div>
+        <SectionHeader eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
+        <div className="mt-14 grid border-l border-t border-card-border sm:grid-cols-2 lg:mt-20">
+          {c.items.map((it) => (
+            <div key={it.title} className="flex gap-6 border-b border-r border-card-border p-8 lg:p-10">
+              <IconTile icon={it.icon} />
+              <div>
+                <h3 className="font-display text-lg font-semibold text-text">{it.title}</h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-text-dim">{it.desc}</p>
               </div>
             </div>
           ))}

@@ -1,219 +1,114 @@
-import Image from "next/image";
-import { MessageCircle, Heart, AlertCircle, UserX, ChevronDown, Star, Layers } from "lucide-react";
+import { Heart, AlertCircle, UserX, ChevronDown, Star, Layers } from "lucide-react";
+import { IconTile } from "@/components/IconTile";
 
-const featuresByLocale = {
-  fr: [
-    { icon: UserX, label: "Anonymisation auto", desc: "Quand l'auteur est un membre actif de l'entreprise, son identité est automatiquement masquée." },
-    { icon: Layers, label: "Mêmes canaux", desc: "QR codes, lien public, email — vos équipes utilisent les mêmes points de contact que vos clients." },
-    { icon: AlertCircle, label: "Signaux faibles", desc: "Tensions, frustrations, idées d'amélioration — repérées avant qu'elles deviennent des problèmes." },
-    { icon: Heart, label: "Climat d'équipe", desc: "Mesurez la santé de vos équipes au même endroit que la satisfaction clients." },
-  ],
-  en: [
-    { icon: UserX, label: "Auto-anonymisation", desc: "When the author is an active company member, their identity is automatically hidden." },
-    { icon: Layers, label: "Same channels", desc: "QR codes, public link, email — your teams use the same touchpoints as your customers." },
-    { icon: AlertCircle, label: "Weak signals", desc: "Tensions, frustrations, improvement ideas — caught before they become real problems." },
-    { icon: Heart, label: "Team climate", desc: "Measure the health of your teams in the same place as customer satisfaction." },
-  ],
+const contentByLocale = {
+  fr: {
+    eyebrow: "Avis internes",
+    title: "Vos employés ont aussi leur mot à dire.",
+    intro:
+      "Vos employés peuvent eux aussi donner leur avis : sur leur service, l'ambiance, les outils. Quand l'auteur est un membre actif de l'entreprise, son identité est automatiquement masquée et l'avis apparaît comme « Employé anonyme ».",
+    features: [
+      { icon: UserX, label: "Anonymat automatique", desc: "L'identité d'un membre de l'entreprise est masquée sans action de sa part." },
+      { icon: Layers, label: "Les mêmes canaux", desc: "QR code, lien public, e-mail : les mêmes points de contact que pour vos clients." },
+      { icon: AlertCircle, label: "Signaux faibles", desc: "Tensions et idées d'amélioration repérées avant de devenir des problèmes." },
+      { icon: Heart, label: "Climat d'équipe", desc: "La santé de vos équipes, au même endroit que la satisfaction client." },
+    ],
+    form: {
+      header: "Nouvel avis",
+      badge: "Employé anonyme",
+      service: "Service concerné",
+      serviceValue: "Service client",
+      rating: "Climat ressenti",
+      message: "Votre message",
+      messageValue: "L'équipe est très soudée, mais il manque du matériel pour les nouveaux arrivants.",
+      notice: "Adresse reconnue comme membre actif : identité masquée.",
+      submit: "Envoyer l'avis",
+    },
+  },
+  en: {
+    eyebrow: "Internal feedback",
+    title: "Your employees have a say too.",
+    intro:
+      "Your employees can share feedback too: on their department, the atmosphere, the tools. When the author is an active company member, their identity is automatically hidden and the feedback shows as \"Anonymous employee\".",
+    features: [
+      { icon: UserX, label: "Automatic anonymity", desc: "A company member's identity is hidden without them doing anything." },
+      { icon: Layers, label: "The same channels", desc: "QR code, public link, email: the same touchpoints as your customers." },
+      { icon: AlertCircle, label: "Weak signals", desc: "Tensions and improvement ideas caught before they become problems." },
+      { icon: Heart, label: "Team climate", desc: "Your teams' wellbeing, in the same place as customer satisfaction." },
+    ],
+    form: {
+      header: "New feedback",
+      badge: "Anonymous employee",
+      service: "Department",
+      serviceValue: "Customer service",
+      rating: "Team climate",
+      message: "Your message",
+      messageValue: "The team is very close, but new joiners are missing equipment.",
+      notice: "Address recognised as an active member: identity hidden.",
+      submit: "Send feedback",
+    },
+  },
 };
 
 export function TeamFeedbacks({ locale = "fr" }: { locale?: "fr" | "en" }) {
-  const isEnglish = locale === "en";
-  const features = featuresByLocale[locale];
+  const c = contentByLocale[locale];
+  const f = c.form;
   return (
-    <section
-      id="feedbacks-internes"
-      className="relative isolate overflow-hidden px-6 py-24 lg:px-16 lg:py-32"
-    >
-      {/* Background image — engaged employee */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <Image
-          src="/faq-bg-44581.jpg"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover object-right"
-          style={{ transform: "scaleX(-1)" }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to right, rgba(249,250,252,0.30) 0%, rgba(249,250,252,0.55) 35%, rgba(249,250,252,0.80) 65%, rgba(249,250,252,0.95) 100%)",
-          }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse at top left, rgba(250,112,13,0.08), transparent 55%), radial-gradient(ellipse at bottom right, rgba(250,112,13,0.06), transparent 55%)",
-          }}
-        />
-      </div>
-
-      <div className="relative mx-auto max-w-7xl">
-        <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
-          {/* LEFT — Copy */}
+    <section id="feedbacks-internes" className="border-y border-card-border bg-cream px-6 py-24 lg:px-16 lg:py-32">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid items-center gap-16 lg:grid-cols-[1.15fr_1fr] lg:gap-24">
           <div>
-            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
-              {isEnglish ? "№ 07 · Internal feedback" : "№ 07 · Feedbacks internes"}
-            </p>
-            <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
-              {isEnglish ? (
-                <>Your employees have <span className="italic text-orange">a voice too.</span></>
-              ) : (
-                <>Vos employés ont aussi leur <span className="italic text-orange">mot à dire.</span></>
-              )}
-            </h2>
-            <p className="mt-5 text-base leading-relaxed text-text-dim lg:text-[17px]">
-              {isEnglish ? (
-                <>
-                  Not just customers. Your <strong className="text-text">employees</strong> and{" "}
-                  <strong className="text-text">team members</strong> can also submit feedback —
-                  on their manager, their service, the atmosphere, the tools. When the author is an active company member,
-                  their identity is <strong className="text-text">automatically hidden</strong> and the feedback shows up as &quot;Anonymous employee&quot;.
-                </>
-              ) : (
-                <>
-                  Pas que les clients. Vos <strong className="text-text">employés</strong> et{" "}
-                  <strong className="text-text">membres d&apos;équipe</strong> peuvent eux aussi soumettre des feedbacks
-                  — sur leur manager, leur service, l&apos;ambiance, les outils. Quand l&apos;auteur est un membre actif de l&apos;entreprise,
-                  son identité est <strong className="text-text">automatiquement masquée</strong> et le feedback apparaît comme « Employé anonyme ».
-                </>
-              )}
-            </p>
-
-            {/* Features list */}
-            <ul className="mt-7 grid gap-3 sm:grid-cols-2">
-              {features.map((f) => (
+            <p className="flex items-center gap-2.5 text-sm font-semibold text-orange-deep"><span className="h-0.5 w-6 bg-orange" aria-hidden />{c.eyebrow}</p>
+            <h2 className="font-display mt-3 text-3xl font-semibold leading-[1.15] tracking-tight text-text sm:text-4xl">{c.title}</h2>
+            <p className="mt-5 text-base leading-relaxed text-text-dim lg:text-lg">{c.intro}</p>
+            <ul className="mt-10 grid border-t border-card-border sm:grid-cols-2">
+              {c.features.map((item, i) => (
                 <li
-                  key={f.label}
-                  className="rounded-2xl border border-card-border bg-card p-4 transition hover:border-orange/40"
+                  key={item.label}
+                  className={`flex flex-col gap-2 border-b border-card-border py-6 ${i % 2 === 0 ? "sm:pr-8" : "sm:border-l sm:pl-8"}`}
                 >
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-orange/10 text-orange">
-                    <f.icon className="h-4 w-4" strokeWidth="2.5" />
-                  </span>
-                  <div className="font-display mt-3 text-sm font-bold text-text">{f.label}</div>
-                  <div className="mt-1 text-[12px] leading-snug text-text-dim">{f.desc}</div>
+                  <IconTile icon={item.icon} size="sm" />
+                  <div className="font-display mt-1 text-base font-semibold text-text">{item.label}</div>
+                  <div className="text-sm leading-relaxed text-text-dim">{item.desc}</div>
                 </li>
               ))}
             </ul>
-
-            {/* Highlight quote */}
-            <div className="mt-7 rounded-2xl border-l-4 border-orange bg-card p-4">
-              <p className="font-display text-[14px] italic leading-relaxed text-text">
-                {isEnglish
-                  ? "\"A company that doesn't listen to its teams can't listen to its customers.\""
-                  : "« Une entreprise qui n'écoute pas ses équipes ne peut pas écouter ses clients. »"}
-              </p>
-            </div>
           </div>
 
-          {/* RIGHT — Anonymous feedback form mockup */}
-          <div className="relative">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -inset-6 -z-10 rounded-[44px] opacity-60 blur-3xl"
-              style={{ background: "radial-gradient(closest-side, rgba(250,112,13,0.18), transparent 70%)" }}
-            />
-
-            <div className="relative overflow-hidden rounded-[28px] border border-card-border bg-card shadow-deep">
-              {/* Header */}
-              <div className="flex items-center justify-between border-b border-card-border px-6 py-4">
-                <div className="flex items-center gap-2">
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-orange/15 text-orange">
-                    <MessageCircle className="h-4 w-4" strokeWidth="2.5" />
-                  </span>
-                  <div>
-                    <div className="font-display text-sm font-bold text-text">
-                      {isEnglish ? "New feedback" : "Nouveau feedback"}
-                    </div>
-                    <div className="font-mono text-[10px] uppercase tracking-widest text-text-mute">
-                      {isEnglish ? "Author detected · internal" : "Auteur détecté · interne"}
-                    </div>
-                  </div>
-                </div>
-                <span className="inline-flex items-center gap-1 rounded-full bg-orange/10 px-2.5 py-1 text-[10px] font-bold text-orange">
-                  <UserX className="h-3 w-3" strokeWidth="2.5" />
-                  {isEnglish ? "Anonymous employee" : "Employé anonyme"}
-                </span>
-              </div>
-
-              {/* Form body */}
-              <div className="space-y-5 px-6 py-6">
-                {/* Service select */}
-                <div>
-                  <label className="font-mono block text-[10px] font-bold uppercase tracking-widest text-text-mute">
-                    {isEnglish ? "Concerned service" : "Service concerné"}
-                  </label>
-                  <div className="mt-2 flex items-center justify-between rounded-xl border border-card-border bg-card-border/30 px-3.5 py-2.5">
-                    <span className="text-sm font-medium text-text">
-                      {isEnglish ? "Customer Service" : "Service Client"}
-                    </span>
-                    <ChevronDown className="h-4 w-4 text-text-mute" strokeWidth="2.5" />
-                  </div>
-                </div>
-
-                {/* Rating */}
-                <div>
-                  <label className="font-mono block text-[10px] font-bold uppercase tracking-widest text-text-mute">
-                    {isEnglish ? "Climate rating" : "Climat ressenti"}
-                  </label>
-                  <div className="mt-2 flex items-center gap-1.5">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <Star
-                        key={i}
-                        className={`h-7 w-7 ${i <= 4 ? "fill-orange text-orange" : "fill-card-border text-card-border"}`}
-                        strokeWidth="0"
-                      />
-                    ))}
-                    <span className="ml-2 font-display text-sm font-bold text-text">4 / 5</span>
-                  </div>
-                </div>
-
-                {/* Message preview */}
-                <div>
-                  <label className="font-mono block text-[10px] font-bold uppercase tracking-widest text-text-mute">
-                    {isEnglish ? "Your message" : "Votre message"}
-                  </label>
-                  <div className="mt-2 rounded-xl border border-card-border bg-card-border/30 p-3.5 text-[13px] leading-relaxed text-text">
-                    <span className="text-text-dim">
-                      {isEnglish ? "The team is very tight but we're missing" : "L'équipe est très soudée mais il manque"}
-                    </span>{" "}
-                    <span>{isEnglish ? "equipment for new joiners…" : "du matériel pour les nouveaux arrivants…"}</span>
-                    <span className="ml-0.5 inline-block h-3.5 w-0.5 animate-pulse bg-orange align-middle" />
-                  </div>
-                </div>
-
-                {/* Anonymisation auto info */}
-                <div className="flex items-start gap-2.5 rounded-xl border border-orange/20 bg-orange/[0.06] p-3">
-                  <UserX className="mt-0.5 h-4 w-4 shrink-0 text-orange" strokeWidth="2.5" />
-                  <span className="text-[12.5px] leading-snug text-text-dim">
-                    {isEnglish ? (
-                      <>Email recognised as an active member. Identity <strong className="text-text">automatically hidden</strong>.</>
-                    ) : (
-                      <>Email reconnu comme membre actif. Identité <strong className="text-text">automatiquement masquée</strong>.</>
-                    )}
-                  </span>
-                </div>
-
-                {/* Submit button */}
-                <button
-                  type="button"
-                  className="flex w-full items-center justify-center gap-2 rounded-full bg-orange px-5 py-3 text-sm font-bold text-white shadow-orange-soft"
-                >
-                  {isEnglish ? "Send feedback" : "Envoyer le feedback"}
-                </button>
-              </div>
+          <div className="rounded-lg border border-card-border bg-bg" aria-hidden>
+            <div className="flex items-center justify-between border-b border-card-border px-6 py-4">
+              <span className="font-display text-sm font-semibold text-text">{f.header}</span>
+              <span className="inline-flex items-center gap-1.5 rounded border border-card-border px-2 py-1 text-xs font-medium text-text-dim">
+                <UserX className="h-3.5 w-3.5" strokeWidth={1.8} />
+                {f.badge}
+              </span>
             </div>
-
-            {/* Floating chip */}
-            <div className="absolute -left-4 bottom-10 hidden rounded-2xl border border-card-border bg-card p-3 shadow-card sm:block">
-              <div className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-orange shadow-[0_0_8px_rgba(250,112,13,0.7)]" />
-                <span className="font-display text-xs font-bold text-text">
-                  {isEnglish ? "Identity auto-hidden" : "Identité auto-masquée"}
-                </span>
+            <div className="space-y-5 px-6 py-6">
+              <div>
+                <div className="text-xs font-medium text-text-mute">{f.service}</div>
+                <div className="mt-2 flex items-center justify-between rounded-md border border-card-border px-3.5 py-2.5 text-sm text-text">
+                  {f.serviceValue}
+                  <ChevronDown className="h-4 w-4 text-text-mute" strokeWidth={1.8} />
+                </div>
               </div>
+              <div>
+                <div className="text-xs font-medium text-text-mute">{f.rating}</div>
+                <div className="mt-2 flex items-center gap-1">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <Star key={i} className={`h-6 w-6 ${i <= 4 ? "fill-orange text-orange" : "fill-card-border text-card-border"}`} strokeWidth={0} />
+                  ))}
+                  <span className="ml-2 text-sm font-medium text-text">4 / 5</span>
+                </div>
+              </div>
+              <div>
+                <div className="text-xs font-medium text-text-mute">{f.message}</div>
+                <div className="mt-2 rounded-md border border-card-border p-3.5 text-sm leading-relaxed text-text">{f.messageValue}</div>
+              </div>
+              <p className="flex items-start gap-2 text-[13px] leading-snug text-text-dim">
+                <UserX className="mt-0.5 h-4 w-4 shrink-0" strokeWidth={1.8} />
+                {f.notice}
+              </p>
+              <div className="flex h-11 w-full items-center justify-center rounded-md bg-orange-deep text-sm font-semibold text-white">{f.submit}</div>
             </div>
           </div>
         </div>

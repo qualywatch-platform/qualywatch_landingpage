@@ -1,277 +1,91 @@
-import Image from "next/image";
-import { Apple, Smartphone, Wifi, Battery, Signal, Globe, Zap } from "lucide-react";
+import { Apple, Smartphone, Globe, Bell, RefreshCw } from "lucide-react";
+import { IPhoneFrame } from "@/components/IPhoneFrame";
 
-const featuresByLocale = {
-  fr: [
-    { icon: Zap, label: "Push notifications" },
-    { icon: Smartphone, label: "Sync auto multi-appareils" },
-  ],
-  en: [
-    { icon: Zap, label: "Push notifications" },
-    { icon: Smartphone, label: "Multi-device auto sync" },
-  ],
+const contentByLocale = {
+  fr: {
+    eyebrow: "Application mobile",
+    title: "Vos avis clients dans la poche, partout.",
+    intro:
+      "Vos managers sont alertés dès qu'un client laisse un avis critique. Ils peuvent intervenir, assigner et répondre directement depuis leur téléphone.",
+    features: [
+      { icon: Bell, label: "Notifications en temps réel" },
+      { icon: RefreshCw, label: "Synchronisé avec le web" },
+    ],
+    soon: "Bientôt sur",
+    alt: "Détail d'un avis client dans l'application mobile QualyWatch",
+  },
+  en: {
+    eyebrow: "Mobile app",
+    title: "Your customer feedback in your pocket, everywhere.",
+    intro:
+      "Your managers are alerted as soon as a customer leaves critical feedback. They can step in, assign and reply straight from their phone.",
+    features: [
+      { icon: Bell, label: "Real-time notifications" },
+      { icon: RefreshCw, label: "Synced with the web app" },
+    ],
+    soon: "Coming soon to",
+    alt: "Customer feedback detail in the QualyWatch mobile app",
+  },
 };
 
 export function AppStores({ locale = "fr" }: { locale?: "fr" | "en" }) {
-  const isEnglish = locale === "en";
-  const features = featuresByLocale[locale];
+  const c = contentByLocale[locale];
   return (
-    <section id="apps" className="relative overflow-hidden px-6 py-24 lg:px-16 lg:py-32">
-      {/* Decorative shapes */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute left-[6%] top-[20%] hidden h-20 w-20 rounded-3xl border border-orange/20 bg-orange/[0.05] lg:block"
-        style={{ transform: "rotate(-12deg)" }}
-      />
-      <span
-        aria-hidden
-        className="pointer-events-none absolute right-[8%] top-[25%] hidden h-14 w-14 rounded-full border border-orange/30 lg:block"
-      />
-      <span
-        aria-hidden
-        className="pointer-events-none absolute left-[8%] bottom-[20%] hidden h-3 w-3 rounded-full bg-orange shadow-[0_0_18px_rgba(250,112,13,0.7)] lg:block"
-      />
-      <span
-        aria-hidden
-        className="pointer-events-none absolute right-[12%] bottom-[15%] hidden h-12 w-12 rounded-2xl bg-orange/15 lg:block"
-        style={{ transform: "rotate(20deg)" }}
-      />
-
-      <div className="relative mx-auto max-w-7xl">
-        <div className="mb-16 grid items-end gap-10 lg:grid-cols-[1fr_1.4fr]">
-          <div>
-            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
-              {isEnglish ? "№ 16 · Platform" : "№ 16 · Plateforme"}
+    <section id="apps" className="px-6 py-24 lg:px-16 lg:py-32">
+      <div className="mx-auto max-w-7xl overflow-hidden rounded-xl bg-orange">
+        <div className="grid items-end gap-10 lg:grid-cols-[1.2fr_1fr]">
+          <div className="p-8 sm:p-12 lg:p-16">
+            <p className="flex items-center gap-2.5 text-sm font-semibold text-ink">
+              <span className="h-0.5 w-6 bg-ink" aria-hidden />
+              {c.eyebrow}
             </p>
-            <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
-              {isEnglish ? (
-                <>Web, iOS, Android — <span className="italic text-orange">it&apos;s all here.</span></>
-              ) : (
-                <>Web, iOS, Android — <span className="italic text-orange">tout est là.</span></>
-              )}
-            </h2>
+            <h2 className="font-display mt-3 text-3xl font-semibold leading-[1.15] tracking-tight text-ink sm:text-4xl">{c.title}</h2>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-ink/85 lg:text-lg">{c.intro}</p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {[
+                { icon: Globe, label: "Web" },
+                { icon: Apple, label: "iOS" },
+                { icon: Smartphone, label: "Android" },
+              ].map((p) => (
+                <span key={p.label} className="inline-flex items-center gap-1.5 rounded bg-white/90 px-3 py-1.5 text-sm font-medium text-ink">
+                  <p.icon className="h-4 w-4" strokeWidth={1.8} aria-hidden />
+                  {p.label}
+                </span>
+              ))}
+            </div>
+
+            <ul className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
+              {c.features.map((f) => (
+                <li key={f.label} className="flex items-center gap-2.5 text-[15px] font-medium text-ink">
+                  <f.icon className="h-5 w-5" strokeWidth={1.8} aria-hidden />
+                  {f.label}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-10 flex flex-wrap gap-3">
+              <div aria-disabled="true" className="inline-flex items-center gap-3 rounded-lg bg-ink px-5 py-3">
+                <Apple className="h-6 w-6 text-white" strokeWidth={1.5} aria-hidden />
+                <div className="text-left">
+                  <div className="text-[11px] text-white/70">{c.soon}</div>
+                  <div className="font-display text-[15px] font-semibold leading-tight text-white">App Store</div>
+                </div>
+              </div>
+              <div aria-disabled="true" className="inline-flex items-center gap-3 rounded-lg bg-ink px-5 py-3">
+                <svg viewBox="0 0 512 512" className="h-6 w-6 text-white" fill="currentColor" aria-hidden>
+                  <path d="M99.617 8.057a50.191 50.191 0 0 0-38.815-6.713l230.932 230.933 74.846-74.846L99.617 8.057zM32.139 20.116c-6.441 8.563-10.148 19.077-10.148 30.199v411.358c0 11.123 3.708 21.636 10.148 30.199l235.877-235.877L32.139 20.116zM464.261 212.087l-67.266-37.637-81.544 81.544 81.548 81.548 67.273-37.64c16.117-9.03 25.738-25.442 25.738-43.908s-9.621-34.877-25.749-43.907zM291.733 279.711L60.815 510.629c3.786.891 7.639 1.371 11.492 1.371a50.275 50.275 0 0 0 27.31-8.07l266.965-149.736-74.849-74.483z" />
+                </svg>
+                <div className="text-left">
+                  <div className="text-[11px] text-white/70">{c.soon}</div>
+                  <div className="font-display text-[15px] font-semibold leading-tight text-white">Google Play</div>
+                </div>
+              </div>
+            </div>
           </div>
-          <p className="text-base leading-relaxed text-text-dim lg:text-lg">
-            {isEnglish
-              ? "Run your customer satisfaction from your desk or on the move. One login, your data everywhere. Download the app on App Store or Google Play."
-              : "Pilotez votre satisfaction client depuis votre bureau ou en mobilité. Une seule connexion, vos données partout. Téléchargez l'app sur App Store ou Google Play."}
-          </p>
-        </div>
 
-        {/* Premium showcase — orange GRADIENT card */}
-        <div
-          className="relative overflow-hidden rounded-[40px] shadow-deep"
-          style={{
-            background:
-              "linear-gradient(135deg, #FFB36B 0%, #FA700D 45%, #C8540F 100%)",
-          }}
-        >
-          {/* Warm radial highlights for depth */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(ellipse at 85% 15%, rgba(255,220,180,0.55), transparent 55%), radial-gradient(ellipse at 15% 85%, rgba(120,50,5,0.35), transparent 55%)",
-            }}
-          />
-          {/* Subtle dotted pattern */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 opacity-[0.10]"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle, #0F0E0C 1px, transparent 1px)",
-              backgroundSize: "22px 22px",
-            }}
-          />
-
-          <div className="relative grid gap-8 p-6 sm:p-8 lg:grid-cols-[1.1fr_1fr] lg:gap-12 lg:p-10">
-            {/* LEFT — Copy + download buttons (BLACK dominant on orange) */}
-            <div className="flex flex-col">
-              <div
-                className="inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-widest"
-                style={{
-                  background: "rgba(15,14,12,0.92)",
-                  color: "#FFFFFF",
-                }}
-              >
-                <Smartphone className="h-3.5 w-3.5" strokeWidth="2.5" />
-                {isEnglish ? "Mobile app" : "Application mobile"}
-              </div>
-
-              <h3
-                className="font-display mt-5 text-2xl font-bold leading-tight sm:text-3xl lg:text-[40px]"
-                style={{ color: "#0F0E0C" }}
-              >
-                {isEnglish ? (
-                  <>Your feedback in your pocket, <span className="italic" style={{ color: "#FFFFFF" }}>everywhere, all the time.</span></>
-                ) : (
-                  <>Vos feedbacks en poche, <span className="italic" style={{ color: "#FFFFFF" }}>partout, tout le temps.</span></>
-                )}
-              </h3>
-
-              {/* Platform pills */}
-              <div className="mt-4 flex flex-wrap gap-2">
-                {[
-                  { icon: Globe, label: "Web" },
-                  { icon: Apple, label: "iOS 14+" },
-                  { icon: Smartphone, label: "Android 9+" },
-                ].map((p) => (
-                  <span
-                    key={p.label}
-                    className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-bold"
-                    style={{
-                      background: "rgba(255,255,255,0.92)",
-                      color: "#0F0E0C",
-                      border: "1px solid rgba(15,14,12,0.08)",
-                    }}
-                  >
-                    <p.icon className="h-3.5 w-3.5" strokeWidth="2.5" />
-                    {p.label}
-                  </span>
-                ))}
-              </div>
-
-              <p
-                className="mt-5 text-[15px] leading-relaxed"
-                style={{ color: "rgba(15,14,12,0.85)" }}
-              >
-                {isEnglish ? (
-                  <>
-                    <strong>Real-time notifications</strong>, mobile dashboard, feedback validation in seconds.
-                    The native iOS and Android app, built for field teams who run their business daily.
-                  </>
-                ) : (
-                  <>
-                    <strong>Notifications temps réel</strong>, dashboard mobile, validation des feedbacks
-                    en quelques secondes. L&apos;app native iOS et Android, conçue pour les équipes
-                    terrain qui pilotent leur enseigne au quotidien.
-                  </>
-                )}
-              </p>
-
-              <p
-                className="mt-3 text-[14px] leading-relaxed"
-                style={{ color: "rgba(15,14,12,0.72)" }}
-              >
-                {isEnglish
-                  ? "Your managers get an alert the moment a customer leaves a critical feedback. They can step in, assign, reply — straight from their pocket."
-                  : "Vos managers reçoivent une alerte dès qu'un client laisse un feedback critique. Ils peuvent intervenir, assigner, répondre — directement depuis leur poche."}
-              </p>
-
-              {/* Feature list */}
-              <ul
-                className="mt-5 grid gap-2 text-[13.5px] sm:grid-cols-2"
-                style={{ color: "rgba(15,14,12,0.92)" }}
-              >
-                {features.map((f) => (
-                  <li key={f.label} className="flex items-center gap-2">
-                    <span
-                      className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full"
-                      style={{ background: "rgba(15,14,12,0.92)" }}
-                    >
-                      <f.icon className="h-3 w-3 text-orange" strokeWidth="2.5" />
-                    </span>
-                    <span className="font-medium">{f.label}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Download buttons — soft launch: stores not yet published */}
-              <div className="mt-6">
-                <p
-                  className="text-xs font-semibold uppercase tracking-[0.2em]"
-                  style={{ color: "rgba(15,14,12,0.78)" }}
-                >
-                  {isEnglish ? "Coming soon" : "Bientôt disponible"}
-                </p>
-                <div className="mt-2 flex flex-wrap gap-3">
-                  <div
-                    aria-disabled="true"
-                    className="group relative inline-flex cursor-not-allowed items-center gap-3 rounded-2xl bg-[#0F0E0C] px-5 py-3 opacity-70"
-                  >
-                    <Apple className="h-7 w-7 text-white" strokeWidth="1.5" />
-                    <div className="text-left">
-                      <div className="text-[10px] font-medium uppercase tracking-wider text-white opacity-70">
-                        {isEnglish ? "Coming soon to" : "Bientôt sur"}
-                      </div>
-                      <div className="font-display text-[15px] font-bold leading-tight text-white">App Store</div>
-                    </div>
-                    <span className="absolute -right-2 -top-2 rounded-full bg-orange px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-white shadow-orange-soft">
-                      {isEnglish ? "Soon" : "Bientôt"}
-                    </span>
-                  </div>
-                  <div
-                    aria-disabled="true"
-                    className="group relative inline-flex cursor-not-allowed items-center gap-3 rounded-2xl bg-[#0F0E0C] px-5 py-3 opacity-70"
-                  >
-                    <svg viewBox="0 0 512 512" className="h-7 w-7 text-white" fill="currentColor">
-                      <path d="M99.617 8.057a50.191 50.191 0 0 0-38.815-6.713l230.932 230.933 74.846-74.846L99.617 8.057zM32.139 20.116c-6.441 8.563-10.148 19.077-10.148 30.199v411.358c0 11.123 3.708 21.636 10.148 30.199l235.877-235.877L32.139 20.116zM464.261 212.087l-67.266-37.637-81.544 81.544 81.548 81.548 67.273-37.64c16.117-9.03 25.738-25.442 25.738-43.908s-9.621-34.877-25.749-43.907zM291.733 279.711L60.815 510.629c3.786.891 7.639 1.371 11.492 1.371a50.275 50.275 0 0 0 27.31-8.07l266.965-149.736-74.849-74.483z"/>
-                    </svg>
-                    <div className="text-left">
-                      <div className="text-[10px] font-medium uppercase tracking-wider text-white opacity-70">
-                        {isEnglish ? "Coming soon to" : "Bientôt sur"}
-                      </div>
-                      <div className="font-display text-[15px] font-bold leading-tight text-white">Google Play</div>
-                    </div>
-                    <span className="absolute -right-2 -top-2 rounded-full bg-orange px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-white shadow-orange-soft">
-                      {isEnglish ? "Soon" : "Bientôt"}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* RIGHT — Phone mockup placeholder (user will replace image) */}
-            <div className="relative flex items-center justify-center">
-              {/* Phone frame */}
-              <div className="relative">
-                {/* Glow halo */}
-                <div className="absolute -inset-8 -z-10 rounded-[80px] bg-orange/30 opacity-60 blur-3xl" />
-
-                <div className="relative h-[480px] w-60 overflow-hidden rounded-[44px] border-[8px] border-[#0F0E0C] bg-[#0F0E0C] shadow-deep sm:h-[540px] sm:w-64">
-                  {/* Notch */}
-                  <div className="absolute left-1/2 top-2 z-20 h-6 w-24 -translate-x-1/2 rounded-full bg-[#0F0E0C]" />
-
-                  {/* iOS-style status bar */}
-                  <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-6 pt-3 text-[11px] font-bold text-white">
-                    <span>9:41</span>
-                    <div className="flex items-center gap-1">
-                      <Signal className="h-3 w-3" />
-                      <Wifi className="h-3 w-3" />
-                      <Battery className="h-3 w-3" />
-                    </div>
-                  </div>
-
-                  {/* Screen — placeholder for user's image */}
-                  <div className="relative h-full w-full">
-                    <Image
-                      src="/mobile-screenshot.png"
-                      alt={isEnglish ? "Qualywatch mobile" : "QualyWatch mobile"}
-                      fill
-                      sizes="280px"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-
-                {/* Decorative chip near phone */}
-                <div className="absolute -right-6 top-12 hidden rounded-2xl border border-card-border bg-card p-3 shadow-card sm:block">
-                  <div className="flex items-center gap-2">
-                    <div className="h-2 w-2 rounded-full bg-orange shadow-[0_0_8px_rgba(250,112,13,0.7)]" />
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-text">iOS · Android</span>
-                  </div>
-                </div>
-
-                <div className="absolute -left-4 bottom-16 hidden rounded-2xl border border-card-border bg-card p-3 shadow-card sm:block">
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-orange">
-                    {isEnglish ? "Native" : "Native"}
-                  </div>
-                  <div className="font-display text-sm font-bold text-text">Flutter 3.x</div>
-                </div>
-              </div>
-            </div>
+          <div className="flex justify-center px-8 lg:-mb-24 lg:px-0">
+            <IPhoneFrame src="/app-mobile-detail.jpg" alt={c.alt} statusBarBg="#75746F" statusBarText="#FFFFFF" />
           </div>
         </div>
       </div>

@@ -1,7 +1,6 @@
 import { Locale } from "@/lib/i18n";
 import { NavbarV2 } from "@/components/NavbarV2";
 import { Footer } from "@/components/Footer";
-import { ScrollProgress } from "@/components/ScrollProgress";
 import { HeroV2 } from "@/components/sections/HeroV2";
 import { FeatureStrip } from "@/components/sections/FeatureStrip";
 import { Problems } from "@/components/sections/Problems";
@@ -15,7 +14,6 @@ import { TeamFeedbacks } from "@/components/sections/TeamFeedbacks";
 import { Advantages } from "@/components/sections/Advantages";
 import { ApiAccess } from "@/components/sections/ApiAccess";
 import { Story } from "@/components/sections/Story";
-import { Testimonials } from "@/components/sections/Testimonials";
 import { Pricing } from "@/components/sections/Pricing";
 import { Security } from "@/components/sections/Security";
 import { FAQ } from "@/components/sections/FAQ";
@@ -27,7 +25,6 @@ import { SectionReveal } from "@/components/SectionReveal";
 export function LandingPage({ locale }: { locale: Locale }) {
   return (
     <>
-      <ScrollProgress />
       <NavbarV2 locale={locale} />
       <main>
         <HeroV2 locale={locale} />
@@ -66,9 +63,6 @@ export function LandingPage({ locale }: { locale: Locale }) {
         </SectionReveal>
         <SectionReveal delay={100}>
           <Story locale={locale} />
-        </SectionReveal>
-        <SectionReveal delay={120}>
-          <Testimonials locale={locale} />
         </SectionReveal>
         <SectionReveal delay={90}>
           <Pricing locale={locale} />

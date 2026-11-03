@@ -1,185 +1,108 @@
-import { Layers, Bell, BarChart3, Brain, ShieldCheck, Trophy, ArrowRight } from "lucide-react";
+import { Layers, Bell, BarChart3, Brain, ShieldCheck, Trophy } from "lucide-react";
+import { SectionHeader } from "@/components/SectionHeader";
+import { IconTile } from "@/components/IconTile";
 
-const featuresByLocale = {
-  fr: [
-    {
-      icon: Layers,
-      title: "Collecte multi-canal",
-      description:
-        "QR code en magasin, WhatsApp Business, email, lien public. Vos clients laissent un avis depuis leur canal préféré, en moins de 60 secondes — sans app à installer.",
-      highlight: "4 canaux",
-      accent: "from-orange/15",
-    },
-    {
-      icon: Bell,
-      title: "Alertes temps réel",
-      description:
-        "Push notifications mobile + web dès qu'un feedback critique arrive. Le bon manager est prévenu en moins de 30 secondes — pas un email au PDG en copie.",
-      highlight: "< 30 s",
-      accent: "from-blue-soft/40",
-    },
-    {
-      icon: BarChart3,
-      title: "Dashboard NPS & CSAT",
-      description:
-        "Suivez vos scores NPS, CSAT et satisfaction par service, équipe, période. Tendances, comparatifs, anomalies — chaque manager voit uniquement ce qui le concerne.",
-      highlight: "Temps réel",
-      accent: "from-success-soft",
-    },
-    {
-      icon: Brain,
-      title: "IA — Analyse & Chat",
-      description:
-        "Chaque feedback est classé automatiquement (sentiment, sujet, urgence). Le Chat IA répond à vos questions métier : « Quel service a le plus chuté en mai ? ».",
-      highlight: "Gemini · Groq",
-      accent: "from-orange/15",
-    },
-    {
-      icon: ShieldCheck,
-      title: "SLA & escalation auto",
-      description:
-        "Définissez les délais de traitement par priorité. Un feedback non traité à temps remonte automatiquement au manager supérieur. Plus jamais d'oubli, plus jamais d'angle mort.",
-      highlight: "3 niveaux",
-      accent: "from-blue-soft/40",
-    },
-    {
-      icon: Trophy,
-      title: "Gamification KaliPoints",
-      description:
-        "Vos clients gagnent des points en laissant un avis. Vos employés reçoivent badges et leaderboard quand ils sont bien notés. La qualité devient un sport d'équipe.",
-      highlight: "Badges · Top 10",
-      accent: "from-success-soft",
-    },
-  ],
-  en: [
-    {
-      icon: Layers,
-      title: "Multi-channel collection",
-      description:
-        "In-store QR code, WhatsApp Business, email, public link. Your customers leave feedback from their preferred channel, in under 60 seconds — no app to install.",
-      highlight: "4 channels",
-      accent: "from-orange/15",
-    },
-    {
-      icon: Bell,
-      title: "Real-time alerts",
-      description:
-        "Mobile + web push notifications the moment a critical feedback comes in. The right manager is notified in under 30 seconds — not an email with the CEO in CC.",
-      highlight: "< 30 s",
-      accent: "from-blue-soft/40",
-    },
-    {
-      icon: BarChart3,
-      title: "NPS & CSAT dashboard",
-      description:
-        "Track your NPS, CSAT and satisfaction scores by service, team, period. Trends, benchmarks, anomalies — every manager sees only what concerns them.",
-      highlight: "Real-time",
-      accent: "from-success-soft",
-    },
-    {
-      icon: Brain,
-      title: "AI — Analysis & Chat",
-      description:
-        "Every feedback is classified automatically (sentiment, topic, urgency). The AI Chat answers your business questions: \"Which service dropped the most in May?\".",
-      highlight: "Gemini · Groq",
-      accent: "from-orange/15",
-    },
-    {
-      icon: ShieldCheck,
-      title: "SLA & auto-escalation",
-      description:
-        "Set processing deadlines by priority. A feedback not handled in time automatically escalates to the next manager up. No more forgotten cases, no more blind spots.",
-      highlight: "3 levels",
-      accent: "from-blue-soft/40",
-    },
-    {
-      icon: Trophy,
-      title: "KaliPoints gamification",
-      description:
-        "Your customers earn points for leaving feedback. Your employees get badges and leaderboard rankings when they're well rated. Quality becomes a team sport.",
-      highlight: "Badges · Top 10",
-      accent: "from-success-soft",
-    },
-  ],
+const contentByLocale = {
+  fr: {
+    eyebrow: "La solution",
+    title: "Six fonctionnalités, un seul outil.",
+    intro: "Plus de questionnaires papier interminables. Un scan, un avis, et une action immédiate.",
+    features: [
+      {
+        icon: Layers,
+        title: "Collecte multicanale",
+        description:
+          "QR code sur place, WhatsApp Business, e-mail, lien public. Vos clients laissent un avis en moins d'une minute, sans application à installer.",
+      },
+      {
+        icon: Bell,
+        title: "Alertes en temps réel",
+        description:
+          "Notification sur mobile et sur le web dès qu'un avis critique arrive. Le responsable concerné est prévenu, pas toute la direction en copie.",
+      },
+      {
+        icon: BarChart3,
+        title: "Tableau de bord NPS et satisfaction",
+        description:
+          "Scores NPS et satisfaction par service, par équipe et par période. Chaque manager ne voit que ce qui le concerne.",
+      },
+      {
+        icon: Brain,
+        title: "Analyse et assistant IA",
+        description:
+          "Chaque avis est classé automatiquement : sentiment, sujet, urgence. L'assistant répond à vos questions : « Quel service a le plus baissé en mai ? »",
+      },
+      {
+        icon: ShieldCheck,
+        title: "Délais et escalade",
+        description:
+          "Vous fixez un délai de traitement par priorité. Un avis non traité à temps remonte automatiquement au niveau supérieur.",
+      },
+      {
+        icon: Trophy,
+        title: "Badges et classement",
+        description:
+          "Vos clients cumulent des points en donnant leur avis. Vos employés bien notés reçoivent des badges et apparaissent au classement.",
+      },
+    ],
+  },
+  en: {
+    eyebrow: "The solution",
+    title: "Six features, one tool.",
+    intro: "No more endless paper questionnaires. A scan, a review, and immediate action.",
+    features: [
+      {
+        icon: Layers,
+        title: "Multi-channel collection",
+        description:
+          "On-site QR code, WhatsApp Business, email, public link. Customers leave feedback in under a minute, with no app to install.",
+      },
+      {
+        icon: Bell,
+        title: "Real-time alerts",
+        description:
+          "Mobile and web notifications as soon as critical feedback arrives. The person in charge is alerted, not the whole board in CC.",
+      },
+      {
+        icon: BarChart3,
+        title: "NPS and satisfaction dashboard",
+        description:
+          "NPS and satisfaction scores by department, team and period. Every manager only sees what concerns them.",
+      },
+      {
+        icon: Brain,
+        title: "AI analysis and assistant",
+        description:
+          "Every piece of feedback is classified automatically: sentiment, topic, urgency. The assistant answers your questions: \"Which department dropped the most in May?\"",
+      },
+      {
+        icon: ShieldCheck,
+        title: "Deadlines and escalation",
+        description:
+          "Set a resolution deadline per priority. Feedback not handled in time is automatically escalated to the next level.",
+      },
+      {
+        icon: Trophy,
+        title: "Badges and leaderboard",
+        description:
+          "Customers earn points for sharing feedback. Well-rated employees receive badges and appear on the leaderboard.",
+      },
+    ],
+  },
 };
 
 export function Features6({ locale = "fr" }: { locale?: "fr" | "en" }) {
-  const isEnglish = locale === "en";
-  const features = featuresByLocale[locale];
+  const c = contentByLocale[locale];
   return (
-    <section id="fonctionnalites" className="relative overflow-hidden px-6 py-24 lg:px-16 lg:py-32">
-      {/* Decorative background — concentric rings + dotted grid */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[1100px] w-[1100px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-orange/8"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-orange/6"
-      />
-      <div
-        aria-hidden
-        className="dotted-grid-dark pointer-events-none absolute inset-0 -z-10 opacity-40"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-32 top-1/3 -z-10 h-[400px] w-[400px] rounded-full opacity-30 blur-3xl"
-        style={{ background: "radial-gradient(closest-side, rgba(250,112,13,0.4), transparent)" }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-32 bottom-1/4 -z-10 h-[400px] w-[400px] rounded-full opacity-25 blur-3xl"
-        style={{ background: "radial-gradient(closest-side, rgba(250,112,13,0.35), transparent)" }}
-      />
-
-      <div className="relative mx-auto max-w-7xl">
-        <div className="reveal-children mx-auto mb-16 max-w-3xl text-center">
-          <p className="reveal-item reveal-delay-1 font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
-            {isEnglish ? "№ 02 · The simple solution" : "№ 02 · La solution simple"}
-          </p>
-          <h2 className="reveal-item reveal-delay-2 font-display mt-4 text-3xl font-bold leading-tight text-text sm:text-4xl lg:text-5xl">
-            {isEnglish ? (
-              <>6 powerful <span className="italic text-orange">features.</span></>
-            ) : (
-              <>6 fonctionnalités <span className="italic text-orange">puissantes.</span></>
-            )}
-          </h2>
-          <p className="reveal-item reveal-delay-3 mt-5 text-base leading-relaxed text-text-dim lg:text-lg">
-            {isEnglish
-              ? "No more endless paper questionnaires. Just a scan, a feedback, and an immediate action."
-              : "Plus de questionnaires papiers interminables. Juste un scan, un avis, et une action immédiate."}
-          </p>
-        </div>
-
-        <div className="reveal-children grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((f, i) => (
-            <div
-              key={f.title}
-              className={`reveal-item reveal-delay-${(i % 6) + 1} card-base group relative flex flex-col overflow-hidden rounded-3xl p-7 btn-lift hover:border-orange/40`}
-              style={{ animationDelay: `${0.05 * i}s` }}
-            >
-              {/* Top gradient ribbon — subtle, only on hover */}
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-orange via-orange/60 to-transparent opacity-0 transition group-hover:opacity-100"
-              />
-
-              <div className="flex items-center justify-between">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-glow text-orange transition group-hover:bg-orange group-hover:text-white">
-                  <f.icon className="h-6 w-6" strokeWidth="2" />
-                </div>
-                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-text-mute">
-                  {f.highlight}
-                </span>
-              </div>
-
-              <h3 className="font-display mt-6 text-lg font-bold text-text">{f.title}</h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-text-dim">{f.description}</p>
-
-              <div className="mt-5 inline-flex items-center gap-1.5 text-[12px] font-semibold text-orange opacity-0 transition group-hover:opacity-100">
-                {isEnglish ? "Learn more" : "En savoir plus"}
-                <ArrowRight className="h-3.5 w-3.5" strokeWidth="2.5" />
-              </div>
+    <section id="fonctionnalites" className="px-6 py-24 lg:px-16 lg:py-32">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeader eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
+        <div className="mt-14 grid border-l border-t border-card-border sm:grid-cols-2 lg:mt-20 lg:grid-cols-3">
+          {c.features.map((f) => (
+            <div key={f.title} className="flex flex-col gap-3 border-b border-r border-card-border p-8 lg:p-10">
+              <IconTile icon={f.icon} />
+              <h3 className="font-display mt-2 text-lg font-semibold text-text">{f.title}</h3>
+              <p className="text-[15px] leading-relaxed text-text-dim">{f.description}</p>
             </div>
           ))}
         </div>

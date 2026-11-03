@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { Locale, getLocalizedPath } from "@/lib/i18n";
 
 export function Footer({ locale = "fr" }: { locale?: Locale }) {
@@ -9,30 +9,28 @@ export function Footer({ locale = "fr" }: { locale?: Locale }) {
       ? [
           { label: "Fonctionnalités", href: "#fonctionnalites" },
           { label: "Solutions par secteur", href: "#secteurs" },
-          { label: "Vos armes", href: "#armes" },
+          { label: "Fidélisation", href: "#armes" },
           { label: "Tarifs", href: "#tarifs" },
-          { label: "Sécurité & RGPD", href: "#securite" },
+          { label: "Sécurité", href: "#securite" },
         ]
       : [
           { label: "Features", href: "#fonctionnalites" },
           { label: "Solutions by industry", href: "#secteurs" },
-          { label: "Your edge", href: "#armes" },
+          { label: "Retention", href: "#armes" },
           { label: "Pricing", href: "#tarifs" },
-          { label: "Security & GDPR", href: "#securite" },
+          { label: "Security", href: "#securite" },
         ];
 
   const companyLinks =
     locale === "fr"
       ? [
           { label: "Notre histoire", href: "#histoire" },
-          { label: "Témoignages", href: "#testimonials" },
           { label: "FAQ", href: "#faq" },
-          { label: "API Documentation", href: "/docs/api" },
+          { label: "Documentation API", href: "/docs/api" },
           { label: "Contact", href: "#contact" },
         ]
       : [
           { label: "Our story", href: "#histoire" },
-          { label: "Testimonials", href: "#testimonials" },
           { label: "FAQ", href: "#faq" },
           { label: "API documentation", href: "/docs/api" },
           { label: "Contact", href: "#contact" },
@@ -43,102 +41,42 @@ export function Footer({ locale = "fr" }: { locale?: Locale }) {
       ? [{ label: "Confidentialité", href: "/privacy" }]
       : [{ label: "Privacy", href: "/privacy" }];
 
-  const ctaBody =
-    locale === "fr"
-      ? "Démarrez gratuitement en 2 minutes. Pas de carte bancaire, aucun engagement."
-      : "Start for free in 2 minutes. No credit card, no commitment.";
 
   return (
-    <footer
-      className="relative overflow-hidden"
-      style={{ background: "#0F0E0C", color: "#FFFFFF" }}
-    >
-      {/* Decorative orange glow */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 left-1/2 h-[400px] w-[800px] -translate-x-1/2 rounded-full opacity-50 blur-3xl"
-        style={{ background: "radial-gradient(closest-side, rgba(250,112,13,0.18), transparent 70%)" }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: "radial-gradient(circle, rgba(255,255,255,1) 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-      />
-
-      <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-16 lg:py-20">
-        {/* Top — CTA banner */}
-        <div className="mb-14 grid items-center gap-8 lg:grid-cols-[1.4fr_1fr]">
-          <div>
-            <h3 className="font-display text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">
-              {locale === "fr" ? (
-                <>Prêt à donner une voix <span className="italic text-orange">à vos clients</span> ?</>
-              ) : (
-                <>Ready to give your customers <span className="italic text-orange">a voice</span>?</>
-              )}
-            </h3>
-            <p className="mt-3 max-w-xl text-sm text-white/65 lg:text-base">
-              {ctaBody}
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3 lg:justify-end">
-            <Link
-              href="https://app.qualywatch.com/auth/register"
-              className="group inline-flex items-center gap-2 rounded-full bg-orange px-6 py-3.5 text-sm font-bold text-white shadow-orange btn-lift hover:bg-orange-deep"
-            >
-              {locale === "fr" ? "Essayer gratuitement" : "Start for free"}
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" strokeWidth="2.5" />
-            </Link>
-            <Link
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3.5 text-sm font-bold text-white transition hover:border-orange hover:text-orange"
-            >
-              {locale === "fr" ? "Nous contacter" : "Contact us"}
-            </Link>
-          </div>
-        </div>
-
+    <footer className="bg-ink text-white">
+      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-16 lg:py-20">
         {/* Main grid — Logo + 3 link columns */}
-        <div className="grid gap-10 border-t border-white/10 pt-12 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr] lg:gap-12">
+        <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-12">
           {/* Brand */}
           <div>
             <Link href={getLocalizedPath(locale, "/")} className="inline-flex items-center gap-2.5">
-              <Image
-                src="/qualywatch-logo.png"
-                alt="QualyWatch"
-                width={40}
-                height={40}
-                className="h-10 w-10 object-contain"
-              />
-              <span className="font-display text-xl font-bold tracking-tight text-white">Qualywatch</span>
+              <Image src="/qualywatch-logo.png" alt="" width={40} height={40} className="h-9 w-9 object-contain" />
+              <span className="font-display text-xl font-semibold tracking-tight text-white">QualyWatch</span>
             </Link>
-            <p className="mt-4 max-w-sm text-[13px] leading-relaxed text-white/60">
+            <p className="mt-4 max-w-sm text-[13px] leading-relaxed text-white/70">
               {locale === "fr"
-                ? "L'infrastructure qui transforme chaque feedback client en décision opérationnelle — et chaque client mécontent en client retenu."
-                : "The infrastructure that turns every customer signal into an operational decision — and every unhappy customer into a retained one."}
+                ? "La plateforme qui transforme chaque avis client en action, et chaque client mécontent en client retenu."
+                : "The platform that turns every customer review into action, and every unhappy customer into a retained one."}
             </p>
 
             {/* Contact mini */}
-            <div className="mt-6 space-y-2">
+            <div className="mt-6 flex flex-col items-start gap-2.5">
               <Link
                 href="mailto:aishaseye074@gmail.com"
-                className="group inline-flex items-center gap-2 text-[13px] text-white/70 transition hover:text-orange"
+                className="group inline-flex items-center gap-2 text-[13px] text-white/75 transition hover:text-white"
               >
-                <Mail className="h-4 w-4 text-orange" strokeWidth="2" />
+                <Mail className="h-4 w-4 text-orange" strokeWidth={1.8} />
                 aishaseye074@gmail.com
               </Link>
-              <br />
               <Link
                 href="tel:+221704072668"
-                className="group inline-flex items-center gap-2 text-[13px] text-white/70 transition hover:text-orange"
+                className="group inline-flex items-center gap-2 text-[13px] text-white/75 transition hover:text-white"
               >
-                <Phone className="h-4 w-4 text-orange" strokeWidth="2" />
+                <Phone className="h-4 w-4 text-orange" strokeWidth={1.8} />
                 +221 70 407 26 68
               </Link>
-              <div className="inline-flex items-center gap-2 text-[13px] text-white/70">
-                <MapPin className="h-4 w-4 text-orange" strokeWidth="2" />
+              <div className="inline-flex items-center gap-2 text-[13px] text-white/75">
+                <MapPin className="h-4 w-4 text-orange" strokeWidth={1.8} />
                 Dakar, Sénégal
               </div>
             </div>
@@ -146,13 +84,13 @@ export function Footer({ locale = "fr" }: { locale?: Locale }) {
 
           {/* Produit links */}
           <div>
-            <h4 className="font-mono text-[10px] font-bold uppercase tracking-widest text-orange">{locale === "fr" ? "Produit" : "Product"}</h4>
+            <h4 className="text-sm font-semibold text-orange">{locale === "fr" ? "Produit" : "Product"}</h4>
             <ul className="mt-4 space-y-2.5">
               {productLinks.map((l) => (
                 <li key={l.label}>
                   <Link
                     href={getLocalizedPath(locale, l.href)}
-                    className="text-sm text-white/70 transition hover:text-orange"
+                    className="text-sm text-white/75 transition hover:text-white"
                   >
                     {l.label}
                   </Link>
@@ -163,13 +101,13 @@ export function Footer({ locale = "fr" }: { locale?: Locale }) {
 
           {/* Entreprise links */}
           <div>
-            <h4 className="font-mono text-[10px] font-bold uppercase tracking-widest text-orange">{locale === "fr" ? "Entreprise" : "Company"}</h4>
+            <h4 className="text-sm font-semibold text-orange">{locale === "fr" ? "Entreprise" : "Company"}</h4>
             <ul className="mt-4 space-y-2.5">
               {companyLinks.map((l) => (
                 <li key={l.label}>
                   <Link
                     href={getLocalizedPath(locale, l.href)}
-                    className="text-sm text-white/70 transition hover:text-orange"
+                    className="text-sm text-white/75 transition hover:text-white"
                   >
                     {l.label}
                   </Link>
@@ -178,38 +116,17 @@ export function Footer({ locale = "fr" }: { locale?: Locale }) {
             </ul>
           </div>
 
-          {/* Newsletter */}
           <div>
-            <h4 className="font-mono text-[10px] font-bold uppercase tracking-widest text-orange">Newsletter</h4>
-            <p className="mt-4 text-[13px] leading-relaxed text-white/60">
-              {locale === "fr"
-                ? "Une fois par mois. Insights, retours d'expérience, nouveautés produit. Pas de spam."
-                : "Once a month. Insights, field learnings and product updates. No spam."}
-            </p>
-            <form className="mt-4 flex gap-2">
-              <input
-                type="email"
-                placeholder={locale === "fr" ? "Votre email pro" : "Your work email"}
-                className="flex-1 rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-[13px] text-white placeholder-white/40 outline-none transition focus:border-orange"
-              />
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center rounded-full bg-orange px-4 py-2.5 text-[13px] font-bold text-white transition hover:bg-orange-deep"
-              >
-                <ArrowUpRight className="h-4 w-4" strokeWidth="2.5" />
-              </button>
-            </form>
-
             {/* Social */}
-            <div className="mt-6">
-              <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-white/40">{locale === "fr" ? "Suivez-nous" : "Follow us"}</div>
-              <div className="mt-3 flex gap-2">
+            <div>
+              <div className="text-sm font-semibold text-orange">{locale === "fr" ? "Suivez-nous" : "Follow us"}</div>
+              <div className="mt-4 flex gap-2">
                 <Link
                   href="https://www.facebook.com/profile.php?id=61589270003634"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/60 transition hover:border-orange hover:bg-orange hover:text-white"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/15 text-white/75 transition hover:border-orange hover:bg-orange hover:text-white"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
                     <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z" />
@@ -220,7 +137,7 @@ export function Footer({ locale = "fr" }: { locale?: Locale }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Twitter / X"
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/60 transition hover:border-orange hover:bg-orange hover:text-white"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/15 text-white/75 transition hover:border-orange hover:bg-orange hover:text-white"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="h-3.5 w-3.5">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -231,7 +148,7 @@ export function Footer({ locale = "fr" }: { locale?: Locale }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/60 transition hover:border-orange hover:bg-orange hover:text-white"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/15 text-white/75 transition hover:border-orange hover:bg-orange hover:text-white"
                 >
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
                     <rect x="2" y="2" width="20" height="20" rx="5" />
@@ -245,16 +162,16 @@ export function Footer({ locale = "fr" }: { locale?: Locale }) {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center">
-          <p className="text-[12px] text-white/50">
-            © {new Date().getFullYear()} Qualywatch SAS. {locale === "fr" ? "Tous droits réservés." : "All rights reserved."}
+        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center">
+          <p className="text-[12px] text-white/60">
+            © {new Date().getFullYear()} QualyWatch, Dakar. {locale === "fr" ? "Tous droits réservés." : "All rights reserved."}
           </p>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {legalLinks.map((l) => (
               <li key={l.label}>
                 <Link
                   href={getLocalizedPath(locale, l.href)}
-                  className="text-[12px] text-white/50 transition hover:text-orange"
+                  className="text-[12px] text-white/60 transition hover:text-white"
                 >
                   {l.label}
                 </Link>

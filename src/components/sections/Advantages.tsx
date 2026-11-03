@@ -1,382 +1,183 @@
 import Image from "next/image";
-import { Star, MessageCircle, Activity, UserCircle, CheckCheck, Palette, Reply, BookOpen, QrCode } from "lucide-react";
+import { Star, MessageCircle, Activity, UserCircle, CheckCheck, Palette, Reply, BookOpen, Check } from "lucide-react";
+import { SectionHeader } from "@/components/SectionHeader";
+import { IconTile } from "@/components/IconTile";
 
-const advantagesByLocale = {
-  fr: [
-    {
-      icon: Star,
-      badge: "Google Reviews",
-      title: "Boostez votre note Google.",
-      desc: "CTA intelligent : les clients satisfaits sont redirigés vers Google pour laisser un avis 5 étoiles. Les insatisfaits sont traités en privé. Votre e-reputation grimpe — sans effort.",
-      metric: "+460%",
-      metricLabel: "d'avis Google collectés",
+const contentByLocale = {
+  fr: {
+    eyebrow: "Fidélisation",
+    title: (
+      <>
+        Huit leviers pour <span className="text-orange-deep">retenir vos clients.</span>
+      </>
+    ),
+    intro:
+      "Des capacités concrètes qui, mises bout à bout, transforment chaque avis en occasion de fidéliser, et chaque client mécontent en client retenu.",
+    items: [
+      {
+        icon: Star,
+        badge: "Avis Google",
+        title: "Améliorez votre note Google.",
+        desc: "Les clients satisfaits sont invités à publier leur avis sur Google. Les mécontents sont pris en charge en privé.",
+      },
+      {
+        icon: Activity,
+        badge: "Risque de départ",
+        title: "Repérez les clients sur le départ.",
+        desc: "Un score de risque par client : baisse de note, silence prolongé, avis négatifs répétés. Vous agissez avant de le perdre.",
+      },
+      {
+        icon: MessageCircle,
+        badge: "WhatsApp et e-mail",
+        title: "Confirmez la résolution avec le client.",
+        desc: "Une fois l'avis traité, le client reçoit un e-mail et un message WhatsApp pour confirmer que le problème est réglé.",
+      },
+      {
+        icon: Palette,
+        badge: "Marque blanche",
+        title: "Vos couleurs, partout.",
+        desc: "QR codes, formulaires, e-mails et portail client aux couleurs de votre enseigne.",
+      },
+      {
+        icon: UserCircle,
+        badge: "Portail client",
+        title: "Le client a son propre espace.",
+        desc: "Il suit le traitement de son avis : statut, échanges, historique et validation finale.",
+      },
+      {
+        icon: Reply,
+        badge: "Réponses types",
+        title: "Répondez vite et bien.",
+        desc: "Une bibliothèque de réponses validées par la direction. Le manager choisit, personnalise et envoie.",
+      },
+      {
+        icon: CheckCheck,
+        badge: "Validation client",
+        title: "C'est le client qui valide.",
+        desc: "Le client confirme lui-même la résolution, depuis son portail, par e-mail ou WhatsApp. Le dernier mot lui revient.",
+      },
+      {
+        icon: BookOpen,
+        badge: "Centre d'aide",
+        title: "Vos clients trouvent les réponses seuls.",
+        desc: "FAQ et articles d'aide propres à votre enseigne, pour les questions les plus fréquentes.",
+      },
+    ],
+    brand: {
+      eyebrow: "Marque blanche et QR codes",
+      title: "Votre marque, votre identité.",
+      desc: "Logo, couleurs, typographie : vos affiches QR, vos e-mails et votre portail client prennent l'identité visuelle de votre entreprise, du premier scan jusqu'à la confirmation de résolution.",
+      points: ["Logo et favicon", "Couleurs de votre marque", "Affiches QR prêtes à imprimer", "Domaine personnalisé"],
+      alt: "Exemple d'affiche QR code personnalisée",
     },
-    {
-      icon: Activity,
-      badge: "Predictive Churn",
-      title: "Détectez les départs avant qu'ils arrivent.",
-      desc: "Notre IA calcule un score de risque pour chaque client : baisse de note, silence prolongé, feedbacks négatifs récurrents. Vous agissez AVANT le départ — pas après la perte.",
-      metric: "−47%",
-      metricLabel: "taux d'attrition observé",
+  },
+  en: {
+    eyebrow: "Retention",
+    title: (
+      <>
+        Eight levers to <span className="text-orange-deep">retain your customers.</span>
+      </>
+    ),
+    intro:
+      "Concrete capabilities that, taken together, turn every review into a retention opportunity, and every unhappy customer into a retained one.",
+    items: [
+      {
+        icon: Star,
+        badge: "Google reviews",
+        title: "Improve your Google rating.",
+        desc: "Happy customers are invited to post their review on Google. Unhappy ones are handled privately.",
+      },
+      {
+        icon: Activity,
+        badge: "Churn risk",
+        title: "Spot customers about to leave.",
+        desc: "A risk score per customer: rating drop, prolonged silence, repeated negative reviews. Act before you lose them.",
+      },
+      {
+        icon: MessageCircle,
+        badge: "WhatsApp and email",
+        title: "Confirm resolution with the customer.",
+        desc: "Once the feedback is handled, the customer gets an email and a WhatsApp message to confirm the issue is solved.",
+      },
+      {
+        icon: Palette,
+        badge: "White label",
+        title: "Your colors, everywhere.",
+        desc: "QR codes, forms, emails and customer portal in your brand's colors.",
+      },
+      {
+        icon: UserCircle,
+        badge: "Customer portal",
+        title: "Customers get their own space.",
+        desc: "They follow their feedback's resolution: status, messages, history and final validation.",
+      },
+      {
+        icon: Reply,
+        badge: "Canned responses",
+        title: "Reply fast and well.",
+        desc: "A library of replies approved by management. The manager picks one, personalizes it and sends it.",
+      },
+      {
+        icon: CheckCheck,
+        badge: "Customer validation",
+        title: "The customer validates.",
+        desc: "Customers confirm the resolution themselves, from their portal, by email or WhatsApp. They have the last word.",
+      },
+      {
+        icon: BookOpen,
+        badge: "Help center",
+        title: "Customers find answers on their own.",
+        desc: "FAQ and help articles specific to your brand, for the most common questions.",
+      },
+    ],
+    brand: {
+      eyebrow: "White label and QR codes",
+      title: "Your brand, your identity.",
+      desc: "Logo, colors, typography: your QR posters, emails and customer portal take on your company's visual identity, from the first scan to the resolution confirmation.",
+      points: ["Logo and favicon", "Your brand colors", "Print-ready QR posters", "Custom domain"],
+      alt: "Sample custom QR code poster",
     },
-    {
-      icon: MessageCircle,
-      badge: "WhatsApp & Email",
-      title: "Confirmez la résolution avec le client.",
-      desc: "Une fois le feedback négatif traité, le client reçoit un email + WhatsApp pour confirmer que le problème est bien résolu. Templates Meta approuvés. Vous gardez sa confiance.",
-      metric: "94%",
-      metricLabel: "résolution validée",
-    },
-    {
-      icon: Palette,
-      badge: "White-label & QR",
-      title: "Vos couleurs, votre marque, partout.",
-      desc: "QR codes, formulaires, emails et portail client aux couleurs de votre enseigne. Logo, mascotte, palette personnalisée — vos clients ne quittent jamais votre univers visuel.",
-      metric: "100%",
-      metricLabel: "branding cohérent",
-    },
-    {
-      icon: UserCircle,
-      badge: "Portail client privé",
-      title: "Le client a son propre espace.",
-      desc: "Chaque client peut suivre la résolution de son feedback dans son portail. Statut, échanges, historique, validation finale. La transparence comme arme de fidélisation.",
-      metric: "100%",
-      metricLabel: "transparence client",
-    },
-    {
-      icon: Reply,
-      badge: "Canned Responses",
-      title: "Répondez en 3 secondes, à 3h du matin.",
-      desc: "Bibliothèque de modèles validés par votre direction. Le manager choisit, personnalise, envoie. Plus jamais de réponse maladroite ou tardive — la qualité de réponse industrialisée.",
-      metric: "< 5 min",
-      metricLabel: "temps de réponse moyen",
-    },
-    {
-      icon: CheckCheck,
-      badge: "Le dernier mot client",
-      title: "C'est le client qui valide.",
-      desc: "Vous traitez le feedback ? Le client confirme la résolution depuis son portail, par email ou WhatsApp. Pas vous. Lui. Le dernier mot revient toujours à celui qui paie — c'est ça, la satisfaction.",
-      metric: "Validé client",
-      metricLabel: "à chaque résolution",
-    },
-    {
-      icon: BookOpen,
-      badge: "Help Center privé",
-      title: "Vos clients trouvent les réponses seuls.",
-      desc: "FAQ personnalisée par enseigne, articles de support, base de connaissances privée. 60% des questions clients trouvent leur réponse sans solliciter votre équipe — autonomie + confort.",
-      metric: "−60%",
-      metricLabel: "tickets entrants",
-    },
-  ],
-  en: [
-    {
-      icon: Star,
-      badge: "Google Reviews",
-      title: "Boost your Google rating.",
-      desc: "Smart CTA: happy customers are redirected to Google to leave a 5-star review. Unhappy ones are handled privately. Your e-reputation climbs — effortlessly.",
-      metric: "+460%",
-      metricLabel: "Google reviews collected",
-    },
-    {
-      icon: Activity,
-      badge: "Predictive Churn",
-      title: "Catch departures before they happen.",
-      desc: "Our AI computes a risk score for every customer: rating drop, prolonged silence, recurring negative feedback. You act BEFORE they leave — not after the loss.",
-      metric: "−47%",
-      metricLabel: "observed churn rate",
-    },
-    {
-      icon: MessageCircle,
-      badge: "WhatsApp & Email",
-      title: "Confirm resolution with the customer.",
-      desc: "Once a negative feedback is handled, the customer gets an email + WhatsApp to confirm the problem is solved. Meta-approved templates. You keep their trust.",
-      metric: "94%",
-      metricLabel: "validated resolutions",
-    },
-    {
-      icon: Palette,
-      badge: "White-label & QR",
-      title: "Your colors, your brand, everywhere.",
-      desc: "QR codes, forms, emails and customer portal in your brand's colors. Logo, mascot, custom palette — your customers never leave your visual universe.",
-      metric: "100%",
-      metricLabel: "consistent branding",
-    },
-    {
-      icon: UserCircle,
-      badge: "Private customer portal",
-      title: "Customers get their own space.",
-      desc: "Every customer can follow the resolution of their feedback in their portal. Status, messages, history, final validation. Transparency as a retention weapon.",
-      metric: "100%",
-      metricLabel: "customer transparency",
-    },
-    {
-      icon: Reply,
-      badge: "Canned Responses",
-      title: "Reply in 3 seconds, at 3 a.m.",
-      desc: "A library of templates validated by your leadership. The manager picks one, personalises, sends. Never another clumsy or late response — industrialised reply quality.",
-      metric: "< 5 min",
-      metricLabel: "average response time",
-    },
-    {
-      icon: CheckCheck,
-      badge: "Customer has the last word",
-      title: "It's the customer who validates.",
-      desc: "You've handled the feedback? The customer confirms resolution from their portal, by email or WhatsApp. Not you. Them. The last word always belongs to the one who pays — that's what satisfaction looks like.",
-      metric: "Customer-validated",
-      metricLabel: "on every resolution",
-    },
-    {
-      icon: BookOpen,
-      badge: "Private Help Center",
-      title: "Your customers find answers themselves.",
-      desc: "Brand-specific FAQ, support articles, private knowledge base. 60% of customer questions are answered without asking your team — autonomy + comfort.",
-      metric: "−60%",
-      metricLabel: "incoming tickets",
-    },
-  ],
-};
-
-const customizationByLocale = {
-  fr: [
-    { label: "Logo & favicon", icon: Palette },
-    { label: "Couleurs primaires", icon: Palette },
-    { label: "QR posters print-ready", icon: QrCode },
-    { label: "Domaine personnalisé", icon: Star },
-  ],
-  en: [
-    { label: "Logo & favicon", icon: Palette },
-    { label: "Primary colors", icon: Palette },
-    { label: "Print-ready QR posters", icon: QrCode },
-    { label: "Custom domain", icon: Star },
-  ],
+  },
 };
 
 export function Advantages({ locale = "fr" }: { locale?: "fr" | "en" }) {
-  const isEnglish = locale === "en";
-  const advantages = advantagesByLocale[locale];
-  const customization = customizationByLocale[locale];
+  const c = contentByLocale[locale];
+  const b = c.brand;
   return (
-    <section id="armes" className="relative px-6 py-24 lg:px-16 lg:py-32">
+    <section id="armes" className="px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-16 grid items-end gap-10 lg:grid-cols-[1fr_1.4fr]">
+        <SectionHeader eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
+
+        <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
+          {c.items.map((a) => (
+            <div key={a.badge} className="flex flex-col gap-3">
+              <IconTile icon={a.icon} />
+              <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-orange-deep">{a.badge}</p>
+              <h3 className="font-display text-lg font-semibold leading-snug text-text">{a.title}</h3>
+              <p className="text-[15px] leading-relaxed text-text-dim">{a.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-20 grid items-center gap-10 overflow-hidden rounded-xl bg-orange-soft p-8 sm:p-12 lg:grid-cols-[1.3fr_1fr] lg:gap-16 lg:p-16">
           <div>
-            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
-              {isEnglish ? "№ 09 · Your weapons" : "№ 09 · Vos armes"}
+            <p className="flex items-center gap-2.5 text-sm font-semibold text-orange-deep">
+              <span className="h-0.5 w-6 bg-orange" aria-hidden />
+              {b.eyebrow}
             </p>
-            <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
-              {isEnglish ? (
-                <>Eight weapons to <span className="italic text-orange">retain your customers.</span></>
-              ) : (
-                <>Huit armes pour <span className="italic text-orange">retenir vos clients.</span></>
-              )}
-            </h2>
+            <h3 className="font-display mt-3 text-2xl font-semibold leading-tight text-text sm:text-3xl">{b.title}</h3>
+            <p className="mt-4 text-base leading-relaxed text-text-dim">{b.desc}</p>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              {b.points.map((p) => (
+                <li key={p} className="flex items-center gap-2.5 text-[15px] text-text">
+                  <Check className="h-4 w-4 shrink-0 text-orange-deep" strokeWidth={2.2} aria-hidden />
+                  {p}
+                </li>
+              ))}
+            </ul>
           </div>
-          <p className="text-base leading-relaxed text-text-dim lg:text-lg">
-            {isEnglish
-              ? "No empty promises. Eight concrete capabilities that, taken together, turn every feedback into a retention opportunity — and every unhappy customer into a kept one."
-              : "Pas de promesses creuses. Huit capacités concrètes qui, mises bout à bout, transforment chaque feedback en opportunité de fidélisation — et chaque client mécontent en client retenu."}
-          </p>
-        </div>
-
-        <div className="mb-5 grid gap-4 lg:grid-cols-2">
-          {advantages.map((a, i) => {
-            const isDark = (Math.floor(i / 2) + (i % 2)) % 2 === 1;
-
-            return (
-              <div
-                key={a.badge}
-                className={`group relative flex gap-5 overflow-hidden rounded-3xl p-6 transition lg:p-7 ${
-                  isDark ? "" : "card-base hover:border-orange/40"
-                }`}
-                style={
-                  isDark
-                    ? {
-                        background: "#0F0E0C",
-                        border: "1px solid rgba(255,255,255,0.08)",
-                      }
-                    : undefined
-                }
-              >
-                <div className="shrink-0">
-                  <div
-                    className={`flex h-12 w-12 items-center justify-center rounded-2xl transition ${
-                      isDark
-                        ? "bg-orange/15 text-orange group-hover:bg-orange group-hover:text-white"
-                        : "bg-orange/10 text-orange group-hover:bg-orange group-hover:text-white"
-                    }`}
-                  >
-                    <a.icon className="h-6 w-6" strokeWidth="2" />
-                  </div>
-                </div>
-
-                <div className="min-w-0 flex-1">
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-orange">
-                    {a.badge}
-                  </span>
-                  <h3
-                    className="font-display mt-1.5 text-lg font-bold leading-tight lg:text-xl"
-                    style={isDark ? { color: "#FFFFFF" } : undefined}
-                  >
-                    {!isDark && <span className="text-text">{a.title}</span>}
-                    {isDark && a.title}
-                  </h3>
-                  <p
-                    className="mt-2 text-[13.5px] leading-relaxed"
-                    style={isDark ? { color: "rgba(255,255,255,0.72)" } : undefined}
-                  >
-                    {!isDark && <span className="text-text-dim">{a.desc}</span>}
-                    {isDark && a.desc}
-                  </p>
-
-                  <div
-                    className="mt-4 inline-flex items-baseline gap-2 rounded-full px-3 py-1"
-                    style={
-                      isDark
-                        ? { background: "rgba(250,112,13,0.18)" }
-                        : { background: "rgba(250,112,13,0.08)" }
-                    }
-                  >
-                    <span className="font-display text-base font-extrabold text-orange">{a.metric}</span>
-                    <span
-                      className="text-[11px] font-medium"
-                      style={isDark ? { color: "rgba(255,255,255,0.7)" } : undefined}
-                    >
-                      {!isDark && <span className="text-text-dim">{a.metricLabel}</span>}
-                      {isDark && a.metricLabel}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* HIGHLIGHT — White label + QR */}
-        <div
-          className="group relative overflow-hidden rounded-3xl p-7 lg:p-10"
-          style={{
-            background: "#0F0E0C",
-            border: "1px solid rgba(255,255,255,0.08)",
-          }}
-        >
-          <span
-            aria-hidden
-            className="font-display pointer-events-none absolute -right-4 -top-6 text-[200px] font-extrabold leading-none text-white/[0.04] sm:-right-8 sm:-top-10 sm:text-[260px]"
-          >
-            +1
-          </span>
-          <span
-            aria-hidden
-            className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full opacity-50 blur-3xl"
-            style={{ background: "radial-gradient(closest-side, rgba(250,112,13,0.5), transparent)" }}
-          />
-          <span
-            aria-hidden
-            className="pointer-events-none absolute -bottom-24 -left-20 h-64 w-64 rounded-full opacity-30 blur-3xl"
-            style={{ background: "radial-gradient(closest-side, rgba(250,112,13,0.4), transparent)" }}
-          />
-
-          <div className="relative grid items-center gap-10 lg:grid-cols-[1.4fr_1fr]">
-            <div>
-              <div
-                className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em]"
-                style={{
-                  color: "#FA700D",
-                  background: "rgba(250,112,13,0.18)",
-                  border: "1px solid rgba(250,112,13,0.35)",
-                }}
-              >
-                <Palette className="h-3.5 w-3.5" strokeWidth="2.5" />
-                White-label + QR
-              </div>
-              <h3
-                className="font-display mt-4 text-2xl font-bold leading-tight lg:text-3xl"
-                style={{ color: "#FFFFFF" }}
-              >
-                {isEnglish ? (
-                  <>Your brand, <span className="italic" style={{ color: "#FA700D" }}>your identity.</span></>
-                ) : (
-                  <>Votre marque, <span className="italic" style={{ color: "#FA700D" }}>votre identité.</span></>
-                )}
-              </h3>
-              <p
-                className="mt-3 text-[14px] leading-relaxed lg:text-[15px]"
-                style={{ color: "rgba(255,255,255,0.72)" }}
-              >
-                {isEnglish ? (
-                  <>
-                    Logo, colors, typography — everything is customisable. Your QR posters, emails, customer portal
-                    and app take on <strong style={{ color: "#FFFFFF" }}>your company&apos;s visual identity</strong>.
-                    A consistent experience with your brand, from the first scan to the resolution confirmation.
-                  </>
-                ) : (
-                  <>
-                    Logo, couleurs, typographie — tout est customisable. Vos QR posters, vos emails, votre portail
-                    client, votre app prennent <strong style={{ color: "#FFFFFF" }}>l&apos;identité visuelle de votre entreprise</strong>.
-                    Une expérience cohérente avec votre marque, du premier scan jusqu&apos;à la confirmation de résolution.
-                  </>
-                )}
-              </p>
-
-              <div className="mt-6 grid gap-2 sm:grid-cols-2">
-                {customization.map((c) => (
-                  <div
-                    key={c.label}
-                    className="flex items-center gap-2 text-[13px]"
-                    style={{ color: "rgba(255,255,255,0.7)" }}
-                  >
-                    <span
-                      className="inline-flex h-5 w-5 items-center justify-center rounded-md"
-                      style={{
-                        color: "#FA700D",
-                        background: "rgba(250,112,13,0.2)",
-                      }}
-                    >
-                      <c.icon className="h-3 w-3" strokeWidth="2.5" />
-                    </span>
-                    {c.label}
-                  </div>
-                ))}
-              </div>
-
-              <div
-                className="mt-6 inline-flex items-baseline gap-2 rounded-full px-3 py-1"
-                style={{ background: "rgba(250,112,13,0.15)" }}
-              >
-                <span className="font-display text-base font-extrabold" style={{ color: "#FA700D" }}>49</span>
-                <span className="text-[11px] font-medium" style={{ color: "rgba(255,255,255,0.7)" }}>
-                  {isEnglish ? "custom fields available (Business+)" : "custom fields disponibles (Business+)"}
-                </span>
-              </div>
-            </div>
-
-            <div className="relative mx-auto w-full max-w-[260px]">
-              <div className="absolute -inset-4 -z-10 rounded-[28px] bg-orange/30 blur-2xl" />
-              <div
-                className="relative overflow-hidden rounded-2xl shadow-card"
-                style={{
-                  background: "#0A0A0A",
-                  border: "1px solid rgba(255,255,255,0.14)",
-                  padding: "10px",
-                }}
-              >
-                <div className="overflow-hidden rounded-xl">
-                  <Image
-                    src="/qr-poster-orange.png"
-                    alt={isEnglish ? "Custom QR poster" : "Affiche QR personnalisée"}
-                    width={620}
-                    height={830}
-                    className="h-auto w-full"
-                  />
-                </div>
-              </div>
-              <span
-                className="absolute -top-3 left-4 inline-flex items-center gap-1.5 rounded-full bg-orange px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-orange-soft"
-              >
-                <QrCode className="h-3 w-3" strokeWidth="2.5" />
-                {isEnglish ? "Sample · Aisha SARL" : "Sample · Aisha SARL"}
-              </span>
-            </div>
+          <div className="mx-auto w-full max-w-[280px] overflow-hidden rounded-lg border border-[#F2D9C4] bg-bg p-3">
+            <Image src="/qr-poster-orange.png" alt={b.alt} width={620} height={830} className="h-auto w-full rounded" />
           </div>
         </div>
       </div>

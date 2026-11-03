@@ -11,10 +11,16 @@ type Row = {
     | { kind: "web"; src: string; alt: string; width: number; height: number };
 };
 
-const contentByLocale: Record<"fr" | "en", { title: string; intro: string; rows: Row[] }> = {
+const contentByLocale: Record<"fr" | "en", { title: string; titleSecond: string; intro: string; fanAlts: [string, string, string]; rows: Row[] }> = {
   fr: {
-    title: "Du QR code à la résolution, sans rien perdre en route.",
-    intro: "Chaque avis suit le même chemin : il est recueilli, confié à la bonne personne, puis traité dans les délais que vous avez fixés.",
+    title: "Du QR code à la résolution.",
+    titleSecond: "Sans rien perdre en route.",
+    intro: "Chaque avis suit le même chemin : il est recueilli en moins d'une minute, confié à la bonne personne, puis traité dans les délais que vous avez fixés.",
+    fanAlts: [
+      "Détail d'un avis client dans l'application mobile",
+      "Liste des avis clients dans l'application mobile",
+      "Assignation d'un avis à un employé dans l'application mobile",
+    ],
     rows: [
       {
         title: "Un avis en moins d'une minute, sans application",
@@ -49,8 +55,14 @@ const contentByLocale: Record<"fr" | "en", { title: string; intro: string; rows:
     ],
   },
   en: {
-    title: "From QR code to resolution, with nothing lost along the way.",
-    intro: "Every piece of feedback follows the same path: it is collected, handed to the right person, then resolved within the deadlines you set.",
+    title: "From QR code to resolution.",
+    titleSecond: "With nothing lost along the way.",
+    intro: "Every piece of feedback follows the same path: collected in under a minute, handed to the right person, then resolved within the deadlines you set.",
+    fanAlts: [
+      "Customer feedback detail in the mobile app",
+      "Customer feedback list in the mobile app",
+      "Assigning feedback to an employee in the mobile app",
+    ],
     rows: [
       {
         title: "Feedback in under a minute, no app needed",
@@ -79,9 +91,26 @@ export function ProductTour({ locale = "fr" }: { locale?: "fr" | "en" }) {
   return (
     <section id="fonctionnalites" className="px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
-        <div className="max-w-3xl">
-          <h2 className="font-display text-4xl font-semibold leading-[1.1] tracking-tight text-text lg:text-5xl">{c.title}</h2>
-          <p className="mt-6 text-lg leading-relaxed text-text-dim">{c.intro}</p>
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+            <span className="text-ink">{c.title}</span>
+            <br />
+            <span className="text-[#86868B]">{c.titleSecond}</span>
+          </h2>
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-text-dim lg:text-xl">{c.intro}</p>
+        </div>
+
+        {/* Three phones fanned out, the middle one in front */}
+        <div className="relative mx-auto mt-16 flex h-[420px] max-w-3xl items-start justify-center overflow-hidden border-b border-card-border sm:h-[520px] lg:mt-20">
+          <div className="absolute left-1/2 top-10 hidden -translate-x-[115%] sm:block">
+            <IPhoneFrame src="/app-mobile-detail.jpg" alt={c.fanAlts[0]} statusBarBg="#75746F" statusBarText="#FFFFFF" />
+          </div>
+          <div className="absolute left-1/2 top-10 hidden translate-x-[15%] sm:block">
+            <IPhoneFrame src="/app-equipe-assignation.jpg" alt={c.fanAlts[2]} statusBarBg="#757575" statusBarText="#FFFFFF" />
+          </div>
+          <div className="relative z-10">
+            <IPhoneFrame src="/app-mobile-avis.jpg" alt={c.fanAlts[1]} />
+          </div>
         </div>
 
         <div className="mt-20 space-y-24 lg:mt-28 lg:space-y-32">

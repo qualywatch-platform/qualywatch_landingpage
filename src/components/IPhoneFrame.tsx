@@ -8,6 +8,7 @@ type IPhoneFrameProps = {
   /** Color behind the iOS status bar; the screenshot starts below it. */
   statusBarBg?: string;
   statusBarText?: string;
+  size?: "md" | "sm";
 };
 
 /** iPhone 15 Pro style device frame around a real app screenshot. */
@@ -18,9 +19,11 @@ export function IPhoneFrame({
   priority = false,
   statusBarBg = "#FFFFFF",
   statusBarText = "#0B0B0C",
+  size = "md",
 }: IPhoneFrameProps) {
+  const width = size === "sm" ? "w-[220px] xl:w-[240px]" : "w-[280px] sm:w-[310px]";
   return (
-    <div className={`relative w-[280px] sm:w-[310px] ${className}`}>
+    <div className={`relative ${width} ${className}`}>
       {/* Side buttons */}
       <span aria-hidden className="absolute -left-[3px] top-[18%] h-7 w-[3px] rounded-l-sm bg-[#6E7176]" />
       <span aria-hidden className="absolute -left-[3px] top-[26%] h-12 w-[3px] rounded-l-sm bg-[#6E7176]" />

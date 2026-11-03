@@ -1,143 +1,66 @@
-import Image from "next/image";
-import { Mail, Shield, Sparkles, Crown, Users } from "lucide-react";
+import { Mail, Shield, UserCheck, Smartphone } from "lucide-react";
+import { IPhoneFrame } from "@/components/IPhoneFrame";
 
-const featuresByLocale = {
-  fr: [
-    { icon: Mail, label: "Invitation par email", desc: "Envoyez un lien magique sécurisé" },
-    { icon: Shield, label: "Permissions granulaires", desc: "6 rôles : CEO, directeur, manager, chef de service, employé, client" },
-    { icon: Users, label: "Collaboration temps réel", desc: "Plusieurs personnes sur le même feedback" },
-    { icon: Crown, label: "Clients illimités", desc: "Aucune limite sur le nombre de collaborateurs" },
-  ],
-  en: [
-    { icon: Mail, label: "Email invitation", desc: "Send a secure magic link" },
-    { icon: Shield, label: "Granular permissions", desc: "6 roles: CEO, director, manager, service head, employee, customer" },
-    { icon: Users, label: "Real-time collaboration", desc: "Multiple people on the same feedback" },
-    { icon: Crown, label: "Unlimited customers", desc: "No cap on the number of collaborators" },
-  ],
+const contentByLocale = {
+  fr: {
+    eyebrow: "Équipes",
+    title: "Vos équipes. Vos collaborateurs. Tous connectés.",
+    intro:
+      "Invitez vos managers, chefs de service et employés. Chacun accède à son propre espace et ne voit que ce qui le concerne : le manager pilote l'ensemble, le chef de service répartit les avis, l'employé traite ceux qui lui sont confiés.",
+    alt: "Assignation d'un avis client à un employé du service, dans l'application mobile QualyWatch",
+    features: [
+      { icon: Mail, label: "Invitation par e-mail", desc: "Un lien et un code de confirmation, le compte est créé en quelques minutes." },
+      { icon: Shield, label: "Un rôle pour chacun", desc: "Manager, directeur, chef de service, employé : chaque rôle a ses propres droits." },
+      { icon: UserCheck, label: "Le bon avis au bon employé", desc: "Le chef de service assigne l'avis à un membre de son service, qui est notifié." },
+      { icon: Smartphone, label: "Sur le web et sur mobile", desc: "Les équipes terrain traitent les avis depuis leur téléphone." },
+    ],
+  },
+  en: {
+    eyebrow: "Teams",
+    title: "Your teams. Your collaborators. All connected.",
+    intro:
+      "Invite your managers, department heads and employees. Each one gets their own workspace and only sees what concerns them: the manager oversees everything, the department head dispatches feedback, the employee handles what is assigned to them.",
+    alt: "Assigning a customer review to a department employee in the QualyWatch mobile app",
+    features: [
+      { icon: Mail, label: "Email invitation", desc: "A link and a confirmation code: the account is ready in minutes." },
+      { icon: Shield, label: "A role for everyone", desc: "Manager, director, department head, employee: each role has its own permissions." },
+      { icon: UserCheck, label: "The right feedback to the right person", desc: "The department head assigns feedback to a team member, who gets notified." },
+      { icon: Smartphone, label: "On web and mobile", desc: "Field teams handle feedback from their phone." },
+    ],
+  },
 };
 
 export function Collaborators({ locale = "fr" }: { locale?: "fr" | "en" }) {
-  const isEnglish = locale === "en";
-  const features = featuresByLocale[locale];
+  const c = contentByLocale[locale];
   return (
-    <section
-      id="portail"
-      className="relative overflow-hidden px-6 py-24 lg:px-16 lg:py-32"
-      style={{ background: "#FFFFFF" }}
-    >
-      {/* Decorative orange glows */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 -left-20 h-[500px] w-[500px] rounded-full opacity-50 blur-3xl"
-        style={{ background: "radial-gradient(closest-side, rgba(250,112,13,0.10), transparent 70%)" }}
-      />
-
-      <div className="relative mx-auto max-w-7xl">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
-          {/* LEFT — Real invitation screenshot in phone frame */}
-          <div className="relative flex items-center justify-center">
-            {/* Glow halo */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -inset-8 -z-10 rounded-[80px] opacity-60 blur-3xl"
-              style={{ background: "radial-gradient(closest-side, rgba(250,112,13,0.30), transparent 70%)" }}
-            />
-
-            <div className="relative">
-              {/* Phone frame */}
-              <div className="relative h-[520px] w-64 overflow-hidden rounded-[44px] border-[8px] border-[#0F0E0C] bg-[#0F0E0C] shadow-deep sm:h-[580px] sm:w-72">
-                {/* Notch */}
-                <div className="absolute left-1/2 top-2 z-20 h-6 w-24 -translate-x-1/2 rounded-full bg-[#0F0E0C]" />
-
-                {/* Screen — invitation screenshot */}
-                <div className="relative h-full w-full">
-                  <Image
-                    src="/invitation-screenshot.png"
-                    alt={isEnglish ? "Invitation to join a Qualywatch team" : "Invitation à rejoindre une équipe Qualywatch"}
-                    fill
-                    sizes="(min-width: 640px) 288px, 256px"
-                    className="object-cover object-top"
-                  />
-                </div>
-              </div>
-
-              {/* Floating onboarding chip */}
-              <div className="absolute -right-4 top-12 hidden rounded-2xl border border-card-border bg-card p-3 shadow-card sm:block">
-                <div className="flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-orange" strokeWidth="2.5" />
-                  <span className="font-display text-xs font-bold text-text">
-                    {isEnglish ? "2-min onboarding" : "Onboarding 2 min"}
-                  </span>
-                </div>
-              </div>
-
-              {/* Floating "magic link" chip */}
-              <div className="absolute -left-4 bottom-16 hidden rounded-2xl border border-card-border bg-card p-3 shadow-card sm:block">
-                <div className="flex items-center gap-2">
-                  <Mail className="h-4 w-4 text-orange" strokeWidth="2.5" />
-                  <span className="font-display text-xs font-bold text-text">
-                    {isEnglish ? "Magic link" : "Lien magique"}
-                  </span>
-                </div>
-              </div>
-            </div>
+    <section id="portail" className="px-6 py-24 lg:px-16 lg:py-32">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid items-center gap-16 lg:grid-cols-[1fr_1.15fr] lg:gap-24">
+          <div className="flex justify-center rounded-3xl border border-card-border bg-bg3 px-6 py-14 lg:py-20">
+            <IPhoneFrame src="/app-equipe-assignation.jpg" alt={c.alt} statusBarBg="#757575" statusBarText="#FFFFFF" />
           </div>
 
-          {/* RIGHT — Copy */}
           <div>
-            <p className="font-mono text-sm font-bold uppercase tracking-[0.25em] text-orange">
-              {isEnglish ? "№ 06 · Customer portal" : "№ 06 · Portail client"}
-            </p>
-            <h2 className="font-display mt-4 text-3xl font-bold leading-[1.05] text-text sm:text-4xl lg:text-5xl">
-              {isEnglish ? (
-                <>Your teams. Your collaborators. <span className="italic text-orange">All connected.</span></>
-              ) : (
-                <>Vos équipes. Vos collaborateurs. <span className="italic text-orange">Tous connectés.</span></>
-              )}
+            <p className="text-sm font-medium text-text-mute">{c.eyebrow}</p>
+            <h2 className="font-display mt-3 text-3xl font-semibold leading-[1.15] tracking-tight text-text sm:text-4xl">
+              {c.title}
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-text-dim lg:text-[17px]">
-              {isEnglish ? (
-                <>
-                  With Qualywatch, invite both your <strong className="text-text">internal teams</strong> (managers, service heads, employees)
-                  and your <strong className="text-text">external collaborators</strong> — partners, vendors, VIP customers.
-                  Each one with their own role, permissions and workspace.
-                </>
-              ) : (
-                <>
-                  Avec Qualywatch, invitez aussi bien vos <strong className="text-text">équipes internes</strong> (managers, chefs de service, employés)
-                  que vos <strong className="text-text">collaborateurs externes</strong> — partenaires, prestataires, clients VIP.
-                  Chacun avec son rôle, ses permissions, son espace.
-                </>
-              )}
-            </p>
+            <p className="mt-5 text-base leading-relaxed text-text-dim lg:text-lg">{c.intro}</p>
 
-            {/* Features list */}
-            <ul className="mt-7 grid gap-3 sm:grid-cols-2">
-              {features.map((f) => (
+            <ul className="mt-10 grid border-t border-card-border sm:grid-cols-2">
+              {c.features.map((f, i) => (
                 <li
                   key={f.label}
-                  className="rounded-2xl border border-card-border bg-card p-4 transition hover:border-orange/40"
+                  className={`flex flex-col gap-2 border-b border-card-border py-6 ${
+                    i % 2 === 0 ? "sm:pr-8" : "sm:border-l sm:pl-8"
+                  }`}
                 >
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-orange/10 text-orange">
-                    <f.icon className="h-4 w-4" strokeWidth="2.5" />
-                  </span>
-                  <div className="font-display mt-3 text-sm font-bold text-text">{f.label}</div>
-                  <div className="mt-1 text-[12px] leading-snug text-text-dim">{f.desc}</div>
+                  <f.icon className="h-5 w-5 text-text" strokeWidth={1.6} aria-hidden />
+                  <div className="font-display mt-1 text-base font-semibold text-text">{f.label}</div>
+                  <div className="text-sm leading-relaxed text-text-dim">{f.desc}</div>
                 </li>
               ))}
             </ul>
-
-            {/* Highlight stat */}
-            <div className="mt-7 inline-flex items-center gap-3 rounded-full border border-card-border bg-card px-4 py-2.5">
-              <Users className="h-4 w-4 text-orange" strokeWidth="2.5" />
-              <span className="text-[13px] font-semibold text-text">
-                {isEnglish ? (
-                  <><strong className="text-orange">Unlimited collaborators</strong> on every plan</>
-                ) : (
-                  <><strong className="text-orange">Collaborateurs illimités</strong> sur tous les plans</>
-                )}
-              </span>
-            </div>
           </div>
         </div>
       </div>

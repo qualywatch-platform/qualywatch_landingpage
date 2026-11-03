@@ -5,6 +5,7 @@ import { HeroV2 } from "@/components/sections/HeroV2";
 import { FeatureStrip } from "@/components/sections/FeatureStrip";
 import { Problems } from "@/components/sections/Problems";
 import { ProductTour } from "@/components/sections/ProductTour";
+import { ProductTourBento } from "@/components/sections/ProductTourBento";
 import { FeatureIndex } from "@/components/sections/FeatureIndex";
 import { Steps } from "@/components/sections/Steps";
 import { Sectors } from "@/components/sections/Sectors";
@@ -18,7 +19,7 @@ import { Contact } from "@/components/sections/Contact";
 import { CTA } from "@/components/sections/CTA";
 import { SectionReveal } from "@/components/SectionReveal";
 
-export function LandingPage({ locale }: { locale: Locale }) {
+export function LandingPage({ locale, variant = "v1" }: { locale: Locale; variant?: "v1" | "v2" }) {
   return (
     <>
       <NavbarV2 locale={locale} />
@@ -30,7 +31,7 @@ export function LandingPage({ locale }: { locale: Locale }) {
         <SectionReveal delay={70}>
           <Problems locale={locale} />
         </SectionReveal>
-        <ProductTour locale={locale} />
+        {variant === "v2" ? <ProductTourBento locale={locale} /> : <ProductTour locale={locale} />}
         <FeatureIndex locale={locale} />
         <SectionReveal delay={80}>
           <Steps locale={locale} />

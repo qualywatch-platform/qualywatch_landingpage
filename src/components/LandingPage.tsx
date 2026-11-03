@@ -4,14 +4,10 @@ import { Footer } from "@/components/Footer";
 import { HeroV2 } from "@/components/sections/HeroV2";
 import { FeatureStrip } from "@/components/sections/FeatureStrip";
 import { Problems } from "@/components/sections/Problems";
-import { Features6 } from "@/components/sections/Features6";
-import { Pillars } from "@/components/sections/Pillars";
+import { ProductTour } from "@/components/sections/ProductTour";
+import { FeatureIndex } from "@/components/sections/FeatureIndex";
 import { Steps } from "@/components/sections/Steps";
 import { Sectors } from "@/components/sections/Sectors";
-import { Differentiators } from "@/components/sections/Differentiators";
-import { Collaborators } from "@/components/sections/Collaborators";
-import { TeamFeedbacks } from "@/components/sections/TeamFeedbacks";
-import { Advantages } from "@/components/sections/Advantages";
 import { ApiAccess } from "@/components/sections/ApiAccess";
 import { Story } from "@/components/sections/Story";
 import { Pricing } from "@/components/sections/Pricing";
@@ -34,29 +30,13 @@ export function LandingPage({ locale }: { locale: Locale }) {
         <SectionReveal delay={70}>
           <Problems locale={locale} />
         </SectionReveal>
-        <SectionReveal delay={90}>
-          <Features6 locale={locale} />
-        </SectionReveal>
-        <SectionReveal delay={110}>
-          <Pillars locale={locale} />
-        </SectionReveal>
+        <ProductTour locale={locale} />
+        <FeatureIndex locale={locale} />
         <SectionReveal delay={80}>
           <Steps locale={locale} />
         </SectionReveal>
         <SectionReveal delay={100}>
           <Sectors locale={locale} />
-        </SectionReveal>
-        <SectionReveal delay={120}>
-          <Collaborators locale={locale} />
-        </SectionReveal>
-        <SectionReveal delay={90}>
-          <TeamFeedbacks locale={locale} />
-        </SectionReveal>
-        <SectionReveal delay={110}>
-          <Differentiators locale={locale} />
-        </SectionReveal>
-        <SectionReveal delay={80}>
-          <Advantages locale={locale} />
         </SectionReveal>
         <SectionReveal delay={95}>
           <ApiAccess locale={locale} />

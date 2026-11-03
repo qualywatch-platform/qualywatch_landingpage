@@ -7,7 +7,7 @@ const contentByLocale = {
     eyebrow: "Données et sécurité",
     title: (
       <>
-        La confiance est au cœur <span className="text-orange-deep">de notre engagement.</span>
+        La confiance est au cœur de notre engagement.
       </>
     ),
     intro: "Vos données restent les vôtres : elles sont cloisonnées, protégées et exportables à tout moment.",
@@ -22,7 +22,7 @@ const contentByLocale = {
     eyebrow: "Data and security",
     title: (
       <>
-        Trust is at the heart <span className="text-orange-deep">of our commitment.</span>
+        Trust is at the heart of our commitment.
       </>
     ),
     intro: "Your data stays yours: isolated, protected and exportable at any time.",
@@ -38,14 +38,14 @@ const contentByLocale = {
 export function Security({ locale = "fr" }: { locale?: "fr" | "en" }) {
   const c = contentByLocale[locale];
   return (
-    <section className="border-y border-card-border bg-cream px-6 py-24 lg:px-16 lg:py-32">
+    <section id="securite" className="bg-mist px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeader eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
+        <div className="mt-14 grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
           {c.items.map((it) => (
-            <div key={it.title} className="flex flex-col gap-3 rounded-lg border border-card-border bg-bg p-7">
+            <div key={it.title} className="flex flex-col gap-3 border-t border-[#D5DAE1] pt-6">
               <IconTile icon={it.icon} />
-              <h3 className="font-display mt-2 text-lg font-semibold text-text">{it.title}</h3>
+              <h3 className="font-display mt-1 text-base font-semibold text-text">{it.title}</h3>
               <p className="text-[15px] leading-relaxed text-text-dim">{it.desc}</p>
             </div>
           ))}

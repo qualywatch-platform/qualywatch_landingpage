@@ -54,12 +54,11 @@ export function TeamFeedbacks({ locale = "fr" }: { locale?: "fr" | "en" }) {
   const c = contentByLocale[locale];
   const f = c.form;
   return (
-    <section id="feedbacks-internes" className="border-y border-card-border bg-cream px-6 py-24 lg:px-16 lg:py-32">
+    <section id="feedbacks-internes" className="border-y border-card-border bg-mist px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="grid items-center gap-16 lg:grid-cols-[1.15fr_1fr] lg:gap-24">
           <div>
-            <p className="flex items-center gap-2.5 text-sm font-semibold text-orange-deep"><span className="h-0.5 w-6 bg-orange" aria-hidden />{c.eyebrow}</p>
-            <h2 className="font-display mt-3 text-3xl font-semibold leading-[1.15] tracking-tight text-text sm:text-4xl">{c.title}</h2>
+                        <h2 className="font-display mt-3 text-3xl font-semibold leading-[1.15] tracking-tight text-text sm:text-4xl">{c.title}</h2>
             <p className="mt-5 text-base leading-relaxed text-text-dim lg:text-lg">{c.intro}</p>
             <ul className="mt-10 grid border-t border-card-border sm:grid-cols-2">
               {c.features.map((item, i) => (

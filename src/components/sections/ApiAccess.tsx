@@ -9,7 +9,7 @@ const contentByLocale = {
     eyebrow: "Accès API",
     title: (
       <>
-        Vos données. <span className="text-orange-deep">Vos outils.</span>
+        Vos données. Vos outils.
       </>
     ),
     intro:
@@ -28,7 +28,7 @@ const contentByLocale = {
     eyebrow: "API access",
     title: (
       <>
-        Your data. <span className="text-orange-deep">Your tools.</span>
+        Your data. Your tools.
       </>
     ),
     intro: "Generate access keys from the dashboard and connect QualyWatch to your CRM, ERP, BI tool or helpdesk.",
@@ -47,7 +47,7 @@ const contentByLocale = {
 export function ApiAccess({ locale = "fr" }: { locale?: Locale }) {
   const c = contentByLocale[locale];
   return (
-    <section id="api" className="border-y border-card-border bg-cream px-6 py-24 lg:px-16 lg:py-32">
+    <section id="api" className="border-y border-card-border bg-mist px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeader eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
 

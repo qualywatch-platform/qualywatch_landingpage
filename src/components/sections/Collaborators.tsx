@@ -37,13 +37,12 @@ export function Collaborators({ locale = "fr" }: { locale?: "fr" | "en" }) {
     <section id="portail" className="px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="grid items-center gap-16 lg:grid-cols-[1fr_1.15fr] lg:gap-24">
-          <div className="flex justify-center rounded-3xl border border-card-border bg-cream px-6 py-14 lg:py-20">
+          <div className="flex justify-center rounded-3xl border border-card-border bg-mist px-6 py-14 lg:py-20">
             <IPhoneFrame src="/app-equipe-assignation.jpg" alt={c.alt} statusBarBg="#757575" statusBarText="#FFFFFF" />
           </div>
 
           <div>
-            <p className="flex items-center gap-2.5 text-sm font-semibold text-orange-deep"><span className="h-0.5 w-6 bg-orange" aria-hidden />{c.eyebrow}</p>
-            <h2 className="font-display mt-3 text-3xl font-semibold leading-[1.15] tracking-tight text-text sm:text-4xl">
+                        <h2 className="font-display mt-3 text-3xl font-semibold leading-[1.15] tracking-tight text-text sm:text-4xl">
               {c.title}
             </h2>
             <p className="mt-5 text-base leading-relaxed text-text-dim lg:text-lg">{c.intro}</p>

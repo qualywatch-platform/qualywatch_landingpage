@@ -59,15 +59,15 @@ export function Contact({ locale = "fr" }: { locale?: "fr" | "en" }) {
     "w-full rounded-md border border-card-border bg-bg px-4 py-3 text-sm text-text placeholder-text-mute outline-none transition-colors focus:border-orange-deep";
 
   return (
-    <section id="contact" className="border-t border-card-border bg-cream px-6 py-24 lg:px-16 lg:py-32">
+    <section id="contact" className="border-t border-card-border bg-mist px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="Contact"
           title={
             isEnglish ? (
-              <>Let&apos;s talk. <span className="text-orange-deep">We reply fast.</span></>
+              <>Let&apos;s talk. We reply fast.</>
             ) : (
-              <>Discutons. <span className="text-orange-deep">Nous répondons vite.</span></>
+              <>Discutons. Nous répondons vite.</>
             )
           }
           intro={

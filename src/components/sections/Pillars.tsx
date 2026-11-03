@@ -60,7 +60,7 @@ const contentByLocale = {
 export function Pillars({ locale = "fr" }: { locale?: "fr" | "en" }) {
   const c = contentByLocale[locale];
   return (
-    <section id="solution" className="border-y border-card-border bg-cream px-6 py-24 lg:px-16 lg:py-32">
+    <section id="solution" className="border-y border-card-border bg-mist px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeader eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
         <div className="mt-14 grid gap-4 lg:mt-20 lg:grid-cols-3">

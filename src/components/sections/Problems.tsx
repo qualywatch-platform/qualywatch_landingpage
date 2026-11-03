@@ -46,22 +46,20 @@ export function Problems({ locale = "fr" }: { locale?: "fr" | "en" }) {
     <section id="probleme" className="px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1.25fr] lg:gap-24">
         <div className="lg:sticky lg:top-32 lg:self-start">
-          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-orange-deep">{c.eyebrow}</p>
-          <h2 className="font-display mt-4 text-4xl font-semibold leading-[1.1] tracking-tight text-text lg:text-5xl">{c.title}</h2>
+          <h2 className="font-display text-4xl font-semibold leading-[1.1] tracking-tight text-text lg:text-5xl">{c.title}</h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-text-dim">{c.intro}</p>
         </div>
 
-        <ol className="border-t border-text">
-          {c.items.map((item, i) => (
-            <li key={item.title} className="grid gap-4 border-b border-card-border py-10 sm:grid-cols-[72px_1fr] lg:py-12">
-              <span className="font-display text-3xl font-light tabular-nums text-orange-deep">0{i + 1}</span>
+        <ul className="border-t border-text">
+          {c.items.map((item) => (
+            <li key={item.title} className="border-b border-card-border py-10 lg:py-12">
               <div>
                 <h3 className="font-display text-2xl font-semibold text-text">{item.title}</h3>
                 <p className="mt-3 max-w-xl text-base leading-relaxed text-text-dim lg:text-[17px]">{item.text}</p>
               </div>
             </li>
           ))}
-        </ol>
+        </ul>
       </div>
     </section>
   );

@@ -5,7 +5,7 @@ const contentByLocale = {
     eyebrow: "Notre histoire",
     title: (
       <>
-        La vision derrière <span className="text-orange-deep">QualyWatch.</span>
+        La vision derrière QualyWatch.
       </>
     ),
     quote:
@@ -27,7 +27,7 @@ const contentByLocale = {
     eyebrow: "Our story",
     title: (
       <>
-        The vision behind <span className="text-orange-deep">QualyWatch.</span>
+        The vision behind QualyWatch.
       </>
     ),
     quote:
@@ -63,11 +63,7 @@ export function Story({ locale = "fr" }: { locale?: "fr" | "en" }) {
         </figure>
 
         <div>
-          <p className="flex items-center gap-2.5 text-sm font-semibold text-orange-deep">
-            <span className="h-0.5 w-6 bg-orange" aria-hidden />
-            {c.eyebrow}
-          </p>
-          <h2 className="font-display mt-3 text-3xl font-semibold leading-[1.15] tracking-tight text-text sm:text-4xl">{c.title}</h2>
+                    <h2 className="font-display mt-3 text-3xl font-semibold leading-[1.15] tracking-tight text-text sm:text-4xl">{c.title}</h2>
           <blockquote className="font-display mt-8 border-l-2 border-orange pl-6 text-xl leading-snug text-text lg:text-2xl">
             {c.quote}
           </blockquote>

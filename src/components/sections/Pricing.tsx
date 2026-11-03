@@ -230,9 +230,9 @@ export function Pricing({ locale = "fr" }: { locale?: Locale }) {
           eyebrow={isEnglish ? "Pricing" : "Tarifs"}
           title={
             isEnglish ? (
-              <>Four plans, <span className="text-orange-deep">no hidden fees.</span></>
+              <>Four plans, no hidden fees.</>
             ) : (
-              <>Quatre formules, <span className="text-orange-deep">sans frais cachés.</span></>
+              <>Quatre formules, sans frais cachés.</>
             )
           }
           intro={

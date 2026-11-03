@@ -8,7 +8,7 @@ const contentByLocale = {
     eyebrow: "Fidélisation",
     title: (
       <>
-        Huit leviers pour <span className="text-orange-deep">retenir vos clients.</span>
+        Huit leviers pour retenir vos clients.
       </>
     ),
     intro:
@@ -75,7 +75,7 @@ const contentByLocale = {
     eyebrow: "Retention",
     title: (
       <>
-        Eight levers to <span className="text-orange-deep">retain your customers.</span>
+        Eight levers to retain your customers.
       </>
     ),
     intro:
@@ -161,11 +161,7 @@ export function Advantages({ locale = "fr" }: { locale?: "fr" | "en" }) {
 
         <div className="mt-20 grid items-center gap-10 overflow-hidden rounded-xl bg-orange-soft p-8 sm:p-12 lg:grid-cols-[1.3fr_1fr] lg:gap-16 lg:p-16">
           <div>
-            <p className="flex items-center gap-2.5 text-sm font-semibold text-orange-deep">
-              <span className="h-0.5 w-6 bg-orange" aria-hidden />
-              {b.eyebrow}
-            </p>
-            <h3 className="font-display mt-3 text-2xl font-semibold leading-tight text-text sm:text-3xl">{b.title}</h3>
+                        <h3 className="font-display mt-3 text-2xl font-semibold leading-tight text-text sm:text-3xl">{b.title}</h3>
             <p className="mt-4 text-base leading-relaxed text-text-dim">{b.desc}</p>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {b.points.map((p) => (

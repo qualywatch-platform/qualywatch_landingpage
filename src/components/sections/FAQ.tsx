@@ -5,7 +5,7 @@ const contentByLocale = {
     eyebrow: "FAQ",
     title: (
       <>
-        Questions <span className="text-orange-deep">fréquentes.</span>
+        Questions fréquentes.
       </>
     ),
     intro: "Ce qu'on nous demande le plus souvent avant de démarrer.",
@@ -42,7 +42,7 @@ const contentByLocale = {
     eyebrow: "FAQ",
     title: (
       <>
-        Frequently asked <span className="text-orange-deep">questions.</span>
+        Frequently asked questions.
       </>
     ),
     intro: "What we get asked most often before getting started.",
@@ -83,11 +83,7 @@ export function FAQ({ locale = "fr" }: { locale?: "fr" | "en" }) {
     <section id="faq" className="px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
         <div className="lg:sticky lg:top-28">
-          <p className="flex items-center gap-2.5 text-sm font-semibold text-orange-deep">
-            <span className="h-0.5 w-6 bg-orange" aria-hidden />
-            {c.eyebrow}
-          </p>
-          <h2 className="font-display mt-3 text-3xl font-semibold leading-[1.15] tracking-tight text-text sm:text-4xl">{c.title}</h2>
+                    <h2 className="font-display mt-3 text-3xl font-semibold leading-[1.15] tracking-tight text-text sm:text-4xl">{c.title}</h2>
           <p className="mt-5 text-base leading-relaxed text-text-dim lg:text-lg">{c.intro}</p>
           <div className="mt-8 rounded-lg bg-orange-soft p-6">
             <p className="font-display text-base font-semibold text-text">{c.helpTitle}</p>

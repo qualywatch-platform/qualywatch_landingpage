@@ -4,7 +4,6 @@ import { Footer } from "@/components/Footer";
 import { HeroV2 } from "@/components/sections/HeroV2";
 import { FeatureStrip } from "@/components/sections/FeatureStrip";
 import { Problems } from "@/components/sections/Problems";
-import { ProductTour } from "@/components/sections/ProductTour";
 import { ProductTourBento } from "@/components/sections/ProductTourBento";
 import { FeatureIndex } from "@/components/sections/FeatureIndex";
 import { Steps } from "@/components/sections/Steps";
@@ -31,7 +30,7 @@ export function LandingPage({ locale, variant = "v1" }: { locale: Locale; varian
         <SectionReveal delay={70}>
           <Problems locale={locale} />
         </SectionReveal>
-        {variant === "v2" ? <ProductTourBento locale={locale} /> : <ProductTour locale={locale} />}
+        <ProductTourBento locale={locale} />
         <FeatureIndex locale={locale} />
         <SectionReveal delay={80}>
           <Steps locale={locale} />

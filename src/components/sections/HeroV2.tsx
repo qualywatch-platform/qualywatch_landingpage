@@ -33,7 +33,7 @@ const contentByLocale = {
 export function HeroV2({ locale = "fr" }: { locale?: "fr" | "en" }) {
   const c = contentByLocale[locale];
   return (
-    <section className="relative isolate overflow-hidden px-6 pt-28 sm:pt-32 lg:px-16 lg:pt-36">
+    <section className="relative isolate overflow-hidden px-6 pt-24 sm:pt-28 lg:px-16 lg:pt-28">
       {/* Background: orange with a light square grid and warm light spots */}
       <div
         aria-hidden
@@ -55,13 +55,13 @@ export function HeroV2({ locale = "fr" }: { locale?: "fr" | "en" }) {
           <span className="inline-flex items-center rounded-full bg-ink px-4 py-1.5 text-[13px] font-medium text-white">
             {c.eyebrow}
           </span>
-          <h1 className="font-display mt-5 text-[38px] font-bold leading-[1.04] tracking-tight text-ink sm:text-5xl lg:text-[60px]">
+          <h1 className="font-display mt-5 text-[38px] font-bold leading-[1.04] tracking-tight text-ink sm:text-5xl lg:text-[52px]">
             {c.title}
             <br />
             <span className="text-white">{c.titleAccent}</span>
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink/80">{c.intro}</p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/80 sm:text-lg">{c.intro}</p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="https://app.qualywatch.com/auth/register"
               className="inline-flex h-12 items-center gap-2 rounded-full bg-ink px-7 text-[15px] font-semibold text-white transition-colors hover:bg-black"
@@ -79,7 +79,7 @@ export function HeroV2({ locale = "fr" }: { locale?: "fr" | "en" }) {
           <p className="mt-4 text-sm font-medium text-ink/75">{c.note}</p>
         </div>
 
-        <div className="relative mx-auto mt-12 max-w-6xl lg:mt-14">
+        <div className="relative mx-auto mt-10 max-w-6xl">
           <div className="overflow-hidden rounded-t-xl border border-b-0 border-white/60 bg-white shadow-[0_-20px_60px_-30px_rgba(15,14,12,0.45)] lg:mx-24">
             <div className="flex h-9 items-center gap-1.5 border-b border-card-border bg-[#F6F7F9] px-4" aria-hidden>
               <span className="h-2.5 w-2.5 rounded-full bg-[#D4D7DC]" />
@@ -94,11 +94,11 @@ export function HeroV2({ locale = "fr" }: { locale?: "fr" | "en" }) {
               height={1800}
               priority
               sizes="(min-width: 1280px) 960px, 100vw"
-              className="block h-[240px] w-full object-cover object-top sm:h-[380px] lg:h-[420px]"
+              className="block h-[200px] w-full object-cover object-top sm:h-[300px] lg:h-[320px]"
             />
           </div>
           <div className="absolute bottom-0 right-6 hidden overflow-hidden lg:block">
-            <IPhoneFrame src="/app-mobile-avis.jpg" alt={c.mobileAlt} priority size="sm" className="translate-y-24" />
+            <IPhoneFrame src="/app-mobile-avis.jpg" alt={c.mobileAlt} priority size="sm" className="translate-y-36" />
           </div>
         </div>
       </div>

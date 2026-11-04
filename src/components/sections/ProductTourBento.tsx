@@ -60,7 +60,7 @@ export function ProductTourBento({ locale = "fr" }: { locale?: "fr" | "en" }) {
           <h2 className="font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
             <span className="text-ink">{c.title}</span>
             <br />
-            <span className="text-[#86868B]">{c.titleSecond}</span>
+            <span className="text-orange">{c.titleSecond}</span>
           </h2>
           <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-[#6E6E73] lg:text-xl">{c.intro}</p>
         </div>

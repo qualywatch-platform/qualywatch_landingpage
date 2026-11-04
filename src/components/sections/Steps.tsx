@@ -1,5 +1,3 @@
-import { SectionHeader } from "@/components/SectionHeader";
-
 const contentByLocale = {
   fr: {
     eyebrow: "Comment ça marche",
@@ -30,15 +28,21 @@ const contentByLocale = {
 export function Steps({ locale = "fr" }: { locale?: "fr" | "en" }) {
   const c = contentByLocale[locale];
   return (
-    <section id="comment" className="px-6 py-24 lg:px-16 lg:py-32">
-      <div className="mx-auto max-w-7xl">
-        <SectionHeader eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
-        <ol className="mt-14 grid gap-10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4 lg:gap-0">
+    <section id="comment" className="px-4 py-24 sm:px-6 lg:px-16 lg:py-32">
+      <div className="mx-auto max-w-7xl rounded-[32px] bg-ink px-6 py-14 sm:px-12 lg:px-16 lg:py-20">
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-16">
+          <h2 className="font-display text-3xl font-semibold leading-[1.15] tracking-tight text-white sm:text-4xl">{c.title}</h2>
+          <p className="text-base leading-relaxed text-white/65 lg:text-lg">{c.intro}</p>
+        </div>
+        <ol className="reveal-children relative mt-14 grid gap-10 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-8">
+          <span aria-hidden className="absolute left-6 right-6 top-6 hidden h-px bg-white/15 lg:block" />
           {c.steps.map((s, i) => (
-            <li key={s.title} className="border-t-2 border-text pt-6 lg:pr-10">
-              <span className="text-sm font-semibold tabular-nums text-orange-deep">0{i + 1}</span>
-              <h3 className="font-display mt-3 text-lg font-semibold text-text">{s.title}</h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-text-dim">{s.desc}</p>
+            <li key={s.title} className={`reveal-item reveal-delay-${i + 1} relative`}>
+              <span className="relative flex h-12 w-12 items-center justify-center rounded-full bg-orange font-display text-base font-semibold tabular-nums text-white">
+                {i + 1}
+              </span>
+              <h3 className="font-display mt-6 text-lg font-semibold text-white">{s.title}</h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-white/65">{s.desc}</p>
             </li>
           ))}
         </ol>

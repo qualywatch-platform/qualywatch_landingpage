@@ -64,12 +64,17 @@ export function FeatureIndex({ locale = "fr" }: { locale?: "fr" | "en" }) {
           <h2 className="font-display text-3xl font-semibold leading-[1.15] tracking-tight text-text sm:text-4xl">{c.title}</h2>
           <p className="text-base leading-relaxed text-text-dim lg:text-lg">{c.intro}</p>
         </div>
-        <ul className="mt-16 grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3">
-          {c.items.map((it) => (
-            <li key={it.title} className="border-t border-[#D5DAE1] pt-6">
-              <it.icon className="h-5 w-5 text-orange-deep" strokeWidth={1.8} aria-hidden />
-              <h3 className="font-display mt-4 text-base font-semibold text-text">{it.title}</h3>
-              <p className="mt-1.5 text-[15px] leading-relaxed text-text-dim">{it.text}</p>
+        <ul className="reveal-children mt-16 grid gap-5 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3">
+          {c.items.map((it, i) => (
+            <li
+              key={it.title}
+              className={`reveal-item reveal-delay-${(i % 3) + 1} group rounded-2xl border border-[#DDE2E8] bg-white p-7 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-orange/40 hover:shadow-[0_18px_40px_-24px_rgba(23,18,14,0.35)]`}
+            >
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-soft transition-colors duration-300 group-hover:bg-orange">
+                <it.icon className="h-5 w-5 text-orange-deep transition-colors duration-300 group-hover:text-white" strokeWidth={1.8} aria-hidden />
+              </span>
+              <h3 className="font-display mt-5 text-lg font-semibold text-text">{it.title}</h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-text-dim">{it.text}</p>
             </li>
           ))}
         </ul>

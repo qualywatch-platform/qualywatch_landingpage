@@ -30,8 +30,12 @@ export function LandingPage({ locale, variant = "v1" }: { locale: Locale; varian
         <SectionReveal delay={70}>
           <Problems locale={locale} />
         </SectionReveal>
-        <ProductTourBento locale={locale} />
-        <FeatureIndex locale={locale} />
+        <SectionReveal delay={60}>
+          <ProductTourBento locale={locale} />
+        </SectionReveal>
+        <SectionReveal delay={60}>
+          <FeatureIndex locale={locale} />
+        </SectionReveal>
         <SectionReveal delay={80}>
           <Steps locale={locale} />
         </SectionReveal>

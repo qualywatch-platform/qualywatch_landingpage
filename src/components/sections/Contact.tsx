@@ -10,8 +10,8 @@ const channels = [
   {
     icon: Mail,
     label: "Email",
-    value: "aishaseye074@gmail.com",
-    href: "mailto:aishaseye074@gmail.com",
+    value: "aishaseye@qualywatch.com",
+    href: "mailto:aishaseye@qualywatch.com",
     note: "Réponse en moins de 24h ouvrées",
   },
   {
@@ -48,7 +48,7 @@ export function Contact({ locale = "fr" }: { locale?: "fr" | "en" }) {
     ].join("\n");
 
     const href =
-      "mailto:aishaseye074@gmail.com" +
+      "mailto:aishaseye@qualywatch.com" +
       `?subject=${encodeURIComponent(subject)}` +
       `&body=${encodeURIComponent(body)}`;
 

@@ -62,11 +62,11 @@ export function Footer({ locale = "fr" }: { locale?: Locale }) {
             {/* Contact mini */}
             <div className="mt-6 flex flex-col items-start gap-2.5">
               <Link
-                href="mailto:aishaseye074@gmail.com"
+                href="mailto:aishaseye@qualywatch.com"
                 className="group inline-flex items-center gap-2 text-[13px] text-white/75 transition hover:text-white"
               >
                 <Mail className="h-4 w-4 text-orange" strokeWidth={1.8} />
-                aishaseye074@gmail.com
+                aishaseye@qualywatch.com
               </Link>
               <Link
                 href="tel:+221704072668"

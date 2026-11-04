@@ -89,11 +89,11 @@ export function FAQ({ locale = "fr" }: { locale?: "fr" | "en" }) {
             <p className="font-display text-base font-semibold text-text">{c.helpTitle}</p>
             <p className="mt-1 text-sm text-text-dim">{c.helpText}</p>
             <a
-              href="mailto:aishaseye074@gmail.com"
+              href="mailto:aishaseye@qualywatch.com"
               className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-orange-deep hover:underline"
             >
               <Mail className="h-4 w-4" strokeWidth={1.8} aria-hidden />
-              aishaseye074@gmail.com
+              aishaseye@qualywatch.com
             </a>
           </div>
         </div>

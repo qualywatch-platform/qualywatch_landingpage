@@ -127,7 +127,7 @@ const structuredData = {
       ],
       contactPoint: {
         "@type": "ContactPoint",
-        email: "aishaseye074@gmail.com",
+        email: "aishaseye@qualywatch.com",
         telephone: "+221 70 407 26 68",
         contactType: "customer support",
         areaServed: ["SN", "FR", "CI", "MA", "ML", "BJ", "TG", "GN"],

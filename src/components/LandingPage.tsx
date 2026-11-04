@@ -19,7 +19,7 @@ import { Contact } from "@/components/sections/Contact";
 import { CTA } from "@/components/sections/CTA";
 import { SectionReveal } from "@/components/SectionReveal";
 
-export function LandingPage({ locale, variant = "v1" }: { locale: Locale; variant?: "v1" | "v2" }) {
+export function LandingPage({ locale }: { locale: Locale }) {
   return (
     <>
       <NavbarV2 locale={locale} />

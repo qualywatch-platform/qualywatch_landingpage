@@ -4,16 +4,16 @@ import { ArrowRight, Check } from "lucide-react";
 
 const contentByLocale = {
   fr: {
-    title: "Prêt à écouter vos clients ?",
-    intro: "Créez votre compte en quelques minutes et recevez vos premiers avis dès aujourd'hui.",
+    title: "Donnez à chaque client la certitude d'être entendu.",
+    intro: "Créez votre compte en quelques minutes. Vos premiers avis arrivent dès aujourd'hui, et aucun ne restera sans suite.",
     primary: "Commencer gratuitement",
     secondary: "Demander une démo",
     points: ["Sans engagement", "Sans carte bancaire", "Configuration immédiate"],
     alt: "Client satisfait",
   },
   en: {
-    title: "Ready to listen to your customers?",
-    intro: "Create your account in minutes and receive your first reviews today.",
+    title: "Give every customer the certainty of being heard.",
+    intro: "Create your account in minutes. Your first reviews arrive today, and none will go unanswered.",
     primary: "Start for free",
     secondary: "Request a demo",
     points: ["No commitment", "No credit card", "Instant setup"],

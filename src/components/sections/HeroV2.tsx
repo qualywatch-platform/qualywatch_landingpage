@@ -9,7 +9,7 @@ const contentByLocale = {
     title: "Ne laissez plus vos clients",
     titleAccent: "partir en silence.",
     intro:
-      "Vos clients donnent leur avis en scannant un QR code. QualyWatch l'attribue au bon service, suit son traitement et demande au client de confirmer que le problème est réglé.",
+      "Chaque avis est reçu, confié à la bonne personne et suivi jusqu'à ce que votre client confirme lui-même que tout est réglé. Avec QualyWatch, aucun client ne reste sans réponse.",
     primary: "Essayer gratuitement",
     secondary: "Demander une démo",
     note: "Gratuit jusqu'à 100 avis par mois. Sans carte bancaire.",
@@ -21,7 +21,7 @@ const contentByLocale = {
     title: "Stop letting your customers",
     titleAccent: "leave in silence.",
     intro:
-      "Customers share feedback by scanning a QR code. QualyWatch routes it to the right department, tracks its resolution and asks the customer to confirm the issue is solved.",
+      "Every piece of feedback is received, handed to the right person and tracked until your customer confirms everything is solved. With QualyWatch, no customer is left without an answer.",
     primary: "Start for free",
     secondary: "Request a demo",
     note: "Free up to 100 reviews per month. No credit card required.",

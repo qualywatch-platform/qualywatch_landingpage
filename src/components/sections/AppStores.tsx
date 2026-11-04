@@ -31,9 +31,9 @@ const contentByLocale = {
 export function AppStores({ locale = "fr" }: { locale?: "fr" | "en" }) {
   const c = contentByLocale[locale];
   return (
-    <section id="apps" className="px-6 py-24 lg:px-16 lg:py-32">
-      <div className="mx-auto max-w-7xl overflow-hidden rounded-xl bg-orange">
-        <div className="grid items-end gap-10 lg:grid-cols-[1.2fr_1fr]">
+    <section id="apps" className="px-6 pb-32 pt-24 lg:px-16 lg:pb-40 lg:pt-48">
+      <div className="relative mx-auto max-w-7xl rounded-3xl bg-orange">
+        <div className="grid items-center gap-4 lg:grid-cols-[1.2fr_1fr] lg:gap-10">
           <div className="p-8 sm:p-12 lg:p-16">
             <p className="flex items-center gap-2.5 text-sm font-semibold text-ink">
               <span className="h-0.5 w-6 bg-ink" aria-hidden />
@@ -84,8 +84,10 @@ export function AppStores({ locale = "fr" }: { locale?: "fr" | "en" }) {
             </div>
           </div>
 
-          <div className="flex justify-center px-8 lg:-mb-24 lg:px-0">
+          <div className="-mb-24 flex justify-center px-8 lg:-mb-20 lg:-mt-40 lg:px-0">
+            <div className="drop-shadow-[0_40px_50px_rgba(23,18,14,0.35)]">
             <IPhoneFrame src="/app-mobile-detail.jpg" alt={c.alt} statusBarBg="#75746F" statusBarText="#FFFFFF" />
+            </div>
           </div>
         </div>
       </div>

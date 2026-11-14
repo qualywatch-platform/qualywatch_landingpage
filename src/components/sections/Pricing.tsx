@@ -44,7 +44,7 @@ const plansByLocale: Record<Locale, Plan[]> = {
       name: "Pro",
       subtitle: "Pour les équipes",
       icon: Zap,
-      price: "40 000",
+      price: "30 000",
       cycle: "FCFA / mois",
       highlight: "Recommandé",
       limits: [
@@ -72,7 +72,7 @@ const plansByLocale: Record<Locale, Plan[]> = {
       name: "Business",
       subtitle: "Pour les entreprises",
       icon: Building2,
-      price: "80 000",
+      price: "70 000",
       cycle: "FCFA / mois",
       limits: [
         "3 managers · 75 employés",
@@ -100,7 +100,7 @@ const plansByLocale: Record<Locale, Plan[]> = {
       name: "Enterprise",
       subtitle: "Solution complète",
       icon: Crown,
-      price: "110 000",
+      price: "100 000",
       cycle: "FCFA / mois",
       limits: [
         "5 managers · employés illimités",

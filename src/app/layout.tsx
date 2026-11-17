@@ -36,7 +36,7 @@ const SITE_URL = "https://www.qualywatch.com";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Qualywatch — Pilotez l'expérience client en temps réel",
+    default: "Qualywatch — Pilotez la qualité de votre établissement",
     template: "%s · Qualywatch",
   },
   description:
@@ -72,23 +72,23 @@ export const metadata: Metadata = {
     siteName: "Qualywatch",
     locale: "fr_FR",
     url: SITE_URL,
-    title: "Qualywatch — Pilotez l'expérience client en temps réel",
+    title: "Qualywatch — Pilotez la qualité de votre établissement",
     description:
-      "L'infrastructure qui transforme chaque feedback client en décision opérationnelle — et chaque client mécontent en client retenu.",
+      "Avis, réclamations, demandes et suggestions au même endroit : chacun est confié à la bonne personne, traité dans les délais et suivi jusqu'au bout.",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Qualywatch — Pilotez l'expérience client en temps réel",
+        alt: "Qualywatch — Pilotez la qualité de votre établissement",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Qualywatch — Pilotez l'expérience client en temps réel",
+    title: "Qualywatch — Pilotez la qualité de votre établissement",
     description:
-      "Captez chaque signal client. Réagissez en temps réel. Retenez vos clients.",
+      "Avis, réclamations, demandes : tout est confié, traité et suivi jusqu'au bout.",
     site: "@qualywatch",
     creator: "@qualywatch",
     images: ["/opengraph-image"],

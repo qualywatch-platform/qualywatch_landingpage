@@ -5,11 +5,11 @@ import { IPhoneFrame } from "@/components/IPhoneFrame";
 
 const contentByLocale = {
   fr: {
-    eyebrow: "Gestion des avis et réclamations clients",
-    title: "Ne laissez plus vos clients",
-    titleAccent: "partir en silence.",
+    eyebrow: "Pilotage de la qualité de service",
+    title: "La qualité de votre établissement,",
+    titleAccent: "enfin sous contrôle.",
     intro:
-      "Chaque avis est reçu, confié à la bonne personne et suivi jusqu'à ce que votre client confirme lui-même que tout est réglé. Avec QualyWatch, aucun client ne reste sans réponse.",
+      "Avis, réclamations, demandes et suggestions arrivent au même endroit. Chacun est confié à la bonne personne, traité dans les délais et suivi jusqu'au bout. Vous voyez chaque jour ce qui va, ce qui coince et qui s'en occupe.",
     primary: "Essayer gratuitement",
     secondary: "Demander une démo",
     note: "Gratuit jusqu'à 100 avis par mois. Sans carte bancaire.",
@@ -17,11 +17,11 @@ const contentByLocale = {
     mobileAlt: "Liste des avis clients dans l'application mobile QualyWatch",
   },
   en: {
-    eyebrow: "Customer feedback and complaint management",
-    title: "Stop letting your customers",
-    titleAccent: "leave in silence.",
+    eyebrow: "Service quality management",
+    title: "Your business's quality,",
+    titleAccent: "finally under control.",
     intro:
-      "Every piece of feedback is received, handed to the right person and tracked until your customer confirms everything is solved. With QualyWatch, no customer is left without an answer.",
+      "Reviews, complaints, requests and suggestions land in one place. Each one goes to the right person, is handled on time and tracked to the end. Every day you see what works, what's stuck and who is on it.",
     primary: "Start for free",
     secondary: "Request a demo",
     note: "Free up to 100 reviews per month. No credit card required.",

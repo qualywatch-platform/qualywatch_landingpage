@@ -50,15 +50,17 @@ export default async function OpenGraphImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <div
             style={{
-              fontSize: 80,
+              fontSize: 64,
               fontWeight: 900,
               lineHeight: 1.05,
               color: "#0F0E0C",
               letterSpacing: "-0.02em",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
             }}
           >
-            Ne laissez plus vos clients
-            <br />
+            <span>La qualité de votre établissement,</span>
             <span
               style={{
                 color: "#FFFFFF",
@@ -67,7 +69,7 @@ export default async function OpenGraphImage() {
                 padding: "0 16px",
               }}
             >
-              partir en silence.
+              enfin sous contrôle.
             </span>
           </div>
           <div
@@ -78,7 +80,7 @@ export default async function OpenGraphImage() {
               maxWidth: 900,
             }}
           >
-            Captez chaque signal client. Réagissez en temps réel. Retenez.
+            Avis, réclamations, demandes : tout est confié, traité et suivi.
           </div>
         </div>
 
@@ -101,7 +103,7 @@ export default async function OpenGraphImage() {
             qualywatch.com
           </span>
           <div style={{ display: "flex", gap: 12 }}>
-            {["QR · WhatsApp · Email", "Temps réel", "IA d'analyse"].map(
+            {["QR code · Lien · Email", "Temps réel", "IA d'analyse"].map(
               (tag) => (
                 <span
                   key={tag}

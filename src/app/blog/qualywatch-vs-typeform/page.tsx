@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Typeform fonctionne-t-il bien en Afrique ?",
-    a: "Techniquement oui. L'app charge un peu plus lentement depuis l'Afrique de l'Ouest (serveurs en Europe), mais reste utilisable. Le vrai problème est le tarif (à partir de 25 USD/mois sans Mobile Money) et l'absence d'intégration WhatsApp Business, qui est pourtant le canal n°1 en Afrique.",
+    a: "Techniquement oui. L'app charge un peu plus lentement depuis l'Afrique de l'Ouest (serveurs en Europe), mais reste utilisable. Le vrai problème est le tarif (à partir de 25 USD/mois sans Mobile Money).",
   },
   {
     q: "Pourquoi quitter Typeform ?",
@@ -45,7 +45,7 @@ export default function Page() {
   return (
     <BlogArticle
       post={post}
-      tldr="Typeform est superbe visuellement et excellent pour un formulaire ponctuel élégant. Qualywatch est conçu pour piloter la satisfaction client au quotidien : QR codes par point de contact, WhatsApp Business intégré, alertes temps réel, gamification équipe, paiement Mobile Money. Pour une PME africaine, Qualywatch gagne. Pour un formulaire vitrine très soigné, Typeform reste pertinent."
+      tldr="Typeform est superbe visuellement et excellent pour un formulaire ponctuel élégant. Qualywatch est conçu pour piloter la satisfaction client au quotidien : QR codes par point de contact, alertes temps réel, gamification équipe, paiement Mobile Money. Pour une PME africaine, Qualywatch gagne. Pour un formulaire vitrine très soigné, Typeform reste pertinent."
       faqs={faqs}
     >
       <H2 id="resume">Le résumé en 3 lignes</H2>
@@ -68,7 +68,6 @@ export default function Page() {
         <LI>Plan gratuit limité à 10 réponses/mois (insuffisant en pratique).</LI>
         <LI>Plan payant à 25 USD/mois.</LI>
         <LI>Pas de paiement Mobile Money.</LI>
-        <LI>Pas de WhatsApp Business intégré.</LI>
         <LI>Pas pensé pour le pilotage opérationnel (pas d&apos;alertes natives, pas de dashboard NPS sectoriel).</LI>
         <LI>Charge un peu lente depuis l&apos;Afrique (serveurs en Europe et USA).</LI>
       </UL>
@@ -79,7 +78,6 @@ export default function Page() {
         <LI>Conçu pour le pilotage opérationnel quotidien (alertes, dashboards, KPIs).</LI>
         <LI>Plan gratuit généreux (50 feedbacks/mois).</LI>
         <LI>QR code natif par point de contact.</LI>
-        <LI>WhatsApp Business intégré.</LI>
         <LI>Paiement Mobile Money.</LI>
         <LI>IA d&apos;analyse des verbatims.</LI>
         <LI>Gamification équipe (KaliPoints).</LI>
@@ -98,7 +96,6 @@ export default function Page() {
           ["Plan payant entrée", "69 USD/mois (Pro)", "25 USD/mois (Basic)"],
           ["Paiement Mobile Money", "Oui", "Non"],
           ["QR code par point de contact", "Oui", "Manuel"],
-          ["WhatsApp Business", "Intégré", "Non"],
           ["NPS / CSAT auto", "Oui", "Limité"],
           ["Alertes temps réel", "Oui", "Plan Plus (50 USD/mois)"],
           ["IA d'analyse verbatims", "Oui", "Limité"],
@@ -111,7 +108,7 @@ export default function Page() {
 
       <H2 id="recommandation">Notre recommandation par profil</H2>
       <UL>
-        <LI><Strong>Restaurant, hôtel, retail en Afrique</Strong> → Qualywatch (QR code + WhatsApp + alertes natives).</LI>
+        <LI><Strong>Restaurant, hôtel, retail en Afrique</Strong> → Qualywatch (QR code + alertes temps réel natives).</LI>
         <LI><Strong>Agence de design / studio créatif</Strong> → Typeform pour la beauté visuelle des formulaires.</LI>
         <LI><Strong>PME B2B avec processus complexes</Strong> → Typeform si logic jumps critiques, Qualywatch sinon.</LI>
         <LI><Strong>Startup en croissance Afrique</Strong> → Qualywatch (rapport qualité/prix imbattable).</LI>

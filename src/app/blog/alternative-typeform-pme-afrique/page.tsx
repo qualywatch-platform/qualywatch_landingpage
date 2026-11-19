@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Pourquoi Typeform ne convient pas toujours aux PME africaines ?",
-    a: "Trois raisons : tarif élevé en USD (25 USD/mois minimum sérieux), plan gratuit limité à 10 réponses/mois, absence d'intégrations locales (pas de Mobile Money, pas de WhatsApp Business). Pour une PME ouest-africaine qui veut piloter sa satisfaction client au quotidien, c'est limitant.",
+    a: "Trois raisons : tarif élevé en USD (25 USD/mois minimum sérieux), plan gratuit limité à 10 réponses/mois, absence d'intégrations locales (pas de Mobile Money, pas de prix en FCFA). Pour une PME ouest-africaine qui veut piloter sa satisfaction client au quotidien, c'est limitant.",
   },
   {
     q: "Existe-t-il une alternative gratuite à Typeform ?",
@@ -45,7 +45,7 @@ export default function Page() {
   return (
     <BlogArticle
       post={post}
-      tldr="Typeform est élégant mais cher (25 USD/mois minimum) et peu adapté à l'Afrique de l'Ouest (pas de Mobile Money, pas de WhatsApp natif). Voici 5 alternatives plus abordables et mieux adaptées aux PME ouest-africaines, avec Qualywatch en tête pour le rapport fonctionnalités/prix."
+      tldr="Typeform est élégant mais cher (25 USD/mois minimum) et peu adapté à l'Afrique de l'Ouest (pas de Mobile Money, tarifs en USD). Voici 5 alternatives plus abordables et mieux adaptées aux PME ouest-africaines, avec Qualywatch en tête pour le rapport fonctionnalités/prix."
       faqs={faqs}
     >
       <H2 id="pourquoi">Pourquoi chercher une alternative à Typeform ?</H2>
@@ -53,7 +53,6 @@ export default function Page() {
         <LI><Strong>Plan gratuit trop limité</Strong> : 10 réponses/mois maximum. C&apos;est insuffisant pour quasiment tous les usages professionnels.</LI>
         <LI><Strong>Plan payant cher</Strong> : 25 USD/mois pour le plan Basic, 50 USD/mois pour le Plus avec alertes.</LI>
         <LI><Strong>Pas de Mobile Money</Strong> : seulement la CB internationale.</LI>
-        <LI><Strong>Pas de WhatsApp Business intégré</Strong> : alors que c&apos;est le canal n°1 en Afrique.</LI>
         <LI><Strong>Charge un peu lente depuis l&apos;Afrique</Strong> : serveurs principalement en Europe et USA.</LI>
       </UL>
 
@@ -62,7 +61,7 @@ export default function Page() {
         <LI><Strong>Plan gratuit utile</Strong> (au moins 50 réponses/mois pour démarrer).</LI>
         <LI><Strong>Tarif en FCFA ou en USD modeste</Strong> (idéalement &lt; 70 USD/mois pour le plan opérationnel).</LI>
         <LI><Strong>Paiement Mobile Money</Strong>.</LI>
-        <LI><Strong>Canaux locaux</Strong> : QR code natif, WhatsApp Business intégré.</LI>
+        <LI><Strong>Canaux adaptés</Strong> : QR code natif, lien public, e-mail.</LI>
         <LI><Strong>Support en français</Strong>.</LI>
       </OL>
 
@@ -70,7 +69,7 @@ export default function Page() {
 
       <H3>1. Qualywatch (notre choix)</H3>
       <P>
-        Plan gratuit jusqu&apos;à 50 feedbacks/mois (5x plus que Typeform Free). QR code natif, WhatsApp Business intégré, paiement Mobile Money, support FR, IA d&apos;analyse, gamification équipe. Plan Pro à 69 USD/mois. Conçu pour les PME ouest-africaines.
+        Plan gratuit jusqu&apos;à 50 feedbacks/mois (5x plus que Typeform Free). QR code natif, paiement Mobile Money, support FR, IA d&apos;analyse, gamification équipe. Plan Pro à 69 USD/mois. Conçu pour les PME ouest-africaines.
       </P>
 
       <H3>2. Tally</H3>
@@ -85,7 +84,7 @@ export default function Page() {
 
       <H3>4. Forms.app</H3>
       <P>
-        Plan gratuit limité à 100 réponses/mois. Plan payant à partir de 25 USD/mois. UX moderne, beaucoup de templates, mais pas d&apos;intégration WhatsApp ni de Mobile Money.
+        Plan gratuit limité à 100 réponses/mois. Plan payant à partir de 25 USD/mois. UX moderne, beaucoup de templates, mais pas de Mobile Money.
       </P>
 
       <H3>5. Jotform</H3>
@@ -100,7 +99,6 @@ export default function Page() {
           ["Plan gratuit", "50/mois (utile)", "Illimité (basique)", "Illimité (basique)", "100/mois", "100/mois"],
           ["Plan payant entrée", "69 USD", "29 USD", "—", "25 USD", "34 USD"],
           ["Mobile Money", "Oui", "Non", "—", "Non", "Non"],
-          ["WhatsApp Business", "Oui", "Non", "Non", "Non", "Non"],
           ["QR code natif", "Oui", "Manuel", "Manuel", "Oui", "Oui"],
           ["NPS auto", "Oui", "Non", "Non", "Limité", "Limité"],
           ["Alertes temps réel", "Oui", "Plan payant", "Non", "Plan payant", "Oui"],
@@ -116,7 +114,7 @@ export default function Page() {
         <LI><Strong>Besoin d&apos;UX très soignée pour un formulaire vitrine</Strong> → Tally ou Typeform (si budget OK).</LI>
         <LI><Strong>Sondage interne ponctuel zéro budget</Strong> → Google Forms.</LI>
         <LI><Strong>Formulaire avec beaucoup d&apos;intégrations</Strong> → Jotform.</LI>
-        <LI><Strong>Restaurant, hôtel, retail en Afrique</Strong> → Qualywatch (QR code + WhatsApp + alertes natives).</LI>
+        <LI><Strong>Restaurant, hôtel, retail en Afrique</Strong> → Qualywatch (QR code + alertes temps réel natives).</LI>
       </UL>
 
       <Callout title="Migration accompagnée" variant="success">

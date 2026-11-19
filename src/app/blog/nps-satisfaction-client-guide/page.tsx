@@ -114,7 +114,7 @@ export default function Page() {
 
       <H2 id="outils">Comment mesurer le NPS au quotidien</H2>
       <P>
-        Pour une PME, l&apos;idéal est un outil qui automatise la collecte (QR code, WhatsApp, email) et calcule le NPS en temps réel sur un dashboard. <Strong>Qualywatch</Strong> propose la mesure NPS + CSAT + CES nativement, avec alertes immédiates sur les détracteurs et benchmarks sectoriels Afrique de l&apos;Ouest intégrés.
+        Pour une PME, l&apos;idéal est un outil qui automatise la collecte (QR code, lien, email) et calcule le NPS en temps réel sur un dashboard. <Strong>Qualywatch</Strong> propose la mesure NPS + CSAT + CES nativement, avec alertes immédiates sur les détracteurs et benchmarks sectoriels Afrique de l&apos;Ouest intégrés.
       </P>
     </BlogArticle>
   );

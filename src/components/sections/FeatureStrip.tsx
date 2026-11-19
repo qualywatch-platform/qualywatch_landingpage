@@ -6,7 +6,7 @@ const tagsByLocale = {
     { icon: Brain, label: "Analyse automatique" },
     { icon: Target, label: "Indicateurs par service" },
     { icon: Bell, label: "Alertes et relances" },
-    { icon: Layers, label: "QR code, lien, WhatsApp" },
+    { icon: Layers, label: "QR code, lien, e-mail" },
     { icon: FileBarChart2, label: "Rapports automatiques" },
   ],
   en: [
@@ -14,7 +14,7 @@ const tagsByLocale = {
     { icon: Brain, label: "Automatic analysis" },
     { icon: Target, label: "Metrics by department" },
     { icon: Bell, label: "Alerts and reminders" },
-    { icon: Layers, label: "QR code, link, WhatsApp" },
+    { icon: Layers, label: "QR code, link, email" },
     { icon: FileBarChart2, label: "Automated reports" },
   ],
 };

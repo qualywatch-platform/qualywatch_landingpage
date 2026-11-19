@@ -49,7 +49,6 @@ export const metadata: Metadata = {
     "NPS",
     "CSAT",
     "QR code feedback",
-    "WhatsApp Business avis",
     "expérience client SaaS",
     "Qualywatch",
     "pilotage qualité",
@@ -147,7 +146,7 @@ const structuredData = {
       operatingSystem: "Web, iOS, Android",
       url: SITE_URL,
       description:
-        "Plateforme SaaS de pilotage de la satisfaction client : collecte multi-canal (QR, WhatsApp, email), alertes temps réel, IA d'analyse, SLA, gamification.",
+        "Plateforme SaaS de pilotage de la satisfaction client : collecte multi-canal (QR code, lien, email), alertes temps réel, IA d'analyse, SLA, gamification.",
       offers: [
         { "@type": "Offer", name: "Free", price: "0", priceCurrency: "USD" },
         { "@type": "Offer", name: "Pro", price: "69", priceCurrency: "USD" },

@@ -13,7 +13,7 @@ const contentByLocale = {
         icon: Inbox,
         badge: "Collecter",
         title: "Recevez les avis sur tous vos canaux.",
-        desc: "QR codes, WhatsApp, e-mail, formulaire web : tout arrive dans un seul flux, classé par service.",
+        desc: "QR codes, e-mail, formulaire web : tout arrive dans un seul flux, classé par service.",
       },
       {
         icon: Search,
@@ -39,7 +39,7 @@ const contentByLocale = {
         icon: Inbox,
         badge: "Collect",
         title: "Receive feedback on every channel.",
-        desc: "QR codes, WhatsApp, email, web form: everything lands in a single stream, sorted by department.",
+        desc: "QR codes, email, web form: everything lands in a single stream, sorted by department.",
       },
       {
         icon: Search,

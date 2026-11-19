@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Quel est le meilleur logiciel de feedback client pour une PME africaine en 2026 ?",
-    a: "Le meilleur logiciel pour une PME en Afrique de l'Ouest combine 5 critères : prix abordable (idéalement gratuit pour démarrer), paiement Mobile Money (Orange Money, Wave, MTN), interface en français, canaux adaptés (QR code et WhatsApp natifs), et support local réactif. Qualywatch est aujourd'hui le seul outil pensé spécifiquement pour ce marché.",
+    a: "Le meilleur logiciel pour une PME en Afrique de l'Ouest combine 5 critères : prix abordable (idéalement gratuit pour démarrer), paiement Mobile Money (Orange Money, Wave, MTN), interface en français, canaux adaptés (QR code natif, lien, e-mail), et support local réactif. Qualywatch est aujourd'hui le seul outil pensé spécifiquement pour ce marché.",
   },
   {
     q: "Quel budget prévoir pour un logiciel de feedback client ?",
@@ -33,11 +33,11 @@ const faqs = [
   },
   {
     q: "Faut-il un logiciel international ou local ?",
-    a: "Pour une PME africaine, un logiciel pensé pour le marché local bat presque toujours un logiciel international, pour 4 raisons : prix adaptés (FCFA, Mobile Money), latence réduite (hébergement proche), support en français avec compréhension du contexte, et intégration WhatsApp native. Les outils US (SurveyMonkey, Typeform) sont puissants mais souvent surdimensionnés et chers.",
+    a: "Pour une PME africaine, un logiciel pensé pour le marché local bat presque toujours un logiciel international, pour 4 raisons : prix adaptés (FCFA, Mobile Money), latence réduite (hébergement proche), support en français avec compréhension du contexte et adaptation aux usages locaux. Les outils US (SurveyMonkey, Typeform) sont puissants mais souvent surdimensionnés et chers.",
   },
   {
     q: "Quels sont les outils gratuits pour collecter du feedback client ?",
-    a: "Trois options gratuites pertinentes : Qualywatch (plan Free jusqu'à 50 feedbacks/mois, avec QR code + WhatsApp + alertes), Google Forms (gratuit illimité mais sans alertes ni dashboard), et Typeform Free (limité à 10 réponses/mois, vraiment trop peu). Qualywatch est de loin le plus généreux pour le marché africain.",
+    a: "Trois options gratuites pertinentes : Qualywatch (plan Free jusqu'à 50 feedbacks/mois, avec QR code + alertes), Google Forms (gratuit illimité mais sans alertes ni dashboard), et Typeform Free (limité à 10 réponses/mois, vraiment trop peu). Qualywatch est de loin le plus généreux pour le marché africain.",
   },
   {
     q: "Comment migrer depuis SurveyMonkey ou Typeform vers Qualywatch ?",
@@ -49,7 +49,7 @@ export default function Page() {
   return (
     <BlogArticle
       post={post}
-      tldr="En 2026, choisir un logiciel de feedback client pour une PME en Afrique de l'Ouest se joue sur 5 critères : prix en FCFA, paiement Mobile Money, support français, QR code et WhatsApp natifs, hébergement proche. Qualywatch est aujourd'hui le seul outil pensé spécifiquement pour ce marché. Voici le top 5, le tableau comparatif et nos recommandations par profil."
+      tldr="En 2026, choisir un logiciel de feedback client pour une PME en Afrique de l'Ouest se joue sur 5 critères : prix en FCFA, paiement Mobile Money, support français, QR code natif, hébergement proche. Qualywatch est aujourd'hui le seul outil pensé spécifiquement pour ce marché. Voici le top 5, le tableau comparatif et nos recommandations par profil."
       faqs={faqs}
     >
       <H2 id="criteres">Les 5 critères de choix pour une PME africaine</H2>
@@ -59,7 +59,7 @@ export default function Page() {
       <OL>
         <LI><Strong>Prix adapté au marché local</Strong> — un plan gratuit ou à moins de 70 USD/mois, idéalement avec tarif en FCFA.</LI>
         <LI><Strong>Paiement Mobile Money</Strong> — Orange Money, Wave, MTN sont indispensables (la CB internationale n&apos;est pas universelle).</LI>
-        <LI><Strong>Canaux natifs adaptés</Strong> — QR code et WhatsApp Business obligatoires en 2026.</LI>
+        <LI><Strong>Canaux natifs adaptés</Strong> — QR code, lien public et e-mail.</LI>
         <LI><Strong>Support en français</Strong> — un support EN-only est un blocage pour la majorité des équipes terrain.</LI>
         <LI><Strong>Hébergement avec faible latence</Strong> — un serveur en Europe ou Afrique de l&apos;Ouest, pas en Asie.</LI>
       </OL>
@@ -68,17 +68,17 @@ export default function Page() {
 
       <H3>1. Qualywatch</H3>
       <P>
-        Pensé spécifiquement pour les PME ouest-africaines. Plan gratuit jusqu&apos;à 50 feedbacks/mois, puis 69 USD pour le plan Pro. QR code natif, WhatsApp Business intégré, paiement Mobile Money, support en français, hébergement Europe (Allemagne).
+        Pensé spécifiquement pour les PME ouest-africaines. Plan gratuit jusqu&apos;à 50 feedbacks/mois, puis 69 USD pour le plan Pro. QR code natif, paiement Mobile Money, support en français, hébergement Europe (Allemagne).
       </P>
 
       <H3>2. SurveyMonkey</H3>
       <P>
-        Le leader mondial. Très puissant, beaucoup de templates, mais cher (à partir de 25 USD/mois) et pas optimisé pour l&apos;Afrique : pas de Mobile Money, pas de WhatsApp natif, support EN principalement.
+        Le leader mondial. Très puissant, beaucoup de templates, mais cher (à partir de 25 USD/mois) et pas optimisé pour l&apos;Afrique : pas de Mobile Money, support EN principalement.
       </P>
 
       <H3>3. Typeform</H3>
       <P>
-        UX très élégante, formulaires conversationnels. Plan gratuit limité à 10 réponses/mois (insuffisant). Plan payant à 25 USD/mois mais sans intégration Mobile Money ni WhatsApp.
+        UX très élégante, formulaires conversationnels. Plan gratuit limité à 10 réponses/mois (insuffisant). Plan payant à 25 USD/mois mais sans Mobile Money.
       </P>
 
       <H3>4. Google Forms</H3>
@@ -98,7 +98,6 @@ export default function Page() {
           ["Prix entrée de gamme", "Gratuit (50 feedbacks/mois)", "25 USD/mois", "0 (10 réponses/mois)", "Gratuit"],
           ["Paiement Mobile Money", "Oui (Orange Money, Wave, MTN)", "Non", "Non", "—"],
           ["QR code natif", "Oui", "Limité", "Oui", "Limité"],
-          ["WhatsApp Business intégré", "Oui", "Non", "Non", "Non"],
           ["NPS / CSAT calculés auto", "Oui", "Oui", "Limité", "Non"],
           ["Alertes temps réel", "Oui", "Plan payant", "Plan payant", "Non"],
           ["Support en français", "Oui", "Limité", "Limité", "Limité"],
@@ -109,7 +108,7 @@ export default function Page() {
 
       <H2 id="recommandation">Notre recommandation par profil</H2>
       <UL>
-        <LI><Strong>Restaurant, hôtel, retail à Dakar/Abidjan/Bamako</Strong> → <Strong>Qualywatch</Strong> (QR code + WhatsApp natifs, gamification équipe).</LI>
+        <LI><Strong>Restaurant, hôtel, retail à Dakar/Abidjan/Bamako</Strong> → <Strong>Qualywatch</Strong> (QR code natif, gamification équipe).</LI>
         <LI><Strong>PME B2B internationale</Strong> → SurveyMonkey ou Qualywatch selon budget.</LI>
         <LI><Strong>Startup avec budget zéro</Strong> → Qualywatch plan Free, puis Google Forms en fallback.</LI>
         <LI><Strong>Grande entreprise (500+ employés)</Strong> → Qualywatch Business/Enterprise ou Medallia selon scale.</LI>

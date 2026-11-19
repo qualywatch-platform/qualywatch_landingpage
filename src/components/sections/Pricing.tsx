@@ -77,12 +77,10 @@ const plansByLocale: Record<Locale, Plan[]> = {
       limits: [
         "3 managers · 75 employés",
         "Feedbacks illimités",
-        "300 WhatsApp/mois",
         "10 champs personnalisés",
       ],
       features: [
         "Inclut tout le plan Pro",
-        "WhatsApp Business",
         "Réponses prédéfinies",
         "Champs personnalisés",
         "Chatbot",
@@ -105,7 +103,6 @@ const plansByLocale: Record<Locale, Plan[]> = {
       limits: [
         "5 managers · employés illimités",
         "Feedbacks illimités",
-        "WhatsApp illimités (fair use)",
         "200 résolutions IA/mois",
       ],
       features: [
@@ -177,12 +174,10 @@ const plansByLocale: Record<Locale, Plan[]> = {
       limits: [
         "3 managers · 75 employees",
         "Unlimited feedback",
-        "300 WhatsApp/month",
         "10 custom fields",
       ],
       features: [
         "Everything in Pro",
-        "WhatsApp Business",
         "Canned responses",
         "Custom fields",
         "Chatbot",
@@ -205,7 +200,6 @@ const plansByLocale: Record<Locale, Plan[]> = {
       limits: [
         "5 managers · unlimited employees",
         "Unlimited feedback",
-        "Unlimited WhatsApp (fair use)",
         "200 AI resolutions/month",
       ],
       features: [

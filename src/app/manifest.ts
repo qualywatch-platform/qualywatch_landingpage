@@ -10,7 +10,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Qualywatch — Pilotez l'expérience client",
     short_name: "Qualywatch",
     description:
-      "Logiciel de feedback et satisfaction client pour PME du Sénégal et d'Afrique de l'Ouest. QR code, WhatsApp, alertes temps réel.",
+      "Logiciel de feedback et satisfaction client pour PME du Sénégal et d'Afrique de l'Ouest. QR code, lien public, alertes temps réel.",
     start_url: "/",
     display: "standalone",
     background_color: "#FFFFFF",

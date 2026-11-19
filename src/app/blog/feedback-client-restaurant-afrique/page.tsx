@@ -66,7 +66,7 @@ export default function Page() {
         rows={[
           ["QR code en table (chevalet ou sticker)", "20-35 %", "< 5 000 FCFA / table (one-shot)"],
           ["QR code sur l'addition", "10-20 %", "Inclus dans l'impression"],
-          ["WhatsApp Business (post-repas)", "25-40 %", "Inclus dans la solution"],
+          ["WhatsApp Business (post-repas)", "25-40 %", "Selon l&apos;outil"],
           ["SMS post-livraison", "8-15 %", "Coût SMS par envoi"],
           ["Lien sur Google Maps (avis publics)", "2-5 %", "Gratuit"],
         ]}
@@ -100,7 +100,7 @@ export default function Page() {
 
       <H2 id="outils">Quel outil utiliser ?</H2>
       <P>
-        Pour un restaurant en Afrique de l&apos;Ouest, l&apos;outil idéal coche 5 critères : (1) génération QR code par table en quelques clics, (2) WhatsApp Business intégré, (3) alertes temps réel au manager, (4) tarif en FCFA et paiement Mobile Money, (5) support en français.
+        Pour un restaurant en Afrique de l&apos;Ouest, l&apos;outil idéal coche 5 critères : (1) génération QR code par table en quelques clics, (2) suivi de chaque avis jusqu&apos;à sa résolution, (3) alertes temps réel au manager, (4) tarif en FCFA et paiement Mobile Money, (5) support en français.
       </P>
       <P>
         <Strong>Qualywatch</Strong> coche les 5 — et ajoute un système de gamification (KaliPoints) qui motive l&apos;équipe en transformant chaque bonne note en points. Plan gratuit jusqu&apos;à 50 feedbacks/mois, puis 69 USD pour le plan Pro.

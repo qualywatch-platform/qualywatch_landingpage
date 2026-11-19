@@ -21,7 +21,7 @@ const contentByLocale: Record<"fr" | "en", { title: string; intro: string; items
     title: "Tout ce qu'il faut pour piloter la satisfaction client.",
     intro: "Les fonctionnalités disponibles selon votre formule, sur le web et sur mobile.",
     items: [
-      { icon: QrCode, title: "Collecte multicanale", text: "QR code, lien public, WhatsApp Business et e-mail, dans un seul flux." },
+      { icon: QrCode, title: "Collecte multicanale", text: "QR code, lien public et e-mail, dans un seul flux." },
       { icon: BellRing, title: "Alertes en temps réel", text: "Le responsable concerné est prévenu dès qu'un avis critique arrive." },
       { icon: Gauge, title: "NPS et satisfaction", text: "Scores par service, par équipe et par période, en temps réel." },
       { icon: Sparkles, title: "Analyse et assistant IA", text: "Sentiment, sujet et urgence détectés. Posez vos questions en français." },
@@ -39,7 +39,7 @@ const contentByLocale: Record<"fr" | "en", { title: string; intro: string; items
     title: "Everything you need to manage customer satisfaction.",
     intro: "Features available depending on your plan, on web and mobile.",
     items: [
-      { icon: QrCode, title: "Multi-channel collection", text: "QR code, public link, WhatsApp Business and email, in a single stream." },
+      { icon: QrCode, title: "Multi-channel collection", text: "QR code, public link and email, in a single stream." },
       { icon: BellRing, title: "Real-time alerts", text: "The person in charge is notified as soon as critical feedback arrives." },
       { icon: Gauge, title: "NPS and satisfaction", text: "Scores by department, team and period, in real time." },
       { icon: Sparkles, title: "AI analysis and assistant", text: "Sentiment, topic and urgency detected. Ask questions in plain language." },

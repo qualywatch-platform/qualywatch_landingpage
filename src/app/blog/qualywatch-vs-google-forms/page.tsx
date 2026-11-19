@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Google Forms est-il vraiment gratuit ?",
-    a: "Oui, Google Forms est 100 % gratuit et sans limite de réponses. Mais c'est aussi sa principale limite : il manque toutes les fonctions de pilotage opérationnel (alertes temps réel, dashboards NPS, gamification, IA, intégration WhatsApp Business). Idéal pour un sondage ponctuel, insuffisant pour piloter la satisfaction client au quotidien.",
+    a: "Oui, Google Forms est 100 % gratuit et sans limite de réponses. Mais c'est aussi sa principale limite : il manque toutes les fonctions de pilotage opérationnel (alertes temps réel, dashboards NPS, gamification, IA). Idéal pour un sondage ponctuel, insuffisant pour piloter la satisfaction client au quotidien.",
   },
   {
     q: "Quand passer de Google Forms à Qualywatch ?",
@@ -45,7 +45,7 @@ export default function Page() {
   return (
     <BlogArticle
       post={post}
-      tldr="Google Forms est gratuit, simple et illimité — parfait pour un sondage ponctuel. Mais pour piloter la satisfaction client au quotidien, il manque l'essentiel : alertes temps réel, NPS calculé automatiquement, intégration WhatsApp Business, gamification équipe. Qualywatch propose tout cela, avec un plan gratuit jusqu'à 50 feedbacks/mois."
+      tldr="Google Forms est gratuit, simple et illimité — parfait pour un sondage ponctuel. Mais pour piloter la satisfaction client au quotidien, il manque l'essentiel : alertes temps réel, NPS calculé automatiquement, gamification équipe. Qualywatch propose tout cela, avec un plan gratuit jusqu'à 50 feedbacks/mois."
       faqs={faqs}
     >
       <H2 id="resume">Le résumé en 3 lignes</H2>
@@ -67,7 +67,6 @@ export default function Page() {
       <UL>
         <LI>Pas d&apos;alertes temps réel en cas de feedback négatif.</LI>
         <LI>Pas de calcul automatique du NPS / CSAT.</LI>
-        <LI>Pas d&apos;intégration WhatsApp Business.</LI>
         <LI>Pas de QR code natif (il faut générer manuellement).</LI>
         <LI>Pas de dashboard de pilotage opérationnel.</LI>
         <LI>Pas d&apos;IA pour analyser les verbatims.</LI>
@@ -79,7 +78,7 @@ export default function Page() {
       <UL>
         <LI>Plan gratuit utile (50 feedbacks/mois, alertes incluses).</LI>
         <LI>Tout est conçu pour le pilotage : alertes temps réel, NPS auto, dashboard sectoriel.</LI>
-        <LI>QR code par point de contact, WhatsApp Business intégré.</LI>
+        <LI>QR code par point de contact.</LI>
         <LI>IA d&apos;analyse des verbatims (Llama 3.3 70B).</LI>
         <LI>Gamification équipe — chaque feedback positif récompense l&apos;employé concerné.</LI>
       </UL>
@@ -98,7 +97,6 @@ export default function Page() {
           ["Alertes temps réel", "Oui", "Non"],
           ["NPS / CSAT calculés auto", "Oui", "Non (manuel via Sheets)"],
           ["QR code par point de contact", "Oui", "Manuel"],
-          ["WhatsApp Business", "Intégré", "Non"],
           ["Dashboard opérationnel", "Oui", "Sheets DIY"],
           ["IA d'analyse verbatims", "Oui", "Non"],
           ["Gamification équipe", "Oui (KaliPoints)", "Non"],

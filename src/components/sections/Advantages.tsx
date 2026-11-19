@@ -28,9 +28,9 @@ const contentByLocale = {
       },
       {
         icon: MessageCircle,
-        badge: "WhatsApp et e-mail",
+        badge: "Par e-mail",
         title: "Confirmez la résolution avec le client.",
-        desc: "Une fois l'avis traité, le client reçoit un e-mail et un message WhatsApp pour confirmer que le problème est réglé.",
+        desc: "Une fois l'avis traité, le client reçoit un e-mail pour confirmer que le problème est réglé.",
       },
       {
         icon: Palette,
@@ -54,7 +54,7 @@ const contentByLocale = {
         icon: CheckCheck,
         badge: "Validation client",
         title: "C'est le client qui valide.",
-        desc: "Le client confirme lui-même la résolution, depuis son portail, par e-mail ou WhatsApp. Le dernier mot lui revient.",
+        desc: "Le client confirme lui-même la résolution, depuis son portail ou par e-mail. Le dernier mot lui revient.",
       },
       {
         icon: BookOpen,
@@ -95,9 +95,9 @@ const contentByLocale = {
       },
       {
         icon: MessageCircle,
-        badge: "WhatsApp and email",
+        badge: "By email",
         title: "Confirm resolution with the customer.",
-        desc: "Once the feedback is handled, the customer gets an email and a WhatsApp message to confirm the issue is solved.",
+        desc: "Once the feedback is handled, the customer gets an email to confirm the issue is solved.",
       },
       {
         icon: Palette,
@@ -121,7 +121,7 @@ const contentByLocale = {
         icon: CheckCheck,
         badge: "Customer validation",
         title: "The customer validates.",
-        desc: "Customers confirm the resolution themselves, from their portal, by email or WhatsApp. They have the last word.",
+        desc: "Customers confirm the resolution themselves, from their portal or by email. They have the last word.",
       },
       {
         icon: BookOpen,

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Pourquoi chercher une alternative à SurveyMonkey en Afrique ?",
-    a: "Les trois raisons les plus fréquentes : (1) tarif élevé en USD sans Mobile Money, (2) absence d'intégration WhatsApp Business qui est le canal n°1 en Afrique, (3) support principalement en anglais. Pour une PME ouest-africaine, ces trois points rendent SurveyMonkey peu pratique au quotidien.",
+    a: "Les trois raisons les plus fréquentes : (1) tarif élevé en USD sans Mobile Money, (2) peu d'adaptation aux usages locaux, (3) support principalement en anglais. Pour une PME ouest-africaine, ces trois points rendent SurveyMonkey peu pratique au quotidien.",
   },
   {
     q: "Quelle est la meilleure alternative gratuite à SurveyMonkey ?",
@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: "Faut-il privilégier un outil africain ou international ?",
-    a: "Pour une PME en Afrique de l'Ouest, un outil pensé pour le marché local (Mobile Money, WhatsApp natif, FCFA, support FR) bat presque toujours un outil international, sur le terrain pratique. Les outils internationaux gardent l'avantage uniquement sur les fonctionnalités très avancées (statistiques marketing, intégrations enterprise).",
+    a: "Pour une PME en Afrique de l'Ouest, un outil pensé pour le marché local (Mobile Money, FCFA, support FR) bat presque toujours un outil international, sur le terrain pratique. Les outils internationaux gardent l'avantage uniquement sur les fonctionnalités très avancées (statistiques marketing, intégrations enterprise).",
   },
 ];
 
@@ -45,7 +45,7 @@ export default function Page() {
   return (
     <BlogArticle
       post={post}
-      tldr="SurveyMonkey est cher et peu adapté au marché africain (pas de Mobile Money, pas de WhatsApp Business, support EN). Voici 5 alternatives plus pertinentes pour une PME ouest-africaine, classées par usage. Qualywatch arrive en tête pour le rapport qualité/prix et l'adaptation locale."
+      tldr="SurveyMonkey est cher et peu adapté au marché africain (pas de Mobile Money, tarifs en USD, support EN). Voici 5 alternatives plus pertinentes pour une PME ouest-africaine, classées par usage. Qualywatch arrive en tête pour le rapport qualité/prix et l'adaptation locale."
       faqs={faqs}
     >
       <H2 id="pourquoi">Pourquoi chercher une alternative à SurveyMonkey ?</H2>
@@ -53,7 +53,6 @@ export default function Page() {
         <LI><Strong>Tarif</Strong> : 25 USD/mois minimum pour les fonctions sérieuses, 75 USD/mois pour le plan Advantage. Cher pour une PME africaine.</LI>
         <LI><Strong>Plan gratuit limité</Strong> : seulement 10 questions par enquête et 40 réponses/mois — quasiment inutile en pratique.</LI>
         <LI><Strong>Pas de Mobile Money</Strong> : seulement la CB internationale, ce qui exclut beaucoup de PME africaines.</LI>
-        <LI><Strong>Pas de WhatsApp Business intégré</Strong> : pourtant le canal n°1 en Afrique de l&apos;Ouest.</LI>
         <LI><Strong>Support en anglais</Strong> : peu pratique pour les équipes francophones.</LI>
       </UL>
 
@@ -61,7 +60,7 @@ export default function Page() {
       <OL>
         <LI><Strong>Plan gratuit utile</Strong> (au moins 50 réponses/mois pour démarrer sérieusement).</LI>
         <LI><Strong>Paiement Mobile Money</Strong> (Orange Money, Wave, MTN).</LI>
-        <LI><Strong>Canaux locaux natifs</Strong> (QR code, WhatsApp Business).</LI>
+        <LI><Strong>Canaux locaux natifs</Strong> (QR code, lien public, e-mail).</LI>
         <LI><Strong>Support en français</Strong>.</LI>
         <LI><Strong>Hébergement avec faible latence depuis l&apos;Afrique</Strong> (Europe ou Afrique).</LI>
       </OL>
@@ -70,12 +69,12 @@ export default function Page() {
 
       <H3>1. Qualywatch (notre choix)</H3>
       <P>
-        Conçu pour les PME ouest-africaines. Plan gratuit jusqu&apos;à 50 feedbacks/mois (10x plus que SurveyMonkey Free). QR code natif, WhatsApp Business intégré, paiement Mobile Money, support en français. Plans payants : 69 USD (Pro), 139 USD (Business), 190 USD (Enterprise).
+        Conçu pour les PME ouest-africaines. Plan gratuit jusqu&apos;à 50 feedbacks/mois (10x plus que SurveyMonkey Free). QR code natif, paiement Mobile Money, support en français. Plans payants : 69 USD (Pro), 139 USD (Business), 190 USD (Enterprise).
       </P>
 
       <H3>2. Typeform</H3>
       <P>
-        UX très belle, idéale pour des formulaires premium. Plan gratuit limité à 10 réponses/mois. Plan payant à 25 USD/mois. Pas de Mobile Money, pas de WhatsApp natif. Convient mieux à une agence créative qu&apos;à une PME opérationnelle.
+        UX très belle, idéale pour des formulaires premium. Plan gratuit limité à 10 réponses/mois. Plan payant à 25 USD/mois. Pas de Mobile Money. Convient mieux à une agence créative qu&apos;à une PME opérationnelle.
       </P>
 
       <H3>3. Google Forms</H3>
@@ -100,7 +99,6 @@ export default function Page() {
           ["Plan gratuit utile", "50/mois", "10/mois", "Illimité", "Illimité (basique)", "100/mois"],
           ["Plan payant entrée", "69 USD", "25 USD", "—", "29 USD", "34 USD"],
           ["Mobile Money", "Oui", "Non", "—", "Non", "Non"],
-          ["WhatsApp Business", "Oui", "Non", "Non", "Non", "Non"],
           ["QR code natif", "Oui", "Manuel", "Manuel", "Manuel", "Oui"],
           ["NPS auto", "Oui", "Limité", "Non", "Non", "Limité"],
           ["Alertes temps réel", "Oui", "Plan Plus", "Non", "Non", "Oui"],

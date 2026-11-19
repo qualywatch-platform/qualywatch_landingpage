@@ -151,7 +151,7 @@ export default function Page() {
 
         <H2 id="etape-5">Étape 5 — Configurer les alertes temps réel</H2>
         <P>
-          C&apos;est l&apos;étape qui change tout. Configurez une alerte qui prévient le manager (par email, SMS ou notification push) dès qu&apos;un feedback inférieur à 3 étoiles arrive. Objectif : <Strong>réagir sous 15 minutes</Strong>, idéalement avant que le client ne quitte l&apos;établissement.
+          C&apos;est l&apos;étape qui change tout. Configurez une alerte qui prévient le manager (par email ou notification push) dès qu&apos;un feedback inférieur à 3 étoiles arrive. Objectif : <Strong>réagir sous 15 minutes</Strong>, idéalement avant que le client ne quitte l&apos;établissement.
         </P>
         <Callout title="Le pouvoir de la réaction immédiate" variant="success">
           Selon une étude HBR, un client mécontent dont le problème est résolu sur place devient <Strong>plus fidèle qu&apos;un client qui n&apos;a jamais eu de problème</Strong>. La rapidité de réaction est le levier n°1 de rétention.

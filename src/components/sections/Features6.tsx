@@ -12,7 +12,7 @@ const contentByLocale = {
         icon: Layers,
         title: "Collecte multicanale",
         description:
-          "QR code sur place, WhatsApp Business, e-mail, lien public. Vos clients laissent un avis en moins d'une minute, sans application à installer.",
+          "QR code sur place, e-mail, lien public. Vos clients laissent un avis en moins d'une minute, sans application à installer.",
       },
       {
         icon: Bell,
@@ -55,7 +55,7 @@ const contentByLocale = {
         icon: Layers,
         title: "Multi-channel collection",
         description:
-          "On-site QR code, WhatsApp Business, email, public link. Customers leave feedback in under a minute, with no app to install.",
+          "On-site QR code, email, public link. Customers leave feedback in under a minute, with no app to install.",
       },
       {
         icon: Bell,

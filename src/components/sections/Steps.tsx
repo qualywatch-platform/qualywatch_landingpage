@@ -5,7 +5,7 @@ const contentByLocale = {
     intro:
       "Un fonctionnement simple, pensé pour les équipes terrain autant que pour la direction. Pas de formation longue, pas d'intégration complexe.",
     steps: [
-      { title: "Connectez vos canaux", desc: "Ajoutez vos points de contact : QR code sur place, lien sur votre site, WhatsApp." },
+      { title: "Connectez vos canaux", desc: "Ajoutez vos points de contact : QR code sur place, lien sur votre site ou envoyé par e-mail." },
       { title: "Collectez en continu", desc: "Les avis remontent automatiquement. Pas de saisie manuelle, aucune donnée perdue." },
       { title: "Suivez en temps réel", desc: "Scores, tendances et alertes. Chaque manager voit ce qui le concerne." },
       { title: "Agissez et mesurez", desc: "Assignez des responsables, déclenchez des actions correctives et mesurez leur effet." },
@@ -17,7 +17,7 @@ const contentByLocale = {
     intro:
       "A simple flow, designed for field teams as much as for executives. No long onboarding, no complex integration.",
     steps: [
-      { title: "Connect your channels", desc: "Add your touchpoints: on-site QR code, link on your website, WhatsApp." },
+      { title: "Connect your channels", desc: "Add your touchpoints: on-site QR code, link on your website or sent by email." },
       { title: "Collect continuously", desc: "Feedback flows in automatically. No manual entry, no data lost." },
       { title: "Track in real time", desc: "Scores, trends and alerts. Every manager sees what concerns them." },
       { title: "Act and measure", desc: "Assign owners, trigger corrective actions and measure their effect." },

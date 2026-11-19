@@ -49,7 +49,7 @@ export default function Page() {
   return (
     <BlogArticle
       post={post}
-      tldr="La gestion du feedback client consiste à collecter, analyser et agir sur les retours clients pour piloter la satisfaction. En 2026, les PME africaines qui structurent ce processus avec un outil dédié (QR code, WhatsApp, IA d'analyse) augmentent leur rétention de 25 % en moyenne. Ce guide couvre les méthodes, KPIs et outils adaptés au marché ouest-africain."
+      tldr="La gestion du feedback client consiste à collecter, analyser et agir sur les retours clients pour piloter la satisfaction. En 2026, les PME africaines qui structurent ce processus avec un outil dédié (QR code, alertes, IA d'analyse) augmentent leur rétention de 25 % en moyenne. Ce guide couvre les méthodes, KPIs et outils adaptés au marché ouest-africain."
       faqs={faqs}
     >
       <H2 id="definition">Qu&apos;est-ce que la gestion du feedback client ?</H2>
@@ -117,10 +117,10 @@ export default function Page() {
 
       <H2 id="outils">Quels outils choisir ?</H2>
       <P>
-        Le choix dépend de votre taille, votre budget et votre marché. Pour une PME en Afrique de l&apos;Ouest, les critères clés sont : prix en FCFA ou en USD modeste, paiement Mobile Money accepté, support en français, hébergement avec faible latence depuis l&apos;Afrique, et adaptation aux usages locaux (WhatsApp natif, par exemple).
+        Le choix dépend de votre taille, votre budget et votre marché. Pour une PME en Afrique de l&apos;Ouest, les critères clés sont : prix en FCFA ou en USD modeste, paiement Mobile Money accepté, support en français, hébergement avec faible latence depuis l&apos;Afrique, et adaptation aux usages locaux (prix en FCFA, Mobile Money, par exemple).
       </P>
       <P>
-        <Strong>Qualywatch</Strong> est le seul outil pensé spécifiquement pour les PME ouest-africaines : QR code natif, WhatsApp Business intégré, prix en FCFA, paiement Orange Money / Wave / MTN, dashboard en français, alertes temps réel. Vous trouverez une comparaison détaillée avec les concurrents internationaux dans nos guides comparatifs.
+        <Strong>Qualywatch</Strong> est le seul outil pensé spécifiquement pour les PME ouest-africaines : QR code natif, prix en FCFA, paiement Orange Money / Wave / MTN, dashboard en français, alertes temps réel. Vous trouverez une comparaison détaillée avec les concurrents internationaux dans nos guides comparatifs.
       </P>
 
       <Callout title="Prochaine étape" variant="success">

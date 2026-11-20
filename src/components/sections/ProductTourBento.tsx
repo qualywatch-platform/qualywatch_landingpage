@@ -53,10 +53,9 @@ const contentByLocale = {
 export function ProductTourBento({ locale = "fr" }: { locale?: "fr" | "en" }) {
   const c = contentByLocale[locale];
   return (
-    <section
-      id="fonctionnalites"
-      className="bg-[#FBEBDD] bg-[url(/pattern-tour.jpg)] bg-[length:640px_auto] bg-repeat px-4 py-24 sm:px-6 lg:px-16 lg:py-32"
-    >
+    <section id="fonctionnalites" className="relative isolate bg-[#F5F5F7] px-4 py-24 sm:px-6 lg:px-16 lg:py-32">
+      {/* The whole hand-drawn illustration, stretched over the section and kept very faint */}
+      <div aria-hidden className="absolute inset-0 -z-10 bg-[url(/pattern-tour.jpg)] bg-cover bg-center bg-no-repeat opacity-[0.06]" />
       <div className="mx-auto max-w-6xl">
         {/* Intro: two-tone headline and a fan of three phones */}
         <div className="mx-auto max-w-4xl text-center">
@@ -68,7 +67,8 @@ export function ProductTourBento({ locale = "fr" }: { locale?: "fr" | "en" }) {
           <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-[#6E6E73] lg:text-xl">{c.intro}</p>
         </div>
 
-        <div className="relative mx-auto mt-16 flex h-[420px] max-w-3xl items-start justify-center overflow-hidden sm:h-[520px] lg:mt-20">
+        {/* The phones run on behind the cards below, with no hard cut */}
+        <div className="relative mx-auto mt-16 flex h-[420px] max-w-3xl items-start justify-center sm:h-[520px] lg:mt-20">
           <div className="absolute left-1/2 top-10 hidden -translate-x-[115%] sm:block">
             <div className="tour-fan-left">
               <div className="tour-float tour-float-2">
@@ -89,7 +89,7 @@ export function ProductTourBento({ locale = "fr" }: { locale?: "fr" | "en" }) {
         </div>
 
         {/* Bento pair */}
-        <div className="mt-6 grid gap-5 lg:grid-cols-2">
+        <div className="relative z-10 grid gap-5 lg:grid-cols-2">
           <article className="tour-card flex flex-col overflow-hidden rounded-[32px] bg-gradient-to-b from-[#FF8A2B] to-[#E3600A] text-center">
             <div className="px-8 pt-12 sm:px-12">
               <h3 className="font-display text-3xl font-bold leading-tight text-white sm:text-4xl">{c.collect.title}</h3>

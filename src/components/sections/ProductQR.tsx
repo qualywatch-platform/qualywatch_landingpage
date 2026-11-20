@@ -7,7 +7,7 @@ type Point = { icon: LucideIcon; title: string; desc: string };
 
 const contentByLocale: Record<
   "fr" | "en",
-  { eyebrow: string; title: string; titleAccent: string; intro: string; alts: [string, string, string]; points: Point[]; sectors: string[]; cta: string }
+  { eyebrow: string; title: string; titleAccent: string; intro: string; alts: [string, string, string, string, string]; points: Point[]; sectors: string[]; cta: string }
 > = {
   fr: {
     eyebrow: "QR code produit",
@@ -19,6 +19,8 @@ const contentByLocale: Record<
       "Bouteille de jus d'orange avec un QR code sur l'étiquette",
       "Barquette traiteur avec un QR code « Partagez-nous votre expérience »",
       "Paquet de biscuits avec un QR code sur le côté",
+      "Gamme de cosmétiques (lait corps, crème visage, gel nettoyant) avec un QR code « Partagez-nous votre expérience » sur le tube",
+      "Étiquette d'un t-shirt en coton avec un QR code au dos",
     ],
     points: [
       {
@@ -55,6 +57,8 @@ const contentByLocale: Record<
       "Orange juice bottle with a QR code on the label",
       "Takeaway meal tray with a “Share your experience” QR code",
       "Pack of biscuits with a QR code on the side",
+      "Cosmetics range (body lotion, face cream, cleanser) with a “Share your experience” QR code on the tube",
+      "Cotton t-shirt tag with a QR code on the back",
     ],
     points: [
       {
@@ -107,6 +111,14 @@ export function ProductQR({ locale = "fr" }: { locale?: "fr" | "en" }) {
           </div>
           <div className="relative aspect-[3/2] overflow-hidden rounded-2xl lg:col-span-2">
             <Image src="/produit-biscuits.jpg" alt={c.alts[2]} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+          </div>
+        </div>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          <div className="relative aspect-[3/2] overflow-hidden rounded-2xl">
+            <Image src="/produit-cosmetique.jpg" alt={c.alts[3]} fill sizes="(min-width: 640px) 50vw, 100vw" className="object-cover" />
+          </div>
+          <div className="relative aspect-[3/2] overflow-hidden rounded-2xl">
+            <Image src="/produit-textile.jpg" alt={c.alts[4]} fill sizes="(min-width: 640px) 50vw, 100vw" className="object-cover" />
           </div>
         </div>
 

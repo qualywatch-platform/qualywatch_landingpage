@@ -7,7 +7,7 @@ const contentByLocale = {
     eyebrow: "Données et sécurité",
     title: (
       <>
-        La confiance est au cœur de notre engagement.
+        La confiance est au cœur de notre <span className="text-orange">engagement.</span>
       </>
     ),
     intro: "Vos données restent les vôtres : elles sont cloisonnées, protégées et exportables à tout moment.",
@@ -22,7 +22,7 @@ const contentByLocale = {
     eyebrow: "Data and security",
     title: (
       <>
-        Trust is at the heart of our commitment.
+        Trust is at the heart of our <span className="text-orange">commitment.</span>
       </>
     ),
     intro: "Your data stays yours: isolated, protected and exportable at any time.",

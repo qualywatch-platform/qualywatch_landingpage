@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import { Bell, Route, ScanLine, Store, type LucideIcon } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -103,22 +104,32 @@ export function ProductQR({ locale = "fr" }: { locale?: "fr" | "en" }) {
         />
 
         <div className="mt-14 grid gap-4 lg:mt-16 lg:grid-cols-5 lg:grid-rows-2">
-          <div className="relative aspect-square overflow-hidden rounded-2xl bg-[#F7A867] lg:col-span-3 lg:row-span-2 lg:aspect-auto">
-            <Image src="/produit-jus-bouteilles.jpg" alt={c.alts[0]} fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" />
+          <div className="product-tile relative aspect-square overflow-hidden rounded-2xl bg-[#F7A867] lg:col-span-3 lg:row-span-2 lg:aspect-auto">
+            <div className="product-tile-zoom absolute inset-0" style={{ "--d": "0ms" } as CSSProperties}>
+              <Image src="/produit-jus-bouteilles.jpg" alt={c.alts[0]} fill sizes="(min-width: 1024px) 60vw, 100vw" className="product-tile-img object-cover" />
+            </div>
           </div>
-          <div className="relative aspect-[3/2] overflow-hidden rounded-2xl lg:col-span-2">
-            <Image src="/produit-traiteur.jpg" alt={c.alts[1]} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+          <div className="product-tile relative aspect-[3/2] overflow-hidden rounded-2xl lg:col-span-2">
+            <div className="product-tile-zoom absolute inset-0" style={{ "--d": "120ms" } as CSSProperties}>
+              <Image src="/produit-traiteur.jpg" alt={c.alts[1]} fill sizes="(min-width: 1024px) 40vw, 100vw" className="product-tile-img object-cover" />
+            </div>
           </div>
-          <div className="relative aspect-[3/2] overflow-hidden rounded-2xl lg:col-span-2">
-            <Image src="/produit-biscuits.jpg" alt={c.alts[2]} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+          <div className="product-tile relative aspect-[3/2] overflow-hidden rounded-2xl lg:col-span-2">
+            <div className="product-tile-zoom absolute inset-0" style={{ "--d": "240ms" } as CSSProperties}>
+              <Image src="/produit-biscuits.jpg" alt={c.alts[2]} fill sizes="(min-width: 1024px) 40vw, 100vw" className="product-tile-img object-cover" />
+            </div>
           </div>
         </div>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
-          <div className="relative aspect-[3/2] overflow-hidden rounded-2xl">
-            <Image src="/produit-cosmetique.jpg" alt={c.alts[3]} fill sizes="(min-width: 640px) 50vw, 100vw" className="object-cover" />
+          <div className="product-tile relative aspect-[3/2] overflow-hidden rounded-2xl">
+            <div className="product-tile-zoom absolute inset-0" style={{ "--d": "360ms" } as CSSProperties}>
+              <Image src="/produit-cosmetique.jpg" alt={c.alts[3]} fill sizes="(min-width: 640px) 50vw, 100vw" className="product-tile-img object-cover" />
+            </div>
           </div>
-          <div className="relative aspect-[3/2] overflow-hidden rounded-2xl">
-            <Image src="/produit-textile.jpg" alt={c.alts[4]} fill sizes="(min-width: 640px) 50vw, 100vw" className="object-cover" />
+          <div className="product-tile relative aspect-[3/2] overflow-hidden rounded-2xl">
+            <div className="product-tile-zoom absolute inset-0" style={{ "--d": "480ms" } as CSSProperties}>
+              <Image src="/produit-textile.jpg" alt={c.alts[4]} fill sizes="(min-width: 640px) 50vw, 100vw" className="product-tile-img object-cover" />
+            </div>
           </div>
         </div>
 

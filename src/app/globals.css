@@ -218,11 +218,34 @@ html, body {
   box-shadow: 0 24px 48px -24px rgba(23, 18, 14, 0.25);
 }
 
+/* "Un QR code sur vos produits": each photo settles in with a slow zoom
+   when the section appears (staggered by --d), then zooms on hover */
+.product-tile-zoom {
+  transform: scale(1.14);
+  opacity: 0.4;
+  transition:
+    transform 1.6s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0ms),
+    opacity 0.9s ease var(--d, 0ms);
+}
+.section-reveal-visible .product-tile-zoom {
+  transform: scale(1);
+  opacity: 1;
+}
+.product-tile-img {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.7s ease;
+}
+.product-tile:hover .product-tile-img {
+  transform: scale(1.07);
+  filter: saturate(1.08);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .tour-fan-left { transform: rotate(-9deg); }
   .tour-fan-right { transform: rotate(9deg); }
   .tour-fan-middle { transform: none; }
   .tour-float { animation: none; }
+  .product-tile-zoom, .section-reveal-visible .product-tile-zoom { transform: none; opacity: 1; transition: none; }
+  .product-tile-img, .product-tile:hover .product-tile-img { transform: none; transition: none; }
   .tour-card, .tour-card:hover { transition: none; transform: none; }
 }
 

@@ -65,9 +65,9 @@ export function Contact({ locale = "fr" }: { locale?: "fr" | "en" }) {
           eyebrow="Contact"
           title={
             isEnglish ? (
-              <>Let&apos;s talk. We reply fast.</>
+              <>Let&apos;s talk. <span className="text-orange">We reply fast.</span></>
             ) : (
-              <>Discutons. Nous répondons vite.</>
+              <>Discutons. <span className="text-orange">Nous répondons vite.</span></>
             )
           }
           intro={

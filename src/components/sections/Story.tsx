@@ -5,7 +5,7 @@ const contentByLocale = {
     eyebrow: "Notre histoire",
     title: (
       <>
-        La vision derrière QualyWatch.
+        La vision derrière <span className="text-orange">QualyWatch.</span>
       </>
     ),
     quote:
@@ -27,7 +27,7 @@ const contentByLocale = {
     eyebrow: "Our story",
     title: (
       <>
-        The vision behind QualyWatch.
+        The vision behind <span className="text-orange">QualyWatch.</span>
       </>
     ),
     quote:

@@ -9,6 +9,7 @@ import { ProductTourBento } from "@/components/sections/ProductTourBento";
 import { FeatureIndex } from "@/components/sections/FeatureIndex";
 import { Steps } from "@/components/sections/Steps";
 import { Sectors } from "@/components/sections/Sectors";
+import { ProductQR } from "@/components/sections/ProductQR";
 import { ApiAccess } from "@/components/sections/ApiAccess";
 import { Story } from "@/components/sections/Story";
 import { Pricing } from "@/components/sections/Pricing";
@@ -45,6 +46,9 @@ export function LandingPage({ locale }: { locale: Locale }) {
         </SectionReveal>
         <SectionReveal delay={100}>
           <Sectors locale={locale} />
+        </SectionReveal>
+        <SectionReveal delay={90}>
+          <ProductQR locale={locale} />
         </SectionReveal>
         <SectionReveal delay={95}>
           <ApiAccess locale={locale} />

@@ -16,9 +16,10 @@ import {
 
 type Item = { icon: LucideIcon; title: string; text: string };
 
-const contentByLocale: Record<"fr" | "en", { title: string; intro: string; items: Item[] }> = {
+const contentByLocale: Record<"fr" | "en", { title: string; titleAccent: string; intro: string; items: Item[] }> = {
   fr: {
-    title: "Tout ce qu'il faut pour piloter la satisfaction client.",
+    title: "Tout ce qu'il faut pour piloter",
+    titleAccent: "la satisfaction client.",
     intro: "Les fonctionnalités disponibles selon votre formule, sur le web et sur mobile.",
     items: [
       { icon: QrCode, title: "Collecte multicanale", text: "QR code, lien public et e-mail, dans un seul flux." },
@@ -36,7 +37,8 @@ const contentByLocale: Record<"fr" | "en", { title: string; intro: string; items
     ],
   },
   en: {
-    title: "Everything you need to manage customer satisfaction.",
+    title: "Everything you need to manage",
+    titleAccent: "customer satisfaction.",
     intro: "Features available depending on your plan, on web and mobile.",
     items: [
       { icon: QrCode, title: "Multi-channel collection", text: "QR code, public link and email, in a single stream." },
@@ -61,7 +63,9 @@ export function FeatureIndex({ locale = "fr" }: { locale?: "fr" | "en" }) {
     <section id="armes" className="bg-mist px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-16">
-          <h2 className="font-display text-3xl font-semibold leading-[1.15] tracking-tight text-text sm:text-4xl">{c.title}</h2>
+          <h2 className="font-display text-3xl font-semibold leading-[1.15] tracking-tight text-text sm:text-4xl">
+            {c.title} <span className="text-orange">{c.titleAccent}</span>
+          </h2>
           <p className="text-base leading-relaxed text-text-dim lg:text-lg">{c.intro}</p>
         </div>
         <ul className="reveal-children mt-16 grid gap-5 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3">

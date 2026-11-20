@@ -196,6 +196,36 @@ html, body {
 .reveal-delay-5 { --item-delay: 400ms; }
 .reveal-delay-6 { --item-delay: 480ms; }
 
+/* "Du QR code à la résolution": as the visitor scrolls, the side phones open
+   like a fan from behind the middle one (--fan goes 0 → 1, see FanOnScroll),
+   then every phone floats gently */
+.tour-fan-left,
+.tour-fan-right {
+  transform-origin: 50% 100%;
+  will-change: transform;
+}
+.tour-fan-left { transform: translateX(calc((1 - var(--fan, 1)) * 65%)) rotate(calc(var(--fan, 1) * -9deg)); }
+.tour-fan-right { transform: translateX(calc((1 - var(--fan, 1)) * -65%)) rotate(calc(var(--fan, 1) * 9deg)); }
+.tour-fan-middle { transform: translateY(calc((1 - var(--fan, 1)) * 40px)); will-change: transform; }
+.tour-float { animation: float 6s ease-in-out infinite; }
+.tour-float-2 { animation-delay: -2s; }
+.tour-float-3 { animation-delay: -4s; }
+.tour-card {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+}
+.tour-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -24px rgba(23, 18, 14, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tour-fan-left { transform: rotate(-9deg); }
+  .tour-fan-right { transform: rotate(9deg); }
+  .tour-fan-middle { transform: none; }
+  .tour-float { animation: none; }
+  .tour-card, .tour-card:hover { transition: none; transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .section-reveal,
   .section-reveal-visible {

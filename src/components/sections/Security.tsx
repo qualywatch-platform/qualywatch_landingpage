@@ -1,13 +1,11 @@
 import { Lock, Shield, Cloud, KeyRound } from "lucide-react";
-import { SectionHeader } from "@/components/SectionHeader";
-import { IconTile } from "@/components/IconTile";
 
 const contentByLocale = {
   fr: {
     eyebrow: "Données et sécurité",
     title: (
       <>
-        La confiance est au cœur de notre engagement.
+        La confiance est au cœur de notre <span className="text-orange">engagement.</span>
       </>
     ),
     intro: "Vos données restent les vôtres : elles sont cloisonnées, protégées et exportables à tout moment.",
@@ -22,7 +20,7 @@ const contentByLocale = {
     eyebrow: "Data and security",
     title: (
       <>
-        Trust is at the heart of our commitment.
+        Trust is at the heart of our <span className="text-orange">commitment.</span>
       </>
     ),
     intro: "Your data stays yours: isolated, protected and exportable at any time.",
@@ -38,14 +36,17 @@ const contentByLocale = {
 export function Security({ locale = "fr" }: { locale?: "fr" | "en" }) {
   const c = contentByLocale[locale];
   return (
-    <section id="securite" className="bg-mist px-6 py-24 lg:px-16 lg:py-32">
+    <section id="securite" className="border-y border-orange/15 bg-orange-soft px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
-        <SectionHeader eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-16">
+          <h2 className="font-display text-3xl font-semibold leading-[1.15] tracking-tight text-ink sm:text-4xl">{c.title}</h2>
+          <p className="text-base leading-relaxed text-text-dim lg:text-lg">{c.intro}</p>
+        </div>
         <div className="mt-14 grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
           {c.items.map((it) => (
-            <div key={it.title} className="flex flex-col gap-3 border-t border-[#D5DAE1] pt-6">
-              <IconTile icon={it.icon} />
-              <h3 className="font-display mt-1 text-base font-semibold text-text">{it.title}</h3>
+            <div key={it.title} className="flex flex-col gap-3 border-t border-orange/25 pt-6">
+              <it.icon className="h-5 w-5 shrink-0 text-orange-deep" strokeWidth={1.8} aria-hidden />
+              <h3 className="font-display mt-1 text-base font-semibold text-ink">{it.title}</h3>
               <p className="text-[15px] leading-relaxed text-text-dim">{it.desc}</p>
             </div>
           ))}

@@ -9,7 +9,7 @@ const contentByLocale = {
     eyebrow: "Accès API",
     title: (
       <>
-        Vos données. Vos outils.
+        Vos données. <span className="text-orange">Vos outils.</span>
       </>
     ),
     intro:
@@ -28,7 +28,7 @@ const contentByLocale = {
     eyebrow: "API access",
     title: (
       <>
-        Your data. Your tools.
+        Your data. <span className="text-orange">Your tools.</span>
       </>
     ),
     intro: "Generate access keys from the dashboard and connect QualyWatch to your CRM, ERP, BI tool or helpdesk.",

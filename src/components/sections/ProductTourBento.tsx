@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { IPhoneFrame } from "@/components/IPhoneFrame";
+import { FanOnScroll } from "@/components/FanOnScroll";
 
 const contentByLocale = {
   fr: {
@@ -53,7 +54,9 @@ const contentByLocale = {
 export function ProductTourBento({ locale = "fr" }: { locale?: "fr" | "en" }) {
   const c = contentByLocale[locale];
   return (
-    <section id="fonctionnalites" className="bg-[#F5F5F7] px-4 py-24 sm:px-6 lg:px-16 lg:py-32">
+    <section id="fonctionnalites" className="relative isolate bg-[#F5F5F7] px-4 py-24 sm:px-6 lg:px-16 lg:py-32">
+      {/* The whole motif, stretched over the section and kept faint */}
+      <div aria-hidden className="absolute inset-0 -z-10 bg-[url(/motif-tour.jpg)] bg-cover bg-center bg-no-repeat opacity-[0.08]" />
       <div className="mx-auto max-w-6xl">
         {/* Intro: two-tone headline and a fan of three phones */}
         <div className="mx-auto max-w-4xl text-center">
@@ -65,35 +68,48 @@ export function ProductTourBento({ locale = "fr" }: { locale?: "fr" | "en" }) {
           <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-[#6E6E73] lg:text-xl">{c.intro}</p>
         </div>
 
-        <div className="relative mx-auto mt-16 flex h-[420px] max-w-3xl items-start justify-center overflow-hidden sm:h-[520px] lg:mt-20">
+        {/* The phones open like a fan on scroll and run on behind the cards below */}
+        <FanOnScroll className="relative mx-auto mt-16 flex h-[420px] max-w-3xl items-start justify-center sm:h-[520px] lg:mt-20">
           <div className="absolute left-1/2 top-10 hidden -translate-x-[115%] sm:block">
-            <IPhoneFrame src="/app-mobile-detail.jpg" alt={c.detailAlt} statusBarBg="#75746F" statusBarText="#FFFFFF" />
+            <div className="tour-fan-left">
+              <div className="tour-float tour-float-2">
+                <IPhoneFrame src="/app-mobile-detail.jpg" alt={c.detailAlt} statusBarBg="#75746F" statusBarText="#FFFFFF" />
+              </div>
+            </div>
           </div>
           <div className="absolute left-1/2 top-10 hidden translate-x-[15%] sm:block">
-            <IPhoneFrame src="/app-equipe-assignation.jpg" alt={c.assign.alt} statusBarBg="#757575" statusBarText="#FFFFFF" />
+            <div className="tour-fan-right">
+              <div className="tour-float tour-float-3">
+                <IPhoneFrame src="/app-equipe-assignation.jpg" alt={c.assign.alt} statusBarBg="#757575" statusBarText="#FFFFFF" />
+              </div>
+            </div>
           </div>
-          <div className="relative z-10">
-            <IPhoneFrame src="/app-mobile-avis.jpg" alt={c.listAlt} />
+          <div className="tour-fan-middle relative z-10">
+            <div className="tour-float">
+              <IPhoneFrame src="/app-mobile-avis.jpg" alt={c.listAlt} />
+            </div>
           </div>
-        </div>
+        </FanOnScroll>
 
         {/* Bento pair */}
-        <div className="mt-6 grid gap-5 lg:grid-cols-2">
-          <article className="flex flex-col overflow-hidden rounded-[32px] bg-gradient-to-b from-[#FF8A2B] to-[#E3600A] text-center">
+        <div className="relative z-10 grid gap-5 lg:grid-cols-2">
+          {/* Hides the middle phone in the gap between the two cards */}
+          <div aria-hidden className="absolute inset-y-0 left-1/2 -z-10 hidden w-6 -translate-x-1/2 bg-[#F5F5F7] lg:block" />
+          <article className="tour-card flex flex-col overflow-hidden rounded-[32px] bg-gradient-to-b from-[#FF8A2B] to-[#E3600A] text-center">
             <div className="px-8 pt-12 sm:px-12">
               <h3 className="font-display text-3xl font-bold leading-tight text-white sm:text-4xl">{c.collect.title}</h3>
               <p className="mx-auto mt-4 max-w-md text-[17px] leading-relaxed text-white/90">{c.collect.text}</p>
             </div>
             <div className="mt-10 flex justify-center">
-              <div className="-mb-40">
+              <div className="tour-float tour-float-2 -mb-40">
                 <IPhoneFrame src="/app-formulaire-client.jpg" alt={c.collect.alt} statusBarBg="#FBFBFB" />
               </div>
             </div>
           </article>
 
-          <article className="flex flex-col overflow-hidden rounded-[32px] bg-white text-center">
+          <article className="tour-card flex flex-col overflow-hidden rounded-[32px] bg-white text-center">
             <div className="flex justify-center">
-              <div className="-mt-44">
+              <div className="tour-float tour-float-3 -mt-44">
                 <IPhoneFrame src="/app-equipe-assignation.jpg" alt={c.assign.alt} statusBarBg="#757575" statusBarText="#FFFFFF" />
               </div>
             </div>
@@ -105,7 +121,7 @@ export function ProductTourBento({ locale = "fr" }: { locale?: "fr" | "en" }) {
         </div>
 
         {/* Wide tile */}
-        <article className="mt-5 grid items-center gap-10 overflow-hidden rounded-[32px] bg-white p-8 sm:p-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
+        <article className="tour-card mt-5 grid items-center gap-10 overflow-hidden rounded-[32px] bg-white p-8 sm:p-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
           <div className="text-center lg:text-left">
             <h3 className="font-display text-3xl font-bold leading-tight text-ink sm:text-4xl">{c.sla.title}</h3>
             <p className="mt-4 text-[17px] leading-relaxed text-[#6E6E73]">{c.sla.text}</p>

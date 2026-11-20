@@ -7,11 +7,12 @@ type Point = { icon: LucideIcon; title: string; desc: string };
 
 const contentByLocale: Record<
   "fr" | "en",
-  { eyebrow: string; title: string; intro: string; alts: [string, string, string]; points: Point[]; sectors: string[]; cta: string }
+  { eyebrow: string; title: string; titleAccent: string; intro: string; alts: [string, string, string]; points: Point[]; sectors: string[]; cta: string }
 > = {
   fr: {
     eyebrow: "QR code produit",
-    title: "Un QR code sur vos produits. Vos clients parlent directement à la marque.",
+    titleAccent: "Un QR code sur vos produits.",
+    title: "Vos clients parlent directement à la marque.",
     intro:
       "Imprimé sur l'emballage, le QR code QualyWatch permet de donner un avis, signaler un problème ou poser une question en quelques secondes, sans application. Vous êtes enfin proche de ceux qui achètent vos produits, même en rayon chez un distributeur.",
     alts: [
@@ -46,7 +47,8 @@ const contentByLocale: Record<
   },
   en: {
     eyebrow: "Product QR code",
-    title: "A QR code on your products. Your customers talk straight to the brand.",
+    titleAccent: "A QR code on your products.",
+    title: "Your customers talk straight to the brand.",
     intro:
       "Printed on the packaging, the QualyWatch QR code lets people leave a review, report a problem or ask a question in seconds, with no app. You finally get close to the people who buy your products, even on a retailer's shelf.",
     alts: [
@@ -86,7 +88,15 @@ export function ProductQR({ locale = "fr" }: { locale?: "fr" | "en" }) {
   return (
     <section id="qr-produits" className="border-t border-card-border px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
-        <SectionHeader eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
+        <SectionHeader
+          eyebrow={c.eyebrow}
+          title={
+            <>
+              <span className="text-orange">{c.titleAccent}</span> {c.title}
+            </>
+          }
+          intro={c.intro}
+        />
 
         <div className="mt-14 grid gap-4 lg:mt-16 lg:grid-cols-5 lg:grid-rows-2">
           <div className="relative aspect-[16/9] overflow-hidden rounded-2xl lg:col-span-3 lg:row-span-2 lg:aspect-auto">

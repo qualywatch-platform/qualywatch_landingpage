@@ -99,9 +99,8 @@ export function ProductQR({ locale = "fr" }: { locale?: "fr" | "en" }) {
         />
 
         <div className="mt-14 grid gap-4 lg:mt-16 lg:grid-cols-5 lg:grid-rows-2">
-          {/* Whole photo, on its own flat orange background so the edges blend in */}
-          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-[#FEB163] lg:col-span-3 lg:row-span-2 lg:aspect-auto">
-            <Image src="/produit-jus.jpg" alt={c.alts[0]} fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-contain" />
+          <div className="relative aspect-square overflow-hidden rounded-2xl bg-[#F7A867] lg:col-span-3 lg:row-span-2 lg:aspect-auto">
+            <Image src="/produit-jus-bouteilles.jpg" alt={c.alts[0]} fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" />
           </div>
           <div className="relative aspect-[3/2] overflow-hidden rounded-2xl lg:col-span-2">
             <Image src="/produit-traiteur.jpg" alt={c.alts[1]} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />

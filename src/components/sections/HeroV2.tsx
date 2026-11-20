@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2, QrCode, Smile, Star } from "lucide-react";
 import { IPhoneFrame } from "@/components/IPhoneFrame";
 
 const contentByLocale = {
@@ -15,6 +15,9 @@ const contentByLocale = {
     note: "Gratuit jusqu'à 100 avis par mois. Sans carte bancaire.",
     webAlt: "Liste des avis clients dans l'espace manager de QualyWatch",
     mobileAlt: "Liste des avis clients dans l'application mobile QualyWatch",
+    qr: { title: "Scannez, donnez votre avis", text: "Sans application" },
+    review: { quote: "« Accueil rapide, chambre impeccable. Merci à Awa ! »", author: "Avis client · il y a 2 min" },
+    satisfaction: { title: "Très satisfait", text: "Résolution validée par le client" },
   },
   en: {
     eyebrow: "Service quality management",
@@ -27,6 +30,9 @@ const contentByLocale = {
     note: "Free up to 100 reviews per month. No credit card required.",
     webAlt: "Customer feedback list in the QualyWatch manager workspace",
     mobileAlt: "Customer feedback list in the QualyWatch mobile app",
+    qr: { title: "Scan, share your feedback", text: "No app needed" },
+    review: { quote: "“Quick check-in, spotless room. Thanks to Awa!”", author: "Customer review · 2 min ago" },
+    satisfaction: { title: "Very satisfied", text: "Resolution confirmed by the customer" },
   },
 };
 
@@ -96,6 +102,45 @@ export function HeroV2({ locale = "fr" }: { locale?: "fr" | "en" }) {
               sizes="(min-width: 1280px) 960px, 100vw"
               className="block h-[200px] w-full object-cover object-top sm:h-[300px] lg:h-[320px]"
             />
+          </div>
+          {/* Floating cards around the mockups: QR code, a review, customer satisfaction */}
+          <div aria-hidden className="pointer-events-none absolute inset-0 z-10 hidden lg:block">
+            <div className="absolute -left-2 top-8 -rotate-3">
+              <div className="tour-float flex items-center gap-3 rounded-2xl bg-white p-3 pr-5 shadow-[0_18px_40px_-18px_rgba(15,14,12,0.45)]">
+                <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-ink">
+                  <QrCode className="h-9 w-9 text-white" strokeWidth={1.6} />
+                </span>
+                <span className="flex flex-col text-left">
+                  <span className="text-sm font-semibold text-ink">{c.qr.title}</span>
+                  <span className="text-xs text-text-dim">{c.qr.text}</span>
+                </span>
+              </div>
+            </div>
+            <div className="absolute -left-6 top-[150px] w-[250px] rotate-2">
+              <div className="tour-float tour-float-2 rounded-2xl bg-white p-4 text-left shadow-[0_18px_40px_-18px_rgba(15,14,12,0.45)]">
+                <span className="flex gap-0.5 text-orange">
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <Star key={i} className="h-4 w-4 fill-current" strokeWidth={0} />
+                  ))}
+                </span>
+                <span className="mt-2 block text-[13px] leading-snug text-ink">{c.review.quote}</span>
+                <span className="mt-2 block text-[11px] text-text-mute">{c.review.author}</span>
+              </div>
+            </div>
+            <div className="absolute right-[250px] -top-6 rotate-2">
+              <div className="tour-float tour-float-3 flex items-center gap-3 rounded-2xl bg-white p-3 pr-5 shadow-[0_18px_40px_-18px_rgba(15,14,12,0.45)]">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-orange-soft">
+                  <Smile className="h-6 w-6 text-orange" strokeWidth={2} />
+                </span>
+                <span className="flex flex-col text-left">
+                  <span className="flex items-center gap-1.5 text-sm font-semibold text-ink">
+                    {c.satisfaction.title}
+                    <CheckCircle2 className="h-4 w-4 text-[#16A34A]" strokeWidth={2.2} />
+                  </span>
+                  <span className="text-xs text-text-dim">{c.satisfaction.text}</span>
+                </span>
+              </div>
+            </div>
           </div>
           <div className="absolute bottom-0 right-6 hidden overflow-hidden lg:block">
             <IPhoneFrame src="/app-mobile-avis.jpg" alt={c.mobileAlt} priority size="sm" className="translate-y-36" />

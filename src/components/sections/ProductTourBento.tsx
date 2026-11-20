@@ -53,7 +53,10 @@ const contentByLocale = {
 export function ProductTourBento({ locale = "fr" }: { locale?: "fr" | "en" }) {
   const c = contentByLocale[locale];
   return (
-    <section id="fonctionnalites" className="bg-[#F5F5F7] px-4 py-24 sm:px-6 lg:px-16 lg:py-32">
+    <section
+      id="fonctionnalites"
+      className="bg-[#FBEBDD] bg-[url(/pattern-tour.jpg)] bg-[length:640px_auto] bg-repeat px-4 py-24 sm:px-6 lg:px-16 lg:py-32"
+    >
       <div className="mx-auto max-w-6xl">
         {/* Intro: two-tone headline and a fan of three phones */}
         <div className="mx-auto max-w-4xl text-center">

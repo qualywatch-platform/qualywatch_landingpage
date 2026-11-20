@@ -1,7 +1,8 @@
 const contentByLocale = {
   fr: {
     eyebrow: "Comment ça marche",
-    title: "De l'avis client à l'action en 4 étapes.",
+    title: "De l'avis client à l'action",
+    titleAccent: "en 4 étapes.",
     intro:
       "Un fonctionnement simple, pensé pour les équipes terrain autant que pour la direction. Pas de formation longue, pas d'intégration complexe.",
     steps: [
@@ -13,7 +14,8 @@ const contentByLocale = {
   },
   en: {
     eyebrow: "How it works",
-    title: "From customer feedback to action in 4 steps.",
+    title: "From customer feedback to action",
+    titleAccent: "in 4 steps.",
     intro:
       "A simple flow, designed for field teams as much as for executives. No long onboarding, no complex integration.",
     steps: [
@@ -31,7 +33,9 @@ export function Steps({ locale = "fr" }: { locale?: "fr" | "en" }) {
     <section id="comment" className="px-4 py-24 sm:px-6 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl rounded-[32px] bg-ink px-6 py-14 sm:px-12 lg:px-16 lg:py-20">
         <div className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-16">
-          <h2 className="font-display text-3xl font-semibold leading-[1.15] tracking-tight text-white sm:text-4xl">{c.title}</h2>
+          <h2 className="font-display text-3xl font-semibold leading-[1.15] tracking-tight text-white sm:text-4xl">
+            {c.title} <span className="text-orange">{c.titleAccent}</span>
+          </h2>
           <p className="text-base leading-relaxed text-white/65 lg:text-lg">{c.intro}</p>
         </div>
         <ol className="reveal-children relative mt-14 grid gap-10 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-8">

@@ -4,7 +4,8 @@ import { IPhoneFrame } from "@/components/IPhoneFrame";
 const contentByLocale = {
   fr: {
     eyebrow: "Application mobile",
-    title: "Vos avis clients dans la poche, partout.",
+    title: "Vos avis clients dans la poche,",
+    titleAccent: "partout.",
     intro:
       "Vos managers sont alertés dès qu'un client laisse un avis critique. Ils peuvent intervenir, assigner et répondre directement depuis leur téléphone.",
     features: [
@@ -16,7 +17,8 @@ const contentByLocale = {
   },
   en: {
     eyebrow: "Mobile app",
-    title: "Your customer feedback in your pocket, everywhere.",
+    title: "Your customer feedback in your pocket,",
+    titleAccent: "everywhere.",
     intro:
       "Your managers are alerted as soon as a customer leaves critical feedback. They can step in, assign and reply straight from their phone.",
     features: [
@@ -39,7 +41,9 @@ export function AppStores({ locale = "fr" }: { locale?: "fr" | "en" }) {
               <span className="h-0.5 w-6 bg-ink" aria-hidden />
               {c.eyebrow}
             </p>
-            <h2 className="font-display mt-3 text-3xl font-semibold leading-[1.15] tracking-tight text-ink sm:text-4xl">{c.title}</h2>
+            <h2 className="font-display mt-3 text-3xl font-semibold leading-[1.15] tracking-tight text-ink sm:text-4xl">
+              {c.title} <span className="text-orange">{c.titleAccent}</span>
+            </h2>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-ink/85 lg:text-lg">{c.intro}</p>
 
             <div className="mt-6 flex flex-wrap gap-2">

@@ -5,7 +5,7 @@ const contentByLocale = {
     eyebrow: "FAQ",
     title: (
       <>
-        Questions fréquentes.
+        Questions <span className="text-orange">fréquentes.</span>
       </>
     ),
     intro: "Ce qu'on nous demande le plus souvent avant de démarrer.",
@@ -42,7 +42,7 @@ const contentByLocale = {
     eyebrow: "FAQ",
     title: (
       <>
-        Frequently asked questions.
+        Frequently asked <span className="text-orange">questions.</span>
       </>
     ),
     intro: "What we get asked most often before getting started.",

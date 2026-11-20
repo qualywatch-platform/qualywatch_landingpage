@@ -196,19 +196,17 @@ html, body {
 .reveal-delay-5 { --item-delay: 400ms; }
 .reveal-delay-6 { --item-delay: 480ms; }
 
-/* "Du QR code à la résolution": the side phones fan out from behind the
-   middle one when the section appears, then every phone floats gently */
+/* "Du QR code à la résolution": as the visitor scrolls, the side phones open
+   like a fan from behind the middle one (--fan goes 0 → 1, see FanOnScroll),
+   then every phone floats gently */
 .tour-fan-left,
 .tour-fan-right {
-  opacity: 0;
-  transition:
-    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.35s,
-    opacity 0.7s ease 0.35s;
+  transform-origin: 50% 100%;
+  will-change: transform;
 }
-.tour-fan-left { transform: translateX(42%) rotate(0deg); }
-.tour-fan-right { transform: translateX(-42%) rotate(0deg); }
-.section-reveal-visible .tour-fan-left { opacity: 1; transform: translateX(0) rotate(-5deg); }
-.section-reveal-visible .tour-fan-right { opacity: 1; transform: translateX(0) rotate(5deg); }
+.tour-fan-left { transform: translateX(calc((1 - var(--fan, 1)) * 65%)) rotate(calc(var(--fan, 1) * -9deg)); }
+.tour-fan-right { transform: translateX(calc((1 - var(--fan, 1)) * -65%)) rotate(calc(var(--fan, 1) * 9deg)); }
+.tour-fan-middle { transform: translateY(calc((1 - var(--fan, 1)) * 40px)); will-change: transform; }
 .tour-float { animation: float 6s ease-in-out infinite; }
 .tour-float-2 { animation-delay: -2s; }
 .tour-float-3 { animation-delay: -4s; }
@@ -221,15 +219,9 @@ html, body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tour-fan-left,
-  .tour-fan-right,
-  .section-reveal-visible .tour-fan-left,
-  .section-reveal-visible .tour-fan-right {
-    opacity: 1;
-    transition: none;
-  }
-  .tour-fan-left, .section-reveal-visible .tour-fan-left { transform: rotate(-5deg); }
-  .tour-fan-right, .section-reveal-visible .tour-fan-right { transform: rotate(5deg); }
+  .tour-fan-left { transform: rotate(-9deg); }
+  .tour-fan-right { transform: rotate(9deg); }
+  .tour-fan-middle { transform: none; }
   .tour-float { animation: none; }
   .tour-card, .tour-card:hover { transition: none; transform: none; }
 }

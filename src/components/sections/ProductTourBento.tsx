@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { IPhoneFrame } from "@/components/IPhoneFrame";
+import { FanOnScroll } from "@/components/FanOnScroll";
 
 const contentByLocale = {
   fr: {
@@ -67,8 +68,8 @@ export function ProductTourBento({ locale = "fr" }: { locale?: "fr" | "en" }) {
           <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-[#6E6E73] lg:text-xl">{c.intro}</p>
         </div>
 
-        {/* The phones run on behind the cards below, with no hard cut */}
-        <div className="relative mx-auto mt-16 flex h-[420px] max-w-3xl items-start justify-center sm:h-[520px] lg:mt-20">
+        {/* The phones open like a fan on scroll and run on behind the cards below */}
+        <FanOnScroll className="relative mx-auto mt-16 flex h-[420px] max-w-3xl items-start justify-center sm:h-[520px] lg:mt-20">
           <div className="absolute left-1/2 top-10 hidden -translate-x-[115%] sm:block">
             <div className="tour-fan-left">
               <div className="tour-float tour-float-2">
@@ -83,10 +84,12 @@ export function ProductTourBento({ locale = "fr" }: { locale?: "fr" | "en" }) {
               </div>
             </div>
           </div>
-          <div className="tour-float relative z-10">
-            <IPhoneFrame src="/app-mobile-avis.jpg" alt={c.listAlt} />
+          <div className="tour-fan-middle relative z-10">
+            <div className="tour-float">
+              <IPhoneFrame src="/app-mobile-avis.jpg" alt={c.listAlt} />
+            </div>
           </div>
-        </div>
+        </FanOnScroll>
 
         {/* Bento pair */}
         <div className="relative z-10 grid gap-5 lg:grid-cols-2">

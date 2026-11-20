@@ -4,7 +4,8 @@ import { ArrowRight, Check } from "lucide-react";
 
 const contentByLocale = {
   fr: {
-    title: "Donnez à chaque client la certitude d'être entendu.",
+    title: "Donnez à chaque client la certitude",
+    titleAccent: "d'être entendu.",
     intro: "Créez votre compte en quelques minutes. Vos premiers avis arrivent dès aujourd'hui, et aucun ne restera sans suite.",
     primary: "Commencer gratuitement",
     secondary: "Demander une démo",
@@ -12,7 +13,8 @@ const contentByLocale = {
     alt: "Client satisfait",
   },
   en: {
-    title: "Give every customer the certainty of being heard.",
+    title: "Give every customer the certainty",
+    titleAccent: "of being heard.",
     intro: "Create your account in minutes. Your first reviews arrive today, and none will go unanswered.",
     primary: "Start for free",
     secondary: "Request a demo",
@@ -34,7 +36,9 @@ export function CTA({ locale = "fr" }: { locale?: "fr" | "en" }) {
       />
       <div className="mx-auto flex max-w-7xl justify-end px-6 py-24 lg:px-16 lg:py-32">
         <div className="max-w-xl">
-          <h2 className="font-display text-4xl font-semibold leading-[1.1] tracking-tight text-ink sm:text-5xl">{c.title}</h2>
+          <h2 className="font-display text-4xl font-semibold leading-[1.1] tracking-tight text-ink sm:text-5xl">
+            {c.title} <span className="text-white">{c.titleAccent}</span>
+          </h2>
           <p className="mt-5 text-lg leading-relaxed text-ink/85">{c.intro}</p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Link

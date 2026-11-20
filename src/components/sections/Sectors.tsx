@@ -5,7 +5,8 @@ import { IconTile } from "@/components/IconTile";
 const contentByLocale = {
   fr: {
     eyebrow: "Pour qui ?",
-    title: "Pensé pour les entreprises qui vivent au contact du client.",
+    title: "Pensé pour les entreprises qui vivent",
+    titleAccent: "au contact du client.",
     sectors: [
       {
         icon: Hotel,
@@ -31,7 +32,8 @@ const contentByLocale = {
   },
   en: {
     eyebrow: "Who is it for?",
-    title: "Built for companies that live in customer contact.",
+    title: "Built for companies that live",
+    titleAccent: "in customer contact.",
     sectors: [
       {
         icon: Hotel,
@@ -62,7 +64,15 @@ export function Sectors({ locale = "fr" }: { locale?: "fr" | "en" }) {
   return (
     <section id="secteurs" className="border-t border-card-border px-6 py-24 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
-        <SectionHeader eyebrow={c.eyebrow} title={c.title} layout="stack" />
+        <SectionHeader
+          eyebrow={c.eyebrow}
+          title={
+            <>
+              {c.title} <span className="text-orange">{c.titleAccent}</span>
+            </>
+          }
+          layout="stack"
+        />
         <div className="mt-14 grid border-t border-card-border sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
           {c.sectors.map((s, i) => (
             <div
